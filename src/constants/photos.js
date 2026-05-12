@@ -52,18 +52,18 @@ export const PHOTOS = {
   archSide: `${B}photos/architecture/DSC_0420-opt.webp`,         // Side entrance angle
   archFullExterior: `${B}photos/architecture/DSC_0404-opt.webp`, // Full exterior portrait
 
-  // ── Stock imagery (Unsplash, free to use) ──
+  // ── Sacrament & topic imagery (mostly parish-owned; legacy "stock" prefix kept to avoid call-site churn) ──
   stockBaptism: `${B}photos/vigil-fire-opt.webp`,                // Easter Vigil fire — baptismal symbolism
   stockEucharist: `${B}photos/gallery/F69A5507.webp`,            // Monstrance — Eucharist
   stockConfirmation: `${B}photos/vigil-candles-opt.webp`,        // Vigil candles — Holy Spirit / flames
-  stockMarriage: `${B}photos/stock/marriage.webp`,               // Wedding bouquet (Unsplash)
-  stockAnointing: `${B}photos/stock/anointing.webp`,             // Praying hands (Unsplash)
-  stockFunerals: `${B}photos/stock/funerals.webp`,               // White lilies / memorial flowers (Unsplash)
-  stockRcia: `${B}photos/stock/rcia.webp`,                       // Open Bible / scripture study (Unsplash)
+  stockMarriage: `${B}photos/marriage-opt.webp`,                 // Order of Celebrating Matrimony ritual book
+  stockAnointing: `${B}photos/vigil-candles-opt.webp`,           // Vigil candles (temporary — commission anointing photo)
+  stockFunerals: `${B}photos/rose-window-opt.webp`,              // Rose window (temporary — solemn / contemplative)
+  stockRcia: `${B}photos/vigil-fire-opt.webp`,                   // Easter Vigil fire — RCIA/OCIA reception
   stockStainedGlass: `${B}photos/stock/stained-glass.webp`,      // Stained glass window (Unsplash)
-  stockChaliceCruets: `${B}photos/stock/chalice-cruets.jpg`,    // Chalice and cruets — sacramental vessels
-  stockBibleGolden: `${B}photos/stock/bible-golden.jpg`,        // Open Bible at golden hour (Unsplash/Aaron Burden)
-  stockSacraments: `${B}photos/stock/sacraments.webp`,           // Church altar / sanctuary (Unsplash)
+  stockChaliceCruets: `${B}photos/chalice and cruets.jpg`,       // Chalice and cruets — sacramental vessels
+  stockBibleGolden: `${B}photos/faith-formation-opt.jpg`,        // Bible with rosary — faith formation
+  stockSacraments: `${B}photos/interior-nave-opt.webp`,          // Nave & altar — sacramental life
   stockCandles: `${B}photos/stock/candles.webp`,                 // Votive candles (Unsplash)
   stockGiving: `${B}photos/stock/giving.webp`,                   // Charity / generosity (Unsplash)
 

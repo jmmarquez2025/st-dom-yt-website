@@ -44,9 +44,9 @@ const SEARCH_INDEX = [
   {
     path: "/becoming-catholic",
     titleKey: "nav.becomingCatholic",
-    title: "Becoming Catholic / RCIA",
-    description: "Information about RCIA, the Rite of Christian Initiation of Adults",
-    keywords: ["rcia", "becoming catholic", "convert", "initiation", "catechumen", "inquiry", "faith journey", "join the church", "adult baptism"],
+    title: "Becoming Catholic / OCIA",
+    description: "Information about OCIA (formerly RCIA), the Order of Christian Initiation of Adults",
+    keywords: ["ocia", "rcia", "becoming catholic", "convert", "initiation", "catechumen", "inquiry", "faith journey", "join the church", "adult baptism"],
   },
   {
     path: "/get-involved",
