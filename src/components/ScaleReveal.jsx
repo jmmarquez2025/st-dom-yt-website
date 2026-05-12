@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import useScrollProgress from "../hooks/useScrollProgress";
 
 /**
@@ -18,15 +19,26 @@ export default function ScaleReveal({
   caption,
   maxWidth = 800,
 }) {
+  const [reducedMotion, setReducedMotion] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e) => setReducedMotion(e.matches);
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
+
   const { ref, progress } = useScrollProgress({ offset: 0.95 });
 
   // Ease the progress for smoother feel
-  const eased = 1 - Math.pow(1 - Math.min(1, progress * 1.3), 3);
+  const eased = reducedMotion
+    ? 1
+    : 1 - Math.pow(1 - Math.min(1, progress * 1.3), 3);
 
-  const scale = 0.88 + eased * 0.12;
-  const radius = Math.round(16 * (1 - eased));
-  const opacity = 0.7 + eased * 0.3;
-  const shadow = eased * 20;
+  const scale = reducedMotion ? 1 : 0.88 + eased * 0.12;
+  const radius = reducedMotion ? 0 : Math.round(16 * (1 - eased));
+  const opacity = reducedMotion ? 1 : 0.7 + eased * 0.3;
+  const shadow = reducedMotion ? 0 : eased * 20;
 
   return (
     <figure
@@ -41,11 +53,13 @@ export default function ScaleReveal({
         style={{
           overflow: "hidden",
           borderRadius: radius,
-          transform: `scale(${scale})`,
+          transform: reducedMotion ? "none" : `scale(${scale})`,
           opacity,
-          boxShadow: `0 ${shadow * 0.5}px ${shadow}px rgba(0,0,0,${0.08 + eased * 0.07})`,
-          transition: "border-radius 0.1s linear",
-          willChange: "transform, opacity",
+          boxShadow: reducedMotion
+            ? "none"
+            : `0 ${shadow * 0.5}px ${shadow}px rgba(0,0,0,${0.08 + eased * 0.07})`,
+          transition: reducedMotion ? "none" : "border-radius 0.1s linear",
+          willChange: reducedMotion ? "auto" : "transform, opacity",
         }}
       >
         <img
@@ -65,7 +79,7 @@ export default function ScaleReveal({
             color: "#8A8580",
             fontStyle: "italic",
             marginTop: 12,
-            opacity: Math.min(1, progress * 2),
+            opacity: reducedMotion ? 1 : Math.min(1, progress * 2),
           }}
         >
           {caption}

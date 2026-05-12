@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { T } from "../constants/theme";
+import ResponsivePicture from "./ResponsivePicture";
 
 /**
  * StickyHero — Apple-style hero that stays pinned while content scrolls.
@@ -74,17 +75,6 @@ export default function StickyHero({
           justifyContent: "center",
         }}
       >
-        {/* Preload image */}
-        {image && (
-          <img
-            src={image}
-            alt=""
-            aria-hidden="true"
-            onLoad={() => setLoaded(true)}
-            style={{ position: "absolute", width: 0, height: 0, opacity: 0, pointerEvents: "none" }}
-          />
-        )}
-
         {/* Background with zoom */}
         {image && (
           <div
@@ -92,15 +82,29 @@ export default function StickyHero({
             style={{
               position: "absolute",
               inset: 0,
-              backgroundImage: `url(${image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              transform: `scale(${bgScale})`,
+              overflow: "hidden",
+              transform: reducedMotion ? "none" : `scale(${bgScale})`,
               opacity: loaded ? 1 : 0,
               transition: loaded ? "none" : "opacity 0.8s ease",
               willChange: "transform",
             }}
-          />
+          >
+            <ResponsivePicture
+              src={image}
+              widths={[480, 1024, 1920]}
+              sizes="100vw"
+              alt=""
+              loading="eager"
+              fetchPriority="high"
+              onLoad={() => setLoaded(true)}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
+          </div>
         )}
 
         {/* Overlay */}

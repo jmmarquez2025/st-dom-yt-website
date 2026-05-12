@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import useScrollProgress from "../hooks/useScrollProgress";
 import { T } from "../constants/theme";
 
@@ -7,6 +8,17 @@ import { T } from "../constants/theme";
  */
 export default function ScrollTimeline({ children }) {
   const { ref, progress } = useScrollProgress({ offset: 0.9 });
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e) => setReducedMotion(e.matches);
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
+
+  const fill = reducedMotion ? 1 : progress;
 
   return (
     <div
@@ -40,7 +52,7 @@ export default function ScrollTimeline({ children }) {
           width: 2,
           background: `linear-gradient(to bottom, ${T.burgundy}, ${T.gold})`,
           transformOrigin: "top",
-          transform: `scaleY(${progress})`,
+          transform: `scaleY(${fill})`,
           transition: "transform 0.05s linear",
           willChange: "transform",
         }}

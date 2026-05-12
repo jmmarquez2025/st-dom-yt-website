@@ -4,6 +4,7 @@ import { Section } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import HeroImage from "../components/HeroImage";
 import StickyHero from "../components/StickyHero";
+import StickyScrub from "../components/StickyScrub";
 import ParallaxSection from "../components/ParallaxSection";
 import ScaleReveal from "../components/ScaleReveal";
 import TextReveal from "../components/TextReveal";
@@ -111,7 +112,7 @@ export default function History() {
         }
         .history-era-label {
           font-size: 14px; letter-spacing: 3px; text-transform: uppercase;
-          color: ${T.gold}; font-weight: 600;
+          color: ${T.goldText}; font-weight: 600;
         }
         @media (max-width: 600px) {
           .history-two-photos { grid-template-columns: 1fr !important; }
@@ -130,7 +131,7 @@ export default function History() {
             fontSize: 14,
             letterSpacing: 4,
             textTransform: "uppercase",
-            color: T.gold,
+            color: T.goldText,
             marginBottom: 16,
             fontWeight: 600,
           }}
@@ -163,6 +164,29 @@ export default function History() {
           {t("history.heroDesc")}
         </p>
       </StickyHero>
+
+      <StickyScrub
+        image={PHOTOS.historyExteriorBw || PHOTOS.historyHero}
+        overlay={0.55}
+        panels={[
+          {
+            id: "h-1923",
+            title: "1923",
+            body: "St. Dominic parish is established on Youngstown's south side, gathering immigrant families around the Eucharist.",
+          },
+          {
+            id: "h-friars",
+            title: "The Friars Arrive",
+            body: "The Dominican Friars of the Province of St. Joseph are entrusted with the parish — preaching, prayer, study, and community become the rhythm of life here.",
+          },
+          {
+            id: "h-today",
+            title: "A Century On",
+            body: "Over one hundred years later, St. Dominic remains a beacon of sacramental life and Dominican witness in the Mahoning Valley.",
+          },
+        ]}
+        height="300vh"
+      />
 
       {/* ════ 1923 — The Founding ════ */}
       <Section>
@@ -302,7 +326,7 @@ export default function History() {
               fontSize: 13,
               letterSpacing: 3,
               textTransform: "uppercase",
-              color: T.gold,
+              color: T.goldText,
               fontStyle: "normal",
             }}
           >

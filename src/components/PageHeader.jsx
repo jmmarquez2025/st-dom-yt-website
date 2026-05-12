@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { T } from "../constants/theme";
 import HeroImage from "./HeroImage";
 import { PHOTOS } from "../constants/photos";
@@ -19,6 +20,9 @@ export default function PageHeader({
   tint = "rgba(107,29,42,0.5)",
   tall = false,
 }) {
+  const location = useLocation();
+  const sacramentMatch = location.pathname.match(/^\/sacraments\/(\w+)$/);
+  const vtName = sacramentMatch ? `sacrament-${sacramentMatch[1]}` : undefined;
   return (
     <div
       style={{
@@ -27,6 +31,7 @@ export default function PageHeader({
         background: T.burgundy,
         padding: tall ? "90px 24px" : "60px 24px",
         textAlign: "center",
+        ...(vtName ? { viewTransitionName: vtName } : {}),
       }}
     >
       <HeroImage

@@ -35,8 +35,18 @@ export default function ScrollColorNum({
 }) {
   const ref = useRef(null);
   const [progress, setProgress] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e) => setReducedMotion(e.matches);
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) return;
     const el = ref.current;
     if (!el) return;
 
@@ -54,10 +64,10 @@ export default function ScrollColorNum({
     update();
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
-  }, []);
+  }, [reducedMotion]);
 
-  const color = lerpColor(colorFrom, colorTo, progress);
-  const scale = scaleFrom + (scaleTo - scaleFrom) * progress;
+  const color = reducedMotion ? colorTo : lerpColor(colorFrom, colorTo, progress);
+  const scale = reducedMotion ? scaleTo : scaleFrom + (scaleTo - scaleFrom) * progress;
 
   return (
     <Tag
