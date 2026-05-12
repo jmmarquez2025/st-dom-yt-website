@@ -9,3 +9,6 @@ dist
 
 # Claude Code worktree state — local-only scratch space
 .claude/worktrees/
+
+# Pre-optimization image backups (created by scripts/optimize-sources.mjs)
+*.original-large.jpg
