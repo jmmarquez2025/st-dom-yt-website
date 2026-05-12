@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ResponsivePicture from "./ResponsivePicture";
 
 /**
  * HeroImage — a background image layer for hero sections.
@@ -21,26 +22,22 @@ export default function HeroImage({ src, overlay = 0.55, tint, position = "cente
 
   return (
     <>
-      {/* preload image off-screen */}
-      <img
-        src={src}
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        fetchpriority="high"
-        onLoad={() => setLoaded(true)}
-        style={{ position: "absolute", width: 0, height: 0, opacity: 0, pointerEvents: "none" }}
-      />
-
       {/* photo layer */}
-      <div
-        aria-hidden="true"
+      <ResponsivePicture
+        src={src}
+        widths={[480, 1024, 1920]}
+        sizes="100vw"
+        alt=""
+        loading="eager"
+        fetchPriority="high"
+        onLoad={() => setLoaded(true)}
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: `url(${src})`,
-          backgroundSize: "cover",
-          backgroundPosition: position,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: position,
           opacity: loaded ? 1 : 0,
           transition: "opacity 0.8s ease",
           zIndex: 0,

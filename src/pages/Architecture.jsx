@@ -4,6 +4,7 @@ import { Section } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import HeroImage from "../components/HeroImage";
 import StickyHero from "../components/StickyHero";
+import StickyScrub from "../components/StickyScrub";
 import ParallaxSection from "../components/ParallaxSection";
 import ScaleReveal from "../components/ScaleReveal";
 import TextReveal from "../components/TextReveal";
@@ -176,7 +177,7 @@ export default function Architecture() {
             fontSize: 14,
             letterSpacing: 4,
             textTransform: "uppercase",
-            color: T.gold,
+            color: T.goldText,
             marginBottom: 16,
             fontWeight: 600,
           }}
@@ -209,6 +210,29 @@ export default function Architecture() {
           {t("arch.hero.desc")}
         </p>
       </StickyHero>
+
+      <StickyScrub
+        image={PHOTOS.archSanctuary || PHOTOS.interiorNave || PHOTOS.archHero}
+        overlay={0.5}
+        panels={[
+          {
+            id: "a-threshold",
+            title: "The Threshold",
+            body: "Pass under the Romanesque arches into a century of prayer rendered in wood, stone, and stained glass.",
+          },
+          {
+            id: "a-nave",
+            title: "The Nave",
+            body: "Every line of the church draws the eye — and the soul — toward the altar.",
+          },
+          {
+            id: "a-sanctuary",
+            title: "The Sanctuary",
+            body: "Where heaven meets earth in the daily celebration of the Sacred Mysteries.",
+          },
+        ]}
+        height="300vh"
+      />
 
       {/* ════ Stop 1 — Exterior & Facade ════ */}
       <Section>
@@ -329,7 +353,7 @@ export default function Architecture() {
               fontSize: 13,
               letterSpacing: 3,
               textTransform: "uppercase",
-              color: T.gold,
+              color: T.goldText,
               fontStyle: "normal",
             }}
           >
@@ -438,7 +462,7 @@ export default function Architecture() {
               fontSize: 13,
               letterSpacing: 3,
               textTransform: "uppercase",
-              color: T.gold,
+              color: T.goldText,
               fontStyle: "normal",
             }}
           >
@@ -509,7 +533,7 @@ export default function Architecture() {
                 fontSize: 12,
                 letterSpacing: 4,
                 textTransform: "uppercase",
-                color: T.gold,
+                color: T.goldText,
                 fontWeight: 600,
                 marginBottom: 16,
               }}

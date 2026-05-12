@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
@@ -15,12 +15,13 @@ const SACRAMENT_LINKS = [
   { to: "/sacraments/first-communion", key: "firstCommunion", icon: "Wheat" },
   { to: "/sacraments/confirmation", key: "confirmation", icon: "Flame" },
   { to: "/sacraments/marriage", key: "marriage", icon: "Gem" },
-  { to: "/sacraments/anointing", key: "anointing", icon: "Bird" },
+  { to: "/sacraments/anointing", key: "anointing", icon: "HandHeart" },
   { to: "/sacraments/funerals", key: "funerals", icon: "Cross" },
 ];
 
 export default function Sacraments() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <div style={{ paddingTop: 76 }}>
@@ -50,7 +51,7 @@ export default function Sacraments() {
                 fontSize: 12,
                 letterSpacing: 2,
                 textTransform: "uppercase",
-                color: T.gold,
+                color: T.goldText,
                 fontStyle: "normal",
                 marginTop: 10,
               }}
@@ -80,11 +81,18 @@ export default function Sacraments() {
               <Link
                 key={s.to}
                 to={s.to}
+                onClick={(e) => {
+                  if (document.startViewTransition) {
+                    e.preventDefault();
+                    document.startViewTransition(() => navigate(s.to));
+                  }
+                }}
                 className="hover-lift"
                 style={{
                   textDecoration: "none", background: T.warmWhite, padding: 36,
                   borderRadius: 4, border: `1px solid ${T.stone}`, borderTop: `4px solid ${T.burgundy}`,
                   display: "block",
+                  viewTransitionName: `sacrament-${s.key}`,
                 }}
               >
                 <div style={{ marginBottom: 12 }} aria-hidden="true">
@@ -96,7 +104,7 @@ export default function Sacraments() {
                 <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>
                   {t(`sacraments.${s.key}.brief`)}
                 </p>
-                <div style={{ fontSize: 13, fontWeight: 600, color: T.gold, letterSpacing: 1, textTransform: "uppercase", marginTop: 16 }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: T.goldText, letterSpacing: 1, textTransform: "uppercase", marginTop: 16 }}>
                   {t("sacraments.learnMore")} →
                 </div>
               </Link>

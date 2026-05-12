@@ -22,8 +22,21 @@ export default function TextReveal({
 }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e) => setReducedMotion(e.matches);
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) {
+      setVisible(true);
+      return;
+    }
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -37,9 +50,17 @@ export default function TextReveal({
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [threshold, reducedMotion]);
 
   const text = typeof children === "string" ? children : String(children);
+
+  if (reducedMotion) {
+    return (
+      <Tag ref={ref} className={className} style={style}>
+        {text}
+      </Tag>
+    );
+  }
 
   // Split into parts: for "word" mode, split on newlines first to preserve
   // line breaks, then split each line on spaces. Newlines become null markers.
@@ -102,8 +123,21 @@ export function AnimatedDivider({
 }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e) => setReducedMotion(e.matches);
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) {
+      setVisible(true);
+      return;
+    }
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -117,18 +151,20 @@ export function AnimatedDivider({
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <div
       ref={ref}
       style={{
-        width: visible ? width : 0,
+        width: reducedMotion ? width : visible ? width : 0,
         height,
         background: color || "#C5A55A",
         margin: center ? "16px auto 0" : "16px 0 0",
         borderRadius: 2,
-        transition: `width 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+        transition: reducedMotion
+          ? "none"
+          : `width 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
       }}
     />
   );

@@ -19,7 +19,12 @@ export default function useScrollFade() {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
-    if (!el || !sharedObserver) return;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.classList.add("visible");
+      return;
+    }
+    if (!sharedObserver) return;
     sharedObserver.observe(el);
     return () => sharedObserver.unobserve(el);
   }, []);
