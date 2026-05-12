@@ -21,7 +21,7 @@ export function SectionTitle({ children, sub, light, center = true, divider = tr
             fontSize: 12,
             letterSpacing: 3,
             textTransform: "uppercase",
-            color: light ? T.goldLight : T.gold,
+            color: light ? T.goldLight : T.goldText,
             fontWeight: 600,
             marginBottom: 8,
           }}

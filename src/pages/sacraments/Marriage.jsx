@@ -43,7 +43,7 @@ export default function Marriage() {
                   fontSize: 12,
                   letterSpacing: 2,
                   textTransform: "uppercase",
-                  color: T.gold,
+                  color: T.goldText,
                   fontStyle: "normal",
                   marginTop: 10,
                 }}

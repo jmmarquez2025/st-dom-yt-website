@@ -43,7 +43,7 @@ export default function Baptism() {
                   fontSize: 12,
                   letterSpacing: 2,
                   textTransform: "uppercase",
-                  color: T.gold,
+                  color: T.goldText,
                   fontStyle: "normal",
                   marginTop: 10,
                 }}
@@ -65,7 +65,7 @@ export default function Baptism() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
             {["req1", "req2", "req3"].map((key) => (
               <div key={key} style={{ background: T.warmWhite, padding: 28, borderRadius: 4, border: `1px solid ${T.stone}` }}>
-                <h4 style={{ fontSize: 18, color: T.burgundy, marginBottom: 8 }}>{t(`sacraments.baptism.${key}.title`)}</h4>
+                <h3 style={{ fontSize: 18, color: T.burgundy, marginBottom: 8 }}>{t(`sacraments.baptism.${key}.title`)}</h3>
                 <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>{t(`sacraments.baptism.${key}.desc`)}</p>
               </div>
             ))}

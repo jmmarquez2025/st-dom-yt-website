@@ -43,7 +43,7 @@ export default function Give() {
                 fontSize: 12,
                 letterSpacing: 2,
                 textTransform: "uppercase",
-                color: T.gold,
+                color: T.goldText,
                 fontStyle: "normal",
                 marginTop: 10,
               }}
@@ -123,7 +123,7 @@ export default function Give() {
                 <div style={{ marginBottom: 12 }} aria-hidden="true">
                   <Icon name={key === "offertory" ? "Church" : key === "mail" ? "Mail" : "TrendingUp"} size={32} color={T.burgundy} />
                 </div>
-                <h4 style={{ fontSize: 18, marginBottom: 8, color: T.burgundy }}>{t(`give.methods.${key}.title`)}</h4>
+                <h3 style={{ fontSize: 18, marginBottom: 8, color: T.burgundy }}>{t(`give.methods.${key}.title`)}</h3>
                 <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>{t(`give.methods.${key}.desc`)}</p>
               </div>
             ))}

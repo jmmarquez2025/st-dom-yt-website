@@ -129,7 +129,7 @@ export default function BlogPost() {
                 {author.photo && (
                   <img
                     src={author.photo}
-                    alt=""
+                    alt={author.name}
                     style={{ width: 28, height: 28, borderRadius: "50%", objectFit: "cover", border: "2px solid rgba(255,255,255,0.3)" }}
                   />
                 )}

@@ -179,7 +179,7 @@ export default function Home() {
                   fontSize: 12,
                   letterSpacing: 3,
                   textTransform: "uppercase",
-                  color: T.gold,
+                  color: T.goldText,
                   fontWeight: 700,
                   marginBottom: 6,
                 }}
@@ -251,7 +251,7 @@ export default function Home() {
                         fontSize: 11,
                         letterSpacing: 1.7,
                         textTransform: "uppercase",
-                        color: T.gold,
+                        color: T.goldText,
                         fontWeight: 700,
                         marginBottom: 4,
                       }}
@@ -495,7 +495,7 @@ export default function Home() {
                     fontSize: 12,
                     letterSpacing: 4,
                     textTransform: "uppercase",
-                    color: T.gold,
+                    color: T.goldText,
                     marginBottom: 20,
                     fontWeight: 600,
                   }}
@@ -521,7 +521,7 @@ export default function Home() {
                     fontSize: 13,
                     letterSpacing: 2,
                     textTransform: "uppercase",
-                    color: T.gold,
+                    color: T.goldText,
                     fontStyle: "normal",
                     paddingLeft: 28,
                   }}

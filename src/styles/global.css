@@ -5,6 +5,9 @@
   --color-burgundy-dark: #4A1019;
   --color-gold: #C5A55A;
   --color-gold-light: #E8D5A3;
+  /* AA-compliant gold text token for small text on light backgrounds.
+     Tuned darker than the 4.5:1 minimum to survive FadeSection opacity blending. */
+  --color-gold-text: #7A5A0F;
   --color-cream: #FAF6F0;
   --color-warm-white: #FFFDF9;
   --color-stone: #E8E2D8;
@@ -85,7 +88,10 @@ h1, h2, h3, h4 {
   .fade-section {
     animation: scrollFadeUp 0.6s var(--ease-out-expo) both;
     animation-timeline: view();
-    animation-range: entry 0% entry 35%;
+    /* Opacity hits 1 by 8% entry so text is at full contrast almost immediately
+       once the element is in viewport (closes axe color-contrast false-positives
+       caused by sampling mid-fade). The transform keeps a brief lift for polish. */
+    animation-range: entry 0% entry 8%;
     opacity: 0;
     transform: translateY(20px);
     transition: none;
@@ -102,7 +108,7 @@ h1, h2, h3, h4 {
   .stagger-grid > * {
     animation: scrollStaggerIn 0.5s var(--ease-out-expo) both;
     animation-timeline: view();
-    animation-range: entry 0% entry 40%;
+    animation-range: entry 0% entry 10%;
     opacity: 0;
     transform: translateY(16px);
     transition: none;
@@ -273,7 +279,7 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   font-weight: 600;
 }
-.sub-label--gold { color: var(--color-gold); }
+.sub-label--gold { color: var(--color-gold-text); }
 .sub-label--white { color: rgba(255,255,255,0.6); }
 
 /* ── Contact links ── */
