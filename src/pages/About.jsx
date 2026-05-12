@@ -39,7 +39,7 @@ export default function About() {
               fontSize: 12,
               letterSpacing: 4,
               textTransform: "uppercase",
-              color: T.gold,
+              color: T.goldText,
               marginBottom: 16,
               fontWeight: 600,
             }}
@@ -97,7 +97,7 @@ export default function About() {
                   fontSize: 14,
                   letterSpacing: 3,
                   textTransform: "uppercase",
-                  color: T.gold,
+                  color: T.goldText,
                   fontWeight: 600,
                   marginBottom: 24,
                 }}
@@ -179,6 +179,44 @@ export default function About() {
         </FadeSection>
       </Section>
 
+      {/* ════ Dominican Mission ════ */}
+      <Section bg={T.cream}>
+        <FadeSection>
+          <SectionTitle sub="Order of Preachers · Founded 1216">
+            The Dominican Mission
+          </SectionTitle>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 40, maxWidth: 960, margin: "0 auto", alignItems: "center" }} className="dominican-mission-grid">
+            <style>{`
+              @media (min-width: 768px) {
+                .dominican-mission-grid { grid-template-columns: 240px 1fr !important; gap: 56px !important; }
+              }
+            `}</style>
+            <div style={{ textAlign: "center" }}>
+              <img
+                src={PHOTOS.psjShield}
+                alt="Shield of the Dominican Province of St. Joseph"
+                style={{ maxWidth: 200, width: "100%", height: "auto", margin: "0 auto" }}
+                loading="lazy"
+              />
+              <div style={{ marginTop: 12, fontSize: 12, letterSpacing: 3, textTransform: "uppercase", color: T.goldText, fontWeight: 600 }}>
+                Veritas · Truth
+              </div>
+            </div>
+            <div>
+              <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
+                St. Dominic Catholic Church is entrusted to the friars of the <strong>Province of St. Joseph</strong>, an apostolic province of the Order of Preachers founded by St. Dominic de Guzmán in 1216 for the salvation of souls through preaching.
+              </p>
+              <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
+                For eight centuries the Order has been shaped by four pillars: <em>prayer, study, community, and preaching</em>. You will find each woven into the life of this parish — in the daily Mass and Liturgy of the Hours, the study of Scripture and the Catechism, the bonds of fraternity among friars and faithful, and the proclamation of the Gospel from this pulpit since 1923.
+              </p>
+              <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 0 }}>
+                Our motto, <em>Veritas</em>, points us always to Christ, the Truth made flesh.
+              </p>
+            </div>
+          </div>
+        </FadeSection>
+      </Section>
+
       {/* ════ Saint of the Day ════ */}
       <Section bg={T.cream}>
         <FadeSection>
@@ -255,7 +293,7 @@ export default function About() {
                 fontSize: 12,
                 letterSpacing: 4,
                 textTransform: "uppercase",
-                color: T.gold,
+                color: T.goldText,
                 fontWeight: 600,
                 marginBottom: 16,
               }}

@@ -25,7 +25,7 @@ export const blogPosts = [
     author: "frassati-davis",
     date: "2026-04-04",
     category: "parish-news",
-    tags: ["RCIA", "Easter Vigil", "Baptism", "Parish Life"],
+    tags: ["OCIA", "Easter Vigil", "Baptism", "Parish Life"],
     heroImage: `${B}photos/baptism-opt.webp`,
     excerpt: "On the holiest night of the year, St. Dominic Church rejoiced as five adults were received into full communion with the Catholic Church through the waters of Baptism and the gift of Confirmation.",
     excerptEs: "En la noche mas santa del ano, la Iglesia Santo Domingo se alegro cuando cinco adultos fueron recibidos en plena comunion con la Iglesia Catolica a traves de las aguas del Bautismo y el don de la Confirmacion.",
@@ -34,11 +34,11 @@ export const blogPosts = [
     body: [
       { type: "paragraph", text: "There is no night in the Church's liturgical calendar quite like the Easter Vigil. As the last light of Holy Saturday faded over Youngstown, our parish gathered in darkness outside the church doors, the new fire crackling before us, the Paschal candle waiting to be lit. In that ancient gesture -- light dispelling darkness -- the entire mystery of our faith was made visible once again." },
       { type: "heading", level: 2, text: "A Night of Grace" },
-      { type: "paragraph", text: "This year, five adults completed their journey through the Order of Christian Initiation of Adults (RCIA) and were received into full communion with the Catholic Church. After months of prayer, study, and discernment alongside our Dominican friars and catechists, they stepped into the baptismal waters and emerged as new members of the Body of Christ." },
+      { type: "paragraph", text: "This year, five adults completed their journey through the Order of Christian Initiation of Adults (OCIA, formerly RCIA) and were received into full communion with the Catholic Church. After months of prayer, study, and discernment alongside our Dominican friars and catechists, they stepped into the baptismal waters and emerged as new members of the Body of Christ." },
       { type: "quote", text: "I had been searching for something real, something that answered the deepest questions. I found it here, in the Church, in the Sacraments, in this community.", attribution: "A newly baptized parishioner" },
       { type: "paragraph", text: "Each of the five candidates was confirmed by Fr. Frassati and received the Holy Eucharist for the first time as the congregation erupted in sustained applause. It was a moment of profound joy -- the kind that only the Paschal Mystery can produce." },
       { type: "heading", level: 2, text: "The Journey Continues" },
-      { type: "paragraph", text: "The RCIA process at St. Dominic runs from September through the Easter Vigil. If you or someone you know is interested in learning about the Catholic faith, we invite you to reach out. Our next inquiry sessions begin in September. Contact the parish office at (330) 783-1900 or email office@saintdominic.org." },
+      { type: "paragraph", text: "The OCIA process at St. Dominic runs from September through the Easter Vigil. If you or someone you know is interested in learning about the Catholic faith, we invite you to reach out. Our next inquiry sessions begin in September. Contact the parish office at (330) 783-1900 or email office@saintdominic.org." },
     ],
     bodyEs: [
       { type: "paragraph", text: "No hay noche en el calendario liturgico de la Iglesia como la Vigilia Pascual. Mientras la ultima luz del Sabado Santo se desvanecia sobre Youngstown, nuestra parroquia se reunio en la oscuridad frente a las puertas de la iglesia, el fuego nuevo crepitando ante nosotros, el Cirio Pascual esperando ser encendido." },
