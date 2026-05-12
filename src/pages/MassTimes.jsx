@@ -82,7 +82,7 @@ function Quote({ text, src }) {
           fontFamily: "'Source Sans 3', sans-serif",
           letterSpacing: 1,
           textTransform: "uppercase",
-          color: T.gold,
+          color: T.goldText,
         }}
       >
         {src}
@@ -131,7 +131,7 @@ function AccordionItem({ title, items, defaultOpen = false }) {
           style={{
             transition: "transform 0.3s ease",
             transform: open ? "rotate(180deg)" : "rotate(0)",
-            color: T.gold,
+            color: T.goldText,
             flexShrink: 0,
           }}
         />
@@ -366,7 +366,7 @@ export default function MassTimes() {
       </Section>
 
       {/* ════ Section 3: Parallax — St. Thomas Aquinas ════ */}
-      <ParallaxSection src={PHOTOS.dominicanCharism}>
+      <ParallaxSection image={PHOTOS.dominicanCharism} overlay={0.55}>
         <div style={{ textAlign: "center", maxWidth: 700, margin: "0 auto" }}>
           <p
             style={{
@@ -521,7 +521,7 @@ export default function MassTimes() {
       </Section>
 
       {/* ════ Section 6: Parallax — Pope Francis ════ */}
-      <ParallaxSection src={PHOTOS.archSideAisle}>
+      <ParallaxSection image={PHOTOS.archSideAisle} overlay={0.55}>
         <div style={{ textAlign: "center", maxWidth: 700, margin: "0 auto" }}>
           <p
             style={{

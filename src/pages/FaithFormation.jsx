@@ -101,7 +101,7 @@ export default function FaithFormation() {
                   fontSize: 12,
                   letterSpacing: 2,
                   textTransform: "uppercase",
-                  color: T.gold,
+                  color: T.goldText,
                   fontStyle: "normal",
                   marginTop: 10,
                 }}
@@ -303,7 +303,7 @@ export default function FaithFormation() {
             {/* Godsplaining */}
             <div style={cardStyle}>
               <div style={{ padding: 24 }}>
-                <h4
+                <h3
                   style={{
                     fontSize: 18,
                     fontFamily: "'Cormorant Garamond', serif",
@@ -312,7 +312,7 @@ export default function FaithFormation() {
                   }}
                 >
                   Godsplaining
-                </h4>
+                </h3>
                 <iframe
                   src="https://open.spotify.com/embed/show/0aIOz3chYeQZxsdjyJzlOb?utm_source=generator&theme=0"
                   width="100%"
@@ -329,7 +329,7 @@ export default function FaithFormation() {
             {/* Rosary in a Year */}
             <div style={cardStyle}>
               <div style={{ padding: 24 }}>
-                <h4
+                <h3
                   style={{
                     fontSize: 18,
                     fontFamily: "'Cormorant Garamond', serif",
@@ -338,7 +338,7 @@ export default function FaithFormation() {
                   }}
                 >
                   Rosary in a Year
-                </h4>
+                </h3>
                 <iframe
                   src="https://open.spotify.com/embed/show/3Rx1puBjE0xZBiuy4BT4i7?utm_source=generator&theme=0"
                   width="100%"

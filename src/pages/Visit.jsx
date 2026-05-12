@@ -153,7 +153,7 @@ export default function Visit() {
                 fontSize: 12,
                 letterSpacing: 2,
                 textTransform: "uppercase",
-                color: T.gold,
+                color: T.goldText,
                 fontStyle: "normal",
                 marginTop: 10,
               }}
@@ -417,7 +417,7 @@ export default function Visit() {
                 fontSize: 11,
                 letterSpacing: 3,
                 textTransform: "uppercase",
-                color: T.gold,
+                color: T.goldText,
                 fontWeight: 600,
                 marginBottom: 12,
               }}

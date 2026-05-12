@@ -75,9 +75,9 @@ export default function Footer() {
 
         {/* Quick links */}
         <div>
-          <h4 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
+          <h3 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
             {t("footer.quickLinks")}
-          </h4>
+          </h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 16px" }}>
             {FOOTER_LINKS.map((l) => (
               <div key={l.to}>
@@ -99,9 +99,9 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h4 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
+          <h3 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
             {t("footer.contactTitle")}
-          </h4>
+          </h3>
           <p style={{ fontSize: 14, lineHeight: 2 }}>
             {CONFIG.address}
             <br />
@@ -162,8 +162,8 @@ export default function Footer() {
         <FooterLink
           to="/writers-guide"
           style={{
-            color: "rgba(255,255,255,0.35)",
-            textDecoration: "none",
+            color: "rgba(255,255,255,0.85)",
+            textDecoration: "underline",
             fontSize: 12,
             transition: "color 0.2s",
           }}

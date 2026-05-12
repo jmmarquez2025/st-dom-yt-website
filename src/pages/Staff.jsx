@@ -168,7 +168,7 @@ export default function Staff() {
             }}
           >
             <div>
-              <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: T.goldLight, fontWeight: 700, marginBottom: 10 }}>
+              <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: T.goldText, fontWeight: 700, marginBottom: 10 }}>
                 {displayRole(person)}
               </div>
               <h3 style={{ fontSize: 18, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "#fff", marginBottom: 14, lineHeight: 1.2 }}>
@@ -398,7 +398,7 @@ export default function Staff() {
                 <div style={{
                   width: 120, height: 120, borderRadius: "50%",
                   background: modal.group === "staff" ? `linear-gradient(135deg, ${T.gold}, ${T.goldLight})` : "rgba(255,255,255,0.1)",
-                  color: modal.group === "staff" ? T.softBlack : T.goldLight,
+                  color: modal.group === "staff" ? T.softBlack : T.goldText,
                   display: "flex", alignItems: "center", justifyContent: "center",
                   fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: 40,
                   margin: "0 auto",
@@ -409,7 +409,7 @@ export default function Staff() {
               <h2 style={{ fontSize: 26, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: modal.group === "staff" ? T.softBlack : "#fff", marginTop: 20, marginBottom: 8, lineHeight: 1.2 }}>
                 {modal.name}
               </h2>
-              <div style={{ display: "inline-block", padding: "4px 16px", background: "rgba(255,255,255,0.15)", color: modal.group === "staff" ? T.softBlack : T.goldLight, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", borderRadius: 20, fontWeight: 600 }}>
+              <div style={{ display: "inline-block", padding: "4px 16px", background: "rgba(255,255,255,0.15)", color: modal.group === "staff" ? T.softBlack : T.goldText, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", borderRadius: 20, fontWeight: 600 }}>
                 {displayRole(modal)}
               </div>
             </div>

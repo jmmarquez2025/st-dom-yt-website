@@ -133,7 +133,7 @@ export default function Events() {
                         flexShrink: 0,
                       }}
                     >
-                      <div style={{ fontSize: 11, letterSpacing: 2, fontWeight: 700, color: T.goldLight, textTransform: "uppercase" }}>
+                      <div style={{ fontSize: 11, letterSpacing: 2, fontWeight: 700, color: T.goldText, textTransform: "uppercase" }}>
                         {d.month}
                       </div>
                       <div style={{ fontSize: 36, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, lineHeight: 1, color: "#fff" }}>

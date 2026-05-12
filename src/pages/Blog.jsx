@@ -68,7 +68,7 @@ export default function Blog() {
               letterSpacing: 4,
               textTransform: "uppercase",
               fontWeight: 600,
-              color: T.goldLight,
+              color: T.goldText,
               marginBottom: 14,
             }}
           >
@@ -109,7 +109,7 @@ export default function Blog() {
                 letterSpacing: 2.5,
                 textTransform: "uppercase",
                 fontWeight: 700,
-                color: T.gold,
+                color: T.goldText,
                 marginBottom: 16,
                 textAlign: "center",
               }}

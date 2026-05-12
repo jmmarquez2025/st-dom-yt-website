@@ -460,7 +460,7 @@ export default function Nav() {
               padding: "14px 0",
               fontSize: 16,
               fontWeight: isActive("/give") ? 600 : 400,
-              color: T.gold,
+              color: T.goldText,
               borderBottom: `1px solid ${T.stoneLight}`,
               fontFamily: "'Source Sans 3', sans-serif",
             }}
