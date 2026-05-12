@@ -11,7 +11,9 @@
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,css,json}'",
-    "docs": "python3 docs/generate-docx.py"
+    "docs": "python3 docs/generate-docx.py",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "i18next": "^26.0.4",
@@ -23,12 +25,16 @@
     "react-router-dom": "^7.14.0"
   },
   "devDependencies": {
+    "@axe-core/cli": "^4.11.3",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
+    "jsdom": "^25.0.0",
+    "lighthouse": "^13.3.0",
     "prettier": "^3.8.2",
     "sharp": "^0.34.5",
-    "vite": "^6.0.0"
+    "vite": "^6.0.0",
+    "vitest": "^2.1.0"
   }
 }
