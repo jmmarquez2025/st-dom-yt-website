@@ -406,12 +406,18 @@
     },
     "bios": {
       "frassati-davis": "Fr. Frassati Davis was born into a military family and calls Bellevue, Nebraska home. He grew up with two older sisters and a younger brother. He attended St. Mary's University of Minnesota, where he was taught by a Dominican Friar of the Central Province and earned a BA in Philosophy. \"The natural rhythm of prayer, study, and preaching attracted me to the Order of Preachers, and the joy of the friars living out a consecrated religious vocation drew me deeper into the call to be a son of St. Dominic.\"",
-      "charles-rooney": "Fr. Charles Rooney was raised in Darien, Connecticut, where he and his two younger brothers grew up attending St. Thomas More Church and St. John Church. In 2016, he graduated from Duke University with a degree in \"Markets, Society, and Personalism,\" running on the varsity cross-country and track teams and writing an imago Dei column for the student newspaper. From 2016 to 2017, Fr. Charles earned an MA in Philosophy at Maynooth University, Ireland, through the George J. Mitchell Scholarship, writing his dissertation on Thomistic Personalism. He entered the Dominican novitiate in July 2017: \"I was deeply attracted by the Dominican charism of consecrating one's entire self to the truth and sharing the sweet fruits of that consecration with others. It is a joy and a privilege to be a member of St. Dominic's Order of Friars Preachers, abiding together in the love of Jesus Christ and proclaiming His saving truth to all whom we encounter.\"",
+      "charles-rooney": "El P. Charles Marie Rooney, O.P., nació en Nueva York, NY, y se crió en Darien, CT, el mayor de tres hijos varones. Se graduó con un B.A. de la Universidad de Duke en 2016 y un M.A. de la Universidad de Maynooth, Irlanda, en 2017, antes de entrar en los Frailes Dominicos de la Provincia de San José. Fue ordenado sacerdote en 2024 y, antes de llegar a la Iglesia de Santo Domingo en julio de 2025, sirvió en la capellanía hospitalaria de la ciudad de Nueva York y completó su Licenciatura en Sagrada Teología en Washington, DC. Disfruta del atletismo, la música y los idiomas, y su santo favorito es el Papa San Juan Pablo II.",
       "john-kozlowski": "El P. John Chrysostom Kozlowski, O.P. es un Fraile Dominico en residencia en la Iglesia de Santo Domingo, contribuyendo a la vida espiritual de la comunidad a través de la predicación y el ministerio sacramental.",
       "bernard-confer": "El P. Bernard Confer, O.P. es un Fraile Dominico en residencia en la Iglesia de Santo Domingo, sirviendo a la comunidad a través de la oración, la predicación y la celebración de los sacramentos.",
       "gregory-salomone": "El P. Gregory Salomone, O.P. es un Fraile Dominico en residencia en la Iglesia de Santo Domingo, enriqueciendo la comunidad a través de su ministerio de predicación y enseñanza en la tradición dominicana.",
       "sylvia-gould": "Sylvia Gould sirve como Secretaria Parroquial, gestionando las operaciones diarias de la oficina parroquial y siendo el primer punto de contacto para los feligreses y visitantes que buscan información o asistencia.",
       "alec-ring": "Alec Ring sirve como Director de Música, dirigiendo el programa musical de la iglesia y mejorando el culto litúrgico de la comunidad a través de la música sacra y la dirección coral."
+    },
+    "quotes": {
+      "charles-rooney": {
+        "text": "Es Jesús, en efecto, a quien buscáis cuando soñáis con la felicidad; Él os espera cuando nada de lo que encontráis os satisface; Él es la belleza que tanto os atrae; Él es quien os provoca esa sed de plenitud que no os deja conformaros con el compromiso…",
+        "source": "San Juan Pablo II"
+      }
     },
     "modal": {
       "contact": "Información de Contacto",

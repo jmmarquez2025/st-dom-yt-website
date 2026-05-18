@@ -12,6 +12,21 @@ import Icon from "../components/Icon";
 import { PHOTOS } from "../constants/photos";
 import { X, Mail, Phone } from "lucide-react";
 
+// Avatars display at <=130px. Swap the full-size base image for the 480px
+// variant from scripts/generate-webp.mjs; on error (e.g. a CMS photo with no
+// generated variant) fall back to the original once.
+const avatarVariant = (photo) =>
+  typeof photo === "string" && /\.(webp|jpe?g)$/i.test(photo)
+    ? photo.replace(/\.(webp|jpe?g)$/i, "-480.$1")
+    : photo;
+
+const avatarFallback = (photo) => (e) => {
+  const img = e.currentTarget;
+  if (img.dataset.fellBack) return;
+  img.dataset.fellBack = "1";
+  img.src = photo;
+};
+
 export default function Staff() {
   const { t } = useTranslation();
   const { data: staffData } = useStaff();
@@ -55,7 +70,8 @@ export default function Staff() {
   const Avatar = ({ name, photo, size, dark }) => (
     photo ? (
       <img
-        src={photo}
+        src={avatarVariant(photo)}
+        onError={avatarFallback(photo)}
         alt={name}
         style={{
           width: size,
@@ -93,6 +109,46 @@ export default function Staff() {
       </div>
     )
   );
+
+  // Optional pull-quote rendered in the profile modal. Returns null for
+  // anyone without a staff.quotes.<id> entry.
+  const ModalQuote = ({ id }) => {
+    const text = t(`staff.quotes.${id}.text`, { defaultValue: "" });
+    if (!text) return null;
+    const source = t(`staff.quotes.${id}.source`, { defaultValue: "" });
+    return (
+      <blockquote
+        style={{
+          margin: "0 0 24px",
+          padding: "8px 0 8px 18px",
+          borderLeft: `3px solid ${T.gold}`,
+          fontFamily: "'Cormorant Garamond', serif",
+          fontStyle: "italic",
+          fontSize: 17,
+          lineHeight: 1.6,
+          color: T.softBlack,
+        }}
+      >
+        “{text}”
+        {source && (
+          <footer
+            style={{
+              marginTop: 10,
+              fontFamily: "'Source Sans 3', sans-serif",
+              fontStyle: "normal",
+              fontSize: 11,
+              letterSpacing: 1.5,
+              textTransform: "uppercase",
+              color: T.burgundy,
+              fontWeight: 700,
+            }}
+          >
+            — {source}
+          </footer>
+        )}
+      </blockquote>
+    );
+  };
 
   const LeaderCard = ({ person }) => {
     const isFlipped = flipped === person.id;
@@ -393,7 +449,7 @@ export default function Staff() {
               borderRadius: "16px 16px 0 0",
             }}>
               {modal.photo ? (
-                <img src={modal.photo} alt={modal.name} style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover", objectPosition: "top center", border: `3px solid ${T.gold}`, margin: "0 auto", display: "block" }} />
+                <img src={avatarVariant(modal.photo)} onError={avatarFallback(modal.photo)} alt={modal.name} style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover", objectPosition: "top center", border: `3px solid ${T.gold}`, margin: "0 auto", display: "block" }} />
               ) : (
                 <div style={{
                   width: 120, height: 120, borderRadius: "50%",
@@ -418,6 +474,7 @@ export default function Staff() {
               <p style={{ fontSize: 15, lineHeight: 1.8, color: T.warmGray, marginBottom: 24 }}>
                 {t(`staff.bios.${modal.id}`)}
               </p>
+              <ModalQuote id={modal.id} />
               <div style={{ borderTop: `1px solid ${T.stone}`, paddingTop: 20 }}>
                 <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: T.warmGray, marginBottom: 12, fontWeight: 600 }}>
                   {t("staff.modal.contact")}
