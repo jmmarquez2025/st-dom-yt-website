@@ -94,6 +94,46 @@ export default function Staff() {
     )
   );
 
+  // Optional pull-quote rendered in the profile modal. Returns null for
+  // anyone without a staff.quotes.<id> entry.
+  const ModalQuote = ({ id }) => {
+    const text = t(`staff.quotes.${id}.text`, { defaultValue: "" });
+    if (!text) return null;
+    const source = t(`staff.quotes.${id}.source`, { defaultValue: "" });
+    return (
+      <blockquote
+        style={{
+          margin: "0 0 24px",
+          padding: "8px 0 8px 18px",
+          borderLeft: `3px solid ${T.gold}`,
+          fontFamily: "'Cormorant Garamond', serif",
+          fontStyle: "italic",
+          fontSize: 17,
+          lineHeight: 1.6,
+          color: T.softBlack,
+        }}
+      >
+        “{text}”
+        {source && (
+          <footer
+            style={{
+              marginTop: 10,
+              fontFamily: "'Source Sans 3', sans-serif",
+              fontStyle: "normal",
+              fontSize: 11,
+              letterSpacing: 1.5,
+              textTransform: "uppercase",
+              color: T.burgundy,
+              fontWeight: 700,
+            }}
+          >
+            — {source}
+          </footer>
+        )}
+      </blockquote>
+    );
+  };
+
   const LeaderCard = ({ person }) => {
     const isFlipped = flipped === person.id;
     const bio = t(`staff.bios.${person.id}`);
@@ -418,6 +458,7 @@ export default function Staff() {
               <p style={{ fontSize: 15, lineHeight: 1.8, color: T.warmGray, marginBottom: 24 }}>
                 {t(`staff.bios.${modal.id}`)}
               </p>
+              <ModalQuote id={modal.id} />
               <div style={{ borderTop: `1px solid ${T.stone}`, paddingTop: 20 }}>
                 <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: T.warmGray, marginBottom: 12, fontWeight: 600 }}>
                   {t("staff.modal.contact")}

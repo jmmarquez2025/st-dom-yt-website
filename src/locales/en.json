@@ -406,12 +406,18 @@
     },
     "bios": {
       "frassati-davis": "Fr. Frassati Davis was born into a military family and calls Bellevue, Nebraska home. He grew up with two older sisters and a younger brother. He attended St. Mary's University of Minnesota, where he was taught by a Dominican Friar of the Central Province and earned a BA in Philosophy. \"The natural rhythm of prayer, study, and preaching attracted me to the Order of Preachers, and the joy of the friars living out a consecrated religious vocation drew me deeper into the call to be a son of St. Dominic.\"",
-      "charles-rooney": "Fr. Charles Rooney was raised in Darien, Connecticut, where he and his two younger brothers grew up attending St. Thomas More Church and St. John Church. In 2016, he graduated from Duke University with a degree in \"Markets, Society, and Personalism,\" running on the varsity cross-country and track teams and writing an imago Dei column for the student newspaper. From 2016 to 2017, Fr. Charles earned an MA in Philosophy at Maynooth University, Ireland, through the George J. Mitchell Scholarship, writing his dissertation on Thomistic Personalism. He entered the Dominican novitiate in July 2017: \"I was deeply attracted by the Dominican charism of consecrating one's entire self to the truth and sharing the sweet fruits of that consecration with others. It is a joy and a privilege to be a member of St. Dominic's Order of Friars Preachers, abiding together in the love of Jesus Christ and proclaiming His saving truth to all whom we encounter.\"",
+      "charles-rooney": "Fr. Charles Marie Rooney, O.P., was born in New York, NY, and raised in Darien, CT, the eldest of three boys. He graduated with a B.A. from Duke University in 2016 and an M.A. from Maynooth University, Ireland, in 2017 before entering the Dominican Friars of the Province of St. Joseph. He was ordained a priest in 2024 and, before coming to St. Dominic's in July 2025, served in hospital chaplaincy in New York City and completed his Licentiate in Sacred Theology in Washington, DC. He enjoys athletics, music, and languages, and his favorite saint is Pope St. John Paul II.",
       "john-kozlowski": "Fr. John Chrysostom Kozlowski, O.P. is a Dominican Friar in residence at St. Dominic Church, contributing to the spiritual life of the community through preaching and sacramental ministry.",
       "bernard-confer": "Fr. Bernard Confer, O.P. is a Dominican Friar in residence at St. Dominic Church, serving the community through prayer, preaching, and the celebration of the sacraments.",
       "gregory-salomone": "Fr. Gregory Salomone, O.P. is a Dominican Friar in residence at St. Dominic Church, enriching the community through his ministry of preaching and teaching in the Dominican tradition.",
       "sylvia-gould": "Sylvia Gould serves as Church Secretary, managing the daily operations of the church office and serving as the first point of contact for members and visitors seeking information or assistance.",
       "alec-ring": "Alec Ring serves as Music Director, leading the church music program and enhancing the liturgical worship of the community through sacred music and choral direction."
+    },
+    "quotes": {
+      "charles-rooney": {
+        "text": "It is Jesus in fact whom you seek when you dream of happiness; he is waiting for you when nothing else satisfies you; he is the beauty to which you are so attracted; it is he who provokes you with that thirst for fullness that will not let you settle for compromise…",
+        "source": "St. John Paul II"
+      }
     },
     "modal": {
       "contact": "Contact Information",
