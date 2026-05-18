@@ -49,11 +49,11 @@ Remove the old eCatholic web records:
 ## GitHub Pages Launch Steps
 
 Until launch, keep the GitHub Pages project URL build active with Vite `base`
-set to `/st-dom-yet-website/` and `VITE_SITE_URL` set to
-`https://jmmarquez2025.github.io/st-dom-yet-website`.
+set to `/st-dom-yt-website/` and `VITE_SITE_URL` set to
+`https://jmmarquez2025.github.io/st-dom-yt-website`.
 
 1. Merge/deploy the production-domain build where Vite `base` is `/` and `VITE_SITE_URL` is `https://saintdominic.org`.
-2. In GitHub Pages settings for `jmmarquez2025/st-dom-yet-website`, set the custom domain to `saintdominic.org`.
+2. In GitHub Pages settings for `jmmarquez2025/st-dom-yt-website`, set the custom domain to `saintdominic.org`.
 3. Update DNS at the authoritative DNS provider:
    - If staying on GKG DNS, first enable/use GKG DNS Zone Hosting, change nameservers to `NS3.GKG.NET` and `NS4.GKG.NET`, and recreate the preserved mail records plus the new GitHub Pages web records.
    - If using another DNS provider, create the same records there and point GKG nameservers to that provider.
