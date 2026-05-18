@@ -12,6 +12,21 @@ import Icon from "../components/Icon";
 import { PHOTOS } from "../constants/photos";
 import { X, Mail, Phone } from "lucide-react";
 
+// Avatars display at <=130px. Swap the full-size base image for the 480px
+// variant from scripts/generate-webp.mjs; on error (e.g. a CMS photo with no
+// generated variant) fall back to the original once.
+const avatarVariant = (photo) =>
+  typeof photo === "string" && /\.(webp|jpe?g)$/i.test(photo)
+    ? photo.replace(/\.(webp|jpe?g)$/i, "-480.$1")
+    : photo;
+
+const avatarFallback = (photo) => (e) => {
+  const img = e.currentTarget;
+  if (img.dataset.fellBack) return;
+  img.dataset.fellBack = "1";
+  img.src = photo;
+};
+
 export default function Staff() {
   const { t } = useTranslation();
   const { data: staffData } = useStaff();
@@ -55,7 +70,8 @@ export default function Staff() {
   const Avatar = ({ name, photo, size, dark }) => (
     photo ? (
       <img
-        src={photo}
+        src={avatarVariant(photo)}
+        onError={avatarFallback(photo)}
         alt={name}
         style={{
           width: size,
@@ -433,7 +449,7 @@ export default function Staff() {
               borderRadius: "16px 16px 0 0",
             }}>
               {modal.photo ? (
-                <img src={modal.photo} alt={modal.name} style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover", objectPosition: "top center", border: `3px solid ${T.gold}`, margin: "0 auto", display: "block" }} />
+                <img src={avatarVariant(modal.photo)} onError={avatarFallback(modal.photo)} alt={modal.name} style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover", objectPosition: "top center", border: `3px solid ${T.gold}`, margin: "0 auto", display: "block" }} />
               ) : (
                 <div style={{
                   width: 120, height: 120, borderRadius: "50%",
