@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const outDir = process.argv[2] || "dist";
-const siteUrl = (process.env.VITE_SITE_URL || "https://jmmarquez2025.github.io/st-dom-yet-website").replace(/\/$/, "");
+const siteUrl = (process.env.VITE_SITE_URL || "https://jmmarquez2025.github.io/st-dom-yt-website").replace(/\/$/, "");
 
 const pages = [
   ["/", "1.0", "weekly"],
@@ -61,7 +61,7 @@ writeFileSync(join(outDir, "robots.txt"), robots);
 const indexPath = join(outDir, "index.html");
 if (existsSync(indexPath)) {
   const html = readFileSync(indexPath, "utf8")
-    .replaceAll("https://jmmarquez2025.github.io/st-dom-yet-website", siteUrl)
+    .replaceAll("https://jmmarquez2025.github.io/st-dom-yt-website", siteUrl)
     .replaceAll("https://saintdominic.org", siteUrl);
   writeFileSync(indexPath, html);
 }

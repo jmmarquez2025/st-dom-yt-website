@@ -1,5 +1,5 @@
 const CACHE_NAME = "st-dominic-v4";
-const BASE = "/st-dom-yet-website/";
+const BASE = "/st-dom-yt-website/";
 
 // App shell files to precache on install
 const PRECACHE_URLS = [

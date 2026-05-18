@@ -57,7 +57,7 @@ The site uses a two-tier content system:
 
 ### Website Address
 
-- **Current GitHub Pages site:** https://jmmarquez2025.github.io/st-dom-yet-website/
+- **Current GitHub Pages site:** https://jmmarquez2025.github.io/st-dom-yt-website/
 - **Parish domain:** https://saintdominic.org/ remains on the existing site until the domain transfer is scheduled.
 
 ---

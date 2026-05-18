@@ -3,7 +3,7 @@
 Scope: senior-dev + Catholic-media-pro review. Generated 2026-05-12.
 Branch: `claude/amazing-kalam-ae6705`. Working tree: clean at start.
 
-Stack: React 18, Vite 6, react-router 7, react-i18next, Lenis, Lucide. PWA (hand-written sw.js). GitHub Pages base `/st-dom-yet-website/`. ~13.8k LOC, 23 pages, 31 components, 605-line `global.css`.
+Stack: React 18, Vite 6, react-router 7, react-i18next, Lenis, Lucide. PWA (hand-written sw.js). GitHub Pages base `/st-dom-yt-website/`. ~13.8k LOC, 23 pages, 31 components, 605-line `global.css`.
 
 Severity: **P0** ship-blocking, **P1** before next launch milestone, **P2** polish/backlog.
 
@@ -28,7 +28,7 @@ Severity: **P0** ship-blocking, **P1** before next launch milestone, **P2** poli
 
 | # | Sev | Area | Finding | File:line |
 |---|---|---|---|---|
-| B1 | P3 (deferred) | Brand surface = github.io | 42 instances hardcoded `jmmarquez2025.github.io/st-dom-yet-website`. **Per user 2026-05-12: no `saintdominic.org` cutover scheduled — GH Pages is the canonical surface.** `VITE_SITE_URL` parametrization already in place at `src/constants/config.js:71` + `scripts/generate-seo.mjs:5` for whenever cutover happens. No action now. | `index.html:13,17,20,56`; `public/sitemap.xml` (all 30 URLs); `public/manifest.json:5,6,12-14` |
+| B1 | P3 (deferred) | Brand surface = github.io | 42 instances hardcoded `jmmarquez2025.github.io/st-dom-yt-website`. **Per user 2026-05-12: no `saintdominic.org` cutover scheduled — GH Pages is the canonical surface.** `VITE_SITE_URL` parametrization already in place at `src/constants/config.js:71` + `scripts/generate-seo.mjs:5` for whenever cutover happens. No action now. | `index.html:13,17,20,56`; `public/sitemap.xml` (all 30 URLs); `public/manifest.json:5,6,12-14` |
 | B2 | P1 | Render-blocking Google Fonts | `<link rel="stylesheet" href="...fonts.googleapis...">` blocks first paint. Switch to preload + swap, or self-host. | `index.html:32` |
 | B3 | P2 | Hardcoded event date | JSON-LD Sunday Mass `startDate:"2026-04-12T..."` — works for recurring schema but freezes a date in markup. Move to runtime/build generation tied to liturgical calendar. | `index.html:71,83,95` |
 | B4 | P1 | OG image fixed to one photo | All social previews use `rose-window-opt.jpg`. Per-page `<Seo>` exists (`PageHeader heroSrc` passed to `Seo`) — verify it actually emits per-route OG. | `index.html:13,17`; `src/components/Seo.jsx` |
