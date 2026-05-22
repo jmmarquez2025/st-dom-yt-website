@@ -10,6 +10,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  VITE_PLAUSIBLE_DOMAIN: ${{ vars.VITE_PLAUSIBLE_DOMAIN }}
+
 concurrency:
   group: pages
   cancel-in-progress: true

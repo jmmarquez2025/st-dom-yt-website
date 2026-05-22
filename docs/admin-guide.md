@@ -551,9 +551,9 @@ The website is configured to use Plausible Analytics, a privacy-friendly analyti
 ### Setting Up Analytics
 
 1. Sign up at [plausible.io](https://plausible.io) (they offer a free trial).
-2. Register your domain (e.g., saintdominic.org).
-3. Send the domain name to the developer to configure.
-4. View your dashboard at plausible.io/saintdominic.org.
+2. Register the current site host: `jmmarquez2025.github.io`.
+3. View the dashboard at plausible.io/jmmarquez2025.github.io.
+4. When the parish domain transfer is scheduled, change the Plausible site domain to `saintdominic.org`.
 
 Until Plausible is set up, no visitor data is collected.
 
