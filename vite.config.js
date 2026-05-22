@@ -1,24 +1,24 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-function plausibleAnalytics() {
+function cloudflareWebAnalytics() {
   return {
-    name: "plausible-analytics",
+    name: "cloudflare-web-analytics",
     apply: "build",
     transformIndexHtml() {
-      const domain = process.env.VITE_PLAUSIBLE_DOMAIN?.trim();
+      const token = process.env.VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN?.trim();
 
-      if (!domain) return [];
+      if (!token) return [];
 
       return [
         {
           tag: "script",
           attrs: {
             defer: true,
-            "data-domain": domain,
-            src: "https://plausible.io/js/script.js",
+            src: "https://static.cloudflareinsights.com/beacon.min.js",
+            "data-cf-beacon": JSON.stringify({ token }),
           },
-          injectTo: "head",
+          injectTo: "body",
         },
       ];
     },
@@ -26,7 +26,7 @@ function plausibleAnalytics() {
 }
 
 export default defineConfig({
-  plugins: [react(), plausibleAnalytics()],
+  plugins: [react(), cloudflareWebAnalytics()],
   base: "/st-dom-yt-website/",
   // es2022 enables top-level await (used in src/i18n.js to lazy-load the
   // active locale chunk). Supported in Chrome 89+, Edge 89+, Firefox 89+,

@@ -9,15 +9,18 @@ import { CONFIG } from "../constants/config";
  */
 export default function Analytics() {
   useEffect(() => {
-    if (!CONFIG.plausibleDomain) return;
+    if (!CONFIG.cloudflareWebAnalyticsToken) return;
 
     // Avoid injecting duplicate scripts
-    if (document.querySelector('script[data-domain="' + CONFIG.plausibleDomain + '"]')) return;
+    if (document.querySelector("script[data-cf-beacon]")) return;
 
     const script = document.createElement("script");
     script.defer = true;
-    script.setAttribute("data-domain", CONFIG.plausibleDomain);
-    script.src = "https://plausible.io/js/script.js";
+    script.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    script.setAttribute(
+      "data-cf-beacon",
+      JSON.stringify({ token: CONFIG.cloudflareWebAnalyticsToken }),
+    );
     document.head.appendChild(script);
 
     return () => {

@@ -538,7 +538,7 @@ Changes to page headings, button labels, navigation items, and other structural 
 
 ## 15. Site Analytics
 
-The website is configured to use Plausible Analytics, a privacy-friendly analytics service that does not require a cookie consent banner.
+The website is configured to use Cloudflare Web Analytics, a free privacy-friendly analytics service that does not require a cookie consent banner.
 
 ### What Analytics Tell You
 
@@ -550,13 +550,15 @@ The website is configured to use Plausible Analytics, a privacy-friendly analyti
 
 ### Setting Up Analytics
 
-1. Sign up at [plausible.io](https://plausible.io) (they offer a free trial).
+1. In the Cloudflare dashboard, go to Web Analytics and select Add a site.
 2. Register the current site host: `jmmarquez2025.github.io`.
-3. If Plausible's checker asks for a test URL, use the full GitHub Pages preview URL: `https://jmmarquez2025.github.io/st-dom-yt-website/`.
-4. View the dashboard at plausible.io/jmmarquez2025.github.io.
-5. When the parish domain transfer is scheduled, change the Plausible site domain to `saintdominic.org`.
+3. Choose manual JavaScript snippet installation. Do not change DNS or move the parish domain yet.
+4. Copy the public site token from the `data-cf-beacon` snippet.
+5. Add the token to GitHub as `VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN`, then rerun the Deploy to GitHub Pages workflow.
+6. View reports in Cloudflare > Web Analytics after data appears.
+7. When the parish domain transfer is scheduled, update the Cloudflare Web Analytics site to `saintdominic.org` or create a new site token and update the GitHub variable.
 
-Until Plausible is set up, no visitor data is collected.
+Until the Cloudflare token is set, no visitor data is collected.
 
 ---
 
@@ -585,7 +587,7 @@ Until Plausible is set up, no visitor data is collected.
 |------|-------|-----|
 | Update Mass times | CMS Sheet > Schedule tab | Edit time values in relevant rows |
 | Update staff list | CMS Sheet > Staff tab | Add/remove/reorder rows |
-| Review analytics | plausible.io dashboard | Login and review traffic data |
+| Review analytics | Cloudflare Web Analytics | Login and review traffic data |
 | Update photos | Send to developer | Email new photos for optimization |
 
 ---
@@ -672,7 +674,7 @@ Contact the developer. Provide:
 | `VITE_SITE_URL` | Canonical URL used for SEO, sitemap, and robots.txt | Recommended |
 | `VITE_FLOCKNOTE_GIVING_URL` | Public Flocknote giving page URL | Recommended |
 | `VITE_WESHARE_URL` | Legacy online giving URL alias | Optional |
-| `VITE_PLAUSIBLE_DOMAIN` | Domain for Plausible analytics | Optional |
+| `VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN` | Public Cloudflare Web Analytics site token | Optional |
 | `VITE_BULLETIN_URL` | Current week's flipbook embed URL | Optional |
 | `VITE_YOUTUBE_CHANNEL_ID` | YouTube channel ID | Optional |
 | `VITE_YOUTUBE_EMBED_URL` | YouTube embed URL | Optional |

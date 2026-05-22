@@ -88,9 +88,9 @@ export const CONFIG = {
   // Leave empty to fall back to localStorage-only mode.
   adminCmsUrl: import.meta.env.VITE_ADMIN_CMS_URL || "",
 
-  // Analytics — Plausible (privacy-friendly, no cookie banner needed)
-  // Sign up at https://plausible.io and add your domain
-  plausibleDomain: import.meta.env.VITE_PLAUSIBLE_DOMAIN || "",
+  // Analytics — Cloudflare Web Analytics (privacy-friendly, no cookie banner needed)
+  // Public site token copied from the Cloudflare Web Analytics beacon snippet.
+  cloudflareWebAnalyticsToken: import.meta.env.VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN || "",
 
   // Church info
   phone: "(330) 783-1900",
