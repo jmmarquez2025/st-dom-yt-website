@@ -33,7 +33,26 @@
     "quickLinks": "Enlaces Rápidos",
     "contactTitle": "Contacto",
     "officeHours": "Horario de Oficina",
-    "rights": "Todos los Derechos Reservados"
+    "rights": "Todos los Derechos Reservados",
+    "groups": {
+      "visit": "Visitar",
+      "sacramentalLife": "Vida Sacramental",
+      "parishLife": "Vida Parroquial",
+      "about": "Nosotros"
+    },
+    "trustTitle": "Seguridad y Diócesis",
+    "trust": {
+      "diocese": "Diócesis Católica de Youngstown",
+      "safeEnvironment": "Ambiente Seguro",
+      "virtus": "VIRTUS Online"
+    }
+  },
+  "actionBar": {
+    "label": "Lo esencial de la parroquia",
+    "mass": "Misa",
+    "confession": "Confesión",
+    "call": "Llamar",
+    "schedule": "Horario"
   },
   "home": {
     "hero": {
@@ -331,6 +350,13 @@
         "Navidad — 25 de diciembre"
       ]
     },
+    "visitor": {
+      "sub": "¿Primera Vez Aquí?",
+      "title": "Comience con la Misa; luego le ayudamos",
+      "desc": "Si está visitando, regresando a la Iglesia o trayendo a su familia por primera vez, venga como está. La oficina parroquial puede ayudar con direcciones, accesibilidad, Confesión o los próximos pasos después de la Misa.",
+      "visit": "Planifique Su Visita",
+      "contact": "Llame a la Oficina"
+    },
     "cta": {
       "title": "Venga a Adorar con Nosotros",
       "desc": "Ya sea que nos acompañe a Misa, pase tiempo en oración ante el Santísimo Sacramento, o busque la gracia sanadora de la Confesión — siempre es bienvenido en Santo Domingo.",
@@ -379,6 +405,7 @@
   "staff": {
     "title": "Sacerdotes y Personal",
     "clickHint": "Haga clic para conocer más",
+    "flipBack": "Volver",
     "friars": {
       "sub": "Frailes Dominicos",
       "title": "Nuestros Sacerdotes"
@@ -719,6 +746,25 @@
     "comingSoon": "Las donaciones en línea se están configurando. Mientras tanto, por favor use uno de los métodos a continuación o contacte la oficina parroquial.",
     "contactOffice": "Llámenos para organizar su donación hoy.",
     "flocknoteNote": "Los detalles de pago se manejan en el sistema seguro de Flocknote. La Iglesia Santo Domingo no guarda información de tarjetas o cuentas bancarias en este sitio web.",
+    "clarityTitle": "Elija la donación que mejor le convenga",
+    "clarityDesc": "La mayoría de los feligreses usan Flocknote para la ofrenda recurrente, pero las donaciones únicas, memoriales y cheques por correo siguen siendo bienvenidos.",
+    "feeNote": "Las tarifas de procesamiento varían según el método de pago. Elija ACH/transferencia bancaria cuando esté disponible si desea que más de su donación llegue a la parroquia.",
+    "nextSub": "¿Necesita Ayuda?",
+    "nextTitle": "Próximos pasos para donar",
+    "next": {
+      "office": {
+        "title": "Llame a la Oficina",
+        "desc": "Pregunte sobre sobres, estados de cuenta anuales, donaciones memoriales o transferencias de acciones."
+      },
+      "mass": {
+        "title": "Ofrenda Dominical",
+        "desc": "¿Prefiere donar en persona? Traiga su ofrenda a cualquier Misa de fin de semana."
+      },
+      "register": {
+        "title": "Registrarse",
+        "desc": "Los nuevos feligreses pueden registrarse para que sus donaciones queden conectadas."
+      }
+    },
     "portalFeatures": {
       "oneTime": {
         "title": "Donación Única",
@@ -885,7 +931,27 @@
       "when4": "En peligro de muerte por enfermedad o lesión",
       "emergencyTitle": "¿Emergencia? Llámenos en Cualquier Momento",
       "emergencyDesc": "Si alguien está en peligro de muerte y necesita un sacerdote, por favor llame a la iglesia a cualquier hora.",
-      "ctaDesc": "Para organizar la Unción de los Enfermos para usted o un ser querido, contacte la oficina parroquial."
+      "callNow": "Llame Ahora",
+      "routineTitle": "Programe una Visita",
+      "routineDesc": "Para cirugía, enfermedad grave, cuidado en casa u hospitalización que no sea peligro inmediato de muerte, contacte la oficina y le ayudaremos a coordinar un sacerdote.",
+      "office": "Contacte la Oficina",
+      "ctaDesc": "Para organizar la Unción de los Enfermos para usted o un ser querido, contacte la oficina parroquial.",
+      "nextSub": "Cuidado Pastoral",
+      "nextTitle": "Próximos pasos útiles",
+      "next": {
+        "mass": {
+          "title": "Misa y Confesión",
+          "desc": "Vea horarios de Misa diaria, Confesión y Adoración."
+        },
+        "funerals": {
+          "title": "Funerales Católicos",
+          "desc": "Cuando ha ocurrido un fallecimiento, comience aquí para recibir ayuda."
+        },
+        "contact": {
+          "title": "Contacto",
+          "desc": "Comuníquese con la oficina para visitas a enfermos en casa u hospital."
+        }
+      }
     },
     "funerals": {
       "title": "Funerales Católicos",
@@ -911,7 +977,28 @@
         "desc": "Las oraciones finales en el cementerio, encomendando el cuerpo del difunto a la tierra y el alma a Dios."
       },
       "cta": "Organizar un Funeral",
-      "ctaDesc": "Contacte la oficina parroquial lo antes posible después del fallecimiento de un ser querido. Le guiaremos en cada paso."
+      "ctaDesc": "Contacte la oficina parroquial lo antes posible después del fallecimiento de un ser querido. Le guiaremos en cada paso.",
+      "urgentSub": "Cuando Ocurre un Fallecimiento",
+      "urgentTitle": "Llame a la parroquia antes de finalizar los planes",
+      "urgentDesc": "Un funeral católico se coordina con la familia, la funeraria y la parroquia. Por favor llámenos temprano para que un sacerdote o miembro del personal ayude con fechas, liturgia, música y próximos pasos.",
+      "callOffice": "Llame a la Oficina",
+      "contact": "Contáctenos",
+      "nextSub": "Cuidado para la Familia",
+      "nextTitle": "Próximos pasos funerales",
+      "next": {
+        "anointing": {
+          "title": "Unción de los Enfermos",
+          "desc": "Si alguien está gravemente enfermo o cerca de la muerte, llame por un sacerdote."
+        },
+        "mass": {
+          "title": "Misa y Confesión",
+          "desc": "Encuentre horarios regulares de oración y sacramentos."
+        },
+        "contact": {
+          "title": "Oficina Parroquial",
+          "desc": "Pregunte sobre planificación funeraria, registros y cuidado pastoral."
+        }
+      }
     }
   },
   "visit": {

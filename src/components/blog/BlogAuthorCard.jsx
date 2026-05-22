@@ -75,7 +75,7 @@ export default function BlogAuthorCard({ authorId }) {
               fontSize: 11,
               letterSpacing: 2,
               textTransform: "uppercase",
-              color: T.gold,
+              color: T.goldText,
               fontWeight: 600,
               marginBottom: 4,
               fontFamily: "'Source Sans 3', sans-serif",

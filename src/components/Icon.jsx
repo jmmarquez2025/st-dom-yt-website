@@ -7,6 +7,7 @@ import {
   Car, Baby, Languages, ParkingCircle, CreditCard, Repeat2,
   FileText, ExternalLink,
   Ruler, Building, Calendar, Maximize, ArrowUp,
+  PhoneCall, Compass, ArrowRight, HeartPulse, ClipboardList,
 } from "lucide-react";
 
 /**
@@ -22,6 +23,7 @@ const ICONS = {
   Car, Baby, Languages, ParkingCircle, CreditCard, Repeat2,
   FileText, ExternalLink,
   Ruler, Building, Calendar, Maximize, ArrowUp,
+  PhoneCall, Compass, ArrowRight, HeartPulse, ClipboardList,
 };
 
 /**

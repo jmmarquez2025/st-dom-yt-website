@@ -18,7 +18,8 @@ const SEARCH_INDEX = [
     titleKey: "nav.massTimes",
     title: "Mass & Confession Times",
     description: "Sunday, daily, and holy day Mass schedule, confession times, and adoration",
-    keywords: ["mass", "schedule", "confession", "sunday", "daily", "saturday", "adoration", "eucharist", "liturgy", "worship", "holy day", "reconciliation", "penance", "time", "hours"],
+    keywords: ["mass", "schedule", "confession", "sunday", "daily", "saturday", "adoration", "eucharist", "liturgy", "worship", "holy day", "reconciliation", "penance", "time", "hours", "today", "tomorrow", "church time"],
+    priority: 3,
   },
   {
     path: "/about",
@@ -60,14 +61,16 @@ const SEARCH_INDEX = [
     titleKey: "nav.contact",
     title: "Contact Us",
     description: "Contact St. Dominic Church — phone, email, address, and office hours",
-    keywords: ["contact", "phone", "email", "address", "office", "hours", "directions", "location", "map"],
+    keywords: ["contact", "phone", "email", "address", "office", "hours", "directions", "location", "map", "call", "help", "emergency"],
+    priority: 1,
   },
   {
     path: "/give",
     titleKey: "nav.give",
     title: "Online Giving",
     description: "Support St. Dominic Church through online donations and stewardship",
-    keywords: ["give", "donate", "offering", "tithe", "stewardship", "online giving", "contribution", "support", "collection"],
+    keywords: ["give", "donate", "offering", "tithe", "stewardship", "online giving", "contribution", "support", "collection", "flocknote", "recurring gift", "one time gift"],
+    priority: 1,
   },
   {
     path: "/sacraments",
@@ -109,14 +112,16 @@ const SEARCH_INDEX = [
     titleKey: "nav.anointing",
     title: "Anointing of the Sick",
     description: "The Sacrament of Anointing of the Sick for healing and comfort",
-    keywords: ["anointing", "sick", "healing", "hospital", "elderly", "dying", "last rites", "comfort", "prayer", "oil", "homebound"],
+    keywords: ["anointing", "sick", "healing", "hospital", "elderly", "dying", "last rites", "comfort", "prayer", "oil", "homebound", "emergency", "priest", "near death", "surgery"],
+    priority: 4,
   },
   {
     path: "/sacraments/funerals",
     titleKey: "nav.funerals",
     title: "Catholic Funerals",
     description: "Funeral planning, funeral Mass, and bereavement ministry",
-    keywords: ["funeral", "death", "burial", "mass of christian burial", "bereavement", "grief", "memorial", "vigil", "wake", "cemetery", "deceased"],
+    keywords: ["funeral", "death", "burial", "mass of christian burial", "bereavement", "grief", "memorial", "vigil", "wake", "cemetery", "deceased", "died", "passed away", "funeral home"],
+    priority: 4,
   },
   {
     path: "/visit",
@@ -199,7 +204,7 @@ function searchPages(query) {
     const titleScore = fuzzyMatch(q, page.title) * 4;
     const descScore = fuzzyMatch(q, page.description) * 2;
     const kwScore = Math.max(0, ...page.keywords.map((kw) => fuzzyMatch(q, kw))) * 3;
-    const total = titleScore + descScore + kwScore;
+    const total = titleScore + descScore + kwScore + (page.priority || 0);
     return { ...page, score: total };
   })
     .filter((p) => p.score > 0)

@@ -158,12 +158,7 @@ export default function Staff() {
     return (
       <div
         className="flip-card"
-        style={{ perspective: "1000px", height: 380, cursor: "pointer" }}
-        onClick={() => setFlipped(isFlipped ? null : person.id)}
-        role="button"
-        tabIndex={0}
-        aria-label={`${person.name} — ${isFlipped ? "click to flip back" : "click to learn more"}`}
-        onKeyDown={(e) => e.key === "Enter" && setFlipped(isFlipped ? null : person.id)}
+        style={{ perspective: "1000px", height: 380 }}
       >
         <div
           style={{
@@ -184,6 +179,7 @@ export default function Staff() {
               background: "#fff",
               border: `1px solid ${T.stone}`,
               borderRadius: 12,
+              cursor: "pointer",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -191,8 +187,23 @@ export default function Staff() {
               padding: "32px 24px",
               textAlign: "center",
               boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
+              fontFamily: "'Source Sans 3', sans-serif",
             }}
           >
+            <button
+              type="button"
+              onClick={() => setFlipped(person.id)}
+              aria-label={`${person.name}: ${t("staff.clickHint")}`}
+              style={{
+                position: "absolute",
+                inset: 0,
+                zIndex: 2,
+                background: "transparent",
+                border: "none",
+                borderRadius: 12,
+                cursor: "pointer",
+              }}
+            />
             <Avatar name={person.name} photo={person.photo} size={130} />
             <h3 style={{ fontSize: 21, fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, marginTop: 18, marginBottom: 8, color: T.softBlack, lineHeight: 1.2 }}>
               {person.name}
@@ -234,25 +245,46 @@ export default function Staff() {
                 {bioShort}
               </p>
             </div>
-            <button
-              onClick={(e) => { e.stopPropagation(); setModal({ ...person, group: "leadership" }); }}
-              style={{
-                marginTop: 20,
-                padding: "8px 20px",
-                fontSize: 12,
-                letterSpacing: 1.5,
-                textTransform: "uppercase",
-                fontWeight: 700,
-                fontFamily: "'Source Sans 3', sans-serif",
-                background: T.gold,
-                color: T.softBlack,
-                border: "none",
-                borderRadius: 20,
-                cursor: "pointer",
-              }}
-            >
-              {t("staff.viewDetails")}
-            </button>
+            <div style={{ display: "flex", justifyContent: "center", gap: 10, flexWrap: "wrap", marginTop: 20 }}>
+              <button
+                type="button"
+                onClick={() => setModal({ ...person, group: "leadership" })}
+                style={{
+                  padding: "8px 20px",
+                  fontSize: 12,
+                  letterSpacing: 1.5,
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  background: T.gold,
+                  color: T.softBlack,
+                  border: "none",
+                  borderRadius: 20,
+                  cursor: "pointer",
+                }}
+              >
+                {t("staff.viewDetails")}
+              </button>
+              <button
+                type="button"
+                onClick={() => setFlipped(null)}
+                style={{
+                  padding: "8px 16px",
+                  fontSize: 12,
+                  letterSpacing: 1.5,
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  background: "transparent",
+                  color: "#fff",
+                  border: "1px solid rgba(255,255,255,0.45)",
+                  borderRadius: 20,
+                  cursor: "pointer",
+                }}
+              >
+                {t("staff.flipBack")}
+              </button>
+            </div>
           </div>
         </div>
       </div>

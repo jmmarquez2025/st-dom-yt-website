@@ -81,8 +81,8 @@ export default function TextReveal({
       ref={ref}
       className={className}
       style={{ ...style, overflow: "hidden" }}
-      aria-label={text}
     >
+      <span className="sr-only">{text}</span>
       {parts.map((part, i) =>
         part === null ? (
           <br key={`br-${i}`} aria-hidden="true" />

@@ -8,6 +8,7 @@ import ParallaxSection from "../components/ParallaxSection";
 import DominicanDivider from "../components/DominicanDivider";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
+import { NextSteps, PastoralActionPanel } from "../components/PastoralActionPanel";
 
 export default function Give() {
   const { t } = useTranslation();
@@ -59,6 +60,15 @@ export default function Give() {
         <p style={{ fontSize: 16, color: T.warmGray, lineHeight: 1.8, textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
           {t("give.desc")}
         </p>
+        <PastoralActionPanel
+          eyebrow={t("give.sub")}
+          title={t("give.clarityTitle")}
+          description={t("give.clarityDesc")}
+          primaryLabel={t("give.flocknoteBtn")}
+          primaryHref={CONFIG.flocknoteGivingUrl}
+          secondaryLabel={t("give.next.office.title")}
+          secondaryHref={CONFIG.phoneLink}
+        />
       </Section>
 
       {/* Flocknote Online Giving */}
@@ -139,6 +149,9 @@ export default function Give() {
             <p style={{ fontSize: 12, color: T.warmGray, marginTop: 20, fontStyle: "italic" }}>
               {t("give.flocknoteNote")}
             </p>
+            <p style={{ fontSize: 12, color: T.warmGray, marginTop: 8 }}>
+              {t("give.feeNote")}
+            </p>
           </div>
         </div>
       </Section>
@@ -180,6 +193,31 @@ export default function Give() {
           </p>
         </div>
       </Section>
+
+      <NextSteps
+        eyebrow={t("give.nextSub")}
+        title={t("give.nextTitle")}
+        items={[
+          {
+            icon: "Phone",
+            title: t("give.next.office.title"),
+            description: t("give.next.office.desc"),
+            href: CONFIG.phoneLink,
+          },
+          {
+            icon: "Church",
+            title: t("give.next.mass.title"),
+            description: t("give.next.mass.desc"),
+            to: "/mass-times",
+          },
+          {
+            icon: "ClipboardList",
+            title: t("give.next.register.title"),
+            description: t("give.next.register.desc"),
+            to: "/register",
+          },
+        ]}
+      />
     </div>
   );
 }

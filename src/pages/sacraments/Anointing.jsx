@@ -8,6 +8,7 @@ import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
+import { NextSteps, PastoralActionPanel } from "../../components/PastoralActionPanel";
 
 export default function Anointing() {
   const { t } = useTranslation();
@@ -17,6 +18,19 @@ export default function Anointing() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Anointing of the Sick" description="The Sacrament of Anointing of the Sick at St. Dominic Church. For those who are seriously ill or facing surgery." image={PHOTOS.stockAnointing} />
       <PageHeader title={t("sacraments.anointing.title")} heroSrc={PHOTOS.stockAnointing} tall />
+
+      <Section bg={T.cream} style={{ padding: "clamp(32px, 6vw, 52px) 24px" }}>
+        <PastoralActionPanel
+          urgent
+          eyebrow={t("sacraments.anointing.emergencyTitle")}
+          title={CONFIG.phone}
+          description={t("sacraments.anointing.emergencyDesc")}
+          primaryLabel={t("sacraments.anointing.callNow")}
+          primaryHref={CONFIG.phoneLink}
+          secondaryLabel={t("sacraments.anointing.office")}
+          secondaryTo="/contact"
+        />
+      </Section>
 
       <Section bg={T.warmWhite}>
         <FadeSection>
@@ -76,20 +90,15 @@ export default function Anointing() {
 
       <Section bg={T.warmWhite}>
         <FadeSection>
-          <div style={{
-            background: `linear-gradient(135deg, ${T.burgundy} 0%, ${T.burgundyDark} 100%)`,
-            borderRadius: 4, padding: 48, textAlign: "center",
-          }}>
-            <h3 style={{ fontSize: 26, color: "#fff", marginBottom: 12, fontFamily: "'Cormorant Garamond', serif" }}>
-              {t("sacraments.anointing.emergencyTitle")}
-            </h3>
-            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", marginBottom: 20, lineHeight: 1.7 }}>
-              {t("sacraments.anointing.emergencyDesc")}
-            </p>
-            <a href={CONFIG.phoneLink} style={{ fontSize: 28, color: T.goldLight, fontWeight: 700, textDecoration: "none" }}>
-              {CONFIG.phone}
-            </a>
-          </div>
+          <PastoralActionPanel
+            eyebrow={t("sacraments.anointing.sub")}
+            title={t("sacraments.anointing.routineTitle")}
+            description={t("sacraments.anointing.routineDesc")}
+            primaryLabel={t("sacraments.anointing.office")}
+            primaryTo="/contact"
+            secondaryLabel={CONFIG.phone}
+            secondaryHref={CONFIG.phoneLink}
+          />
         </FadeSection>
       </Section>
 
@@ -101,6 +110,31 @@ export default function Anointing() {
           </div>
         </FadeSection>
       </Section>
+
+      <NextSteps
+        eyebrow={t("sacraments.anointing.nextSub")}
+        title={t("sacraments.anointing.nextTitle")}
+        items={[
+          {
+            icon: "Church",
+            title: t("sacraments.anointing.next.mass.title"),
+            description: t("sacraments.anointing.next.mass.desc"),
+            to: "/mass-times",
+          },
+          {
+            icon: "Heart",
+            title: t("sacraments.anointing.next.funerals.title"),
+            description: t("sacraments.anointing.next.funerals.desc"),
+            to: "/sacraments/funerals",
+          },
+          {
+            icon: "Phone",
+            title: t("sacraments.anointing.next.contact.title"),
+            description: t("sacraments.anointing.next.contact.desc"),
+            to: "/contact",
+          },
+        ]}
+      />
     </div>
   );
 }

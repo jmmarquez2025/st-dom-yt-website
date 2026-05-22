@@ -26,10 +26,34 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="apple-touch-icon" href="%BASE_URL%icons/icon-192.svg" />
+    <script>
+      (() => {
+        const base = "%BASE_URL%";
+        const currentPath = window.location.pathname.startsWith(base)
+          ? window.location.pathname.slice(Math.max(0, base.length - 1))
+          : window.location.pathname;
+        const route = currentPath.replace(/\/$/, "") || "/";
+        const heroByRoute = {
+          "/": "photos/aerial-interior-opt-1024.webp",
+          "/mass-times": "photos/architecture/DSC_0397-opt-1024.webp",
+          "/visit": "photos/rose-window-opt-1024.webp",
+          "/about": "photos/interior-nave-opt-1024.webp"
+        };
+        const hero = heroByRoute[route];
+        if (!hero) return;
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.type = "image/webp";
+        link.href = `${base}${hero}`;
+        link.fetchPriority = "high";
+        document.head.appendChild(link);
+      })();
+    </script>
     <!-- Font preloading (replaces render-blocking @import) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=optional" />
     <!-- Analytics: Plausible is loaded via src/components/Analytics.jsx when VITE_PLAUSIBLE_DOMAIN is set -->
     <script type="application/ld+json">
     {
@@ -63,45 +87,6 @@
       },
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "13:30", "description": "Church Office" }
-      ],
-      "event": [
-        {
-          "@type": "Event",
-          "name": "Sunday Mass",
-          "startDate": "2026-04-12T08:00:00-04:00",
-          "eventSchedule": {
-            "@type": "Schedule",
-            "byDay": "https://schema.org/Sunday",
-            "startTime": "08:00",
-            "repeatFrequency": "P1W"
-          },
-          "location": { "@type": "Place", "name": "St. Dominic Catholic Church" }
-        },
-        {
-          "@type": "Event",
-          "name": "Sunday Mass",
-          "startDate": "2026-04-12T10:30:00-04:00",
-          "eventSchedule": {
-            "@type": "Schedule",
-            "byDay": "https://schema.org/Sunday",
-            "startTime": "10:30",
-            "repeatFrequency": "P1W"
-          },
-          "location": { "@type": "Place", "name": "St. Dominic Catholic Church" }
-        },
-        {
-          "@type": "Event",
-          "name": "Misa en Español",
-          "startDate": "2026-04-12T13:00:00-04:00",
-          "eventSchedule": {
-            "@type": "Schedule",
-            "byDay": "https://schema.org/Sunday",
-            "startTime": "13:00",
-            "repeatFrequency": "P1W"
-          },
-          "inLanguage": "es",
-          "location": { "@type": "Place", "name": "St. Dominic Catholic Church" }
-        }
       ],
       "sameAs": [
         "https://www.youtube.com/fraynelson",

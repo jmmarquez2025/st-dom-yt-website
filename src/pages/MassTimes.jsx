@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
+import { CONFIG } from "../constants/config";
 import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
@@ -10,6 +11,9 @@ import ParallaxSection from "../components/ParallaxSection";
 import ScaleReveal from "../components/ScaleReveal";
 import { useSchedule } from "../cms/hooks";
 import Seo from "../components/Seo";
+import HeroImage from "../components/HeroImage";
+import { PastoralActionPanel } from "../components/PastoralActionPanel";
+import { buildMassTimesSchema } from "../utils/seoSchema";
 import { ChevronDown } from "lucide-react";
 
 /* ── Schedule Card ── */
@@ -236,6 +240,7 @@ export default function MassTimes() {
         title={t("massTimes.title")}
         description="Sunday and daily Mass schedule, Confession times, Examination of Conscience, and Eucharistic Adoration at St. Dominic Church, Youngstown OH."
         image={PHOTOS.homeHero}
+        schema={buildMassTimesSchema(schedule, CONFIG.siteUrl)}
       />
 
       {/* ════ Section 1: Hero Banner ════ */}
@@ -250,23 +255,11 @@ export default function MassTimes() {
           marginTop: 76,
         }}
       >
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: `url(${PHOTOS.archSanctuary})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center 40%",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(160deg, rgba(107,29,42,0.7), rgba(0,0,0,0.55))",
-          }}
+        <HeroImage
+          src={PHOTOS.archSanctuary}
+          overlay={0.55}
+          tint="rgba(107,29,42,0.7)"
+          position="center 40%"
         />
         <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 24px" }}>
           <div
@@ -306,6 +299,18 @@ export default function MassTimes() {
           </p>
         </div>
       </section>
+
+      <Section bg={T.cream} style={{ padding: "clamp(32px, 6vw, 52px) 24px" }}>
+        <PastoralActionPanel
+          eyebrow={t("massTimes.visitor.sub")}
+          title={t("massTimes.visitor.title")}
+          description={t("massTimes.visitor.desc")}
+          primaryLabel={t("massTimes.visitor.visit")}
+          primaryTo="/visit"
+          secondaryLabel={t("massTimes.visitor.contact")}
+          secondaryHref={CONFIG.phoneLink}
+        />
+      </Section>
 
       {/* ════ Section 2: Mass Schedule ════ */}
       <Section>

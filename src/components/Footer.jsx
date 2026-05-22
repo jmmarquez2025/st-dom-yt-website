@@ -32,23 +32,49 @@ function FooterLink({ to, children, style }) {
   );
 }
 
-const FOOTER_LINKS = [
-  { to: "/mass-times", key: "massTimes" },
-  { to: "/sacraments", key: "sacraments" },
-  { to: "/about", key: "about" },
-  { to: "/history", key: "history" },
-  { to: "/architecture", key: "architecture" },
-  { to: "/staff", key: "staff" },
-  { to: "/bulletin", key: "bulletin" },
-  { to: "/becoming-catholic", key: "becomingCatholic" },
-  { to: "/get-involved", key: "getInvolved" },
-  { to: "/register", key: "register" },
-  { to: "/blog", key: "blog" },
-  { to: "/faith-formation", key: "faithFormation" },
-  { to: "/events", key: "events" },
-  { to: "/connect", key: "connect" },
-  { to: "/contact", key: "contact" },
-  { to: "/give", key: "give" },
+const FOOTER_GROUPS = [
+  {
+    titleKey: "visit",
+    links: [
+      { to: "/visit", key: "visit" },
+      { to: "/mass-times", key: "massTimes" },
+      { to: "/bulletin", key: "bulletin" },
+      { to: "/contact", key: "contact" },
+    ],
+  },
+  {
+    titleKey: "sacramentalLife",
+    links: [
+      { to: "/sacraments", key: "sacraments" },
+      { to: "/becoming-catholic", key: "becomingCatholic" },
+      { to: "/sacraments/anointing", key: "anointing" },
+      { to: "/sacraments/funerals", key: "funerals" },
+    ],
+  },
+  {
+    titleKey: "parishLife",
+    links: [
+      { to: "/get-involved", key: "getInvolved" },
+      { to: "/register", key: "register" },
+      { to: "/faith-formation", key: "faithFormation" },
+      { to: "/events", key: "events" },
+    ],
+  },
+  {
+    titleKey: "about",
+    links: [
+      { to: "/about", key: "about" },
+      { to: "/history", key: "history" },
+      { to: "/architecture", key: "architecture" },
+      { to: "/staff", key: "staff" },
+    ],
+  },
+];
+
+const TRUST_LINKS = [
+  { href: "https://doy.org/", key: "diocese" },
+  { href: "https://doy.org/safe-environment/", key: "safeEnvironment" },
+  { href: "https://virtusonline.org/", key: "virtus" },
 ];
 
 export default function Footer() {
@@ -74,24 +100,31 @@ export default function Footer() {
         </div>
 
         {/* Quick links */}
-        <div>
-          <h3 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
+        <div style={{ gridColumn: "1 / -1" }}>
+          <h2 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
             {t("footer.quickLinks")}
-          </h3>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 16px" }}>
-            {FOOTER_LINKS.map((l) => (
-              <div key={l.to}>
-                <FooterLink
-                  to={l.to}
-                  style={{
-                    display: "inline-block",
-                    color: "rgba(255,255,255,0.7)", textDecoration: "none",
-                    fontSize: 14, padding: "6px 0",
-                    fontFamily: "'Source Sans 3', sans-serif",
-                  }}
-                >
-                  {t(`nav.${l.key}`)}
-                </FooterLink>
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "18px 24px" }}>
+            {FOOTER_GROUPS.map((group) => (
+              <div key={group.titleKey}>
+                <h3 style={{ color: "rgba(255,255,255,0.9)", fontSize: 12, letterSpacing: 1.7, textTransform: "uppercase", marginBottom: 6 }}>
+                  {t(`footer.groups.${group.titleKey}`)}
+                </h3>
+                {group.links.map((l) => (
+                  <div key={l.to}>
+                    <FooterLink
+                      to={l.to}
+                      style={{
+                        display: "inline-block",
+                        color: "rgba(255,255,255,0.7)", textDecoration: "none",
+                        fontSize: 14, padding: "4px 0",
+                        fontFamily: "'Source Sans 3', sans-serif",
+                      }}
+                    >
+                      {t(`nav.${l.key}`)}
+                    </FooterLink>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
@@ -99,9 +132,9 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h3 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
+          <h2 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
             {t("footer.contactTitle")}
-          </h3>
+          </h2>
           <p style={{ fontSize: 14, lineHeight: 2 }}>
             {CONFIG.address}
             <br />
@@ -114,6 +147,26 @@ export default function Footer() {
           <p style={{ fontSize: 13, marginTop: 8, color: "rgba(255,255,255,0.7)" }}>
             {t("footer.officeHours")}: {CONFIG.officeHours}
           </p>
+          <h2 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginTop: 24, marginBottom: 8 }}>
+            {t("footer.trustTitle")}
+          </h2>
+          {TRUST_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "block",
+                color: "rgba(255,255,255,0.76)",
+                fontSize: 14,
+                padding: "4px 0",
+                textDecoration: "none",
+              }}
+            >
+              {t(`footer.trust.${link.key}`)}
+            </a>
+          ))}
         </div>
       </div>
 

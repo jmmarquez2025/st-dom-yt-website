@@ -11,6 +11,15 @@ const DAY_BY_KEY = {
 };
 
 const MASS_TIME_RE = /\b\d{1,2}(?::\d{2})?\s*(?:AM|PM)\b/gi;
+const WEEKDAY_KEYS = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+];
 
 export function parseMassTime(str) {
   const match = String(str || "").match(/\b(\d{1,2})(?::(\d{2}))?\s*(AM|PM)\b/i);
@@ -78,4 +87,33 @@ export function getNextMassFromSchedule(schedule, now = new Date()) {
   }
 
   return null;
+}
+
+export function getTodayKey(now = new Date()) {
+  return WEEKDAY_KEYS[now.getDay()];
+}
+
+export function rowsForDay(rows = [], dayKey = getTodayKey()) {
+  return rows.filter(([key]) => {
+    if (key === dayKey) return true;
+    if (dayKey === "sunday" && key === "sundayEspanol") return true;
+    if (dayKey === "saturday" && key === "saturdayVigil") return true;
+    return false;
+  });
+}
+
+export function joinScheduleTimes(rows = []) {
+  return rows.map(([, time]) => time).filter(Boolean).join(" · ");
+}
+
+export function getTodayScheduleSummary(schedule, now = new Date()) {
+  const todayKey = getTodayKey(now);
+  return {
+    todayKey,
+    masses: joinScheduleTimes([
+      ...rowsForDay(schedule?.dailyMass, todayKey),
+      ...rowsForDay(schedule?.sundayMass, todayKey),
+    ]),
+    confessions: joinScheduleTimes(rowsForDay(schedule?.confession, todayKey)),
+  };
 }

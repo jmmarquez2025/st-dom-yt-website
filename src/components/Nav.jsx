@@ -39,22 +39,13 @@ function NavLink({ to, children, style, ...props }) {
 const NAV_ITEMS = [
   { key: "home", to: "/" },
   {
-    key: "about",
-    children: [
-      { key: "about", to: "/about" },
-      { key: "history", to: "/history" },
-      { key: "architecture", to: "/architecture" },
-      { key: "gallery", to: "/gallery" },
-      { key: "staff", to: "/staff" },
-    ],
-  },
-  {
     key: "visit",
     children: [
       { key: "visit", to: "/visit" },
       { key: "massTimes", to: "/mass-times" },
-      { key: "events", to: "/events" },
       { key: "contact", to: "/contact" },
+      { key: "bulletin", to: "/bulletin" },
+      { key: "events", to: "/events" },
     ],
   },
   {
@@ -69,16 +60,25 @@ const NAV_ITEMS = [
       { key: "funerals", to: "/sacraments/funerals" },
     ],
   },
-  { key: "blog", to: "/blog" },
+  { key: "becomingCatholic", to: "/becoming-catholic" },
   {
     key: "getInvolved",
     children: [
       { key: "getInvolved", to: "/get-involved" },
       { key: "register", to: "/register" },
-      { key: "bulletin", to: "/bulletin" },
-      { key: "becomingCatholic", to: "/becoming-catholic" },
       { key: "faithFormation", to: "/faith-formation" },
       { key: "connect", to: "/connect" },
+      { key: "blog", to: "/blog" },
+    ],
+  },
+  {
+    key: "about",
+    children: [
+      { key: "about", to: "/about" },
+      { key: "history", to: "/history" },
+      { key: "architecture", to: "/architecture" },
+      { key: "gallery", to: "/gallery" },
+      { key: "staff", to: "/staff" },
     ],
   },
 ];

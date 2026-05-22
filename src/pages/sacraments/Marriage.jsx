@@ -65,7 +65,7 @@ export default function Marriage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
             {["step1", "step2", "step3"].map((key) => (
               <div key={key} style={{ background: T.warmWhite, padding: 28, borderRadius: 4, border: `1px solid ${T.stone}`, borderTop: `4px solid ${T.gold}` }}>
-                <h4 style={{ fontSize: 18, color: T.burgundy, marginBottom: 8 }}>{t(`sacraments.marriage.${key}.title`)}</h4>
+                <h3 style={{ fontSize: 18, color: T.burgundy, marginBottom: 8 }}>{t(`sacraments.marriage.${key}.title`)}</h3>
                 <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>{t(`sacraments.marriage.${key}.desc`)}</p>
               </div>
             ))}

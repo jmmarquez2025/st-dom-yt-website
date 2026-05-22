@@ -21,29 +21,7 @@ import ParallaxSection from "../components/ParallaxSection";
 import TextReveal from "../components/TextReveal";
 import { AnimatedDivider } from "../components/TextReveal";
 import { PHOTOS } from "../constants/photos";
-
-const WEEKDAY_KEYS = [
-  "sunday",
-  "monday",
-  "tuesday",
-  "wednesday",
-  "thursday",
-  "friday",
-  "saturday",
-];
-
-function rowsForToday(rows = [], todayKey) {
-  return rows.filter(([key]) => {
-    if (key === todayKey) return true;
-    if (todayKey === "sunday" && key === "sundayEspanol") return true;
-    if (todayKey === "saturday" && key === "saturdayVigil") return true;
-    return false;
-  });
-}
-
-function joinTimes(rows) {
-  return rows.map(([, time]) => time).filter(Boolean).join(" · ");
-}
+import { getTodayScheduleSummary } from "../utils/schedule";
 
 export default function Home() {
   const { t, i18n } = useTranslation();
@@ -51,12 +29,7 @@ export default function Home() {
   const { data: announcements } = useAnnouncements();
   const { data: events } = useEvents();
   const { data: schedule } = useSchedule();
-  const todayKey = WEEKDAY_KEYS[new Date().getDay()];
-  const todayMasses = joinTimes([
-    ...rowsForToday(schedule?.dailyMass, todayKey),
-    ...rowsForToday(schedule?.sundayMass, todayKey),
-  ]);
-  const todayConfessions = joinTimes(rowsForToday(schedule?.confession, todayKey));
+  const { masses: todayMasses, confessions: todayConfessions } = getTodayScheduleSummary(schedule);
   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${CONFIG.mapsQuery}`;
 
   return (
@@ -495,7 +468,7 @@ export default function Home() {
                     fontSize: 12,
                     letterSpacing: 4,
                     textTransform: "uppercase",
-                    color: T.goldText,
+                    color: T.goldLight,
                     marginBottom: 20,
                     fontWeight: 600,
                   }}
@@ -521,7 +494,7 @@ export default function Home() {
                     fontSize: 13,
                     letterSpacing: 2,
                     textTransform: "uppercase",
-                    color: T.goldText,
+                    color: T.goldLight,
                     fontStyle: "normal",
                     paddingLeft: 28,
                   }}
@@ -543,7 +516,7 @@ export default function Home() {
                 >
                   {t("home.priests.title")}
                 </h2>
-                <p style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.7)", marginBottom: 28 }}>
+                <p style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.86)", marginBottom: 28 }}>
                   {t("home.priests.desc")}
                 </p>
                 <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
@@ -563,7 +536,7 @@ export default function Home() {
                     alt="Province of St. Joseph Shield"
                     style={{ width: 40, height: 40, objectFit: "contain" }}
                   />
-                  <span style={{ fontSize: 12, letterSpacing: 1.5, textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>
+                  <span style={{ fontSize: 12, letterSpacing: 1.5, textTransform: "uppercase", color: "rgba(255,255,255,0.86)" }}>
                     Dominican Province of St. Joseph
                   </span>
                 </div>

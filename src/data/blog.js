@@ -11,10 +11,10 @@ const B = import.meta.env.BASE_URL;
 
 export const BLOG_CATEGORIES = {
   homilies:        { icon: "BookOpen",      color: "#6B1D2A", label: "Homilies",          labelEs: "Homilias" },
-  "dominican-life": { icon: "Cross",        color: "#7B5EA7", label: "Dominican Life",    labelEs: "Vida Dominicana" },
-  "parish-news":   { icon: "Newspaper",     color: "#5B7FA6", label: "Parish News",       labelEs: "Noticias" },
-  theology:        { icon: "BookOpenText",  color: "#4A7C59", label: "Faith & Theology",  labelEs: "Fe y Teologia" },
-  community:       { icon: "Handshake",     color: "#C5A55A", label: "Community",          labelEs: "Comunidad" },
+  "dominican-life": { icon: "Cross",        color: "#4D3E78", label: "Dominican Life",    labelEs: "Vida Dominicana" },
+  "parish-news":   { icon: "Newspaper",     color: "#315F86", label: "Parish News",       labelEs: "Noticias" },
+  theology:        { icon: "BookOpenText",  color: "#3F6E4F", label: "Faith & Theology",  labelEs: "Fe y Teologia" },
+  community:       { icon: "Handshake",     color: "#7A5A0F", label: "Community",          labelEs: "Comunidad" },
 };
 
 export const blogPosts = [

@@ -9,6 +9,7 @@ import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
 import DominicanDivider from "../../components/DominicanDivider";
+import { NextSteps, PastoralActionPanel } from "../../components/PastoralActionPanel";
 
 export default function Funerals() {
   const { t } = useTranslation();
@@ -18,6 +19,19 @@ export default function Funerals() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Catholic Funerals" description="Catholic funeral services at St. Dominic Church. Vigil, Funeral Mass, and Rite of Committal information." image={PHOTOS.stockFunerals} />
       <PageHeader title={t("sacraments.funerals.title")} heroSrc={PHOTOS.stockFunerals} tall />
+
+      <Section bg={T.cream} style={{ padding: "clamp(32px, 6vw, 52px) 24px" }}>
+        <PastoralActionPanel
+          urgent
+          eyebrow={t("sacraments.funerals.urgentSub")}
+          title={t("sacraments.funerals.urgentTitle")}
+          description={t("sacraments.funerals.urgentDesc")}
+          primaryLabel={t("sacraments.funerals.callOffice")}
+          primaryHref={CONFIG.phoneLink}
+          secondaryLabel={t("sacraments.funerals.contact")}
+          secondaryTo="/contact"
+        />
+      </Section>
 
       <Section bg={T.warmWhite}>
         <FadeSection>
@@ -65,7 +79,7 @@ export default function Funerals() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
             {["rite1", "rite2", "rite3"].map((key) => (
               <div key={key} style={{ background: T.warmWhite, padding: 28, borderRadius: 4, border: `1px solid ${T.stone}` }}>
-                <h4 style={{ fontSize: 18, color: T.burgundy, marginBottom: 8 }}>{t(`sacraments.funerals.${key}.title`)}</h4>
+                <h3 style={{ fontSize: 18, color: T.burgundy, marginBottom: 8 }}>{t(`sacraments.funerals.${key}.title`)}</h3>
                 <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>{t(`sacraments.funerals.${key}.desc`)}</p>
               </div>
             ))}
@@ -88,6 +102,31 @@ export default function Funerals() {
           </div>
         </FadeSection>
       </Section>
+
+      <NextSteps
+        eyebrow={t("sacraments.funerals.nextSub")}
+        title={t("sacraments.funerals.nextTitle")}
+        items={[
+          {
+            icon: "HeartPulse",
+            title: t("sacraments.funerals.next.anointing.title"),
+            description: t("sacraments.funerals.next.anointing.desc"),
+            to: "/sacraments/anointing",
+          },
+          {
+            icon: "Church",
+            title: t("sacraments.funerals.next.mass.title"),
+            description: t("sacraments.funerals.next.mass.desc"),
+            to: "/mass-times",
+          },
+          {
+            icon: "Phone",
+            title: t("sacraments.funerals.next.contact.title"),
+            description: t("sacraments.funerals.next.contact.desc"),
+            to: "/contact",
+          },
+        ]}
+      />
     </div>
   );
 }

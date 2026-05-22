@@ -22,7 +22,7 @@ export default function ResponsivePicture({
         alt={alt}
         loading={loading}
         decoding={decoding}
-        fetchpriority={fetchPriority}
+        fetchPriority={fetchPriority}
         style={style}
         className={className}
         onLoad={onLoad}
@@ -53,7 +53,7 @@ export default function ResponsivePicture({
         alt={alt}
         loading={loading}
         decoding={decoding}
-        fetchpriority={fetchPriority}
+        fetchPriority={fetchPriority}
         style={style}
         className={className}
         onLoad={onLoad}

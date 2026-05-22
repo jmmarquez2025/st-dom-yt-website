@@ -74,7 +74,7 @@ export default function BlogBody({ blocks, isFirstPost = true }) {
                       fontSize: 12,
                       letterSpacing: 2,
                       textTransform: "uppercase",
-                      color: T.gold,
+                      color: T.goldText,
                       fontStyle: "normal",
                       marginTop: 12,
                       fontFamily: "'Source Sans 3', sans-serif",

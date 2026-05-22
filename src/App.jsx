@@ -8,6 +8,7 @@ import ScrollProgress from "./components/ScrollProgress";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PageSkeleton from "./components/PageSkeleton";
 import Analytics from "./components/Analytics";
+import ParishActionBar from "./components/ParishActionBar";
 import AnnouncementBanner from "./announcements/AnnouncementBanner";
 import AnnouncementPopup from "./announcements/AnnouncementPopup";
 import { pullAll, installAutoSync, isConfigured as adminCmsConfigured } from "./cms/adminSync";
@@ -105,6 +106,7 @@ function AppRoutes() {
         </Suspense>
       </main>
       <Footer />
+      <ParishActionBar />
     </>
   );
 }

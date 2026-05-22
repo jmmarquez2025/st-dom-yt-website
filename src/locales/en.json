@@ -33,7 +33,26 @@
     "quickLinks": "Quick Links",
     "contactTitle": "Contact",
     "officeHours": "Office Hours",
-    "rights": "All Rights Reserved"
+    "rights": "All Rights Reserved",
+    "groups": {
+      "visit": "Visit",
+      "sacramentalLife": "Sacramental Life",
+      "parishLife": "Parish Life",
+      "about": "About"
+    },
+    "trustTitle": "Safety & Diocese",
+    "trust": {
+      "diocese": "Catholic Diocese of Youngstown",
+      "safeEnvironment": "Safe Environment",
+      "virtus": "VIRTUS Online"
+    }
+  },
+  "actionBar": {
+    "label": "Parish essentials",
+    "mass": "Mass",
+    "confession": "Confession",
+    "call": "Call",
+    "schedule": "Schedule"
   },
   "home": {
     "hero": {
@@ -331,6 +350,13 @@
         "Christmas — December 25"
       ]
     },
+    "visitor": {
+      "sub": "First Time Here?",
+      "title": "Start with Mass, then let us help",
+      "desc": "If you are visiting, returning to the Church, or bringing family for the first time, come as you are. The parish office can help with directions, accessibility, Confession, or next steps after Mass.",
+      "visit": "Plan Your Visit",
+      "contact": "Call the Office"
+    },
     "cta": {
       "title": "Come Worship with Us",
       "desc": "Whether you're joining us for Mass, spending time in prayer before the Blessed Sacrament, or seeking the healing grace of Confession — you are always welcome at St. Dominic.",
@@ -379,6 +405,7 @@
   "staff": {
     "title": "Priests & Staff",
     "clickHint": "Click to learn more",
+    "flipBack": "Back",
     "friars": {
       "sub": "Dominican Friars",
       "title": "Our Priests"
@@ -719,6 +746,25 @@
     "comingSoon": "Online giving is being configured. In the meantime, please use one of the methods below or contact the church office.",
     "contactOffice": "Call us to arrange your gift today.",
     "flocknoteNote": "Payment details are handled by Flocknote's secure checkout. St. Dominic Church does not store card or bank information on this website.",
+    "clarityTitle": "Choose the gift that fits",
+    "clarityDesc": "Most parishioners use Flocknote for recurring offertory, but one-time gifts, memorial gifts, and mailed checks remain welcome.",
+    "feeNote": "Processing fees vary by payment method. Choose ACH/bank transfer when available if you want more of your gift to reach the parish.",
+    "nextSub": "Need Help?",
+    "nextTitle": "Giving next steps",
+    "next": {
+      "office": {
+        "title": "Call the Office",
+        "desc": "Ask about envelopes, annual statements, memorial gifts, or stock transfers."
+      },
+      "mass": {
+        "title": "Sunday Offertory",
+        "desc": "Prefer in person? Bring your gift to any weekend Mass."
+      },
+      "register": {
+        "title": "Register",
+        "desc": "New parishioners can register so giving records stay connected."
+      }
+    },
     "portalFeatures": {
       "oneTime": {
         "title": "One-Time Gifts",
@@ -885,7 +931,27 @@
       "when4": "In danger of death from illness or injury",
       "emergencyTitle": "Emergency? Call Us Anytime",
       "emergencyDesc": "If someone is in danger of death and needs a priest, please call the church at any hour.",
-      "ctaDesc": "To arrange Anointing of the Sick for yourself or a loved one, contact the church office."
+      "callNow": "Call Now",
+      "routineTitle": "Schedule a Visit",
+      "routineDesc": "For surgery, serious illness, homebound care, or a hospital visit that is not an immediate danger of death, contact the office and we will help arrange a priest.",
+      "office": "Contact the Office",
+      "ctaDesc": "To arrange Anointing of the Sick for yourself or a loved one, contact the church office.",
+      "nextSub": "Pastoral Care",
+      "nextTitle": "Helpful next steps",
+      "next": {
+        "mass": {
+          "title": "Mass & Confession",
+          "desc": "See daily Mass, Confession, and Adoration times."
+        },
+        "funerals": {
+          "title": "Catholic Funerals",
+          "desc": "When death has occurred, start here for funeral help."
+        },
+        "contact": {
+          "title": "Contact",
+          "desc": "Reach the parish office for homebound or hospital visits."
+        }
+      }
     },
     "funerals": {
       "title": "Catholic Funerals",
@@ -911,7 +977,28 @@
         "desc": "The final prayers at the cemetery, commending the body of the deceased to the earth and the soul to God."
       },
       "cta": "Arranging a Funeral",
-      "ctaDesc": "Contact the church office as soon as possible after the death of a loved one. We will guide you through every step."
+      "ctaDesc": "Contact the church office as soon as possible after the death of a loved one. We will guide you through every step.",
+      "urgentSub": "When Death Occurs",
+      "urgentTitle": "Call the parish before finalizing plans",
+      "urgentDesc": "A Catholic funeral is coordinated with the family, funeral home, and parish. Please call us early so a priest or staff member can help with dates, liturgy, music, and next steps.",
+      "callOffice": "Call the Office",
+      "contact": "Contact Us",
+      "nextSub": "Care for the Family",
+      "nextTitle": "Funeral next steps",
+      "next": {
+        "anointing": {
+          "title": "Anointing of the Sick",
+          "desc": "If someone is gravely ill or near death, call for a priest."
+        },
+        "mass": {
+          "title": "Mass & Confession",
+          "desc": "Find regular parish prayer and sacramental times."
+        },
+        "contact": {
+          "title": "Parish Office",
+          "desc": "Ask about funeral planning, records, and pastoral care."
+        }
+      }
     }
   },
   "visit": {

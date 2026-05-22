@@ -39,7 +39,7 @@ export default function About() {
               fontSize: 12,
               letterSpacing: 4,
               textTransform: "uppercase",
-              color: T.goldText,
+              color: T.goldLight,
               marginBottom: 16,
               fontWeight: 600,
             }}
@@ -85,7 +85,7 @@ export default function About() {
                   fontSize: "clamp(80px, 12vw, 120px)",
                   fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 700,
-                  color: T.stone,
+                  color: T.warmGray,
                   lineHeight: 1,
                   marginBottom: 8,
                 }}

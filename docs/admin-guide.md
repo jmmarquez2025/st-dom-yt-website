@@ -162,6 +162,8 @@ Delete the row or change the time to something like "Suspended" — the site wil
 
 > **Tip:** The Mass times also appear on the Home page in the "Next Mass" countdown widget. This reads from the same Schedule data automatically.
 
+> **Important:** The mobile "Mass / Confession / Call" strip, Home page essentials, and Mass Times structured data all read from the same Schedule tab. After changing Mass or Confession times, check the Home page and Mass Times page on a phone-sized screen.
+
 ---
 
 ## 5. Managing Staff and Friars
@@ -480,6 +482,8 @@ The Give page provides information about supporting the parish financially and l
 
 Use the public Giving URL, not the admin/action-center URL. The website should never collect card or bank details directly; payment details stay inside Flocknote's secure checkout.
 
+The Give page now explains one-time gifts, recurring gifts, payment methods, processing-fee awareness, annual statements, and non-online giving methods. If Flocknote funds or fee language change, ask the developer to update both English and Spanish copy.
+
 ---
 
 ## 13. Photos and Images
@@ -682,6 +686,13 @@ Contact the developer. Provide:
 | `npm run preview` | Preview the production build locally |
 | `npm run lint` | Check code quality |
 | `npm run images` | Generate WebP versions of photos |
+
+### Parish UX Guardrails
+
+- Keep the current GitHub Pages URL as canonical until the parish domain transfer is explicitly scheduled.
+- Keep Mass, Confession, Anointing, Funerals, Contact, and Give within one tap on mobile.
+- External safety links in the footer point to the Catholic Diocese of Youngstown Safe Environment page and VIRTUS Online. Verify those links during each major content audit.
+- Any new structural text must be added to both `src/locales/en.json` and `src/locales/es.json`.
 
 ### Deployment
 

@@ -456,12 +456,12 @@ export default function Register() {
                 }}>
                   <CheckCircle size={40} color="#2e7d32" />
                 </div>
-                <h3 style={{
+                <h2 style={{
                   fontSize: 28, color: "#2e7d32", fontWeight: 600,
                   fontFamily: "'Cormorant Garamond', serif", marginBottom: 12,
                 }}>
                   {statusMessage || t("register.successTitle")}
-                </h3>
+                </h2>
                 <p style={{ fontSize: 16, color: "#388e3c", lineHeight: 1.7, maxWidth: 400, margin: "0 auto" }}>
                   {t("register.successDesc")}
                 </p>

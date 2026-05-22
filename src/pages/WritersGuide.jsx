@@ -873,7 +873,7 @@ function WritingTips() {
                   border: `1px solid ${T.stone}`,
                 }}
               >
-                <h4
+                <h3
                   style={{
                     fontSize: 13,
                     letterSpacing: 2,
@@ -885,7 +885,7 @@ function WritingTips() {
                   }}
                 >
                   Using the Built-in Editor
-                </h4>
+                </h3>
                 <ul
                   style={{
                     listStyle: "none",
