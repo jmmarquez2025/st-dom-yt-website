@@ -18,7 +18,7 @@
 9. [The Blog System](#9-the-blog-system)
 10. [The Contact Form](#10-the-contact-form)
 11. [The Parish Registration Form](#11-the-parish-registration-form)
-12. [Online Giving (WeShare)](#12-online-giving-weshare)
+12. [Online Giving (Flocknote)](#12-online-giving-flocknote)
 13. [Photos and Images](#13-photos-and-images)
 14. [Translations (English and Spanish)](#14-translations-english-and-spanish)
 15. [Site Analytics](#15-site-analytics)
@@ -466,18 +466,19 @@ Open the registration Google Sheet. Each new registration adds a row. Follow up 
 
 ---
 
-## 12. Online Giving (WeShare)
+## 12. Online Giving (Flocknote)
 
-The Give page provides information about supporting the parish financially. If a WeShare account is configured, visitors see a direct link to the online giving portal.
+The Give page provides information about supporting the parish financially and links visitors to the parish's public Flocknote giving portal.
 
-### Setting Up WeShare
+### Setting Up Flocknote Giving
 
-1. Sign up for a WeShare account for the parish at wesharegiving.org.
-2. Configure your giving categories (Sunday collection, building fund, etc.).
-3. Copy your parish's giving page URL.
-4. Send it to the developer to add to the site configuration.
+1. In Flocknote, enable Online Giving.
+2. Configure public funds such as Sunday Offertory, Building Fund, Food Pantry, or other parish-approved categories.
+3. Customize the public Giving Page with the parish logo, message, and brand color.
+4. Copy the public Giving URL from the Giving Page settings or the fund's public page settings.
+5. Add that URL to `VITE_FLOCKNOTE_GIVING_URL`.
 
-Once configured, the Give page will show a prominent "Give Online" button that takes visitors directly to WeShare.
+Use the public Giving URL, not the admin/action-center URL. The website should never collect card or bank details directly; payment details stay inside Flocknote's secure checkout.
 
 ---
 
@@ -664,7 +665,8 @@ Contact the developer. Provide:
 | `VITE_ADMIN_CMS_URL` | Apps Script URL for staff dashboard cloud sync | Recommended |
 | `VITE_STAFF_PASSPHRASE` | Staff dashboard write passphrase | Recommended |
 | `VITE_SITE_URL` | Canonical URL used for SEO, sitemap, and robots.txt | Recommended |
-| `VITE_WESHARE_URL` | WeShare giving page URL | Optional |
+| `VITE_FLOCKNOTE_GIVING_URL` | Public Flocknote giving page URL | Recommended |
+| `VITE_WESHARE_URL` | Legacy online giving URL alias | Optional |
 | `VITE_PLAUSIBLE_DOMAIN` | Domain for Plausible analytics | Optional |
 | `VITE_BULLETIN_URL` | Current week's flipbook embed URL | Optional |
 | `VITE_YOUTUBE_CHANNEL_ID` | YouTube channel ID | Optional |

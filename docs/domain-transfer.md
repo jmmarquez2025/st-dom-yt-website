@@ -10,6 +10,9 @@ Prepared for the migration from eCatholic to the GitHub Pages-hosted St. Dominic
 - Email is Google Workspace and must be preserved.
 - eCatholic will keep the current site/DNS active until the cancellation form is submitted.
 - eCatholic Payments is bundled with the eCatholic hosting plan and is not part of this transfer.
+- The new site links online giving through Flocknote. Before cancelling eCatholic,
+  verify the public Flocknote giving URL works in a private browser and is set in
+  `VITE_FLOCKNOTE_GIVING_URL`.
 
 ## Records To Preserve
 
@@ -63,7 +66,7 @@ set to `/st-dom-yt-website/` and `VITE_SITE_URL` set to
    - `dig saintdominic.org MX`
 5. In GitHub Pages settings, wait for the TLS certificate to issue, then enforce HTTPS.
 6. Verify `https://saintdominic.org/`, `https://www.saintdominic.org/`, `/sitemap.xml`, and `/robots.txt`.
-7. Only after the new site is live and verified, coordinate any eCatholic cancellation date. Do not cancel eCatholic before online giving/payment migration is settled.
+7. Only after the new site is live and verified, coordinate any eCatholic cancellation date. Do not cancel eCatholic before the Flocknote giving page is live, tested without admin login, and linked from `/give`.
 
 ## References
 

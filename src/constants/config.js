@@ -22,8 +22,8 @@
  *    Execute as: Me | Who has access: Anyone
  * 5. Copy the URL below.
  *
- * ── WeShare Online Giving ──
- * When you have a WeShare account, paste the giving-page URL below.
+ * ── Flocknote Online Giving ──
+ * Use the public Flocknote giving URL, not the admin/action-center URL.
  *
  * ── Google Sheets CMS ──
  * 1. Create a Google Sheet with tabs: Staff, Schedule, Ministries, Announcements
@@ -34,6 +34,12 @@
  * 4. Paste it below. The site will fetch live data from the sheet.
  *    If the sheet is unavailable, bundled static data is used as fallback.
  */
+
+const DEFAULT_FLOCKNOTE_GIVING_URL = "https://stdominicchurch.flocknote.com/give";
+const flocknoteGivingUrl =
+  import.meta.env.VITE_FLOCKNOTE_GIVING_URL ||
+  import.meta.env.VITE_WESHARE_URL ||
+  DEFAULT_FLOCKNOTE_GIVING_URL;
 
 export const CONFIG = {
   // Google Apps Script web-app URL (leave empty to fall back to mailto)
@@ -48,8 +54,10 @@ export const CONFIG = {
   // the Apps Script. Leave empty to keep the no-cors fire-and-forget path.
   formProxyUrl: import.meta.env.VITE_FORM_PROXY_URL || "",
 
-  // WeShare online giving page
-  weShareUrl: import.meta.env.VITE_WESHARE_URL || "",
+  // Public Flocknote online giving page. VITE_WESHARE_URL remains supported
+  // as a legacy alias for old deployments.
+  flocknoteGivingUrl,
+  weShareUrl: flocknoteGivingUrl,
 
   // Google Sheets CMS — paste your published Sheet ID here
   cmsSheetId: import.meta.env.VITE_CMS_SHEET_ID || "",

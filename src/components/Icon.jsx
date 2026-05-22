@@ -4,7 +4,8 @@ import {
   MapPin, Phone, Clock, Mail, Droplets, Wheat, FireExtinguisher,
   Gem, Bird, Church, DoorOpen, Armchair, BookOpenText, Handshake,
   Newspaper, Gift, TrendingUp, Search, CircleDot,
-  Car, Baby, Languages, ParkingCircle,
+  Car, Baby, Languages, ParkingCircle, CreditCard, Repeat2,
+  FileText, ExternalLink,
   Ruler, Building, Calendar, Maximize, ArrowUp,
 } from "lucide-react";
 
@@ -18,7 +19,8 @@ const ICONS = {
   MapPin, Phone, Clock, Mail, Droplets, Wheat, FireExtinguisher,
   Gem, Bird, Church, DoorOpen, Armchair, BookOpenText, Handshake,
   Newspaper, Gift, TrendingUp, Search, CircleDot,
-  Car, Baby, Languages, ParkingCircle,
+  Car, Baby, Languages, ParkingCircle, CreditCard, Repeat2,
+  FileText, ExternalLink,
   Ruler, Building, Calendar, Maximize, ArrowUp,
 };
 

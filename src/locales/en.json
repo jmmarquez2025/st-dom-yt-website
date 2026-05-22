@@ -713,12 +713,30 @@
     "desc": "Your financial support helps St. Dominic Church continue its mission of preaching, teaching, and serving. Every gift — large or small — helps sustain our liturgies, ministries, and outreach programs.",
     "quote": "\"Each must do as already determined, without sadness or compulsion, for God loves a cheerful giver.\"",
     "quoteSrc": "— 2 Corinthians 9:7 (NABRE)",
-    "onlineTitle": "Give Online with WeShare",
-    "onlineDesc": "WeShare is a safe, convenient way to make one-time or recurring donations to St. Dominic Church. You can give anytime from your computer or mobile device.",
-    "weShareBtn": "Give Now via WeShare",
-    "comingSoon": "Online giving is coming soon. In the meantime, please use one of the methods below or contact the church office.",
+    "onlineTitle": "Give Online with Flocknote",
+    "onlineDesc": "Flocknote is a safe, convenient way to make one-time or recurring donations to St. Dominic Church. You can give anytime from your computer or mobile device.",
+    "flocknoteBtn": "Give Now with Flocknote",
+    "comingSoon": "Online giving is being configured. In the meantime, please use one of the methods below or contact the church office.",
     "contactOffice": "Call us to arrange your gift today.",
-    "weShareNote": "Powered by WeShare. Your information is secure and encrypted.",
+    "flocknoteNote": "Payment details are handled by Flocknote's secure checkout. St. Dominic Church does not store card or bank information on this website.",
+    "portalFeatures": {
+      "oneTime": {
+        "title": "One-Time Gifts",
+        "desc": "Give once to support parish needs."
+      },
+      "recurring": {
+        "title": "Recurring Giving",
+        "desc": "Set a weekly or monthly gift."
+      },
+      "payments": {
+        "title": "Card or ACH",
+        "desc": "Use debit, credit, or bank transfer."
+      },
+      "statements": {
+        "title": "Giving Records",
+        "desc": "Access donor history and statements."
+      }
+    },
     "otherSub": "Other Ways",
     "otherTitle": "Other Ways to Give",
     "methods": {

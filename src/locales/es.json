@@ -713,12 +713,30 @@
     "desc": "Su apoyo financiero ayuda a la Iglesia Santo Domingo a continuar su misión de predicar, enseñar y servir. Cada donación — grande o pequeña — ayuda a sostener nuestras liturgias, ministerios y programas de alcance.",
     "quote": "\"Cada uno dé según lo que haya decidido en su corazón, no de mala gana ni por obligación, porque Dios ama al que da con alegría.\"",
     "quoteSrc": "— 2 Corintios 9:7",
-    "onlineTitle": "Done en Línea con WeShare",
-    "onlineDesc": "WeShare es una forma segura y conveniente de hacer donaciones únicas o recurrentes a la Iglesia Santo Domingo. Puede donar en cualquier momento desde su computadora o dispositivo móvil.",
-    "weShareBtn": "Done Ahora por WeShare",
-    "comingSoon": "Las donaciones en línea estarán disponibles pronto. Mientras tanto, por favor use uno de los métodos a continuación o contacte la oficina parroquial.",
+    "onlineTitle": "Done en Línea con Flocknote",
+    "onlineDesc": "Flocknote es una forma segura y conveniente de hacer donaciones únicas o recurrentes a la Iglesia Santo Domingo. Puede donar en cualquier momento desde su computadora o dispositivo móvil.",
+    "flocknoteBtn": "Done Ahora con Flocknote",
+    "comingSoon": "Las donaciones en línea se están configurando. Mientras tanto, por favor use uno de los métodos a continuación o contacte la oficina parroquial.",
     "contactOffice": "Llámenos para organizar su donación hoy.",
-    "weShareNote": "Powered by WeShare. Su información está segura y encriptada.",
+    "flocknoteNote": "Los detalles de pago se manejan en el sistema seguro de Flocknote. La Iglesia Santo Domingo no guarda información de tarjetas o cuentas bancarias en este sitio web.",
+    "portalFeatures": {
+      "oneTime": {
+        "title": "Donación Única",
+        "desc": "Done una vez para apoyar la parroquia."
+      },
+      "recurring": {
+        "title": "Donación Recurrente",
+        "desc": "Establezca una donación semanal o mensual."
+      },
+      "payments": {
+        "title": "Tarjeta o ACH",
+        "desc": "Use débito, crédito o transferencia bancaria."
+      },
+      "statements": {
+        "title": "Registros",
+        "desc": "Acceda a historial y estados de donación."
+      }
+    },
     "otherSub": "Otras Formas",
     "otherTitle": "Otras Formas de Donar",
     "methods": {
