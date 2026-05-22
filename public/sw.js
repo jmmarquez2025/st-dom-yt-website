@@ -1,4 +1,4 @@
-const CACHE_NAME = "st-dominic-v4";
+const CACHE_NAME = "st-dominic-v5";
 const BASE = "/st-dom-yt-website/";
 
 // App shell files to precache on install
