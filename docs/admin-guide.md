@@ -552,8 +552,9 @@ The website is configured to use Plausible Analytics, a privacy-friendly analyti
 
 1. Sign up at [plausible.io](https://plausible.io) (they offer a free trial).
 2. Register the current site host: `jmmarquez2025.github.io`.
-3. View the dashboard at plausible.io/jmmarquez2025.github.io.
-4. When the parish domain transfer is scheduled, change the Plausible site domain to `saintdominic.org`.
+3. If Plausible's checker asks for a test URL, use the full GitHub Pages preview URL: `https://jmmarquez2025.github.io/st-dom-yt-website/`.
+4. View the dashboard at plausible.io/jmmarquez2025.github.io.
+5. When the parish domain transfer is scheduled, change the Plausible site domain to `saintdominic.org`.
 
 Until Plausible is set up, no visitor data is collected.
 

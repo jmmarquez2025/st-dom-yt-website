@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { CONFIG } from "../constants/config";
 
 /**
- * Analytics — injects the Plausible script tag if a domain is configured.
+ * Analytics — fallback injection for dev or builds without the static head tag.
  *
- * Reads CONFIG.plausibleDomain (set via VITE_PLAUSIBLE_DOMAIN env var).
- * If the domain is empty or not set, no script is loaded and no tracking occurs.
+ * Production builds add the static snippet in vite.config.js so verification
+ * tools can find it in page source. This guard prevents duplicate scripts.
  */
 export default function Analytics() {
   useEffect(() => {
