@@ -9,6 +9,7 @@ import ParallaxSection from "../components/ParallaxSection";
 import ScaleReveal from "../components/ScaleReveal";
 import TextReveal from "../components/TextReveal";
 import Seo from "../components/Seo";
+import PremiumPageActions from "../components/PremiumPageActions";
 import { PHOTOS } from "../constants/photos";
 
 function HistoryPhoto({ src, alt, caption, side }) {
@@ -164,6 +165,33 @@ export default function History() {
           {t("history.heroDesc")}
         </p>
       </StickyHero>
+
+      <PremiumPageActions
+        overlap
+        eyebrow={t("history.sub")}
+        title={t("history.title")}
+        items={[
+          {
+            title: t("nav.architecture"),
+            description: t("arch.hero.desc"),
+            to: "/architecture",
+            icon: "Building",
+            primary: true,
+          },
+          {
+            title: t("nav.gallery"),
+            description: t("gallery.title"),
+            to: "/gallery",
+            icon: "Maximize",
+          },
+          {
+            title: t("nav.visit"),
+            description: t("visit.hero.desc"),
+            to: "/visit",
+            icon: "MapPin",
+          },
+        ]}
+      />
 
       <StickyScrub
         image={PHOTOS.historyExteriorBw || PHOTOS.historyHero}

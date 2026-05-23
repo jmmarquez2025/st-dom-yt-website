@@ -8,6 +8,8 @@ import {
   FileText, ExternalLink,
   Ruler, Building, Calendar, Maximize, ArrowUp,
   PhoneCall, Compass, ArrowRight, HeartPulse, ClipboardList,
+  CalendarDays, ChevronRight, RefreshCw, Star,
+  Camera, Video, MessageCircle, Briefcase,
 } from "lucide-react";
 
 /**
@@ -24,6 +26,12 @@ const ICONS = {
   FileText, ExternalLink,
   Ruler, Building, Calendar, Maximize, ArrowUp,
   PhoneCall, Compass, ArrowRight, HeartPulse, ClipboardList,
+  CalendarDays, ChevronRight, RefreshCw, Star,
+  Facebook: Globe,
+  Instagram: Camera,
+  Youtube: Video,
+  Twitter: MessageCircle,
+  Linkedin: Briefcase,
 };
 
 /**

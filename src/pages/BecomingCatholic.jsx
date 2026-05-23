@@ -9,6 +9,7 @@ import PageHeader from "../components/PageHeader";
 import ParallaxSection from "../components/ParallaxSection";
 import DominicanDivider from "../components/DominicanDivider";
 import Seo from "../components/Seo";
+import PremiumPageActions from "../components/PremiumPageActions";
 
 export default function BecomingCatholic() {
   const { t } = useTranslation();
@@ -23,6 +24,33 @@ export default function BecomingCatholic() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Becoming Catholic" description="Interested in becoming Catholic? Learn about OCIA (formerly RCIA) and the journey of faith at St. Dominic Church, Youngstown OH." image={PHOTOS.stockRcia} />
       <PageHeader title={t("becomingCatholic.title")} heroSrc={PHOTOS.stockRcia} tall />
+
+      <PremiumPageActions
+        overlap
+        eyebrow={t("becomingCatholic.intro.sub")}
+        title={t("becomingCatholic.contact.title")}
+        items={[
+          {
+            icon: "Phone",
+            title: t("becomingCatholic.contact.title"),
+            description: CONFIG.phone,
+            href: CONFIG.phoneLink,
+            primary: true,
+          },
+          {
+            icon: "ClipboardList",
+            title: t("register.title"),
+            description: t("register.desc"),
+            to: "/register",
+          },
+          {
+            icon: "Church",
+            title: t("nav.massTimes"),
+            description: t("massTimes.hero.desc"),
+            to: "/mass-times",
+          },
+        ]}
+      />
 
       {/* ════ Intro ════ */}
       <Section>

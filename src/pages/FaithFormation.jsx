@@ -4,6 +4,7 @@ import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
+import PremiumPageActions from "../components/PremiumPageActions";
 import ParallaxSection from "../components/ParallaxSection";
 import DominicanDivider from "../components/DominicanDivider";
 import Seo from "../components/Seo";
@@ -72,6 +73,32 @@ export default function FaithFormation() {
         title={t("faithFormation.title")}
         heroSrc={PHOTOS.faithFormationHero}
         tall
+      />
+      <PremiumPageActions
+        overlap
+        eyebrow={t("faithFormation.intro.sub")}
+        title={t("faithFormation.intro.title")}
+        items={[
+          {
+            title: t("faithFormation.resources.title"),
+            description: t("faithFormation.resources.desc"),
+            href: "#faith-resources",
+            icon: "BookOpenText",
+            primary: true,
+          },
+          {
+            title: t("nav.becomingCatholic"),
+            description: t("becomingCatholic.intro.desc"),
+            to: "/becoming-catholic",
+            icon: "Church",
+          },
+          {
+            title: t("nav.blog"),
+            description: t("blog.hero.desc"),
+            to: "/blog",
+            icon: "Newspaper",
+          },
+        ]}
       />
 
       {/* ════ Intro ════ */}
@@ -160,7 +187,7 @@ export default function FaithFormation() {
       </ParallaxSection>
 
       {/* ════ Dominican Resources ════ */}
-      <Section bg={T.warmWhite}>
+      <Section id="faith-resources" bg={T.warmWhite}>
         <FadeSection>
           <SectionTitle sub={t("faithFormation.resources.sub")}>
             {t("faithFormation.resources.title")}

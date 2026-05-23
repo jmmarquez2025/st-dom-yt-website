@@ -12,9 +12,9 @@ import ScaleReveal from "../components/ScaleReveal";
 import { useSchedule } from "../cms/hooks";
 import Seo from "../components/Seo";
 import HeroImage from "../components/HeroImage";
-import { PastoralActionPanel } from "../components/PastoralActionPanel";
 import { buildMassTimesSchema } from "../utils/seoSchema";
 import { ChevronDown } from "lucide-react";
+import PremiumPageActions from "../components/PremiumPageActions";
 
 /* ── Schedule Card ── */
 function ScheduleCard({ title, rows, accent = T.burgundy, t }) {
@@ -233,6 +233,8 @@ export default function MassTimes() {
   );
 
   const holyDays = t("massTimes.holyDays.days", { returnObjects: true });
+  const scheduleSummary = (rows) =>
+    rows.map(([dayKey, time]) => `${t(`schedule.${dayKey}`)} ${time}`).join(" · ");
 
   return (
     <div>
@@ -300,17 +302,32 @@ export default function MassTimes() {
         </div>
       </section>
 
-      <Section bg={T.cream} style={{ padding: "clamp(32px, 6vw, 52px) 24px" }}>
-        <PastoralActionPanel
-          eyebrow={t("massTimes.visitor.sub")}
-          title={t("massTimes.visitor.title")}
-          description={t("massTimes.visitor.desc")}
-          primaryLabel={t("massTimes.visitor.visit")}
-          primaryTo="/visit"
-          secondaryLabel={t("massTimes.visitor.contact")}
-          secondaryHref={CONFIG.phoneLink}
-        />
-      </Section>
+      <PremiumPageActions
+        overlap
+        eyebrow={t("massTimes.visitor.sub")}
+        title={t("massTimes.visitor.title")}
+        items={[
+          {
+            icon: "Church",
+            title: t("massTimes.visitor.visit"),
+            description: scheduleSummary(sundayMass),
+            to: "/visit",
+            primary: true,
+          },
+          {
+            icon: "Cross",
+            title: t("massTimes.confession.title"),
+            description: scheduleSummary(confession),
+            to: "/contact",
+          },
+          {
+            icon: "Phone",
+            title: t("massTimes.visitor.contact"),
+            description: CONFIG.phone,
+            href: CONFIG.phoneLink,
+          },
+        ]}
+      />
 
       {/* ════ Section 2: Mass Schedule ════ */}
       <Section>

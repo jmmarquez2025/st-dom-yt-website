@@ -10,6 +10,7 @@ import ScaleReveal from "../components/ScaleReveal";
 import TextReveal from "../components/TextReveal";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
+import PremiumPageActions from "../components/PremiumPageActions";
 import { PHOTOS } from "../constants/photos";
 
 /* ── Reusable helpers (same patterns as History) ── */
@@ -210,6 +211,33 @@ export default function Architecture() {
           {t("arch.hero.desc")}
         </p>
       </StickyHero>
+
+      <PremiumPageActions
+        overlap
+        eyebrow={t("arch.hero.sub")}
+        title={t("arch.title")}
+        items={[
+          {
+            title: t("nav.gallery"),
+            description: t("gallery.title"),
+            to: "/gallery",
+            icon: "Maximize",
+            primary: true,
+          },
+          {
+            title: t("nav.about"),
+            description: t("about.history.p2"),
+            to: "/about",
+            icon: "BookOpenText",
+          },
+          {
+            title: t("nav.visit"),
+            description: t("visit.hero.desc"),
+            to: "/visit",
+            icon: "MapPin",
+          },
+        ]}
+      />
 
       <StickyScrub
         image={PHOTOS.archSanctuary || PHOTOS.interiorNave || PHOTOS.archHero}

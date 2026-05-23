@@ -10,6 +10,7 @@ import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
 import DominicanDivider from "../../components/DominicanDivider";
 import { NextSteps, PastoralActionPanel } from "../../components/PastoralActionPanel";
+import SacramentPageActions from "../../components/SacramentPageActions";
 
 export default function Funerals() {
   const { t } = useTranslation();
@@ -19,6 +20,7 @@ export default function Funerals() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Catholic Funerals" description="Catholic funeral services at St. Dominic Church. Vigil, Funeral Mass, and Rite of Committal information." image={PHOTOS.stockFunerals} />
       <PageHeader title={t("sacraments.funerals.title")} heroSrc={PHOTOS.stockFunerals} tall />
+      <SacramentPageActions sacramentKey="funerals" icon="Heart" />
 
       <Section bg={T.cream} style={{ padding: "clamp(32px, 6vw, 52px) 24px" }}>
         <PastoralActionPanel

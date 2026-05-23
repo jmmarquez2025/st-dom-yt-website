@@ -1,0 +1,65 @@
+import { useNavigate } from "react-router-dom";
+import { T } from "../constants/theme";
+import Icon from "./Icon";
+
+export default function PremiumPageActions({ eyebrow, title, items = [], overlap = false }) {
+  const navigate = useNavigate();
+
+  const renderItem = (item) => {
+    const content = (
+      <>
+        <span className="premium-page-actions__icon">
+          <Icon name={item.icon || "ArrowRight"} size={22} color={item.primary ? T.softBlack : T.burgundy} />
+        </span>
+        <span className="premium-page-actions__copy">
+          <strong>{item.title}</strong>
+          <span>{item.description}</span>
+        </span>
+        <Icon name={item.external ? "ExternalLink" : "ArrowRight"} size={16} color={item.primary ? T.softBlack : T.burgundy} />
+      </>
+    );
+
+    const className = `premium-page-actions__item${item.primary ? " premium-page-actions__item--primary" : ""}`;
+
+    if (item.href) {
+      return (
+        <a
+          key={`${item.title}-${item.href}`}
+          href={item.href}
+          target={item.external ? "_blank" : undefined}
+          rel={item.external ? "noopener noreferrer" : undefined}
+          className={className}
+        >
+          {content}
+        </a>
+      );
+    }
+
+    return (
+      <button
+        key={`${item.title}-${item.to}`}
+        type="button"
+        onClick={() => navigate(item.to)}
+        className={className}
+      >
+        {content}
+      </button>
+    );
+  };
+
+  return (
+    <section className={`premium-page-actions${overlap ? " premium-page-actions--overlap" : ""}`}>
+      <div className="premium-page-actions__inner">
+        {(eyebrow || title) && (
+          <div className="premium-page-actions__heading">
+            {eyebrow && <div>{eyebrow}</div>}
+            {title && <h2>{title}</h2>}
+          </div>
+        )}
+        <div className="premium-page-actions__grid">
+          {items.map(renderItem)}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -2,6 +2,7 @@ import { T } from "../constants/theme";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
+import PremiumPageActions from "../components/PremiumPageActions";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import { PHOTOS } from "../constants/photos";
@@ -34,8 +35,34 @@ export default function Connect() {
         image={PHOTOS.homeHero}
       />
       <PageHeader title="Connect With Us" heroSrc={PHOTOS.homeHero} />
+      <PremiumPageActions
+        overlap
+        eyebrow="Stay in Touch"
+        title="Choose the fastest way to connect"
+        items={[
+          {
+            title: "Follow Our Parish",
+            description: "Daily updates, homilies, events, and parish life.",
+            href: "#social-links",
+            icon: "Globe",
+            primary: true,
+          },
+          {
+            title: "Call the Office",
+            description: CONFIG.phone,
+            href: CONFIG.phoneLink,
+            icon: "Phone",
+          },
+          {
+            title: "Mass & Confession",
+            description: "Plan your next visit around the weekly schedule.",
+            to: "/mass-times",
+            icon: "Church",
+          },
+        ]}
+      />
 
-      <Section>
+      <Section id="social-links">
         <FadeSection>
           <SectionTitle sub="Stay in Touch">Follow Our Parish</SectionTitle>
           <p

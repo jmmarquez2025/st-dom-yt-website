@@ -9,6 +9,7 @@ import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
 import DominicanDivider from "../../components/DominicanDivider";
+import SacramentPageActions from "../../components/SacramentPageActions";
 
 export default function FirstCommunion() {
   const { t } = useTranslation();
@@ -18,6 +19,7 @@ export default function FirstCommunion() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="First Holy Communion" description="First Holy Communion preparation at St. Dominic Church. Program details, requirements, and registration information." image={PHOTOS.stockEucharist} />
       <PageHeader title={t("sacraments.firstCommunion.title")} heroSrc={PHOTOS.stockEucharist} tall />
+      <SacramentPageActions sacramentKey="firstCommunion" icon="Wheat" />
 
       <Section bg={T.warmWhite}>
         <FadeSection>

@@ -25,7 +25,8 @@
     "gallery": "Gallery",
     "faithFormation": "Faith Formation",
     "blog": "Blog",
-    "connect": "Connect"
+    "connect": "Connect",
+    "more": "More"
   },
   "footer": {
     "subtitle": "Catholic Church · Youngstown, OH",
@@ -61,7 +62,8 @@
       "location": "Youngstown, Ohio",
       "ctaVisit": "Plan Your Visit",
       "ctaMass": "Mass & Confession Times",
-      "ctaBecoming": "Interested in Becoming Catholic?"
+      "ctaBecoming": "Interested in Becoming Catholic?",
+      "proofLabel": "Parish at a glance"
     },
     "essentials": {
       "sub": "Parish Essentials",
@@ -222,6 +224,11 @@
       "load": "Load Vatican News",
       "loading": "Loading Vatican News...",
       "privacy": "This loads a Vatican News widget from vaticannews.va."
+    },
+    "formation": {
+      "sub": "Faith Formation",
+      "title": "Keep Growing After Sunday",
+      "desc": "Follow trusted Catholic teaching, parish updates, and resources for prayer throughout the week."
     },
     "cards": {
       "visitTitle": "Visit Us",
@@ -599,7 +606,11 @@
       "copied": "Copied!"
     },
     "toc": "Table of Contents",
-    "writtenBy": "Written by"
+    "writtenBy": "Written by",
+    "postActions": {
+      "readArticle": "Read Article",
+      "allPosts": "All Reflections"
+    }
   },
   "getInvolved": {
     "title": "Get Involved",
@@ -718,13 +729,19 @@
     "submit": "Send Message",
     "sending": "Sending…",
     "requiredError": "This field is required.",
+    "emailError": "Please enter a valid email address.",
+    "phoneError": "Please enter a valid phone number.",
     "privacy": "Your message is sent to the parish office only. Please do not include passwords, payment information, or urgent medical details.",
     "success": "Thank you! Your message has been sent. We'll be in touch soon.",
     "successFallback": "If you don't hear back within 2 business days, please call the parish office.",
     "error": "Something went wrong. Please try calling us or sending an email directly.",
+    "errorSummary": "Please fix the highlighted fields before sending.",
+    "timeoutError": "Request timed out. Please try again or call the parish office.",
+    "sendErrorWithReason": "Couldn't send: {{reason}}. Please try again or call the parish office.",
     "infoTitle": "Church Information",
     "addressLabel": "Address",
     "phoneLabel": "Phone",
+    "emailLabel": "Email",
     "fax": "Fax",
     "officeHours": "Office Hours",
     "sendAnother": "Send Another Message",
@@ -932,6 +949,7 @@
       "emergencyTitle": "Emergency? Call Us Anytime",
       "emergencyDesc": "If someone is in danger of death and needs a priest, please call the church at any hour.",
       "callNow": "Call Now",
+      "cta": "Arrange Anointing",
       "routineTitle": "Schedule a Visit",
       "routineDesc": "For surgery, serious illness, homebound care, or a hospital visit that is not an immediate danger of death, contact the office and we will help arrange a priest.",
       "office": "Contact the Office",
@@ -1209,10 +1227,18 @@
     "sending": "Submitting...",
     "privacy": "Registration details are sent to the parish office only. Please do not include passwords, payment information, or urgent medical details.",
     "error": "Something went wrong. Please try again or call the church office.",
+    "errorSummary": "Please fix the highlighted fields before submitting.",
     "successTitle": "Registration Received!",
     "successDesc": "Thank you for registering at St. Dominic Church. We will be in touch soon to welcome you personally.",
     "successFallback": "If you don't hear back within 2 business days, please call the parish office.",
-    "registerAnother": "Register Another Family"
+    "registerAnother": "Register Another Family",
+    "timeoutError": "Request timed out. Please try again or call the parish office.",
+    "sendErrorWithReason": "Couldn't send: {{reason}}. Please try again or call the parish office.",
+    "steps": {
+      "personal": "Personal",
+      "contact": "Contact",
+      "church": "Church"
+    }
   },
   "events": {
     "title": "Church Events",

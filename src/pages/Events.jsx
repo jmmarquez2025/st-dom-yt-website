@@ -4,8 +4,10 @@ import { T } from "../constants/theme";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
+import PremiumPageActions from "../components/PremiumPageActions";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
+import { CONFIG } from "../constants/config";
 import { PHOTOS } from "../constants/photos";
 import { useEvents } from "../cms/hooks";
 
@@ -55,6 +57,32 @@ export default function Events() {
         image={PHOTOS.homeHero}
       />
       <PageHeader title={t("events.title")} />
+      <PremiumPageActions
+        overlap
+        eyebrow={t("events.sub")}
+        title={t("events.upcomingTitle")}
+        items={[
+          {
+            title: t("events.upcomingTitle"),
+            description: t("events.noneFound"),
+            href: "#events-list",
+            icon: "CalendarDays",
+            primary: true,
+          },
+          {
+            title: t("nav.bulletin"),
+            description: t("bulletin.hero.desc"),
+            to: "/bulletin",
+            icon: "Newspaper",
+          },
+          {
+            title: t("home.essentials.contact"),
+            description: CONFIG.phone,
+            href: CONFIG.phoneLink,
+            icon: "Phone",
+          },
+        ]}
+      />
 
       <style>{`
         .event-card {
@@ -89,7 +117,7 @@ export default function Events() {
       `}</style>
 
       {/* Filter bar */}
-      <Section>
+      <Section id="events-list">
         <FadeSection>
           <SectionTitle sub={t("events.sub")}>{t("events.upcomingTitle")}</SectionTitle>
 

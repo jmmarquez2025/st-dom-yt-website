@@ -7,6 +7,7 @@ import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import Seo from "../components/Seo";
 import { PHOTOS } from "../constants/photos";
+import PremiumPageActions from "../components/PremiumPageActions";
 import { CheckCircle, AlertCircle, UserPlus, ChevronDown, ChevronUp, Loader2, Heart, Users, Home as HomeIcon, Church } from "lucide-react";
 
 /* ── Validation helpers ── */
@@ -15,12 +16,12 @@ const PHONE_RE = /^[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+
 
 const errorStyle = { fontSize: 12, color: "#c0392b", marginTop: 4, fontFamily: "'Source Sans 3', sans-serif" };
 
-function validateEmail(v) {
-  if (v && !EMAIL_RE.test(v)) return "Please enter a valid email address.";
+function validateEmail(v, message) {
+  if (v && !EMAIL_RE.test(v)) return message;
   return "";
 }
-function validatePhone(v) {
-  if (v && !PHONE_RE.test(v)) return "Please enter a valid phone number.";
+function validatePhone(v, message) {
+  if (v && !PHONE_RE.test(v)) return message;
   return "";
 }
 
@@ -230,11 +231,11 @@ function SacramentPill({ label, checked, onChange }) {
 }
 
 /* ── Step indicator ── */
-function StepIndicator({ currentStep }) {
+function StepIndicator({ currentStep, labels }) {
   const steps = [
-    { num: 1, label: "Personal" },
-    { num: 2, label: "Contact" },
-    { num: 3, label: "Church" },
+    { num: 1, label: labels.personal },
+    { num: 2, label: labels.contact },
+    { num: 3, label: labels.church },
   ];
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 0, marginBottom: 36 }}>
@@ -303,9 +304,9 @@ export default function Register() {
     if (REQUIRED_FIELDS.includes(field) && !String(form[field] || "").trim()) {
       err = requiredError;
     } else if (field === "email") {
-      err = validateEmail(form.email);
+      err = validateEmail(form.email, t("contact.emailError"));
     } else if (field === "phone") {
-      err = validatePhone(form.phone);
+      err = validatePhone(form.phone, t("contact.phoneError"));
     }
     setErrors((prev) => {
       const next = { ...prev };
@@ -321,8 +322,8 @@ export default function Register() {
     REQUIRED_FIELDS.forEach((field) => {
       if (!String(form[field] || "").trim()) next[field] = requiredError;
     });
-    const emailErr = next.email ? "" : validateEmail(form.email);
-    const phoneErr = next.phone ? "" : validatePhone(form.phone);
+    const emailErr = next.email ? "" : validateEmail(form.email, t("contact.emailError"));
+    const phoneErr = next.phone ? "" : validatePhone(form.phone, t("contact.phoneError"));
     if (emailErr) next.email = emailErr;
     if (phoneErr) next.phone = phoneErr;
     setErrors(next);
@@ -404,17 +405,18 @@ export default function Register() {
     } catch (err) {
       setStatus("error");
       if (err.name === "AbortError") {
-        setStatusMessage("Request timed out. Please try again or call the parish office.");
+        setStatusMessage(t("register.timeoutError"));
       } else if (useProxy && err.message) {
-        setStatusMessage(`Couldn't send: ${err.message}. Please try again or call the parish office.`);
+        setStatusMessage(t("register.sendErrorWithReason", { reason: err.message }));
       } else {
-        setStatusMessage(t("register.error") || "Something went wrong. Please try again or call the parish office.");
+        setStatusMessage(t("register.error"));
       }
     }
   };
 
   /* rough step tracker based on which fields are filled */
   const step = form.address ? 3 : form.firstName ? 2 : 1;
+  const hasErrors = Object.keys(errors).length > 0;
 
   const SACRAMENT_OPTIONS = ["baptism", "firstCommunion", "confirmation", "marriage"];
 
@@ -427,7 +429,34 @@ export default function Register() {
       />
       <PageHeader title={t("register.title")} />
 
-      <Section bg={T.cream}>
+      <PremiumPageActions
+        overlap
+        eyebrow={t("register.contactInfo")}
+        title={t("register.title")}
+        items={[
+          {
+            icon: "ClipboardList",
+            title: t("register.submit"),
+            description: t("register.desc"),
+            href: "#registration-form",
+            primary: true,
+          },
+          {
+            icon: "Phone",
+            title: t("contact.phoneLabel"),
+            description: CONFIG.phone,
+            href: CONFIG.phoneLink,
+          },
+          {
+            icon: "Church",
+            title: t("nav.massTimes"),
+            description: t("visit.schedule.confessionNote"),
+            to: "/mass-times",
+          },
+        ]}
+      />
+
+      <Section bg={T.cream} id="registration-form">
         <FadeSection>
           <div style={{ maxWidth: 680, margin: "0 auto" }}>
             <p style={{
@@ -487,9 +516,36 @@ export default function Register() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate>
-                <StepIndicator currentStep={step} />
+                <StepIndicator
+                  currentStep={step}
+                  labels={{
+                    personal: t("register.steps.personal"),
+                    contact: t("register.steps.contact"),
+                    church: t("register.steps.church"),
+                  }}
+                />
 
                 <div style={{ display: "grid", gap: 20 }}>
+                  {hasErrors && (
+                    <div
+                      role="alert"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 10,
+                        padding: "12px 14px",
+                        border: "1px solid #fecaca",
+                        borderRadius: 8,
+                        background: "#fef2f2",
+                        color: "#b91c1c",
+                        fontSize: 14,
+                        fontWeight: 600,
+                      }}
+                    >
+                      <AlertCircle size={18} />
+                      {t("register.errorSummary")}
+                    </div>
+                  )}
                   {/* ── Head of Household ── */}
                   <FormSection icon={Users} title={t("register.headOfHousehold")} defaultOpen={true}>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}

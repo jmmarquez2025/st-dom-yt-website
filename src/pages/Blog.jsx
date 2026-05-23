@@ -6,6 +6,7 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
+import PremiumPageActions from "../components/PremiumPageActions";
 import BlogCard from "../components/blog/BlogCard";
 import { BLOG_CATEGORIES } from "../data/blog";
 import { useBlogPosts } from "../cms/hooks";
@@ -98,6 +99,33 @@ export default function Blog() {
           </p>
         </FadeSection>
       </div>
+
+      <PremiumPageActions
+        overlap
+        eyebrow={t("blog.hero.sub")}
+        title={t("blog.title")}
+        items={[
+          {
+            title: t("blog.filterAll"),
+            description: t("blog.hero.desc"),
+            href: "#posts",
+            icon: "BookOpenText",
+            primary: true,
+          },
+          {
+            title: t("nav.faithFormation"),
+            description: t("faithFormation.resources.desc"),
+            to: "/faith-formation",
+            icon: "BookOpen",
+          },
+          {
+            title: t("nav.bulletin"),
+            description: t("bulletin.hero.desc"),
+            to: "/bulletin",
+            icon: "Newspaper",
+          },
+        ]}
+      />
 
       {/* ════ Featured Post ════ */}
       {featured && filter === "all" && search.trim().length < 2 && (
@@ -203,7 +231,7 @@ export default function Blog() {
       `}</style>
 
       {/* ════ Post Grid ════ */}
-      <Section bg={T.cream}>
+      <Section id="posts" bg={T.cream}>
         <FadeSection>
           {visiblePosts.length === 0 ? (
             <div style={{ textAlign: "center", padding: "60px 24px", color: T.warmGray }}>

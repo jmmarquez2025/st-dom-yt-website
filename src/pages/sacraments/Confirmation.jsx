@@ -9,6 +9,7 @@ import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
 import DominicanDivider from "../../components/DominicanDivider";
+import SacramentPageActions from "../../components/SacramentPageActions";
 
 export default function Confirmation() {
   const { t } = useTranslation();
@@ -18,6 +19,7 @@ export default function Confirmation() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Confirmation" description="Confirmation preparation at St. Dominic Church. Program details for teens and adults seeking the Sacrament of Confirmation." image={PHOTOS.stockConfirmation} />
       <PageHeader title={t("sacraments.confirmation.title")} heroSrc={PHOTOS.stockConfirmation} tall />
+      <SacramentPageActions sacramentKey="confirmation" icon="Flame" />
 
       <Section bg={T.warmWhite}>
         <FadeSection>

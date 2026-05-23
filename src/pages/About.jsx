@@ -9,6 +9,7 @@ import Btn from "../components/Btn";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
+import PremiumPageActions from "../components/PremiumPageActions";
 import PhotoGallery from "../components/PhotoGallery";
 import TextReveal from "../components/TextReveal";
 import SaintOfTheDay from "../components/SaintOfTheDay";
@@ -59,6 +60,33 @@ export default function About() {
           </h1>
         </div>
       </section>
+
+      <PremiumPageActions
+        overlap
+        eyebrow={t("about.history.sub")}
+        title={t("about.title")}
+        items={[
+          {
+            title: t("about.historyLink"),
+            description: t("about.history.p2"),
+            to: "/history",
+            icon: "BookOpenText",
+            primary: true,
+          },
+          {
+            title: t("nav.staff"),
+            description: t("home.priests.desc"),
+            to: "/staff",
+            icon: "Users",
+          },
+          {
+            title: t("nav.visit"),
+            description: t("visit.hero.desc"),
+            to: "/visit",
+            icon: "MapPin",
+          },
+        ]}
+      />
 
       {/* ════ History — Editorial Asymmetric Layout ════ */}
       <Section>

@@ -16,8 +16,8 @@ import { PHOTOS } from "../constants/photos";
 export default function PageHeader({
   title,
   heroSrc,
-  overlay = 0.45,
-  tint = "rgba(107,29,42,0.5)",
+  overlay = 0.52,
+  tint = "rgba(74,16,25,0.64)",
   tall = false,
 }) {
   const location = useLocation();
@@ -25,12 +25,8 @@ export default function PageHeader({
   const vtName = sacramentMatch ? `sacrament-${sacramentMatch[1]}` : undefined;
   return (
     <div
+      className={`premium-page-header${tall ? " premium-page-header--tall" : ""}`}
       style={{
-        position: "relative",
-        overflow: "hidden",
-        background: T.burgundy,
-        padding: tall ? "90px 24px" : "60px 24px",
-        textAlign: "center",
         ...(vtName ? { viewTransitionName: vtName } : {}),
       }}
     >
@@ -39,17 +35,9 @@ export default function PageHeader({
         overlay={overlay}
         tint={tint}
       />
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <h1
-          style={{
-            fontSize: "clamp(32px, 5vw, 48px)",
-            color: "#fff",
-            fontFamily: "'Cormorant Garamond', serif",
-          }}
-        >
-          {title}
-        </h1>
-        <div style={{ width: 48, height: 2, background: T.gold, margin: "14px auto 0" }} />
+      <div className="premium-page-header__content">
+        <h1>{title}</h1>
+        <div aria-hidden="true" />
       </div>
     </div>
   );

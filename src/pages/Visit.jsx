@@ -13,6 +13,7 @@ import CountUp from "../components/CountUp";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
 import { PHOTOS } from "../constants/photos";
+import PremiumPageActions from "../components/PremiumPageActions";
 
 const STEPS = [
   { num: "01", key: "arrive", icon: "MapPin" },
@@ -25,6 +26,7 @@ const STEPS = [
 export default function Visit() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${CONFIG.mapsQuery}`;
 
   return (
     <div style={{ paddingTop: 76 }}>
@@ -85,6 +87,34 @@ export default function Visit() {
           </p>
         </div>
       </section>
+
+      <PremiumPageActions
+        overlap
+        eyebrow={t("visit.hero.sub")}
+        title={t("visit.steps.title")}
+        items={[
+          {
+            icon: "Church",
+            title: t("visit.schedule.cta"),
+            description: t("visit.schedule.confessionNote"),
+            to: "/mass-times",
+            primary: true,
+          },
+          {
+            icon: "MapPin",
+            title: t("visit.directions.cta"),
+            description: `${CONFIG.address}, ${CONFIG.city}`,
+            href: mapsHref,
+            external: true,
+          },
+          {
+            icon: "Phone",
+            title: t("visit.cta.contact"),
+            description: CONFIG.phone,
+            to: "/contact",
+          },
+        ]}
+      />
 
       {/* ════ At a Glance — stat strip ════ */}
       <section style={{ background: T.softBlack, color: "#fff" }}>

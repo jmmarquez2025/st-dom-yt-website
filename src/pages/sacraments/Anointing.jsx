@@ -9,6 +9,7 @@ import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
 import { NextSteps, PastoralActionPanel } from "../../components/PastoralActionPanel";
+import SacramentPageActions from "../../components/SacramentPageActions";
 
 export default function Anointing() {
   const { t } = useTranslation();
@@ -18,6 +19,7 @@ export default function Anointing() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Anointing of the Sick" description="The Sacrament of Anointing of the Sick at St. Dominic Church. For those who are seriously ill or facing surgery." image={PHOTOS.stockAnointing} />
       <PageHeader title={t("sacraments.anointing.title")} heroSrc={PHOTOS.stockAnointing} tall />
+      <SacramentPageActions sacramentKey="anointing" icon="HeartPulse" />
 
       <Section bg={T.cream} style={{ padding: "clamp(32px, 6vw, 52px) 24px" }}>
         <PastoralActionPanel

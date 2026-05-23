@@ -9,6 +9,7 @@ import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
 import DominicanDivider from "../../components/DominicanDivider";
+import SacramentPageActions from "../../components/SacramentPageActions";
 
 export default function Baptism() {
   const { t } = useTranslation();
@@ -18,6 +19,7 @@ export default function Baptism() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Baptism" description="Information about the Sacrament of Baptism at St. Dominic Church. Requirements, preparation, and how to schedule." image={PHOTOS.baptismHero} />
       <PageHeader title={t("sacraments.baptism.title")} heroSrc={PHOTOS.baptismHero} tall />
+      <SacramentPageActions sacramentKey="baptism" icon="Droplets" />
 
       <Section bg={T.warmWhite}>
         <FadeSection>

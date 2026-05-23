@@ -7,6 +7,7 @@ import FadeSection from "../components/FadeSection";
 import ParallaxSection from "../components/ParallaxSection";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
+import PremiumPageActions from "../components/PremiumPageActions";
 import BlogBody from "../components/blog/BlogBody";
 import BlogToc from "../components/blog/BlogToc";
 import BlogAuthorCard from "../components/blog/BlogAuthorCard";
@@ -142,8 +143,35 @@ export default function BlogPost() {
         </div>
       </ParallaxSection>
 
+      <PremiumPageActions
+        overlap
+        eyebrow={t("blog.relatedSub")}
+        title={title}
+        items={[
+          {
+            title: t("blog.postActions.readArticle"),
+            description: isEs && post.excerptEs ? post.excerptEs : post.excerpt,
+            href: "#article",
+            icon: cat.icon || "BookOpenText",
+            primary: true,
+          },
+          {
+            title: t("blog.postActions.allPosts"),
+            description: t("blog.hero.desc"),
+            to: "/blog",
+            icon: "BookOpenText",
+          },
+          {
+            title: t("nav.faithFormation"),
+            description: t("faithFormation.resources.desc"),
+            to: "/faith-formation",
+            icon: "BookOpen",
+          },
+        ]}
+      />
+
       {/* ════ Article ════ */}
-      <Section bg={T.warmWhite}>
+      <Section id="article" bg={T.warmWhite}>
         <div
           style={{
             display: "flex",

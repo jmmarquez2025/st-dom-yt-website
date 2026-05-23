@@ -25,7 +25,8 @@
     "gallery": "Galería",
     "faithFormation": "Formación en la Fe",
     "blog": "Blog",
-    "connect": "Conectar"
+    "connect": "Conectar",
+    "more": "Más"
   },
   "footer": {
     "subtitle": "Iglesia Católica · Youngstown, OH",
@@ -61,7 +62,8 @@
       "location": "Youngstown, Ohio",
       "ctaVisit": "Planifique Su Visita",
       "ctaMass": "Horarios de Misa y Confesión",
-      "ctaBecoming": "¿Interesado en Hacerse Católico?"
+      "ctaBecoming": "¿Interesado en Hacerse Católico?",
+      "proofLabel": "La parroquia de un vistazo"
     },
     "essentials": {
       "sub": "Lo Esencial",
@@ -222,6 +224,11 @@
       "load": "Cargar Noticias del Vaticano",
       "loading": "Cargando Noticias del Vaticano...",
       "privacy": "Esto carga un widget de Vatican News desde vaticannews.va."
+    },
+    "formation": {
+      "sub": "Formación en la Fe",
+      "title": "Siga Creciendo Después del Domingo",
+      "desc": "Siga enseñanza católica confiable, noticias parroquiales y recursos para la oración durante la semana."
     },
     "cards": {
       "visitTitle": "Visítenos",
@@ -599,7 +606,11 @@
       "copied": "Copiado!"
     },
     "toc": "Tabla de Contenidos",
-    "writtenBy": "Escrito por"
+    "writtenBy": "Escrito por",
+    "postActions": {
+      "readArticle": "Leer Artículo",
+      "allPosts": "Todas las Reflexiones"
+    }
   },
   "getInvolved": {
     "title": "Participe",
@@ -718,13 +729,19 @@
     "submit": "Enviar Mensaje",
     "sending": "Enviando…",
     "requiredError": "Este campo es obligatorio.",
+    "emailError": "Por favor ingrese un correo electrónico válido.",
+    "phoneError": "Por favor ingrese un número de teléfono válido.",
     "privacy": "Su mensaje se envía solamente a la oficina parroquial. Por favor no incluya contraseñas, información de pago o detalles médicos urgentes.",
     "success": "¡Gracias! Su mensaje ha sido enviado. Nos pondremos en contacto pronto.",
     "successFallback": "Si no recibe respuesta dentro de 2 días hábiles, llame a la oficina parroquial.",
     "error": "Algo salió mal. Por favor intente llamarnos o enviar un correo electrónico directamente.",
+    "errorSummary": "Por favor corrija los campos resaltados antes de enviar.",
+    "timeoutError": "La solicitud tardó demasiado. Por favor intente de nuevo o llame a la oficina parroquial.",
+    "sendErrorWithReason": "No se pudo enviar: {{reason}}. Por favor intente de nuevo o llame a la oficina parroquial.",
     "infoTitle": "Información de la Iglesia",
     "addressLabel": "Dirección",
     "phoneLabel": "Teléfono",
+    "emailLabel": "Correo Electrónico",
     "fax": "Fax",
     "officeHours": "Horario de Oficina",
     "sendAnother": "Enviar Otro Mensaje",
@@ -932,6 +949,7 @@
       "emergencyTitle": "¿Emergencia? Llámenos en Cualquier Momento",
       "emergencyDesc": "Si alguien está en peligro de muerte y necesita un sacerdote, por favor llame a la iglesia a cualquier hora.",
       "callNow": "Llame Ahora",
+      "cta": "Solicitar la Unción",
       "routineTitle": "Programe una Visita",
       "routineDesc": "Para cirugía, enfermedad grave, cuidado en casa u hospitalización que no sea peligro inmediato de muerte, contacte la oficina y le ayudaremos a coordinar un sacerdote.",
       "office": "Contacte la Oficina",
@@ -1209,10 +1227,18 @@
     "sending": "Enviando...",
     "privacy": "Los datos de registro se envían solamente a la oficina parroquial. Por favor no incluya contraseñas, información de pago o detalles médicos urgentes.",
     "error": "Algo salió mal. Por favor intente de nuevo o llame a la oficina parroquial.",
+    "errorSummary": "Por favor corrija los campos resaltados antes de enviar.",
     "successTitle": "¡Registro Recibido!",
     "successDesc": "Gracias por registrarse en la iglesia de Santo Domingo. Nos comunicaremos pronto para darle la bienvenida personalmente.",
     "successFallback": "Si no recibe respuesta dentro de 2 días hábiles, llame a la oficina parroquial.",
-    "registerAnother": "Registrar Otra Familia"
+    "registerAnother": "Registrar Otra Familia",
+    "timeoutError": "La solicitud tardó demasiado. Por favor intente de nuevo o llame a la oficina parroquial.",
+    "sendErrorWithReason": "No se pudo enviar: {{reason}}. Por favor intente de nuevo o llame a la oficina parroquial.",
+    "steps": {
+      "personal": "Personal",
+      "contact": "Contacto",
+      "church": "Iglesia"
+    }
   },
   "events": {
     "title": "Eventos de la Iglesia",

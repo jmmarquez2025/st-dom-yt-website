@@ -5,6 +5,7 @@ import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
+import PremiumPageActions from "../components/PremiumPageActions";
 import { initials } from "../data/staff";
 import { useStaff } from "../cms/hooks";
 import Seo from "../components/Seo";
@@ -387,6 +388,33 @@ export default function Staff() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Priests & Staff" description="Meet the Dominican Friars and church staff serving the community at St. Dominic Catholic Church in Youngstown, Ohio." image={PHOTOS.aboutHero} />
       <PageHeader title={t("staff.title")} />
+      <PremiumPageActions
+        overlap
+        eyebrow={t("staff.friars.sub")}
+        title={t("staff.title")}
+        items={[
+          {
+            title: t("staff.leadership.title"),
+            description: t("staff.friars.title"),
+            href: "#staff-leadership",
+            icon: "Users",
+            primary: true,
+          },
+          {
+            title: t("staff.modal.contact"),
+            description: CONFIG.phone,
+            to: "/contact",
+            icon: "Phone",
+          },
+          {
+            title: t("home.priests.province"),
+            description: "Dominican Friars Province of St. Joseph",
+            href: CONFIG.provinceUrl,
+            icon: "ExternalLink",
+            external: true,
+          },
+        ]}
+      />
 
       <style>{`
         .flip-card:focus-visible { outline: 2px solid ${T.burgundy}; outline-offset: 4px; border-radius: 12px; }
@@ -411,7 +439,7 @@ export default function Staff() {
       `}</style>
 
       {/* Leadership */}
-      <Section>
+      <Section id="staff-leadership">
         <FadeSection>
           <SectionTitle sub={t("staff.leadership.sub")}>{t("staff.leadership.title")}</SectionTitle>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 32, maxWidth: 680, margin: "0 auto" }}>

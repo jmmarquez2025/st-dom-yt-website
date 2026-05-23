@@ -6,6 +6,7 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Seo from "../components/Seo";
 import HeroImage from "../components/HeroImage";
+import PremiumPageActions from "../components/PremiumPageActions";
 import { X } from "lucide-react";
 
 export default function Gallery() {
@@ -81,8 +82,35 @@ export default function Gallery() {
         </div>
       </section>
 
+      <PremiumPageActions
+        overlap
+        eyebrow={t("gallery.sub")}
+        title={t("gallery.title")}
+        items={[
+          {
+            title: t("gallery.title"),
+            description: t("gallery.nave"),
+            href: "#photo-grid",
+            icon: "Maximize",
+            primary: true,
+          },
+          {
+            title: t("nav.architecture"),
+            description: t("arch.hero.desc"),
+            to: "/architecture",
+            icon: "Building",
+          },
+          {
+            title: t("nav.visit"),
+            description: t("visit.hero.desc"),
+            to: "/visit",
+            icon: "MapPin",
+          },
+        ]}
+      />
+
       {/* ════ Photo Grid ════ */}
-      <Section bg={T.warmWhite}>
+      <Section id="photo-grid" bg={T.warmWhite}>
         <FadeSection>
           <SectionTitle sub={t("gallery.sub")}>{t("gallery.title")}</SectionTitle>
           <div

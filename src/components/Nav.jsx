@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useHref, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin, Church, Gift } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 import SiteSearch from "./SiteSearch";
 
@@ -37,21 +37,13 @@ function NavLink({ to, children, style, ...props }) {
 }
 
 const NAV_ITEMS = [
-  { key: "home", to: "/" },
-  {
-    key: "visit",
-    children: [
-      { key: "visit", to: "/visit" },
-      { key: "massTimes", to: "/mass-times" },
-      { key: "contact", to: "/contact" },
-      { key: "bulletin", to: "/bulletin" },
-      { key: "events", to: "/events" },
-    ],
-  },
+  { key: "visit", to: "/visit" },
+  { key: "massTimes", to: "/mass-times" },
   {
     key: "sacraments",
     children: [
       { key: "sacraments", to: "/sacraments" },
+      { key: "becomingCatholic", to: "/becoming-catholic" },
       { key: "baptism", to: "/sacraments/baptism" },
       { key: "firstCommunion", to: "/sacraments/first-communion" },
       { key: "confirmation", to: "/sacraments/confirmation" },
@@ -60,21 +52,23 @@ const NAV_ITEMS = [
       { key: "funerals", to: "/sacraments/funerals" },
     ],
   },
-  { key: "becomingCatholic", to: "/becoming-catholic" },
   {
     key: "getInvolved",
     children: [
       { key: "getInvolved", to: "/get-involved" },
       { key: "register", to: "/register" },
       { key: "faithFormation", to: "/faith-formation" },
+      { key: "events", to: "/events" },
       { key: "connect", to: "/connect" },
       { key: "blog", to: "/blog" },
     ],
   },
   {
-    key: "about",
+    key: "more",
     children: [
       { key: "about", to: "/about" },
+      { key: "bulletin", to: "/bulletin" },
+      { key: "contact", to: "/contact" },
       { key: "history", to: "/history" },
       { key: "architecture", to: "/architecture" },
       { key: "gallery", to: "/gallery" },
@@ -110,7 +104,11 @@ export default function Nav() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    document.body.classList.toggle("nav-open", mobileOpen);
+    return () => {
+      document.body.style.overflow = "";
+      document.body.classList.remove("nav-open");
+    };
   }, [mobileOpen]);
 
   useEffect(() => {
@@ -182,7 +180,7 @@ export default function Nav() {
 
   const linkStyle = (active) => ({
     textDecoration: "none",
-    padding: "8px 12px",
+    padding: "8px 11px",
     fontSize: 13.5,
     fontWeight: active ? 600 : 400,
     color: active ? T.burgundy : T.charcoal,
@@ -264,6 +262,7 @@ export default function Nav() {
               >
                 <NavLink
                   to={item.children[0].to}
+                  className="premium-nav-link"
                   style={linkStyle(isGroupActive(item))}
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === item.key}
@@ -303,6 +302,7 @@ export default function Nav() {
                         key={child.to}
                         to={child.to}
                         role="menuitem"
+                        className="premium-dropdown-link"
                         style={{
                           display: "block",
                           padding: "10px 20px",
@@ -324,13 +324,19 @@ export default function Nav() {
                 )}
               </div>
             ) : (
-              <NavLink key={item.key} to={item.to} style={linkStyle(isActive(item.to))}>
+              <NavLink
+                key={item.key}
+                to={item.to}
+                className="premium-nav-link"
+                style={linkStyle(isActive(item.to))}
+              >
                 {t(`nav.${item.key}`)}
               </NavLink>
             )
           )}
           <NavLink
             to="/give"
+            className="premium-give-link"
             style={{
               textDecoration: "none", padding: "8px 16px", fontSize: 13, fontWeight: 600,
               background: T.gold, color: T.softBlack, borderRadius: 2, letterSpacing: 0.5,
@@ -366,9 +372,53 @@ export default function Nav() {
           style={{
             background: T.warmWhite, borderTop: `1px solid ${T.stone}`,
             padding: "8px 24px 20px", animation: "slideDown 0.3s ease",
-            maxHeight: "calc(100vh - 76px)", overflowY: "auto",
+            minHeight: "calc(100vh - 76px)",
+            maxHeight: "calc(100vh - 76px)",
+            overflowY: "auto",
           }}
         >
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+              gap: 8,
+              padding: "8px 0 10px",
+            }}
+          >
+            {[
+              { to: "/visit", label: t("nav.visit"), icon: MapPin },
+              { to: "/mass-times", label: t("nav.massTimes"), icon: Church },
+              { to: "/give", label: t("nav.give"), icon: Gift },
+            ].map(({ to, label, icon: IconComp }) => (
+              <NavLink
+                key={to}
+                to={to}
+                style={{
+                  minHeight: 76,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 6,
+                  padding: "10px 8px",
+                  borderRadius: 8,
+                  border: `1px solid ${isActive(to) ? T.gold : T.stone}`,
+                  background: isActive(to) ? "rgba(197,165,90,0.14)" : "#fff",
+                  color: isActive(to) ? T.burgundy : T.charcoal,
+                  textDecoration: "none",
+                  textAlign: "center",
+                  fontSize: 12,
+                  fontWeight: 700,
+                  lineHeight: 1.15,
+                  fontFamily: "'Source Sans 3', sans-serif",
+                }}
+              >
+                <IconComp size={18} color={isActive(to) ? T.burgundy : T.goldText} />
+                {label}
+              </NavLink>
+            ))}
+          </div>
+
           {NAV_ITEMS.map((item) =>
             item.children ? (
               <div key={item.key}>

@@ -6,6 +6,7 @@ import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
+import PremiumPageActions from "../components/PremiumPageActions";
 
 import { useMinistries } from "../cms/hooks";
 import Seo from "../components/Seo";
@@ -111,6 +112,33 @@ export default function GetInvolved() {
           </p>
         </div>
       </section>
+
+      <PremiumPageActions
+        overlap
+        eyebrow={t("getInvolved.sub")}
+        title={t("getInvolved.howTo.title")}
+        items={[
+          {
+            title: t("getInvolved.register.title"),
+            description: t("getInvolved.register.desc"),
+            to: "/register",
+            icon: "ClipboardList",
+            primary: true,
+          },
+          {
+            title: t("getInvolved.howTo.connect.title"),
+            description: t("getInvolved.howTo.connect.desc"),
+            to: "/contact",
+            icon: "Phone",
+          },
+          {
+            title: t("nav.faithFormation"),
+            description: t("faithFormation.intro.desc"),
+            to: "/faith-formation",
+            icon: "BookOpenText",
+          },
+        ]}
+      />
 
       {/* ════ Ministry Stats Strip ════ */}
       <section style={{ background: T.softBlack, color: "#fff" }}>

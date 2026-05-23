@@ -13,6 +13,7 @@ import ResponsivePicture from "./ResponsivePicture";
  *   overlay   — dark overlay opacity (default 0.5)
  *   tint      — optional CSS color tint
  *   height    — total scroll runway (default "180vh")
+ *   showScrollHint — whether to show the small scroll cue
  *   children  — hero content (title, subtitle, etc.)
  */
 export default function StickyHero({
@@ -21,6 +22,7 @@ export default function StickyHero({
   tint,
   height = "130vh",
   viewportHeight = "100vh",
+  showScrollHint = true,
   children,
 }) {
   const wrapperRef = useRef(null);
@@ -137,7 +139,7 @@ export default function StickyHero({
         </div>
 
         {/* Scroll indicator */}
-        {progress < 0.2 && (
+        {showScrollHint && progress < 0.2 && (
           <div
             aria-hidden="true"
             className="scroll-hint"

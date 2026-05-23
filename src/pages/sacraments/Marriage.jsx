@@ -9,6 +9,7 @@ import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
 import DominicanDivider from "../../components/DominicanDivider";
+import SacramentPageActions from "../../components/SacramentPageActions";
 
 export default function Marriage() {
   const { t } = useTranslation();
@@ -18,6 +19,7 @@ export default function Marriage() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Marriage" description="Planning a Catholic wedding at St. Dominic Church? Learn about marriage preparation, requirements, and scheduling." image={PHOTOS.marriageHero} />
       <PageHeader title={t("sacraments.marriage.title")} heroSrc={PHOTOS.marriageHero} tall />
+      <SacramentPageActions sacramentKey="marriage" icon="Gem" />
 
       <Section bg={T.warmWhite}>
         <FadeSection>

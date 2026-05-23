@@ -9,6 +9,7 @@ import DominicanDivider from "../components/DominicanDivider";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import { NextSteps, PastoralActionPanel } from "../components/PastoralActionPanel";
+import PremiumPageActions from "../components/PremiumPageActions";
 
 export default function Give() {
   const { t } = useTranslation();
@@ -26,6 +27,34 @@ export default function Give() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Online Giving" description="Support St. Dominic Catholic Church through online giving. Your generosity sustains our ministries and community outreach." image={PHOTOS.stockGiving} />
       <PageHeader title={t("give.title")} heroSrc={PHOTOS.stockGiving} tall />
+
+      <PremiumPageActions
+        overlap
+        eyebrow={t("give.sub")}
+        title={t("give.clarityTitle")}
+        items={[
+          {
+            icon: "Gift",
+            title: t("give.flocknoteBtn"),
+            description: t("give.onlineDesc"),
+            href: CONFIG.flocknoteGivingUrl,
+            external: true,
+            primary: true,
+          },
+          {
+            icon: "Phone",
+            title: t("give.next.office.title"),
+            description: t("give.next.office.desc"),
+            href: CONFIG.phoneLink,
+          },
+          {
+            icon: "ClipboardList",
+            title: t("give.next.register.title"),
+            description: t("give.next.register.desc"),
+            to: "/register",
+          },
+        ]}
+      />
 
       <Section bg={T.warmWhite} style={donationSectionStyle}>
         <SectionTitle sub={t("give.sub")}>{t("give.heading")}</SectionTitle>

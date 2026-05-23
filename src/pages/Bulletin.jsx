@@ -4,6 +4,7 @@ import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
+import PremiumPageActions from "../components/PremiumPageActions";
 
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
@@ -90,8 +91,35 @@ export default function Bulletin() {
         </div>
       </section>
 
+      <PremiumPageActions
+        overlap
+        eyebrow={t("bulletin.hero.sub")}
+        title={t("bulletin.title")}
+        items={[
+          {
+            title: t("bulletin.heading"),
+            description: t("bulletin.reviewed"),
+            href: "#current-bulletin",
+            icon: "Newspaper",
+            primary: true,
+          },
+          {
+            title: t("bulletin.archive.title"),
+            description: t("bulletin.archive.sub"),
+            href: "#bulletin-archive",
+            icon: "FileText",
+          },
+          {
+            title: t("bulletin.info.contact"),
+            description: t("bulletin.info.contactDesc"),
+            href: `mailto:${CONFIG.email}`,
+            icon: "Mail",
+          },
+        ]}
+      />
+
       {/* ════ Embedded Flipbook ════ */}
-      <Section>
+      <Section id="current-bulletin">
         <FadeSection>
           <div style={{ maxWidth: 1100, margin: "0 auto" }}>
             <h2
@@ -281,7 +309,7 @@ export default function Bulletin() {
 
       {/* ════ Bulletin Archive ════ */}
       {bulletins.length > 0 && (
-        <Section bg={T.cream}>
+        <Section id="bulletin-archive" bg={T.cream}>
           <FadeSection>
             <SectionTitle sub={t("bulletin.archive.sub")}>{t("bulletin.archive.title")}</SectionTitle>
             <div style={{ maxWidth: 680, margin: "0 auto", display: "flex", flexDirection: "column", gap: 10 }}>

@@ -8,6 +8,7 @@ import PageHeader from "../components/PageHeader";
 import Seo from "../components/Seo";
 import { PHOTOS } from "../constants/photos";
 import { Send, CheckCircle, AlertCircle, Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
+import PremiumPageActions from "../components/PremiumPageActions";
 
 /* ── Validation helpers ── */
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -15,12 +16,12 @@ const PHONE_RE = /^[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+
 
 const errorStyle = { fontSize: 12, color: "#c0392b", marginTop: 4, fontFamily: "'Source Sans 3', sans-serif" };
 
-function validateEmail(v) {
-  if (v && !EMAIL_RE.test(v)) return "Please enter a valid email address.";
+function validateEmail(v, message) {
+  if (v && !EMAIL_RE.test(v)) return message;
   return "";
 }
-function validatePhone(v) {
-  if (v && !PHONE_RE.test(v)) return "Please enter a valid phone number.";
+function validatePhone(v, message) {
+  if (v && !PHONE_RE.test(v)) return message;
   return "";
 }
 
@@ -199,6 +200,8 @@ export default function Contact() {
   const [errors, setErrors] = useState({});
   const [mapLoaded, setMapLoaded] = useState(false);
   const formRef = useRef(null);
+  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${CONFIG.mapsQuery}`;
+  const hasErrors = Object.keys(errors).length > 0;
 
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
@@ -208,9 +211,9 @@ export default function Contact() {
     if (field === "name" && !form.name.trim()) err = requiredError;
     if (field === "email") {
       if (!form.email.trim()) err = requiredError;
-      else err = validateEmail(form.email);
+      else err = validateEmail(form.email, t("contact.emailError"));
     }
-    if (field === "phone") err = validatePhone(form.phone);
+    if (field === "phone") err = validatePhone(form.phone, t("contact.phoneError"));
     if (field === "message" && !form.message.trim()) err = requiredError;
     setErrors((prev) => {
       const next = { ...prev };
@@ -223,8 +226,8 @@ export default function Contact() {
   const validateAll = () => {
     const requiredError = t("contact.requiredError");
     const nameErr = form.name.trim() ? "" : requiredError;
-    const emailErr = form.email.trim() ? validateEmail(form.email) : requiredError;
-    const phoneErr = validatePhone(form.phone);
+    const emailErr = form.email.trim() ? validateEmail(form.email, t("contact.emailError")) : requiredError;
+    const phoneErr = validatePhone(form.phone, t("contact.phoneError"));
     const messageErr = form.message.trim() ? "" : requiredError;
     const next = {};
     if (nameErr) next.name = nameErr;
@@ -283,11 +286,11 @@ export default function Contact() {
     } catch (err) {
       setStatus("error");
       if (err.name === "AbortError") {
-        setStatusMessage("Request timed out. Please try again or call the parish office.");
+        setStatusMessage(t("contact.timeoutError"));
       } else if (useProxy && err.message) {
-        setStatusMessage(`Couldn't send: ${err.message}. Please try again or call the parish office.`);
+        setStatusMessage(t("contact.sendErrorWithReason", { reason: err.message }));
       } else {
-        setStatusMessage(t("contact.error") || "Something went wrong. Please try again or call the parish office.");
+        setStatusMessage(t("contact.error"));
       }
     }
   };
@@ -296,6 +299,34 @@ export default function Contact() {
     <div style={{ paddingTop: 76 }}>
       <Seo title="Contact Us" description="Contact St. Dominic Catholic Church in Youngstown, Ohio. Phone, email, office hours, and directions to 77 East Lucius Avenue." image={PHOTOS.visitHero} />
       <PageHeader title={t("contact.title")} />
+
+      <PremiumPageActions
+        overlap
+        eyebrow={t("contact.infoTitle")}
+        title={t("contact.formTitle")}
+        items={[
+          {
+            icon: "Phone",
+            title: t("contact.phoneLabel"),
+            description: CONFIG.phone,
+            href: CONFIG.phoneLink,
+            primary: true,
+          },
+          {
+            icon: "Mail",
+            title: t("contact.emailLabel"),
+            description: CONFIG.email,
+            href: `mailto:${CONFIG.email}`,
+          },
+          {
+            icon: "MapPin",
+            title: t("contact.addressLabel"),
+            description: CONFIG.fullAddress,
+            href: mapsHref,
+            external: true,
+          },
+        ]}
+      />
 
       <Section bg={T.cream}>
         <FadeSection>
@@ -368,6 +399,26 @@ export default function Contact() {
               ) : (
                 <form onSubmit={handleSubmit} ref={formRef} noValidate>
                   <div style={{ display: "grid", gap: 20 }}>
+                    {hasErrors && (
+                      <div
+                        role="alert"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 10,
+                          padding: "12px 14px",
+                          border: "1px solid #fecaca",
+                          borderRadius: 8,
+                          background: "#fef2f2",
+                          color: "#b91c1c",
+                          fontSize: 14,
+                          fontWeight: 600,
+                        }}
+                      >
+                        <AlertCircle size={18} />
+                        {t("contact.errorSummary")}
+                      </div>
+                    )}
                     <FloatingInput
                       label={t("contact.name")}
                       required
