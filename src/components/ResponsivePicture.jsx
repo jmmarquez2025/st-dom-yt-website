@@ -1,3 +1,19 @@
+import { useEffect, useRef } from "react";
+
+// React 18 doesn't whitelist the lowercase `fetchpriority` attribute and warns
+// on the camelCase form. Set it imperatively via a ref so the attribute lands
+// on the DOM node without React noise. Drop this once we upgrade to React 19.
+function useFetchPriority(priority) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    if (priority) node.setAttribute("fetchpriority", priority);
+    else node.removeAttribute("fetchpriority");
+  }, [priority]);
+  return ref;
+}
+
 export default function ResponsivePicture({
   src,
   widths,
@@ -11,6 +27,8 @@ export default function ResponsivePicture({
   onLoad,
   onError,
 }) {
+  const imgRef = useFetchPriority(fetchPriority);
+
   if (!src) return null;
 
   const hasWidths = Array.isArray(widths) && widths.length > 0;
@@ -18,11 +36,11 @@ export default function ResponsivePicture({
   if (!hasWidths) {
     return (
       <img
+        ref={imgRef}
         src={src}
         alt={alt}
         loading={loading}
         decoding={decoding}
-        fetchPriority={fetchPriority}
         style={style}
         className={className}
         onLoad={onLoad}
@@ -49,11 +67,11 @@ export default function ResponsivePicture({
       <source type="image/webp" srcSet={webpSrcset} sizes={sizes} />
       <source type="image/jpeg" srcSet={jpgSrcset} sizes={sizes} />
       <img
+        ref={imgRef}
         src={src}
         alt={alt}
         loading={loading}
         decoding={decoding}
-        fetchPriority={fetchPriority}
         style={style}
         className={className}
         onLoad={onLoad}

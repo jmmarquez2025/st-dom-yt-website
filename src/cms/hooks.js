@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { fetchStaff, fetchSchedule, fetchMinistries, fetchAnnouncements, fetchEvents, fetchBulletins, fetchBlogPosts } from "./client";
+import { fetchStaff, fetchSchedule, fetchMinistries, fetchAnnouncements, fetchEvents, fetchBulletins, fetchBlogPosts, getDeletedBlogIds } from "./client";
 import { friars as staticFriars, staff as staticStaff } from "../data/staff";
 import { sundayMass, dailyMass, confession, adoration } from "../data/schedule";
 import { ministries as staticMinistries } from "../data/ministries";
@@ -134,12 +134,17 @@ export function useBulletins() {
 /**
  * Blog posts — tries the Google Docs CMS first, falls back to static sample posts.
  * CMS posts are merged with static posts (CMS takes precedence on matching IDs).
+ * Locally-tombstoned IDs (see deleteBlogPost) are filtered out from both sides.
  *
  * Returns { data, loading, isLive, refresh } — call refresh() after
  * mutations (create / update / delete) to re-read the post list.
  */
 export function useBlogPosts() {
-  const [data, setData] = useState(staticBlogPosts);
+  const syncVersion = useAdminSyncSignal();
+  const [data, setData] = useState(() => {
+    const deleted = new Set(getDeletedBlogIds());
+    return staticBlogPosts.filter((p) => !deleted.has(p.id));
+  });
   const [loading, setLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
   const [tick, setTick] = useState(0);
@@ -149,23 +154,27 @@ export function useBlogPosts() {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
+    const deleted = new Set(getDeletedBlogIds());
     fetchBlogPosts().then((cmsPosts) => {
-      if (!cancelled && cmsPosts && cmsPosts.length > 0) {
-        // Merge: CMS posts first, then static posts not in CMS
+      if (cancelled) return;
+      if (cmsPosts && cmsPosts.length > 0) {
         const cmsIds = new Set(cmsPosts.map((p) => p.id));
         const merged = [
-          ...cmsPosts,
-          ...staticBlogPosts.filter((p) => !cmsIds.has(p.id)),
+          ...cmsPosts.filter((p) => !deleted.has(p.id)),
+          ...staticBlogPosts.filter((p) => !cmsIds.has(p.id) && !deleted.has(p.id)),
         ];
         setData(merged);
         setIsLive(true);
+      } else {
+        // CMS returned nothing — still need to apply tombstones to static posts
+        setData(staticBlogPosts.filter((p) => !deleted.has(p.id)));
       }
-      if (!cancelled) setLoading(false);
+      setLoading(false);
     }).catch(() => {
       if (!cancelled) setLoading(false);
     });
     return () => { cancelled = true; };
-  }, [tick]);
+  }, [tick, syncVersion]);
 
   return { data, loading, isLive, refresh };
 }
