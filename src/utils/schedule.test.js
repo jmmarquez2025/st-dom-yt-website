@@ -4,7 +4,7 @@ import { sundayMass, dailyMass, confession } from "../data/schedule";
 
 describe("rowsForDay", () => {
   it("includes Spanish Sunday Mass on Sundays", () => {
-    expect(rowsForDay(sundayMass, "sunday").map(([, time]) => time)).toContain("1:00 PM");
+    expect(rowsForDay(sundayMass, "sunday").map(([, time]) => time)).toContain("12:30 PM");
   });
 
   it("includes Saturday Vigil on Saturdays", () => {

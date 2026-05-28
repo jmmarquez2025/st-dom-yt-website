@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
+import PullQuote from "../components/PullQuote";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
@@ -117,38 +118,7 @@ export default function Staff() {
     const text = t(`staff.quotes.${id}.text`, { defaultValue: "" });
     if (!text) return null;
     const source = t(`staff.quotes.${id}.source`, { defaultValue: "" });
-    return (
-      <blockquote
-        style={{
-          margin: "0 0 24px",
-          padding: "8px 0 8px 18px",
-          borderLeft: `3px solid ${T.gold}`,
-          fontFamily: "'Cormorant Garamond', serif",
-          fontStyle: "italic",
-          fontSize: 17,
-          lineHeight: 1.6,
-          color: T.softBlack,
-        }}
-      >
-        “{text}”
-        {source && (
-          <footer
-            style={{
-              marginTop: 10,
-              fontFamily: "'Source Sans 3', sans-serif",
-              fontStyle: "normal",
-              fontSize: 11,
-              letterSpacing: 1.5,
-              textTransform: "uppercase",
-              color: T.burgundy,
-              fontWeight: 700,
-            }}
-          >
-            — {source}
-          </footer>
-        )}
-      </blockquote>
-    );
+    return <PullQuote text={`“${text}”`} src={source} align="left" />;
   };
 
   const LeaderCard = ({ person }) => {

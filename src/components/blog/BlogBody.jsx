@@ -1,5 +1,6 @@
 import { T } from "../../constants/theme";
 import { generateHeadingId } from "../../utils/blogUtils";
+import PullQuote from "../../components/PullQuote";
 
 /**
  * Renders an array of content blocks as JSX.
@@ -52,38 +53,7 @@ export default function BlogBody({ blocks, isFirstPost = true }) {
 
           case "quote":
             return (
-              <blockquote
-                key={i}
-                style={{
-                  fontSize: "clamp(17px, 2.5vw, 20px)",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontStyle: "italic",
-                  lineHeight: 1.6,
-                  color: T.warmGray,
-                  borderLeft: `4px solid ${T.gold}`,
-                  paddingLeft: 24,
-                  margin: "32px 0",
-                  maxWidth: 600,
-                }}
-              >
-                {block.text}
-                {block.attribution && (
-                  <cite
-                    style={{
-                      display: "block",
-                      fontSize: 12,
-                      letterSpacing: 2,
-                      textTransform: "uppercase",
-                      color: T.goldText,
-                      fontStyle: "normal",
-                      marginTop: 12,
-                      fontFamily: "'Source Sans 3', sans-serif",
-                    }}
-                  >
-                    {block.attribution}
-                  </cite>
-                )}
-              </blockquote>
+              <PullQuote key={i} text={block.text} src={block.attribution} align="left" />
             );
 
           case "image":
@@ -125,8 +95,8 @@ export default function BlogBody({ blocks, isFirstPost = true }) {
                 key={i}
                 style={{
                   background: T.cream,
-                  borderLeft: `4px solid ${T.burgundy}`,
-                  borderRadius: "0 6px 6px 0",
+                  border: `1px solid ${T.stone}`,
+                  borderRadius: 6,
                   padding: "20px 24px",
                   margin: "28px 0",
                   fontSize: 15,

@@ -89,7 +89,7 @@ function SundayMassCard({ t }) {
         [t("home.massCta.satVigil"), "5:00 PM"],
         [t("home.massCta.sun"), "8:00 AM"],
         [t("home.massCta.sun"), "10:30 AM"],
-        [t("home.massCta.sunEspanol"), "1:00 PM"],
+        [t("home.massCta.sunEspanol"), "12:30 PM"],
       ].map(([label, time]) => (
         <div key={`${label}-${time}`} className="premium-mass-row">
           <span>{label}</span>
@@ -176,12 +176,6 @@ export default function Home() {
             </Btn>
           </div>
 
-          <div className="premium-hero__proof" aria-label={t("home.hero.proofLabel")}>
-            <span>{t("home.stats.years")}: 100+</span>
-            <span>{t("home.stats.masses")}: 4</span>
-            <span>{t("home.stats.languages")}: 2</span>
-          </div>
-
           {i18n.language !== "es" && (
             <button
               type="button"
@@ -251,7 +245,6 @@ export default function Home() {
               <SectionTitle sub={t("home.massCta.sub")} center={false} divider={false}>
                 {t("home.massCta.title")}
               </SectionTitle>
-              <p className="premium-lede">{t("home.massCta.desc")}</p>
               <div className="premium-inline-actions">
                 <Btn variant="primary" onClick={() => navigate("/mass-times")}>
                   {t("home.massCta.cta")}

@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
+import PullQuote from "../components/PullQuote";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
@@ -139,32 +140,12 @@ export default function About() {
                   color: "#fff",
                 }}
               >
-                <blockquote
-                  style={{
-                    fontSize: 20,
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontStyle: "italic",
-                    lineHeight: 1.5,
-                    borderLeft: `3px solid ${T.gold}`,
-                    paddingLeft: 20,
-                  }}
-                >
-                  {t("about.history.motto")}
-                </blockquote>
-                <cite
-                  style={{
-                    display: "block",
-                    fontSize: 12,
-                    letterSpacing: 2,
-                    textTransform: "uppercase",
-                    color: T.goldLight,
-                    fontStyle: "normal",
-                    marginTop: 12,
-                    paddingLeft: 24,
-                  }}
-                >
-                  {t("about.history.mottoSrc")}
-                </cite>
+                <PullQuote
+                  text={t("about.history.motto")}
+                  src={t("about.history.mottoSrc")}
+                  align="left"
+                  tone="dark"
+                />
               </div>
             </div>
 

@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import PullQuote from "../components/PullQuote";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { PHOTOS } from "../constants/photos";
@@ -58,34 +59,10 @@ export default function Give() {
 
       <Section bg={T.warmWhite} style={donationSectionStyle}>
         <SectionTitle sub={t("give.sub")}>{t("give.heading")}</SectionTitle>
-        <blockquote
-          style={{
-            fontSize: "clamp(17px, 2.5vw, 21px)",
-            fontFamily: "'Cormorant Garamond', serif",
-            fontStyle: "italic",
-            lineHeight: 1.6,
-            color: T.warmGray,
-            borderLeft: `3px solid ${T.gold}`,
-            paddingLeft: 20,
-            margin: "0 auto 28px",
-            maxWidth: 640,
-          }}
-        >
-          {t("give.quote")}
-          <cite
-            style={{
-              display: "block",
-              fontSize: 12,
-              letterSpacing: 2,
-              textTransform: "uppercase",
-              color: T.goldText,
-              fontStyle: "normal",
-              marginTop: 10,
-            }}
-          >
-            {t("give.quoteSrc")}
-          </cite>
-        </blockquote>
+        <PullQuote
+          text={t("give.quote")}
+          src={t("give.quoteSrc")}
+        />
         <p style={{ fontSize: 16, color: T.warmGray, lineHeight: 1.8, textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
           {t("give.desc")}
         </p>

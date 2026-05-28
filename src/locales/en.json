@@ -62,8 +62,7 @@
       "location": "Youngstown, Ohio",
       "ctaVisit": "Plan Your Visit",
       "ctaMass": "Mass & Confession Times",
-      "ctaBecoming": "Interested in Becoming Catholic?",
-      "proofLabel": "Parish at a glance"
+      "ctaBecoming": "Interested in Becoming Catholic?"
     },
     "essentials": {
       "sub": "Parish Essentials",
@@ -72,7 +71,7 @@
       "noMassToday": "No Mass listed for today",
       "confession": "Confession Today",
       "noConfessionToday": "See the weekly schedule",
-      "directions": "Directions",
+      "directions": "Address",
       "directionsDesc": "77 East Lucius Avenue",
       "bulletin": "Bulletin",
       "bulletinDesc": "Announcements and parish notices",
@@ -82,13 +81,13 @@
     "welcome": {
       "sub": "Welcome",
       "title": "Encounter Jesus Christ with Us",
-      "p1": "St. Dominic Church has been a center of faith, liturgy, and preaching in the heart of Youngstown's south side since 1923. Led by the Dominican Friars of the Province of St. Joseph, we are devoted to forming faithful disciples in the rich liturgical and intellectual tradition of the Catholic Church.",
-      "p2": "Our doors are open to everyone — lifelong Catholics, those returning to the faith, and anyone seeking truth. Join us in growing closer to Christ through Word, Sacrament, and Service.",
+      "p1": "St. Dominic Church has served Youngstown's south side since 1923, in the care of the Dominican Friars.",
+      "p2": "Whether you're a lifelong Catholic or just curious, you're welcome here.",
       "cta": "About Us"
     },
     "massCta": {
       "sub": "Worship",
-      "title": "Come Worship with Us",
+      "title": "Find Jesus Here",
       "desc": "Join us! We'd love to welcome you to our beautiful Romanesque church. Whether you're visiting Youngstown or looking for a new church home, find our Mass and Confession times below.",
       "cta": "See Mass & Confession Times",
       "sundayMass": "Weekend Mass",
@@ -101,14 +100,14 @@
       "title": "Priests & Staff",
       "quote": "\"To praise, to bless, and to preach.\"",
       "quoteSrc": "— Motto of the Dominican Order",
-      "desc": "Our dedicated team of Dominican friars and church staff are here to provide spiritual guidance, support, and resources to help you grow in your Catholic faith.",
+      "desc": "Our Dominican friars and parish staff are here to help — reach out anytime.",
       "cta": "Meet Our Priests & Staff",
       "province": "Our Province"
     },
     "involved": {
       "sub": "Get Involved",
       "title": "Become a Member",
-      "desc": "Explore St. Dominic's! We have vibrant ministries, community events, a Hispanic ministry program, and many service opportunities. Come be a part of our family.",
+      "desc": "There are many ways to get involved — ministries, events, and service. Come be part of the parish.",
       "ctaRegister": "Register at the Church",
       "ctaBulletin": "Recent Bulletins"
     },
@@ -124,12 +123,6 @@
       "hours": "Hrs",
       "min": "Min",
       "sec": "Sec"
-    },
-    "stats": {
-      "years": "Years of Faith",
-      "masses": "Weekend Masses",
-      "ministries": "Active Ministries",
-      "languages": "Languages"
     },
     "quotes": {
       "label": "Daily Reflection",
@@ -287,46 +280,113 @@
       "step3": "Confess your sins honestly and completely.",
       "step4": "Listen to the priest's counsel and accept the penance he assigns.",
       "step5": "Pray the Act of Contrition when the priest asks you to.",
-      "step6": "After absolution, complete your penance and give thanks to God for His mercy."
+      "step6": "After absolution, complete your penance and give thanks to God for His mercy.",
+      "actTitle": "Act of Contrition",
+      "actText": "O my God, I am heartily sorry for having offended you, and I detest all my sins because of your just punishments, but most of all because they offend you, my God, who are all good and deserving of all my love. I firmly resolve, with the help of your grace, to sin no more and to avoid the near occasions of sin. Amen."
     },
     "examine": {
       "sub": "Preparing Your Heart",
       "title": "Examination of Conscience",
-      "desc": "Before going to Confession, take time to prayerfully examine your conscience. The following questions, adapted from the USCCB, can help guide your reflection.",
-      "god": {
-        "title": "Responsibilities to God",
+      "desc": "Before going to Confession, take time to prayerfully examine your conscience. This examination follows the Ten Commandments, drawn from the Knights of Columbus prayer book in our pews.",
+      "c1": {
+        "title": "I am the Lord your God; you shall not have strange gods before me.",
         "items": [
-          "Have I failed to pray daily?",
-          "Have I used God's name in vain or spoken irreverently about sacred things?",
-          "Have I missed Mass on Sundays or Holy Days of Obligation through my own fault?",
-          "Have I failed to fast or abstain on days of penance?",
-          "Have I placed other things — money, possessions, pleasures — before God?",
+          "Do I love God above all things?",
+          "Do I pray daily?",
+          "Have I been involved with the occult — witchcraft, ouija boards, tarot, or fortune telling?",
           "Have I received Holy Communion in a state of mortal sin?"
         ]
       },
-      "others": {
-        "title": "Responsibilities to Others",
+      "c2": {
+        "title": "You shall not take the name of the Lord your God in vain.",
         "items": [
-          "Have I honored and obeyed my parents, or failed in my duties to my family?",
-          "Have I been selfish, unkind, or impatient with those around me?",
-          "Have I harbored anger, hatred, or a desire for revenge?",
-          "Have I refused to forgive someone?",
-          "Have I gossiped, lied, or damaged another's reputation?",
-          "Have I stolen, cheated, or failed to give what is owed to others?",
-          "Have I been a scandal or bad example to others, especially the young?"
+          "Have I used God's holy name irreverently?",
+          "Have I blasphemed God, the Church, Our Lady, or the saints?"
         ]
       },
-      "self": {
-        "title": "Responsibilities to Self",
+      "c3": {
+        "title": "Remember to keep holy the Lord's Day.",
         "items": [
-          "Have I given in to laziness and failed to develop the talents God has given me?",
-          "Have I been excessive in eating, drinking, or other bodily pleasures?",
-          "Have I harbored impure thoughts or entertained temptations?",
-          "Have I given in to envy, jealousy, or pride?",
-          "Have I failed to care for my body and health as a gift from God?"
+          "Do I keep Sunday as a day of prayer and rest?",
+          "Have I deliberately come late to or left early from Mass?"
         ]
       },
-      "source": "Adapted from the USCCB Examination of Conscience"
+      "c4": {
+        "title": "Honor your father and your mother.",
+        "items": [
+          "Do I honor and respect my parents?",
+          "Do I treat my children with love and respect?",
+          "Do I support the members of my family?"
+        ]
+      },
+      "c5": {
+        "title": "You shall not kill.",
+        "items": [
+          "Have I deliberately harmed anyone?",
+          "Have I had or encouraged an abortion?",
+          "Have I attempted suicide?",
+          "Have I abused drugs or alcohol?"
+        ]
+      },
+      "c6": {
+        "title": "You shall not commit adultery.",
+        "items": [
+          "Am I faithful to my spouse in thought and action?",
+          "Have I used artificial contraception?",
+          "Have I engaged in sexual activity outside of marriage?",
+          "Have I viewed pornography?"
+        ]
+      },
+      "c7": {
+        "title": "You shall not steal.",
+        "items": [
+          "Have I stolen or accepted stolen goods?",
+          "Have I deliberately destroyed property?",
+          "Have I cheated anyone?",
+          "Do I share with the poor?"
+        ]
+      },
+      "c8": {
+        "title": "You shall not bear false witness against your neighbor.",
+        "items": [
+          "Have I lied?",
+          "Have I gossiped?",
+          "Have I ruined another's good name?"
+        ]
+      },
+      "c9": {
+        "title": "You shall not desire your neighbor's wife.",
+        "items": [
+          "Have I permitted sexual thoughts about anyone besides my spouse?",
+          "Do I guard my imagination and senses?"
+        ]
+      },
+      "c10": {
+        "title": "You shall not desire your neighbor's goods.",
+        "items": [
+          "Am I envious of the possessions, abilities, or success of others?"
+        ]
+      },
+      "loveNeighbor": {
+        "title": "You shall love your neighbor as yourself.",
+        "items": [
+          "Do I love my neighbor?",
+          "Do I forgive those who hurt me?",
+          "Do I harbor hatred?",
+          "Do I pray for my enemies?"
+        ]
+      },
+      "precepts": {
+        "title": "Precepts of the Church",
+        "items": [
+          "Have I deliberately missed Mass on a Sunday or Holy Day without serious reason?",
+          "Do I go to Confession at least once a year?",
+          "Do I receive Holy Communion at least once during Eastertime?",
+          "Do I abstain from meat on Fridays in Lent and fast on Ash Wednesday and Good Friday?",
+          "Do I fast one hour before Holy Communion? Do I contribute to the support of the Church?"
+        ]
+      },
+      "source": "From the Knights of Columbus Examination of Conscience"
     },
     "parallax2": {
       "quote": "\"God never tires of forgiving us; we are the ones who tire of seeking His mercy.\"",
@@ -347,7 +407,7 @@
       "sub": "Days of Special Obligation",
       "title": "Holy Days of Obligation",
       "desc": "Catholics are required to attend Mass on Holy Days of Obligation. At St. Dominic, we celebrate these feasts with a Vigil Mass and multiple Masses throughout the day.",
-      "schedule": "Vigil: 5:00 PM · Holy Day: 8:00 AM, 12:00 PM, 5:00 PM",
+      "schedule": "Vigil: 5:00 PM · Holy Day: 8:00 AM, 12:00 PM, 5:00 PM, 7:00 PM (Spanish)",
       "days": [
         "Mary, Mother of God — January 1",
         "Ascension of the Lord — 40 days after Easter",
@@ -627,7 +687,7 @@
       "hispanic": {
         "title": "Hispanic Ministry",
         "desc": "Join our vibrant Spanish-speaking community with weekly Masses and cultural events.",
-        "detail": "Our Hispanic Ministry serves the growing Spanish-speaking community of St. Dominic Church. We celebrate a weekly Sunday Mass in Spanish at 1:00 PM and host cultural events, prayer groups, and community gatherings throughout the year. The ministry fosters a welcoming environment where Hispanic families can worship, grow in faith, and build lasting friendships within the church."
+        "detail": "Our Hispanic Ministry serves the growing Spanish-speaking community of St. Dominic Church. We celebrate a weekly Sunday Mass in Spanish at 12:30 PM and host cultural events, prayer groups, and community gatherings throughout the year. The ministry fosters a welcoming environment where Hispanic families can worship, grow in faith, and build lasting friendships within the church."
       },
       "layDominicans": {
         "title": "Lay Dominicans",
@@ -1029,27 +1089,8 @@
     },
     "steps": {
       "sub": "What to Expect",
-      "title": "Your First Sunday at St. Dominic",
-      "arrive": {
-        "title": "Arrive & Park",
-        "desc": "Our church is at 77 East Lucius Avenue, on Youngstown's south side. Parking is available in the lot next to the church on Lucius Avenue. Aim to arrive about 10 minutes early so you can find a seat and settle in."
-      },
-      "enter": {
-        "title": "Enter Through the Main Doors",
-        "desc": "Walk through the front entrance on Lucius Avenue — you'll see the life-size statue of Saint Dominic above the doors. Greeters are often at the entrance and happy to help. Bulletins are available as you walk in."
-      },
-      "seat": {
-        "title": "Find a Seat Anywhere",
-        "desc": "Sit wherever you're comfortable — there are no reserved seats. Our Romanesque church is beautiful and designed for prayer. Take a moment to look around and take it all in."
-      },
-      "mass": {
-        "title": "Follow Along at Mass",
-        "desc": "Missals (prayer books) are in each pew to help you follow the readings and prayers. Don't worry if you're unfamiliar with the responses — just participate at your own comfort level. You are welcome to receive a blessing during Communion by crossing your arms over your chest."
-      },
-      "community": {
-        "title": "Stay & Say Hello",
-        "desc": "After Mass, feel free to introduce yourself to one of the friars or fellow members. We'd love to learn your name and help you feel at home. If you'd like to learn more, the church office is happy to help."
-      }
+      "title": "Sunday at St. Dominic",
+      "intro": "Come as you are — here's what a Sunday morning with us is like."
     },
     "know": {
       "sub": "Good to Know",
@@ -1064,7 +1105,7 @@
       },
       "language": {
         "title": "Spanish Mass Available",
-        "desc": "We celebrate a Spanish-language Mass every Sunday at 1:00 PM. Our Hispanic Ministry community is vibrant and welcoming — ¡todos son bienvenidos!"
+        "desc": "We celebrate a Spanish-language Mass every Sunday at 12:30 PM. Our Hispanic Ministry community is vibrant and welcoming — ¡todos son bienvenidos!"
       },
       "parking": {
         "title": "Parking & Accessibility",
@@ -1081,11 +1122,6 @@
       "sun": "Sunday:",
       "sunEs": "Domingo (Español):",
       "confessionNote": "Confessions: Wed & Fri 11:15 AM–12:00 PM · Sat 11:15 AM–12:00 PM & 4:00–5:00 PM"
-    },
-    "glance": {
-      "masses": "Weekend Masses",
-      "languages": "Languages",
-      "priests": "Dominican Friars"
     },
     "directions": {
       "sub": "Find Us",

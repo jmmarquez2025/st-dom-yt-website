@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import PullQuote from "../components/PullQuote";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { PHOTOS } from "../constants/photos";
@@ -58,34 +59,10 @@ export default function BecomingCatholic() {
           <SectionTitle sub={t("becomingCatholic.intro.sub")}>
             {t("becomingCatholic.intro.title")}
           </SectionTitle>
-          <blockquote
-            style={{
-              fontSize: "clamp(17px, 2.5vw, 21px)",
-              fontFamily: "'Cormorant Garamond', serif",
-              fontStyle: "italic",
-              lineHeight: 1.6,
-              color: T.warmGray,
-              borderLeft: `3px solid ${T.gold}`,
-              paddingLeft: 20,
-              margin: "0 auto 28px",
-              maxWidth: 640,
-            }}
-          >
-            {t("becomingCatholic.quote")}
-            <cite
-              style={{
-                display: "block",
-                fontSize: 12,
-                letterSpacing: 2,
-                textTransform: "uppercase",
-                color: T.goldText,
-                fontStyle: "normal",
-                marginTop: 10,
-              }}
-            >
-              {t("becomingCatholic.quoteSrc")}
-            </cite>
-          </blockquote>
+          <PullQuote
+            text={t("becomingCatholic.quote")}
+            src={t("becomingCatholic.quoteSrc")}
+          />
           <p
             style={{
               fontSize: 17,
