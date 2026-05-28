@@ -62,8 +62,7 @@
       "location": "Youngstown, Ohio",
       "ctaVisit": "Planifique Su Visita",
       "ctaMass": "Horarios de Misa y Confesión",
-      "ctaBecoming": "¿Interesado en Hacerse Católico?",
-      "proofLabel": "La parroquia de un vistazo"
+      "ctaBecoming": "¿Interesado en Hacerse Católico?"
     },
     "essentials": {
       "sub": "Lo Esencial",
@@ -72,7 +71,7 @@
       "noMassToday": "No hay Misa listada para hoy",
       "confession": "Confesión Hoy",
       "noConfessionToday": "Vea el horario semanal",
-      "directions": "Direcciones",
+      "directions": "Dirección",
       "directionsDesc": "77 East Lucius Avenue",
       "bulletin": "Boletín",
       "bulletinDesc": "Anuncios y noticias parroquiales",
@@ -82,13 +81,13 @@
     "welcome": {
       "sub": "Bienvenidos",
       "title": "Encuentre a Jesucristo con Nosotros",
-      "p1": "La Iglesia Santo Domingo ha sido un centro de fe, liturgia y predicación en el corazón del lado sur de Youngstown desde 1923. Dirigida por los Frailes Dominicos de la Provincia de San José, estamos dedicados a formar discípulos fieles en la rica tradición litúrgica e intelectual de la Iglesia Católica.",
-      "p2": "Nuestras puertas están abiertas a todos — católicos de toda la vida, aquellos que regresan a la fe y cualquiera que busque la verdad. Únase a nosotros para crecer más cerca de Cristo a través de la Palabra, el Sacramento y el Servicio.",
+      "p1": "La Iglesia Santo Domingo sirve al lado sur de Youngstown desde 1923, al cuidado de los Frailes Dominicos.",
+      "p2": "Sea usted católico de toda la vida o apenas tenga curiosidad, es bienvenido aquí.",
       "cta": "Sobre Nosotros"
     },
     "massCta": {
       "sub": "Culto",
-      "title": "Venga a Adorar con Nosotros",
+      "title": "Encuentre a Jesús Aquí",
       "desc": "¡Acompáñenos! Nos encantaría darle la bienvenida a nuestra hermosa iglesia románica. Ya sea que esté visitando Youngstown o buscando un nuevo hogar parroquial, encuentre nuestros horarios de Misa y Confesión a continuación.",
       "cta": "Ver Horarios de Misa y Confesión",
       "sundayMass": "Misa de Fin de Semana",
@@ -101,14 +100,14 @@
       "title": "Sacerdotes y Personal",
       "quote": "\"Alabar, bendecir y predicar.\"",
       "quoteSrc": "— Lema de la Orden Dominicana",
-      "desc": "Nuestro dedicado equipo de frailes dominicos y personal parroquial está aquí para brindar guía espiritual, apoyo y recursos para ayudarle a crecer en su fe católica.",
+      "desc": "Nuestros frailes dominicos y el personal parroquial están aquí para ayudar — contáctenos cuando guste.",
       "cta": "Conozca a Nuestros Sacerdotes y Personal",
       "province": "Nuestra Provincia"
     },
     "involved": {
       "sub": "Participe",
       "title": "Hágase Feligrés",
-      "desc": "¡Explore Santo Domingo! Tenemos ministerios vibrantes, eventos comunitarios, un programa de ministerio hispano y muchas oportunidades de servicio. Venga a ser parte de nuestra familia.",
+      "desc": "Hay muchas maneras de participar — ministerios, eventos y servicio. Venga a ser parte de la parroquia.",
       "ctaRegister": "Regístrese en la Iglesia",
       "ctaBulletin": "Boletines Recientes"
     },
@@ -124,12 +123,6 @@
       "hours": "Hrs",
       "min": "Min",
       "sec": "Seg"
-    },
-    "stats": {
-      "years": "Años de Fe",
-      "masses": "Misas de Fin de Semana",
-      "ministries": "Ministerios Activos",
-      "languages": "Idiomas"
     },
     "quotes": {
       "label": "Reflexión del Día",
@@ -287,46 +280,113 @@
       "step3": "Confiese sus pecados honesta y completamente.",
       "step4": "Escuche el consejo del sacerdote y acepte la penitencia que le asigne.",
       "step5": "Rece el Acto de Contrición cuando el sacerdote se lo pida.",
-      "step6": "Después de la absolución, complete su penitencia y dé gracias a Dios por Su misericordia."
+      "step6": "Después de la absolución, complete su penitencia y dé gracias a Dios por Su misericordia.",
+      "actTitle": "Acto de Contrición",
+      "actText": "Dios mío, me arrepiento de todo corazón de todos mis pecados y los aborrezco, porque al pecar no solo merezco las penas establecidas por Ti justamente, sino principalmente porque te ofendí a Ti, sumo Bien y digno de ser amado sobre todas las cosas. Propongo firmemente, con ayuda de tu gracia, no volver a pecar y evitar las ocasiones próximas de pecado. Amén."
     },
     "examine": {
       "sub": "Preparando Su Corazón",
       "title": "Examen de Conciencia",
-      "desc": "Antes de ir a confesión, tómese un tiempo para examinar su conciencia en oración. Las siguientes preguntas, adaptadas de la USCCB, pueden ayudar a guiar su reflexión.",
-      "god": {
-        "title": "Responsabilidades con Dios",
+      "desc": "Antes de ir a Confesión, tómese un tiempo para examinar su conciencia en oración. Este examen sigue los Diez Mandamientos, tomado del libro de oraciones de los Caballeros de Colón que está en nuestras bancas.",
+      "c1": {
+        "title": "Yo soy el Señor tu Dios; no tendrás dioses ajenos delante de mí.",
         "items": [
-          "¿He dejado de rezar diariamente?",
-          "¿He usado el nombre de Dios en vano o hablado irrespetuosamente de cosas sagradas?",
-          "¿He faltado a Misa los domingos o Días de Precepto por mi propia culpa?",
-          "¿He dejado de ayunar o abstenerme en días de penitencia?",
-          "¿He puesto otras cosas — dinero, posesiones, placeres — antes que Dios?",
+          "¿Amo a Dios sobre todas las cosas?",
+          "¿Rezo a diario?",
+          "¿Me he involucrado con el ocultismo — brujería, ouija, tarot o adivinación?",
           "¿He recibido la Sagrada Comunión en estado de pecado mortal?"
         ]
       },
-      "others": {
-        "title": "Responsabilidades con los Demás",
+      "c2": {
+        "title": "No tomarás el nombre del Señor tu Dios en vano.",
         "items": [
-          "¿He honrado y obedecido a mis padres, o he fallado en mis deberes familiares?",
-          "¿He sido egoísta, descortés o impaciente con los que me rodean?",
-          "¿He albergado ira, odio o deseo de venganza?",
-          "¿He rehusado perdonar a alguien?",
-          "¿He chismeado, mentido o dañado la reputación de otro?",
-          "¿He robado, engañado o dejado de dar lo que debo a otros?",
-          "¿He sido un escándalo o mal ejemplo para otros, especialmente los jóvenes?"
+          "¿He usado el santo nombre de Dios irreverentemente?",
+          "¿He blasfemado contra Dios, la Iglesia, la Virgen o los santos?"
         ]
       },
-      "self": {
-        "title": "Responsabilidades Consigo Mismo",
+      "c3": {
+        "title": "Santificarás el día del Señor.",
         "items": [
-          "¿He cedido a la pereza y no he desarrollado los talentos que Dios me ha dado?",
-          "¿He sido excesivo en la comida, la bebida u otros placeres corporales?",
-          "¿He albergado pensamientos impuros o entretenido tentaciones?",
-          "¿He cedido a la envidia, los celos o el orgullo?",
-          "¿He dejado de cuidar mi cuerpo y salud como un don de Dios?"
+          "¿Guardo el domingo como día de oración y descanso?",
+          "¿He llegado tarde o me he ido temprano de la Misa deliberadamente?"
         ]
       },
-      "source": "Adaptado del Examen de Conciencia de la USCCB"
+      "c4": {
+        "title": "Honra a tu padre y a tu madre.",
+        "items": [
+          "¿Honro y respeto a mis padres?",
+          "¿Trato a mis hijos con amor y respeto?",
+          "¿Sostengo a los miembros de mi familia?"
+        ]
+      },
+      "c5": {
+        "title": "No matarás.",
+        "items": [
+          "¿He dañado a alguien deliberadamente?",
+          "¿He tenido o fomentado un aborto?",
+          "¿He intentado suicidarme?",
+          "¿He abusado de las drogas o el alcohol?"
+        ]
+      },
+      "c6": {
+        "title": "No cometerás adulterio.",
+        "items": [
+          "¿Soy fiel a mi cónyuge en pensamiento y acción?",
+          "¿He usado anticonceptivos artificiales?",
+          "¿He tenido actividad sexual fuera del matrimonio?",
+          "¿He visto pornografía?"
+        ]
+      },
+      "c7": {
+        "title": "No robarás.",
+        "items": [
+          "¿He robado o aceptado bienes robados?",
+          "¿He destruido propiedad deliberadamente?",
+          "¿He engañado a alguien?",
+          "¿Comparto con los pobres?"
+        ]
+      },
+      "c8": {
+        "title": "No darás falso testimonio contra tu prójimo.",
+        "items": [
+          "¿He mentido?",
+          "¿He chismeado?",
+          "¿He arruinado la buena fama de otro?"
+        ]
+      },
+      "c9": {
+        "title": "No desearás a la mujer de tu prójimo.",
+        "items": [
+          "¿He permitido pensamientos sexuales sobre alguien que no sea mi cónyuge?",
+          "¿Custodio mi imaginación y mis sentidos?"
+        ]
+      },
+      "c10": {
+        "title": "No codiciarás los bienes ajenos.",
+        "items": [
+          "¿Siento envidia de las posesiones, habilidades o éxitos de los demás?"
+        ]
+      },
+      "loveNeighbor": {
+        "title": "Amarás a tu prójimo como a ti mismo.",
+        "items": [
+          "¿Amo a mi prójimo?",
+          "¿Perdono a los que me hieren?",
+          "¿Albergo odio?",
+          "¿Rezo por mis enemigos?"
+        ]
+      },
+      "precepts": {
+        "title": "Preceptos de la Iglesia",
+        "items": [
+          "¿He faltado a Misa deliberadamente un domingo o Día de Precepto sin razón grave?",
+          "¿Voy a Confesión al menos una vez al año?",
+          "¿Recibo la Sagrada Comunión al menos una vez durante el tiempo de Pascua?",
+          "¿Me abstengo de carne los viernes de Cuaresma y ayuno el Miércoles de Ceniza y el Viernes Santo?",
+          "¿Ayuno una hora antes de la Sagrada Comunión? ¿Contribuyo al sostenimiento de la Iglesia?"
+        ]
+      },
+      "source": "Del Examen de Conciencia de los Caballeros de Colón"
     },
     "parallax2": {
       "quote": "\"Dios no se cansa de perdonarnos; somos nosotros los que nos cansamos de buscar Su misericordia.\"",
@@ -347,7 +407,7 @@
       "sub": "Días de Especial Obligación",
       "title": "Días de Precepto",
       "desc": "Los católicos tienen la obligación de asistir a Misa en los Días de Precepto. En Santo Domingo, celebramos estas fiestas con una Misa de Vigilia y múltiples Misas durante el día.",
-      "schedule": "Vigilia: 5:00 PM · Día de Precepto: 8:00 AM, 12:00 PM, 5:00 PM",
+      "schedule": "Vigilia: 5:00 PM · Día de Precepto: 8:00 AM, 12:00 PM, 5:00 PM, 7:00 PM (Español)",
       "days": [
         "María, Madre de Dios — 1 de enero",
         "Ascensión del Señor — 40 días después de Pascua",
@@ -627,7 +687,7 @@
       "hispanic": {
         "title": "Ministerio Hispano",
         "desc": "Únase a nuestra vibrante comunidad hispanohablante con Misas semanales y eventos culturales.",
-        "detail": "Nuestro Ministerio Hispano sirve a la creciente comunidad hispanohablante de la Iglesia Santo Domingo. Celebramos una Misa dominical semanal en español a la 1:00 PM y organizamos eventos culturales, grupos de oración y reuniones comunitarias durante todo el año. El ministerio fomenta un ambiente acogedor donde las familias hispanas pueden adorar, crecer en la fe y construir amistades duraderas dentro de la iglesia."
+        "detail": "Nuestro Ministerio Hispano sirve a la creciente comunidad hispanohablante de la Iglesia Santo Domingo. Celebramos una Misa dominical semanal en español a las 12:30 PM y organizamos eventos culturales, grupos de oración y reuniones comunitarias durante todo el año. El ministerio fomenta un ambiente acogedor donde las familias hispanas pueden adorar, crecer en la fe y construir amistades duraderas dentro de la iglesia."
       },
       "layDominicans": {
         "title": "Laicos Dominicos",
@@ -1029,27 +1089,8 @@
     },
     "steps": {
       "sub": "Qué Esperar",
-      "title": "Su Primer Domingo en Santo Domingo",
-      "arrive": {
-        "title": "Llegue y Estacione",
-        "desc": "Nuestra iglesia está en 77 East Lucius Avenue, en el lado sur de Youngstown. Hay estacionamiento disponible en el lote junto a la iglesia. Intente llegar unos 10 minutos antes para encontrar un asiento."
-      },
-      "enter": {
-        "title": "Entre por la Puerta Principal",
-        "desc": "Entre por la entrada principal en Lucius Avenue — verá la estatua de Santo Domingo sobre las puertas. Los recepcionistas están disponibles para ayudarle. Los boletines están disponibles al entrar."
-      },
-      "seat": {
-        "title": "Siéntese Donde Guste",
-        "desc": "Siéntese donde se sienta cómodo — no hay asientos reservados. Nuestra iglesia románica es hermosa y diseñada para la oración. Tómese un momento para observar."
-      },
-      "mass": {
-        "title": "Siga la Misa",
-        "desc": "Los misales están en cada banca para ayudarle a seguir las lecturas y oraciones. No se preocupe si no conoce las respuestas — participe a su propio ritmo. Puede recibir una bendición durante la Comunión cruzando los brazos sobre su pecho."
-      },
-      "community": {
-        "title": "Quédese y Salúdenos",
-        "desc": "Después de la Misa, preséntese a uno de los frailes o feligreses. Nos encantaría conocerle y ayudarle a sentirse en casa."
-      }
+      "title": "Domingo en Santo Domingo",
+      "intro": "Venga como está — así es una mañana de domingo con nosotros."
     },
     "know": {
       "sub": "Bueno Saberlo",
@@ -1064,7 +1105,7 @@
       },
       "language": {
         "title": "Misa en Español",
-        "desc": "Celebramos Misa en español cada domingo a la 1:00 PM. Nuestra comunidad del Ministerio Hispano es vibrante y acogedora — ¡todos son bienvenidos!"
+        "desc": "Celebramos Misa en español cada domingo a las 12:30 PM. Nuestra comunidad del Ministerio Hispano es vibrante y acogedora — ¡todos son bienvenidos!"
       },
       "parking": {
         "title": "Estacionamiento y Accesibilidad",
@@ -1081,11 +1122,6 @@
       "sun": "Domingo:",
       "sunEs": "Domingo (Español):",
       "confessionNote": "Confesiones: Mié y Vie 11:15 AM–12:00 PM · Sáb 11:15 AM–12:00 PM y 4:00–5:00 PM"
-    },
-    "glance": {
-      "masses": "Misas de Fin de Semana",
-      "languages": "Idiomas",
-      "priests": "Frailes Dominicos"
     },
     "directions": {
       "sub": "Encuéntrenos",

@@ -2,7 +2,7 @@ export const sundayMass = [
   ["saturdayVigil", "5:00 PM"],
   ["sunday", "8:00 AM"],
   ["sunday", "10:30 AM"],
-  ["sundayEspanol", "1:00 PM"],
+  ["sundayEspanol", "12:30 PM"],
 ];
 
 export const dailyMass = [
@@ -23,6 +23,6 @@ export const confession = [
 ];
 
 export const adoration = [
-  ["tuesday", "12:30 PM – 5:00 PM"],
-  ["tuesdayEveningPrayer", "4:45 PM"],
+  ["tuesday", "12:30 PM – 4:30 PM"],
+  ["tuesday", "7:00 PM – 8:00 PM"],
 ];

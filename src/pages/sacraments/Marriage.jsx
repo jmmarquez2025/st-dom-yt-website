@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import PullQuote from "../../components/PullQuote";
 import { useNavigate } from "react-router-dom";
 import { T } from "../../constants/theme";
 import { CONFIG } from "../../constants/config";
@@ -25,34 +26,10 @@ export default function Marriage() {
         <FadeSection>
           <div style={{ maxWidth: 760, margin: "0 auto" }}>
             <SectionTitle sub={t("sacraments.marriage.sub")}>{t("sacraments.marriage.heading")}</SectionTitle>
-            <blockquote
-              style={{
-                fontSize: "clamp(17px, 2.5vw, 21px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                fontStyle: "italic",
-                lineHeight: 1.6,
-                color: T.warmGray,
-                borderLeft: `3px solid ${T.gold}`,
-                paddingLeft: 20,
-                margin: "0 0 28px",
-                maxWidth: 640,
-              }}
-            >
-              {t("sacraments.marriage.quote")}
-              <cite
-                style={{
-                  display: "block",
-                  fontSize: 12,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: T.goldText,
-                  fontStyle: "normal",
-                  marginTop: 10,
-                }}
-              >
-                {t("sacraments.marriage.quoteSrc")}
-              </cite>
-            </blockquote>
+            <PullQuote
+              text={t("sacraments.marriage.quote")}
+              src={t("sacraments.marriage.quoteSrc")}
+            />
             <div style={{ fontSize: 16, color: T.warmGray, lineHeight: 2 }}>
               <p style={{ marginBottom: 20 }}>{t("sacraments.marriage.p1")}</p>
               <p style={{ marginBottom: 20 }}>{t("sacraments.marriage.p2")}</p>

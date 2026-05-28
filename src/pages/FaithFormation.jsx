@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import PullQuote from "../components/PullQuote";
 import { T } from "../constants/theme";
 import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
@@ -108,34 +109,10 @@ export default function FaithFormation() {
             <SectionTitle sub={t("faithFormation.intro.sub")}>
               {t("faithFormation.intro.title")}
             </SectionTitle>
-            <blockquote
-              style={{
-                fontSize: "clamp(17px, 2.5vw, 21px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                fontStyle: "italic",
-                lineHeight: 1.6,
-                color: T.warmGray,
-                borderLeft: `3px solid ${T.gold}`,
-                paddingLeft: 20,
-                margin: "0 auto 28px",
-                maxWidth: 640,
-              }}
-            >
-              {t("faithFormation.quote")}
-              <cite
-                style={{
-                  display: "block",
-                  fontSize: 12,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: T.goldText,
-                  fontStyle: "normal",
-                  marginTop: 10,
-                }}
-              >
-                {t("faithFormation.quoteSrc")}
-              </cite>
-            </blockquote>
+            <PullQuote
+              text={t("faithFormation.quote")}
+              src={t("faithFormation.quoteSrc")}
+            />
             <p
               style={{
                 fontSize: 17,

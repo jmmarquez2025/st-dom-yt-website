@@ -8,20 +8,10 @@ import Btn from "../components/Btn";
 
 import Seo from "../components/Seo";
 import ScrollColorNum from "../components/ScrollColorNum";
-import ScrollTimeline from "../components/ScrollTimeline";
-import CountUp from "../components/CountUp";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
 import { PHOTOS } from "../constants/photos";
 import PremiumPageActions from "../components/PremiumPageActions";
-
-const STEPS = [
-  { num: "01", key: "arrive", icon: "MapPin" },
-  { num: "02", key: "enter", icon: "DoorOpen" },
-  { num: "03", key: "seat", icon: "Church" },
-  { num: "04", key: "mass", icon: "Cross" },
-  { num: "05", key: "community", icon: "Handshake" },
-];
 
 export default function Visit() {
   const { t } = useTranslation();
@@ -91,7 +81,6 @@ export default function Visit() {
       <PremiumPageActions
         overlap
         eyebrow={t("visit.hero.sub")}
-        title={t("visit.steps.title")}
         items={[
           {
             icon: "Church",
@@ -116,164 +105,23 @@ export default function Visit() {
         ]}
       />
 
-      {/* ════ At a Glance — stat strip ════ */}
-      <section style={{ background: T.softBlack, color: "#fff" }}>
-        <div
-          style={{
-            maxWidth: 900,
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-          }}
-        >
-          {[
-            { end: 4, suffix: "", labelKey: "visit.glance.masses" },
-            { end: 2, suffix: "", labelKey: "visit.glance.languages" },
-            { end: 5, suffix: "", labelKey: "visit.glance.priests" },
-          ].map((stat, i) => (
-            <div key={i} className="stat-card">
-              <div
-                style={{
-                  fontSize: "clamp(32px, 5vw, 44px)",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 700,
-                  color: T.gold,
-                  lineHeight: 1,
-                  marginBottom: 6,
-                }}
-              >
-                <CountUp end={stat.end} suffix={stat.suffix} duration={1800 + i * 300} />
-              </div>
-              <div
-                style={{
-                  fontSize: 11,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.6)",
-                }}
-              >
-                {t(stat.labelKey)}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ════ What to Expect — Steps with Scroll Timeline ════ */}
+      {/* ════ Sunday at St. Dominic ════ */}
       <Section>
         <FadeSection>
           <SectionTitle sub={t("visit.steps.sub")}>{t("visit.steps.title")}</SectionTitle>
-          <blockquote
+          <p
             style={{
-              fontSize: "clamp(17px, 2.5vw, 21px)",
-              fontFamily: "'Cormorant Garamond', serif",
-              fontStyle: "italic",
-              lineHeight: 1.6,
+              fontSize: "clamp(16px, 2vw, 19px)",
               color: T.warmGray,
-              borderLeft: `3px solid ${T.gold}`,
-              paddingLeft: 20,
-              margin: "0 auto 28px",
+              lineHeight: 1.7,
+              textAlign: "center",
               maxWidth: 640,
+              margin: "0 auto",
             }}
           >
-            {t("visit.quote")}
-            <cite
-              style={{
-                display: "block",
-                fontSize: 12,
-                letterSpacing: 2,
-                textTransform: "uppercase",
-                color: T.goldText,
-                fontStyle: "normal",
-                marginTop: 10,
-              }}
-            >
-              {t("visit.quoteSrc")}
-            </cite>
-          </blockquote>
+            {t("visit.steps.intro")}
+          </p>
         </FadeSection>
-
-        <ScrollTimeline>
-          {STEPS.map((step, i) => (
-            <FadeSection key={step.key}>
-              <div
-                style={{
-                  display: "flex",
-                  gap: 24,
-                  padding: "28px 0",
-                  position: "relative",
-                }}
-              >
-                {/* Step number circle — color changes on scroll */}
-                <ScrollColorNum
-                  as="div"
-                  colorFrom={T.stone}
-                  colorTo={T.burgundy}
-                  scaleFrom={0.9}
-                  scaleTo={1.0}
-                  style={{
-                    width: 56,
-                    height: 56,
-                    minWidth: 56,
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 14,
-                    fontWeight: 700,
-                    fontFamily: "'Source Sans 3', sans-serif",
-                    zIndex: 1,
-                    background: T.warmWhite,
-                    border: `2px solid ${T.gold}`,
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  }}
-                >
-                  <ScrollColorNum
-                    colorFrom={T.warmGray}
-                    colorTo={T.burgundy}
-                    style={{
-                      fontSize: 14,
-                      fontWeight: 700,
-                      fontFamily: "'Source Sans 3', sans-serif",
-                    }}
-                  >
-                    {step.num}
-                  </ScrollColorNum>
-                </ScrollColorNum>
-
-                {/* Content */}
-                <div style={{ paddingTop: 4, flex: 1 }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 10,
-                      marginBottom: 8,
-                    }}
-                  >
-                    <Icon name={step.icon} size={22} color={T.gold} />
-                    <ScrollColorNum
-                      as="h3"
-                      colorFrom={T.warmGray}
-                      colorTo={T.softBlack}
-                      style={{
-                        fontSize: 20,
-                        fontFamily: "'Cormorant Garamond', serif",
-                        fontWeight: 600,
-                      }}
-                    >
-                      {t(`visit.steps.${step.key}.title`)}
-                    </ScrollColorNum>
-                  </div>
-                  <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.7 }}>
-                    {t(`visit.steps.${step.key}.desc`)}
-                  </p>
-                </div>
-              </div>
-            </FadeSection>
-          ))}
-        </ScrollTimeline>
       </Section>
 
       {/* ════ What to Know — interactive cards ════ */}
@@ -358,16 +206,6 @@ export default function Visit() {
               <SectionTitle sub={t("visit.schedule.sub")} center={false}>
                 {t("visit.schedule.title")}
               </SectionTitle>
-              <p
-                style={{
-                  fontSize: 16,
-                  color: T.warmGray,
-                  lineHeight: 1.8,
-                  marginBottom: 28,
-                }}
-              >
-                {t("visit.schedule.desc")}
-              </p>
               <Btn variant="primary" onClick={() => navigate("/mass-times")}>
                 {t("visit.schedule.cta")}
               </Btn>
@@ -394,7 +232,7 @@ export default function Visit() {
                 [t("visit.schedule.satVigil"), "5:00 PM"],
                 [t("visit.schedule.sun"), "8:00 AM"],
                 [t("visit.schedule.sun"), "10:30 AM"],
-                [t("visit.schedule.sunEs"), "1:00 PM"],
+                [t("visit.schedule.sunEs"), "12:30 PM"],
               ].map(([label, time], i) => (
                 <div
                   key={i}

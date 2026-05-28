@@ -15,6 +15,7 @@ import HeroImage from "../components/HeroImage";
 import { buildMassTimesSchema } from "../utils/seoSchema";
 import { ChevronDown } from "lucide-react";
 import PremiumPageActions from "../components/PremiumPageActions";
+import PullQuote from "../components/PullQuote";
 
 /* ── Schedule Card ── */
 function ScheduleCard({ title, rows, accent = T.burgundy, t }) {
@@ -62,37 +63,7 @@ function ScheduleCard({ title, rows, accent = T.burgundy, t }) {
 
 /* ── Blockquote ── */
 function Quote({ text, src }) {
-  return (
-    <blockquote
-      style={{
-        fontSize: "clamp(17px, 2.5vw, 21px)",
-        fontFamily: "'Cormorant Garamond', serif",
-        fontStyle: "italic",
-        lineHeight: 1.6,
-        color: T.warmGray,
-        borderLeft: `3px solid ${T.gold}`,
-        paddingLeft: 20,
-        margin: "0 auto 28px",
-        maxWidth: 640,
-      }}
-    >
-      {text}
-      <cite
-        style={{
-          display: "block",
-          marginTop: 10,
-          fontSize: "clamp(12px, 1.5vw, 14px)",
-          fontStyle: "normal",
-          fontFamily: "'Source Sans 3', sans-serif",
-          letterSpacing: 1,
-          textTransform: "uppercase",
-          color: T.goldText,
-        }}
-      >
-        {src}
-      </cite>
-    </blockquote>
-  );
+  return <PullQuote text={text} src={src} />;
 }
 
 /* ── Accordion Item ── */
@@ -318,7 +289,7 @@ export default function MassTimes() {
             icon: "Cross",
             title: t("massTimes.confession.title"),
             description: scheduleSummary(confession),
-            to: "/contact",
+            href: "#confession",
           },
           {
             icon: "Phone",
@@ -416,7 +387,7 @@ export default function MassTimes() {
       </ParallaxSection>
 
       {/* ════ Section 4: Confession ════ */}
-      <Section bg={T.cream}>
+      <Section id="confession" bg={T.cream}>
         <FadeSection>
           <SectionTitle sub={t("massTimes.confession.sub")}>
             {t("massTimes.confession.title")}
@@ -489,6 +460,42 @@ export default function MassTimes() {
                 text={t(`massTimes.confession.step${n}`)}
               />
             ))}
+
+            <div
+              style={{
+                marginTop: 24,
+                paddingTop: 24,
+                borderTop: `1px solid ${T.stone}`,
+              }}
+            >
+              <h4
+                style={{
+                  fontSize: 13,
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  color: T.goldText,
+                  marginBottom: 10,
+                  textAlign: "center",
+                }}
+              >
+                {t("massTimes.confession.actTitle")}
+              </h4>
+              <p
+                style={{
+                  fontSize: 17,
+                  lineHeight: 1.8,
+                  color: T.charcoal,
+                  fontStyle: "italic",
+                  fontFamily: "'Cormorant Garamond', serif",
+                  textAlign: "center",
+                  margin: 0,
+                }}
+              >
+                {t("massTimes.confession.actText")}
+              </p>
+            </div>
           </div>
         </FadeSection>
       </Section>
@@ -513,19 +520,27 @@ export default function MassTimes() {
             {t("massTimes.examine.desc")}
           </p>
           <div style={{ maxWidth: 700, margin: "0 auto" }}>
-            <AccordionItem
-              title={t("massTimes.examine.god.title")}
-              items={examineItems("god")}
-              defaultOpen
-            />
-            <AccordionItem
-              title={t("massTimes.examine.others.title")}
-              items={examineItems("others")}
-            />
-            <AccordionItem
-              title={t("massTimes.examine.self.title")}
-              items={examineItems("self")}
-            />
+            {[
+              "c1",
+              "c2",
+              "c3",
+              "c4",
+              "c5",
+              "c6",
+              "c7",
+              "c8",
+              "c9",
+              "c10",
+              "loveNeighbor",
+              "precepts",
+            ].map((key, i) => (
+              <AccordionItem
+                key={key}
+                title={t(`massTimes.examine.${key}.title`)}
+                items={examineItems(key)}
+                defaultOpen={i === 0}
+              />
+            ))}
             <p
               style={{
                 fontSize: 12,
