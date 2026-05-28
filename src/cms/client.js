@@ -137,6 +137,7 @@ export async function fetchBulletins() {
  */
 const BLOG_CACHE_KEY = "__blog_cms";
 const BLOG_LOCAL_KEY = "__blog_local"; // local-only posts when CMS not configured
+const BLOG_DELETED_KEY = "stdom_blog_deleted"; // tombstones for deleted post IDs (covers static posts the CMS can't touch)
 const STAFF_TOKEN_KEY = "stdom_staff_token";
 
 /* ── Local-storage helpers (offline / no-CMS mode) ── */
@@ -151,6 +152,46 @@ function saveLocalPosts(posts) {
   try {
     localStorage.setItem(BLOG_LOCAL_KEY, JSON.stringify(posts));
   } catch { /* quota exceeded */ }
+}
+
+/* ── Tombstone helpers ──
+ * Static posts (src/data/blog.js) are baked into the JS bundle and the CMS
+ * Apps Script can't touch them. We track deleted-post IDs in localStorage
+ * so the admin's delete sticks for any post — static or CMS — and so the
+ * CMS request becoming a no-op (no-cors masks the response) doesn't matter.
+ */
+
+export function getDeletedBlogIds() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(BLOG_DELETED_KEY) || "[]");
+    return Array.isArray(raw) ? raw : [];
+  } catch { return []; }
+}
+
+function saveDeletedBlogIds(ids) {
+  try {
+    localStorage.setItem(BLOG_DELETED_KEY, JSON.stringify(ids));
+  } catch { /* quota exceeded */ }
+}
+
+function addDeletedBlogId(id) {
+  if (!id) return;
+  const ids = getDeletedBlogIds();
+  if (!ids.includes(id)) {
+    ids.push(id);
+    saveDeletedBlogIds(ids);
+  }
+}
+
+export function removeDeletedBlogId(id) {
+  if (!id) return;
+  const ids = getDeletedBlogIds();
+  const next = ids.filter((x) => x !== id);
+  if (next.length !== ids.length) {
+    saveDeletedBlogIds(next);
+    try { localStorage.removeItem(BLOG_CACHE_KEY); } catch { /* ignore */ }
+    try { window.dispatchEvent(new Event("stdom:admin-synced")); } catch { /* SSR / no window */ }
+  }
 }
 
 function getStaffToken() {
@@ -172,6 +213,10 @@ function getStaffToken() {
  * @returns {Promise<{success: boolean, error?: string}>}
  */
 export async function submitBlogPost(postData) {
+  // Saving a post with this ID undoes any prior tombstone, so re-creating a
+  // deleted post (or editing a static one back in) makes it visible again.
+  if (postData?.id) removeDeletedBlogId(postData.id);
+
   // ── Remote CMS mode ──
   if (CONFIG.blogCmsUrl) {
     const token = getStaffToken();
@@ -213,11 +258,21 @@ export async function submitBlogPost(postData) {
  * Remote when CMS URL is set, localStorage otherwise.
  */
 export async function deleteBlogPost(postId) {
+  if (!postId) return { success: false, error: "Missing post ID" };
+
+  // Tombstone first so the UI hides the post regardless of what the CMS
+  // round-trip does — static-data posts and CMS posts alike. The no-cors
+  // fetch below can't read the server response, so this is the source of
+  // truth for "is it deleted from the admin's view."
+  addDeletedBlogId(postId);
+
   if (CONFIG.blogCmsUrl) {
     const token = getStaffToken();
     if (!token) return { success: false, error: "Staff session expired. Please unlock the dashboard again." };
 
     try {
+      // Best-effort: if the post exists in the CMS sheet, remove it there too.
+      // The response is opaque (no-cors), so we can't surface server errors.
       await fetch(CONFIG.blogCmsUrl, {
         method: "POST",
         mode: "no-cors",
@@ -225,10 +280,8 @@ export async function deleteBlogPost(postId) {
         body: JSON.stringify({ action: "delete", id: postId, token }),
       });
       try { localStorage.removeItem(BLOG_CACHE_KEY); } catch { /* ignore */ }
-      return { success: true };
-    } catch (err) {
-      return { success: false, error: err.message || "Failed to delete post" };
-    }
+    } catch { /* tombstone already recorded — local view stays correct */ }
+    return { success: true };
   }
 
   // ── Local mode ──

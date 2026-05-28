@@ -16,6 +16,7 @@ export const MANAGED_KEYS = [
   "stdom_staff_directory",
   "stdom_ministries",
   "stdom_settings",
+  "stdom_blog_deleted",
 ];
 
 const EXPORT_VERSION = 1;

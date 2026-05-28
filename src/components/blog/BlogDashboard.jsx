@@ -1,6 +1,8 @@
 import { useState, useMemo } from "react";
 import { T } from "../../constants/theme";
 import { BLOG_CATEGORIES } from "../../data/blog";
+import { getDeletedBlogIds, removeDeletedBlogId } from "../../cms/client";
+import { useAdminSyncSignal } from "../../cms/hooks";
 import Icon from "../Icon";
 
 /* ──────────────────────────────────────────────────────────
@@ -102,6 +104,107 @@ function CategoryChip({ category }) {
     >
       {cat.label}
     </span>
+  );
+}
+
+function RecentlyDeletedPanel() {
+  const syncVersion = useAdminSyncSignal();
+  // eslint-disable-next-line no-unused-vars
+  const _ = syncVersion; // re-render whenever the sync signal bumps
+  const ids = getDeletedBlogIds();
+  if (ids.length === 0) return null;
+
+  return (
+    <div
+      style={{
+        marginTop: 16,
+        padding: "16px 20px",
+        background: T.warmWhite,
+        borderRadius: 10,
+        border: `1px solid ${T.stone}`,
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          marginBottom: 12,
+        }}
+      >
+        <Icon name="Newspaper" size={16} color={T.warmGray} />
+        <strong
+          style={{
+            fontSize: 13,
+            letterSpacing: 1,
+            textTransform: "uppercase",
+            color: T.warmGray,
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          Recently Deleted ({ids.length})
+        </strong>
+      </div>
+      <p
+        style={{
+          fontSize: 12.5,
+          color: T.warmGray,
+          margin: "0 0 12px 0",
+          lineHeight: 1.5,
+        }}
+      >
+        Restore brings the post back in this browser. CMS posts will reappear after the next fetch; static posts come back immediately.
+      </p>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        {ids.map((id) => (
+          <div
+            key={id}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 12,
+              padding: "8px 12px",
+              background: T.cream,
+              borderRadius: 6,
+              border: `1px solid ${T.stone}`,
+            }}
+          >
+            <code
+              style={{
+                fontSize: 12,
+                color: T.charcoal,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {id}
+            </code>
+            <button
+              type="button"
+              onClick={() => removeDeletedBlogId(id)}
+              style={{
+                padding: "5px 12px",
+                fontSize: 11,
+                fontWeight: 600,
+                letterSpacing: 0.8,
+                textTransform: "uppercase",
+                background: "transparent",
+                color: T.burgundy,
+                border: `1.5px solid ${T.burgundy}`,
+                borderRadius: 4,
+                cursor: "pointer",
+                fontFamily: "'Source Sans 3', sans-serif",
+                flexShrink: 0,
+              }}
+            >
+              Restore
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -428,6 +531,9 @@ export default function BlogDashboard({ posts, onNew, onEdit, loading }) {
           Click any post above to edit it.
         </div>
       </div>
+
+      {/* ── Recently deleted (tombstones) ── */}
+      <RecentlyDeletedPanel />
     </div>
   );
 }
