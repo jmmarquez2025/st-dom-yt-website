@@ -42,18 +42,9 @@ export default function BlogCard({ post, featured = false }) {
         />
         <div style={{ padding: "36px 32px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <span
+            className="chip chip--dynamic"
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 5,
-              fontSize: 11,
-              letterSpacing: 1.5,
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: cat.color,
-              background: `${cat.color}14`,
-              padding: "3px 10px",
-              borderRadius: 20,
+              "--chip-color": cat.color,
               alignSelf: "flex-start",
               marginBottom: 12,
             }}
@@ -125,17 +116,8 @@ export default function BlogCard({ post, featured = false }) {
       )}
       <div style={{ padding: "20px 24px 24px", flex: 1, display: "flex", flexDirection: "column" }}>
         <span
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 5,
-            fontSize: 11,
-            letterSpacing: 1.5,
-            textTransform: "uppercase",
-            fontWeight: 600,
-            color: cat.color,
-            marginBottom: 8,
-          }}
+          className="chip chip--dynamic"
+          style={{ "--chip-color": cat.color, alignSelf: "flex-start", marginBottom: 8 }}
         >
           <Icon name={cat.icon} size={12} color={cat.color} />
           {isEs ? cat.labelEs : cat.label}

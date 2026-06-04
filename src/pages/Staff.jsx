@@ -179,7 +179,7 @@ export default function Staff() {
             <h3 style={{ fontSize: 21, fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, marginTop: 18, marginBottom: 8, color: T.softBlack, lineHeight: 1.2 }}>
               {person.name}
             </h3>
-            <div style={{ display: "inline-block", padding: "4px 14px", background: T.burgundy, color: "#fff", fontSize: 11, letterSpacing: 2, textTransform: "uppercase", borderRadius: 20, fontWeight: 600 }}>
+            <div className="chip chip--solid">
               {displayRole(person)}
             </div>
             <div style={{ marginTop: 18, fontSize: 12, letterSpacing: 1, color: T.warmGray, display: "flex", alignItems: "center", gap: 5, opacity: 0.7 }}>
@@ -230,7 +230,7 @@ export default function Staff() {
                   background: T.gold,
                   color: T.softBlack,
                   border: "none",
-                  borderRadius: 20,
+                  borderRadius: 6,
                   cursor: "pointer",
                 }}
               >
@@ -249,7 +249,7 @@ export default function Staff() {
                   background: "transparent",
                   color: "#fff",
                   border: "1px solid rgba(255,255,255,0.45)",
-                  borderRadius: 20,
+                  borderRadius: 6,
                   cursor: "pointer",
                 }}
               >
@@ -495,7 +495,7 @@ export default function Staff() {
               <h2 style={{ fontSize: 26, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: modal.group === "staff" ? T.softBlack : "#fff", marginTop: 20, marginBottom: 8, lineHeight: 1.2 }}>
                 {modal.name}
               </h2>
-              <div style={{ display: "inline-block", padding: "4px 16px", background: "rgba(255,255,255,0.15)", color: modal.group === "staff" ? T.softBlack : T.goldText, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", borderRadius: 20, fontWeight: 600 }}>
+              <div className={`chip ${modal.group === "staff" ? "chip--soft-burgundy" : "chip--on-dark"}`}>
                 {displayRole(modal)}
               </div>
             </div>

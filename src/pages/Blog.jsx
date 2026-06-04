@@ -214,12 +214,11 @@ export default function Blog() {
       <style>{`
         .filter-btn {
           padding: 6px 14px;
-          border-radius: 20px;
+          border-radius: 6px;
           border: 1px solid ${T.stone};
           background: #fff;
-          font-size: 11px;
-          letter-spacing: 1.2px;
-          text-transform: uppercase;
+          font-size: 12px;
+          letter-spacing: 0.2px;
           font-family: 'Source Sans 3', sans-serif;
           font-weight: 600;
           cursor: pointer;

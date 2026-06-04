@@ -100,12 +100,11 @@ export default function Events() {
         }
         .filter-btn {
           padding: 7px 16px;
-          border-radius: 20px;
+          border-radius: 6px;
           border: 1px solid ${T.stone};
           background: #fff;
           font-size: 12px;
-          letter-spacing: 1.2px;
-          text-transform: uppercase;
+          letter-spacing: 0.2px;
           font-family: 'Source Sans 3', sans-serif;
           font-weight: 600;
           cursor: pointer;
@@ -176,19 +175,8 @@ export default function Events() {
                     <div style={{ padding: "20px 24px", flex: 1, minWidth: 0 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
                         <span
-                          style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 5,
-                            fontSize: 11,
-                            letterSpacing: 1.5,
-                            textTransform: "uppercase",
-                            fontWeight: 600,
-                            color: meta.color,
-                            background: `${meta.color}14`,
-                            padding: "3px 10px",
-                            borderRadius: 20,
-                          }}
+                          className="chip chip--dynamic"
+                          style={{ "--chip-color": meta.color }}
                         >
                           <Icon name={meta.icon} size={12} color={meta.color} />
                           {meta.label}

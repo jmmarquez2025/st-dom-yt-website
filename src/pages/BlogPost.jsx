@@ -83,21 +83,8 @@ export default function BlogPost() {
       >
         <div style={{ textAlign: "center", maxWidth: 760, padding: "0 24px" }}>
           <span
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 5,
-              fontSize: 11,
-              letterSpacing: 1.5,
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: "#fff",
-              background: `${cat.color || T.burgundy}60`,
-              backdropFilter: "blur(6px)",
-              padding: "4px 14px",
-              borderRadius: 20,
-              marginBottom: 16,
-            }}
+            className="chip chip--on-dark"
+            style={{ backdropFilter: "blur(6px)", marginBottom: 16 }}
           >
             <Icon name={cat.icon || "FileText"} size={12} color="#fff" />
             {isEs ? cat.labelEs : cat.label}
@@ -203,19 +190,7 @@ export default function BlogPost() {
             {post.tags?.length > 0 && (
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 28 }}>
                 {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      fontSize: 12,
-                      fontWeight: 500,
-                      padding: "4px 12px",
-                      borderRadius: 20,
-                      background: T.cream,
-                      color: T.warmGray,
-                      border: `1px solid ${T.stone}`,
-                      fontFamily: "'Source Sans 3', sans-serif",
-                    }}
-                  >
+                  <span key={tag} className="chip chip--outline">
                     {tag}
                   </span>
                 ))}

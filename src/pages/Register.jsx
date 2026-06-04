@@ -205,8 +205,7 @@ function SacramentPill({ label, checked, onChange }) {
         fontSize: 14, fontWeight: checked ? 600 : 400,
         color: checked ? T.burgundy : T.charcoal,
         fontFamily: "'Source Sans 3', sans-serif",
-        boxShadow: checked ? "0 2px 8px rgba(107,29,42,0.1)" : "none",
-        transform: checked ? "scale(1.02)" : "scale(1)",
+        boxShadow: checked ? "0 1px 4px rgba(107,29,42,0.08)" : "none",
       }}
     >
       <div
