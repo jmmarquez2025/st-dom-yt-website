@@ -24,6 +24,20 @@
   --ease-elastic: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Chip / pill system — quiet, sentence-case, hairline borders, moderate radius.
+     Replaces the old 999px / 20px uppercase letter-spaced "tag cloud" look. */
+  --chip-radius: 6px;
+  --chip-pad-y: 5px;
+  --chip-pad-x: 11px;
+  --chip-font: 12px;
+  --chip-weight: 600;
+  --chip-tracking: 0.2px;            /* near-zero — kills the spaced-out look */
+  --chip-soft-burgundy-bg: #F4E9EA;  /* opaque low-sat tints, not rgba translucency */
+  --chip-soft-burgundy-bd: #E6D3D5;
+  --chip-soft-gold-bg: #F6EEDC;
+  --chip-soft-gold-bd: #E9DBBE;
+  --chip-neutral-bd: #E2DACD;
 }
 
 *,
@@ -249,6 +263,75 @@ h1, h2, h3, h4 {
   border-radius: 8px;
 }
 
+/* ── Chip / pill system ──
+   One shared set of label/tag/badge styles. Sentence-case, hairline border,
+   6px radius, opaque low-saturation tints. Variants cover light/dark surfaces
+   and dynamic per-category colors (caller sets --chip-color inline). */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 26px;
+  padding: var(--chip-pad-y) var(--chip-pad-x);
+  border-radius: var(--chip-radius);
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  font-size: var(--chip-font);
+  font-weight: var(--chip-weight);
+  letter-spacing: var(--chip-tracking);
+  line-height: 1.2;
+  white-space: nowrap;
+  /* deliberately no text-transform — sentence case */
+}
+.chip--solid {
+  background: var(--color-burgundy);
+  border-color: var(--color-burgundy);
+  color: var(--color-warm-white);
+}
+.chip--soft-gold {
+  background: var(--chip-soft-gold-bg);
+  color: var(--color-gold-text);
+  border-color: var(--chip-soft-gold-bd);
+}
+.chip--soft-burgundy {
+  background: var(--chip-soft-burgundy-bg);
+  color: var(--color-burgundy);
+  border-color: var(--chip-soft-burgundy-bd);
+}
+.chip--outline {
+  background: transparent;
+  color: var(--color-warm-gray);
+  border-color: var(--chip-neutral-bd);
+}
+.chip--on-dark {
+  background: rgba(255, 253, 249, 0.06);
+  border-color: rgba(232, 213, 163, 0.22); /* subtle gold hairline */
+  color: rgba(255, 253, 249, 0.86);
+}
+/* Dynamic per-category color: caller passes style={{ "--chip-color": <hex> }} */
+.chip--dynamic {
+  background: color-mix(in srgb, var(--chip-color) 10%, var(--color-warm-white));
+  color: color-mix(in srgb, var(--chip-color) 78%, var(--color-soft-black));
+  border-color: color-mix(in srgb, var(--chip-color) 24%, transparent);
+}
+.chip__remove {
+  display: inline-grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+  border: 0;
+  background: none;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+}
+.chip__remove:hover {
+  opacity: 1;
+}
+
 /* ── Scroll progress bar ── */
 .scroll-progress {
   position: fixed;
@@ -443,18 +526,17 @@ body.nav-open .parish-action-bar {
 }
 
 .premium-hero__proof span {
-  min-height: 30px;
+  min-height: 26px;
   display: inline-flex;
   align-items: center;
-  border: 1px solid rgba(232, 213, 163, 0.28);
-  border-radius: 999px;
-  padding: 6px 12px;
-  background: rgba(26, 23, 20, 0.28);
-  color: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(232, 213, 163, 0.24);
+  border-radius: 6px;
+  padding: 5px 11px;
+  background: rgba(26, 23, 20, 0.32); /* dark scrim keeps text legible over the hero photo */
+  color: rgba(255, 255, 255, 0.88);
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
 .premium-language-chip {
@@ -471,7 +553,7 @@ body.nav-open .parish-action-bar {
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
@@ -633,21 +715,32 @@ body.nav-open .parish-action-bar {
 
 .premium-mass-card {
   padding: clamp(26px, 4vw, 38px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(197, 165, 90, 0.22); /* fine gold hairline, not white */
   background:
-    linear-gradient(150deg, rgba(107, 29, 42, 0.95), rgba(26, 23, 20, 0.98)),
-    var(--color-burgundy-dark);
+    radial-gradient(120% 80% at 50% 0%, rgba(107, 29, 42, 0.55) 0%, transparent 60%),
+    #241015; /* warm burgundy-black, not a flat burgundy→black diagonal */
   color: #fff;
-  box-shadow: 0 22px 54px rgba(26, 23, 20, 0.2);
+  box-shadow:
+    inset 0 1px 0 rgba(197, 165, 90, 0.1), /* gold top catch-light */
+    0 18px 40px rgba(26, 23, 20, 0.26);
 }
 
 .premium-mass-card__label {
-  margin-bottom: 18px;
+  margin-bottom: 22px;
   color: var(--color-gold-light);
   font-family: var(--font-display);
   font-size: 24px;
   font-weight: 700;
+}
+
+.premium-mass-card__label::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin-top: 10px;
+  background: var(--color-gold);
 }
 
 .premium-mass-row {
@@ -655,7 +748,7 @@ body.nav-open .parish-action-bar {
   justify-content: space-between;
   gap: 18px;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(197, 165, 90, 0.16); /* warm gold hairline divider */
   color: rgba(255, 255, 255, 0.82);
   font-size: 15px;
 }
@@ -799,8 +892,8 @@ body.nav-open .parish-action-bar {
   overflow: hidden;
   padding: clamp(50px, 10vw, 86px) 24px;
   background:
-    linear-gradient(135deg, rgba(74, 16, 25, 0.98), rgba(107, 29, 42, 0.95)),
-    var(--color-burgundy);
+    radial-gradient(120% 90% at 50% 0%, rgba(107, 29, 42, 0.5) 0%, transparent 60%),
+    #241015; /* matches .premium-mass-card warm-dark surface */
   text-align: center;
 }
 

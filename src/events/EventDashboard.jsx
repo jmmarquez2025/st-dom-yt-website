@@ -16,20 +16,7 @@ const CATEGORY_COLORS = {
 function CategoryBadge({ category }) {
   const s = CATEGORY_COLORS[category] || CATEGORY_COLORS.other;
   return (
-    <span
-      style={{
-        display: "inline-block",
-        padding: "2px 10px",
-        borderRadius: 20,
-        fontSize: 11,
-        fontWeight: 600,
-        letterSpacing: 0.5,
-        textTransform: "uppercase",
-        background: s.bg,
-        color: s.color,
-        fontFamily: "'Source Sans 3', sans-serif",
-      }}
-    >
+    <span className="chip" style={{ background: s.bg, color: s.color }}>
       {category}
     </span>
   );
@@ -148,7 +135,7 @@ export default function EventDashboard({ onToast }) {
               onClick={() => setFilter(f.key)}
               style={{
                 padding: "6px 14px",
-                borderRadius: 20,
+                borderRadius: 6,
                 border: `1.5px solid ${filter === f.key ? T.burgundy : T.stone}`,
                 background: filter === f.key ? `${T.burgundy}10` : "transparent",
                 color: filter === f.key ? T.burgundy : T.warmGray,

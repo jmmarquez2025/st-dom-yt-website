@@ -19,22 +19,7 @@ const AUTHORS_MAP = {
 function StatusBadge({ published, featured }) {
   if (published && featured) {
     return (
-      <span
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: 5,
-          padding: "3px 10px",
-          fontSize: 11,
-          fontWeight: 600,
-          letterSpacing: 0.8,
-          textTransform: "uppercase",
-          background: `${T.gold}20`,
-          color: "#8B7328",
-          borderRadius: 20,
-          fontFamily: "'Source Sans 3', sans-serif",
-        }}
-      >
+      <span className="chip" style={{ background: `${T.gold}20`, color: "#8B7328" }}>
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: T.gold }} />
         Featured
       </span>
@@ -42,44 +27,14 @@ function StatusBadge({ published, featured }) {
   }
   if (published) {
     return (
-      <span
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: 5,
-          padding: "3px 10px",
-          fontSize: 11,
-          fontWeight: 600,
-          letterSpacing: 0.8,
-          textTransform: "uppercase",
-          background: "#E8F5E9",
-          color: "#2E7D32",
-          borderRadius: 20,
-          fontFamily: "'Source Sans 3', sans-serif",
-        }}
-      >
+      <span className="chip" style={{ background: "#E8F5E9", color: "#2E7D32" }}>
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#4CAF50" }} />
         Published
       </span>
     );
   }
   return (
-    <span
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 5,
-        padding: "3px 10px",
-        fontSize: 11,
-        fontWeight: 600,
-        letterSpacing: 0.8,
-        textTransform: "uppercase",
-        background: "#FFF8E1",
-        color: "#F57F17",
-        borderRadius: 20,
-        fontFamily: "'Source Sans 3', sans-serif",
-      }}
-    >
+    <span className="chip" style={{ background: "#FFF8E1", color: "#F57F17" }}>
       <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#FFB300" }} />
       Draft
     </span>

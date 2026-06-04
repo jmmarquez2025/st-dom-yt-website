@@ -21,6 +21,9 @@ export const T = {
   charcoal: "#2C2C2C",
   warmGray: "#6B6560",
   softBlack: "#1A1714",
+  // Opaque low-saturation chip tints (mirror --chip-soft-*-bg in global.css).
+  chipBurgundyBg: "#F4E9EA",
+  chipGoldBg: "#F6EEDC",
 };
 
 export const fontLink =

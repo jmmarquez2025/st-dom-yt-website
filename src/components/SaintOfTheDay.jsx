@@ -45,7 +45,10 @@ export default function SaintOfTheDay() {
   return (
     <div
       style={{
-        background: `linear-gradient(135deg, ${T.burgundyDark} 0%, ${T.burgundy} 100%)`,
+        background:
+          "radial-gradient(120% 80% at 50% 0%, rgba(107, 29, 42, 0.55) 0%, transparent 60%), #241015",
+        border: "1px solid rgba(197, 165, 90, 0.22)",
+        boxShadow: "inset 0 1px 0 rgba(197, 165, 90, 0.1)",
         borderRadius: 12,
         padding: "clamp(32px, 5vw, 48px)",
         color: "#fff",
@@ -110,20 +113,7 @@ export default function SaintOfTheDay() {
       </h2>
 
       {/* Feast type badge */}
-      <div
-        style={{
-          display: "inline-block",
-          padding: "4px 14px",
-          background: "rgba(255,255,255,0.12)",
-          borderRadius: 20,
-          fontSize: 11,
-          letterSpacing: 1.5,
-          textTransform: "uppercase",
-          color: T.goldLight,
-          fontWeight: 600,
-          marginBottom: 20,
-        }}
-      >
+      <div className="chip chip--on-dark" style={{ marginBottom: 20 }}>
         {pick(saint.feast)}
       </div>
 

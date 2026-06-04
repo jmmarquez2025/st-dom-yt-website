@@ -38,14 +38,21 @@ function addDays(date, n) {
 /**
  * Liturgical seasons with their associated colors.
  */
+// Colors are muted, warm-leaning, and harmonized with the burgundy + gold brand,
+// while remaining recognizable as their liturgical color. Each `accent` is a close
+// lighter sibling of `color` so the banner gradient reads as one calm surface
+// rather than a harsh two-hue transition.
 export const SEASONS = {
-  advent:    { key: "advent",    color: "#5B2C6F", accent: "#A569BD", name: "Advent" },
-  christmas: { key: "christmas", color: "#C5A55A", accent: "#E8D5A3", name: "Christmas" },
-  lent:      { key: "lent",     color: "#6B1D6B", accent: "#9B59B6", name: "Lent" },
-  triduum:   { key: "triduum",  color: "#8B0000", accent: "#C0392B", name: "Sacred Triduum" },
-  easter:    { key: "easter",   color: "#C5A55A", accent: "#F4E9CD", name: "Easter" },
-  ordinary:  { key: "ordinary", color: "#1D6B3D", accent: "#27AE60", name: "Ordinary Time" },
+  advent:    { key: "advent",    color: "#4C3A63", accent: "#6E5A86", name: "Advent" },
+  christmas: { key: "christmas", color: "#B9924A", accent: "#E2C98C", name: "Christmas" },
+  lent:      { key: "lent",     color: "#4A2B52", accent: "#6B4F73", name: "Lent" },
+  triduum:   { key: "triduum",  color: "#6E1F22", accent: "#8A2B27", name: "Sacred Triduum" },
+  easter:    { key: "easter",   color: "#C7A65C", accent: "#EBD9A8", name: "Easter" },
+  ordinary:  { key: "ordinary", color: "#3A6B4F", accent: "#5E8C6A", name: "Ordinary Time" },
 };
+
+// Festal gold seasons render light; their banner uses dark text for WCAG AA contrast.
+export const GOLD_SEASONS = new Set(["christmas", "easter"]);
 
 /**
  * Determine the liturgical season for a given date.

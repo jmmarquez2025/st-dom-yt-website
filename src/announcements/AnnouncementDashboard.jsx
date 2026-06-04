@@ -34,20 +34,7 @@ const STATUS_COLORS = {
 function StatusBadge({ status }) {
   const s = STATUS_COLORS[status] || STATUS_COLORS.inactive;
   return (
-    <span
-      style={{
-        display: "inline-block",
-        padding: "3px 10px",
-        borderRadius: 20,
-        fontSize: 11,
-        fontWeight: 600,
-        letterSpacing: 0.5,
-        textTransform: "uppercase",
-        background: s.bg,
-        color: s.color,
-        fontFamily: "'Source Sans 3', sans-serif",
-      }}
-    >
+    <span className="chip" style={{ background: s.bg, color: s.color }}>
       {s.label}
     </span>
   );
@@ -57,19 +44,10 @@ function TypeBadge({ type }) {
   const isBanner = type === "banner";
   return (
     <span
+      className="chip"
       style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 4,
-        padding: "3px 10px",
-        borderRadius: 20,
-        fontSize: 11,
-        fontWeight: 600,
-        letterSpacing: 0.5,
-        textTransform: "uppercase",
         background: isBanner ? `${T.gold}20` : `${T.burgundy}12`,
         color: isBanner ? "#92700e" : T.burgundy,
-        fontFamily: "'Source Sans 3', sans-serif",
       }}
     >
       {isBanner ? <Megaphone size={11} /> : <MessageSquare size={11} />}
@@ -231,7 +209,7 @@ export default function AnnouncementDashboard({ onEdit, onNew }) {
               onClick={() => setFilter(f.key)}
               style={{
                 padding: "6px 14px",
-                borderRadius: 20,
+                borderRadius: 6,
                 border: `1.5px solid ${filter === f.key ? T.burgundy : T.stone}`,
                 background: filter === f.key ? `${T.burgundy}10` : "transparent",
                 color: filter === f.key ? T.burgundy : T.warmGray,
