@@ -127,11 +127,11 @@ h1, h2, h3, h4 {
   .fade-section {
     animation: scrollFadeUp 0.6s var(--ease-out-expo) both;
     animation-timeline: view();
-    /* Opacity hits 1 by 8% entry so text is at full contrast almost immediately
-       once the element is in viewport (closes axe color-contrast false-positives
-       caused by sampling mid-fade). The transform keeps a brief lift for polish. */
+    /* Transform-only on the scroll-driven path: opacity never animates, so text
+       is at full contrast at every scroll position (no axe color-contrast hits
+       from sampling mid-fade). The translateY lift carries the entrance. */
     animation-range: entry 0% entry 8%;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     transition: none;
   }
@@ -139,16 +139,16 @@ h1, h2, h3, h4 {
     /* Let CSS animation handle it */
   }
   @keyframes scrollFadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { transform: translateY(20px); }
+    to   { transform: translateY(0); }
   }
 
-  /* Stagger children via scroll-driven animation */
+  /* Stagger children via scroll-driven animation (transform-only, see above) */
   .stagger-grid > * {
     animation: scrollStaggerIn 0.5s var(--ease-out-expo) both;
     animation-timeline: view();
     animation-range: entry 0% entry 10%;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(16px);
     transition: none;
   }
@@ -161,8 +161,8 @@ h1, h2, h3, h4 {
   .stagger-grid > *:nth-child(7) { animation-delay: 360ms; }
   .stagger-grid > *:nth-child(8) { animation-delay: 420ms; }
   @keyframes scrollStaggerIn {
-    from { opacity: 0; transform: translateY(16px) scale(0.97); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
+    from { transform: translateY(16px) scale(0.97); }
+    to   { transform: translateY(0) scale(1); }
   }
 }
 
@@ -197,6 +197,27 @@ h1, h2, h3, h4 {
 :focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
+}
+
+/* Focus must survive dark and gold grounds, where the gold ring disappears. */
+footer :focus-visible,
+.premium-page-header :focus-visible,
+.premium-hero :focus-visible,
+.glass-card--dark :focus-visible {
+  outline-color: var(--color-gold-light);
+}
+.btn--gold:focus-visible {
+  outline-color: var(--color-burgundy-dark);
+  box-shadow: 0 0 0 5px rgba(255, 253, 249, 0.85);
+}
+
+/* Links inside running text must not rely on color alone (axe link-in-text-block). */
+main p a,
+main li a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--color-gold);
+  text-decoration-thickness: 1px;
 }
 
 @media (prefers-reduced-motion: reduce) {

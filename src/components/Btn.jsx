@@ -35,7 +35,11 @@ const variants = {
 export default function Btn({ children, onClick, variant = "primary", style: s = {} }) {
   return (
     <div style={{ display: "inline-block" }}>
-      <button onClick={onClick} className="btn-hover" style={{ ...variants[variant], ...s }}>
+      <button
+        onClick={onClick}
+        className={`btn-hover btn--${variant}`}
+        style={{ ...variants[variant], ...s }}
+      >
         {children}
       </button>
     </div>
