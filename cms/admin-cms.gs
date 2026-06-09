@@ -18,7 +18,7 @@
  *    editing the Script Property "WRITE_TOKEN".
  *
  *  SETUP (5 minutes):
- *  1. Open the same Google Sheet you already use for the blog (or any sheet).
+ *  1. Open the Google Sheet you use for site content (or create a new one).
  *  2. Extensions → Apps Script → paste this file.
  *  3. Run → setupAdminSheet → authorize when prompted.
  *     This creates the "AdminData" tab and seeds an empty row per section.
