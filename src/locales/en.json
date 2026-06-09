@@ -24,7 +24,6 @@
     "architecture": "Architecture & Art",
     "gallery": "Gallery",
     "faithFormation": "Faith Formation",
-    "blog": "Blog",
     "connect": "Connect",
     "more": "More"
   },
@@ -642,34 +641,6 @@
     "cta": {
       "title": "Start Your Journey Today",
       "desc": "Pick a resource, press play on a podcast, or open the Catechism. Every step you take toward understanding your faith is a step closer to Christ."
-    }
-  },
-  "blog": {
-    "title": "Blog & Reflections",
-    "hero": {
-      "sub": "From the Friars",
-      "desc": "Homilies, reflections, and parish life from the Dominican community at St. Dominic Church."
-    },
-    "featured": "Featured",
-    "filterAll": "All Posts",
-    "readTime": "{{count}} min read",
-    "loadMore": "Load More Posts",
-    "noResults": "No posts found.",
-    "relatedTitle": "Related Posts",
-    "relatedSub": "Keep Reading",
-    "prevPost": "Previous Post",
-    "nextPost": "Next Post",
-    "share": {
-      "copy": "Copy Link",
-      "email": "Email",
-      "print": "Print",
-      "copied": "Copied!"
-    },
-    "toc": "Table of Contents",
-    "writtenBy": "Written by",
-    "postActions": {
-      "readArticle": "Read Article",
-      "allPosts": "All Reflections"
     }
   },
   "getInvolved": {

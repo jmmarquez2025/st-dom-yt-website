@@ -93,12 +93,6 @@ export default function FaithFormation() {
             to: "/becoming-catholic",
             icon: "Church",
           },
-          {
-            title: t("nav.blog"),
-            description: t("blog.hero.desc"),
-            to: "/blog",
-            icon: "Newspaper",
-          },
         ]}
       />
 

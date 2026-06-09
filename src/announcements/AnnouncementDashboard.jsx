@@ -14,7 +14,7 @@ import {
   Trash2,
 } from "lucide-react";
 
-/* ── Styles matching BlogDashboard ── */
+/* ── Styles ── */
 
 const FILTERS = [
   { key: "all", label: "All" },

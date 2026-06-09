@@ -26,7 +26,7 @@ import {
 const SECTIONS = [
   { title: "What am I editing?", icon: Info, body: (
       <>
-        Every tab in this dashboard (Blog, Announcements, Bulletins, Events,
+        Every tab in this dashboard (Announcements, Bulletins, Events,
         Mass Schedule, Staff, Ministries, Settings) saves your changes to
         <strong> this browser on this computer</strong>. The public St. Dominic
         website reads those changes and shows them to visitors.
@@ -147,7 +147,7 @@ export default function DataHelpDashboard({ onToast }) {
   };
 
   const handleClearAll = () => {
-    const msg = "Wipe ALL admin data? This will reset Announcements, Bulletins, Events, Mass Schedule, Staff, Ministries, and Settings to the built-in defaults. Blog posts (stored in Google Docs) are unaffected. This cannot be undone without a backup file. Continue?";
+    const msg = "Wipe ALL admin data? This will reset Announcements, Bulletins, Events, Mass Schedule, Staff, Ministries, and Settings to the built-in defaults. This cannot be undone without a backup file. Continue?";
     if (!window.confirm(msg)) return;
     if (!window.confirm("Are you absolutely sure? Type 'reset' in your head as a final check.")) return;
     clearAll();

@@ -159,13 +159,6 @@ const SEARCH_INDEX = [
     keywords: ["architecture", "art", "stained glass", "building", "church", "design", "windows", "tour", "artwork", "sacred art", "gothic", "beauty"],
   },
   {
-    path: "/blog",
-    titleKey: "nav.blog",
-    title: "Blog & Reflections",
-    description: "Homilies, Dominican spirituality, parish news, and theological reflections from the friars",
-    keywords: ["blog", "homily", "reflection", "dominican", "theology", "article", "post", "friar", "news", "preaching", "faith"],
-  },
-  {
     path: "/faith-formation",
     titleKey: "nav.faithFormation",
     title: "Faith Formation",

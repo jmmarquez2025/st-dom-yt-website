@@ -22,7 +22,6 @@ const pages = [
   ["/sacraments/marriage", "0.7", "monthly"],
   ["/sacraments/anointing", "0.6", "monthly"],
   ["/sacraments/funerals", "0.6", "monthly"],
-  ["/blog", "0.7", "weekly"],
   ["/faith-formation", "0.7", "monthly"],
   ["/connect", "0.6", "monthly"],
   ["/events", "0.6", "weekly"],
@@ -30,11 +29,6 @@ const pages = [
   ["/register", "0.6", "yearly"],
   ["/history", "0.5", "yearly"],
   ["/architecture", "0.5", "yearly"],
-  ["/blog/easter-vigil-2026-new-catholics", "0.6", "yearly"],
-  ["/blog/light-darkness-cannot-overcome", "0.6", "yearly"],
-  ["/blog/contemplata-aliis-tradere", "0.6", "yearly"],
-  ["/blog/veritas-seeking-truth", "0.6", "yearly"],
-  ["/blog/food-pantry-turns-30", "0.6", "yearly"],
 ];
 
 function loc(path) {

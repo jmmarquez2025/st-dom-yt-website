@@ -1,12 +1,11 @@
-import { useState, useEffect, useCallback } from "react";
-import { fetchStaff, fetchSchedule, fetchMinistries, fetchAnnouncements, fetchEvents, fetchBulletins, fetchBlogPosts, getDeletedBlogIds } from "./client";
+import { useState, useEffect } from "react";
+import { fetchStaff, fetchSchedule, fetchMinistries, fetchAnnouncements, fetchEvents, fetchBulletins } from "./client";
 import { friars as staticFriars, staff as staticStaff } from "../data/staff";
 import { sundayMass, dailyMass, confession, adoration } from "../data/schedule";
 import { ministries as staticMinistries } from "../data/ministries";
 import { announcements as staticAnnouncements } from "../data/announcements";
 import { events as staticEvents } from "../data/events";
 import { bulletins as staticBulletins } from "../data/bulletins";
-import { blogPosts as staticBlogPosts } from "../data/blog";
 import { getAll as getLocalEvents, hasAny as hasLocalEvents } from "../events/store";
 import { getAll as getLocalSchedule } from "../schedule-admin/store";
 import { getAll as getLocalStaff } from "../staff-admin/store";
@@ -129,52 +128,4 @@ export function useEvents() {
 /** Bulletin archive — falls back to static sample data */
 export function useBulletins() {
   return useCmsData(fetchBulletins, staticBulletins);
-}
-
-/**
- * Blog posts — tries the Google Docs CMS first, falls back to static sample posts.
- * CMS posts are merged with static posts (CMS takes precedence on matching IDs).
- * Locally-tombstoned IDs (see deleteBlogPost) are filtered out from both sides.
- *
- * Returns { data, loading, isLive, refresh } — call refresh() after
- * mutations (create / update / delete) to re-read the post list.
- */
-export function useBlogPosts() {
-  const syncVersion = useAdminSyncSignal();
-  const [data, setData] = useState(() => {
-    const deleted = new Set(getDeletedBlogIds());
-    return staticBlogPosts.filter((p) => !deleted.has(p.id));
-  });
-  const [loading, setLoading] = useState(true);
-  const [isLive, setIsLive] = useState(false);
-  const [tick, setTick] = useState(0);
-
-  const refresh = useCallback(() => setTick((n) => n + 1), []);
-
-  useEffect(() => {
-    let cancelled = false;
-    setLoading(true);
-    const deleted = new Set(getDeletedBlogIds());
-    fetchBlogPosts().then((cmsPosts) => {
-      if (cancelled) return;
-      if (cmsPosts && cmsPosts.length > 0) {
-        const cmsIds = new Set(cmsPosts.map((p) => p.id));
-        const merged = [
-          ...cmsPosts.filter((p) => !deleted.has(p.id)),
-          ...staticBlogPosts.filter((p) => !cmsIds.has(p.id) && !deleted.has(p.id)),
-        ];
-        setData(merged);
-        setIsLive(true);
-      } else {
-        // CMS returned nothing — still need to apply tombstones to static posts
-        setData(staticBlogPosts.filter((p) => !deleted.has(p.id)));
-      }
-      setLoading(false);
-    }).catch(() => {
-      if (!cancelled) setLoading(false);
-    });
-    return () => { cancelled = true; };
-  }, [tick, syncVersion]);
-
-  return { data, loading, isLive, refresh };
 }

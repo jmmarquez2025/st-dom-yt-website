@@ -60,7 +60,6 @@ const NAV_ITEMS = [
       { key: "faithFormation", to: "/faith-formation" },
       { key: "events", to: "/events" },
       { key: "connect", to: "/connect" },
-      { key: "blog", to: "/blog" },
     ],
   },
   {

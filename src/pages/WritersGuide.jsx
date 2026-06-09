@@ -8,15 +8,11 @@ import DominicanDivider from "../components/DominicanDivider";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import { PHOTOS } from "../constants/photos";
-import { useBlogPosts } from "../cms/hooks";
-import { submitBlogPost, deleteBlogPost } from "../cms/client";
 import { save as saveAnnouncement, remove as removeAnnouncement } from "../announcements/store";
 import { useAllAnnouncements } from "../announcements/useAnnouncements";
 
 // Each dashboard is loaded the first time its tab is opened, so admins
-// who only edit one section don't pay for the other eight.
-const BlogDashboard = lazy(() => import("../components/blog/BlogDashboard"));
-const BlogComposer = lazy(() => import("../components/blog/BlogComposer"));
+// who only edit one section don't pay for the others.
 const AnnouncementDashboard = lazy(() => import("../announcements/AnnouncementDashboard"));
 const AnnouncementComposer = lazy(() => import("../announcements/AnnouncementComposer"));
 const BulletinDashboard = lazy(() => import("../bulletins/BulletinDashboard"));
@@ -28,7 +24,6 @@ const SettingsDashboard = lazy(() => import("../settings/SettingsDashboard"));
 const DataHelpDashboard = lazy(() => import("../admin/DataHelpDashboard"));
 import {
   Megaphone,
-  BookOpen as BlogIcon,
   Newspaper,
   Calendar,
   Clock,
@@ -41,10 +36,11 @@ import {
 /* ──────────────────────────────────────────────────────────
  *  WritersGuide — Staff-only management dashboard.
  *
- *  Passphrase gate → Section tabs (Blog | Announcements)
+ *  Passphrase gate → Section tabs (Announcements | Bulletins | …)
  *
- *  Blog: create/edit posts via built-in editor or Google Doc link
  *  Announcements: create/schedule header banners and popup cards
+ *  plus Bulletins, Events, Mass Schedule, Staff, Ministries,
+ *  Settings, and Data & Help.
  * ────────────────────────────────────────────────────────── */
 
 const STORAGE_KEY = "stdom_staff_auth";
@@ -249,7 +245,6 @@ function Toast({ message, type, onDismiss }) {
 // ── Section Tab Bar ──
 function SectionTabs({ active, onChange }) {
   const tabs = [
-    { key: "blog", label: "Blog", Icon: BlogIcon },
     { key: "announcements", label: "Announcements", Icon: Megaphone },
     { key: "bulletins", label: "Bulletins", Icon: Newspaper },
     { key: "events", label: "Events", Icon: Calendar },
@@ -420,8 +415,8 @@ function WelcomeHint({ onGoToData, onDismiss }) {
 }
 
 function StaffDashboard() {
-  // Top-level section: "blog" | "announcements"
-  const [section, setSection] = useState("blog");
+  // Top-level section: "announcements" | "bulletins" | …
+  const [section, setSection] = useState("announcements");
   const [hintDismissed, setHintDismissed] = useState(() => {
     try {
       return localStorage.getItem(HINT_DISMISSED_KEY) === "1";
@@ -435,12 +430,6 @@ function StaffDashboard() {
     try { localStorage.setItem(HINT_DISMISSED_KEY, "1"); } catch { /* ignore */ }
   }, []);
 
-  // Blog state
-  const { data: blogPosts, loading, refresh: refreshBlog } = useBlogPosts();
-  const [blogView, setBlogView] = useState("dashboard"); // "dashboard" | "compose"
-  const [editingPost, setEditingPost] = useState(null);
-  const [saving, setSaving] = useState(false);
-
   // Announcements state
   const { refresh: refreshAnnouncements } = useAllAnnouncements();
   const [annView, setAnnView] = useState("dashboard"); // "dashboard" | "compose"
@@ -451,71 +440,12 @@ function StaffDashboard() {
   // ── Section switch resets child views ──
   const handleSectionChange = useCallback((s) => {
     setSection(s);
-    setBlogView("dashboard");
-    setEditingPost(null);
     setAnnView("dashboard");
     setEditingAnn(null);
   }, []);
 
   // ── Bulletin toast passthrough ──
   const handleBulletinToast = useCallback((t) => setToast(t), []);
-
-  // ── Blog handlers ──
-  const handleNewPost = useCallback(() => {
-    setEditingPost(null);
-    setBlogView("compose");
-  }, []);
-
-  const handleEditPost = useCallback((post) => {
-    setEditingPost(post);
-    setBlogView("compose");
-  }, []);
-
-  const handleCancelPost = useCallback(() => {
-    setEditingPost(null);
-    setBlogView("dashboard");
-  }, []);
-
-  const handleDeletePost = useCallback(async (postId) => {
-    setSaving(true);
-    try {
-      const result = await deleteBlogPost(postId);
-      if (result.success) {
-        setToast({ message: "Post deleted successfully.", type: "success" });
-        setBlogView("dashboard");
-        setEditingPost(null);
-        refreshBlog();
-      } else {
-        setToast({ message: result.error || "Failed to delete post.", type: "error" });
-      }
-    } catch {
-      setToast({ message: "Network error. Please try again.", type: "error" });
-    } finally {
-      setSaving(false);
-    }
-  }, [refreshBlog]);
-
-  const handleSavePost = useCallback(async (postData) => {
-    setSaving(true);
-    try {
-      const result = await submitBlogPost(postData);
-      if (result.success) {
-        setToast({
-          message: postData.published ? "Post published successfully!" : "Draft saved successfully!",
-          type: "success",
-        });
-        setBlogView("dashboard");
-        setEditingPost(null);
-        refreshBlog();
-      } else {
-        setToast({ message: result.error || "Something went wrong. Please try again.", type: "error" });
-      }
-    } catch {
-      setToast({ message: "Network error. Please check your connection.", type: "error" });
-    } finally {
-      setSaving(false);
-    }
-  }, [refreshBlog]);
 
   // ── Announcement handlers ──
   const handleNewAnn = useCallback(() => {
@@ -562,10 +492,6 @@ function StaffDashboard() {
 
   // ── Dynamic page title ──
   const pageTitle = (() => {
-    if (section === "blog") {
-      if (blogView === "compose") return editingPost ? "Edit Post" : "New Post";
-      return "Staff Dashboard";
-    }
     if (section === "announcements") {
       if (annView === "compose") return editingAnn ? "Edit Announcement" : "New Announcement";
       return "Staff Dashboard";
@@ -600,39 +526,6 @@ function StaffDashboard() {
       {/* One Suspense boundary covers every tab — only the active tab's
           chunk is fetched, and tab switches reuse already-loaded chunks. */}
       <Suspense fallback={<DashboardLoader />}>
-        {/* ── Blog section ── */}
-        {section === "blog" && (
-          <>
-            {blogView === "dashboard" && (
-              <>
-                <Section bg={T.warmWhite}>
-                  <FadeSection>
-                    <BlogDashboard
-                      posts={blogPosts}
-                      loading={loading}
-                      onNew={handleNewPost}
-                      onEdit={handleEditPost}
-                    />
-                  </FadeSection>
-                </Section>
-                <WritingTips />
-              </>
-            )}
-            {blogView === "compose" && (
-              <Section bg={T.warmWhite}>
-                <BlogComposer
-                  post={editingPost}
-                  onSave={handleSavePost}
-                  onDelete={handleDeletePost}
-                  onCancel={handleCancelPost}
-                  saving={saving}
-                  onValidationError={(msg) => setToast({ message: msg, type: "error" })}
-                />
-              </Section>
-            )}
-          </>
-        )}
-
         {/* ── Bulletins section ── */}
         {section === "bulletins" && (
           <Section bg={T.warmWhite}>
@@ -726,213 +619,5 @@ function StaffDashboard() {
         document.body
       )}
     </div>
-  );
-}
-
-// ── Writing Tips Section (below blog dashboard) ──
-function WritingTips() {
-  const [open, setOpen] = useState(false);
-
-  const FORMAT_EXAMPLES = [
-    { docFormat: "Heading 1 or Heading 2", result: "Section heading", icon: "BookMarked" },
-    { docFormat: "Normal paragraph", result: "Body text (first gets drop cap)", icon: "BookOpenText" },
-    { docFormat: "Indented paragraph (Tab)", result: "Blockquote with gold accent", icon: "Gem" },
-    { docFormat: "All-bold paragraph", result: "Highlighted callout box", icon: "Flame" },
-    { docFormat: "Bulleted / numbered list", result: "Formatted list", icon: "Heart" },
-    { docFormat: "Image URL on its own line", result: "Inline image + caption", icon: "Maximize" },
-  ];
-
-  return (
-    <Section bg={T.cream}>
-      <FadeSection>
-        <button
-          type="button"
-          onClick={() => setOpen((o) => !o)}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 10,
-            width: "100%",
-            padding: "16px 0",
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-            fontFamily: "'Source Sans 3', sans-serif",
-          }}
-        >
-          <Icon name="BookOpen" size={18} color={T.burgundy} />
-          <span
-            style={{
-              fontSize: 14,
-              fontWeight: 600,
-              letterSpacing: 1,
-              textTransform: "uppercase",
-              color: T.burgundy,
-            }}
-          >
-            {open ? "Hide" : "Show"} Writing Tips & Formatting Guide
-          </span>
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            style={{
-              transform: open ? "rotate(180deg)" : "rotate(0)",
-              transition: "transform 0.2s",
-            }}
-          >
-            <path d="M2 4l4 4 4-4" stroke={T.burgundy} strokeWidth="2" fill="none" />
-          </svg>
-        </button>
-
-        {open && (
-          <div style={{ marginTop: 16 }}>
-            <DominicanDivider width={120} />
-            <div style={{ marginTop: 28 }}>
-              <SectionTitle sub="Quick Reference">
-                Google Docs Formatting
-              </SectionTitle>
-              <p
-                style={{
-                  fontSize: 15,
-                  color: T.warmGray,
-                  lineHeight: 1.7,
-                  textAlign: "center",
-                  maxWidth: 600,
-                  margin: "0 auto 36px",
-                }}
-              >
-                When using Google Docs, these formatting styles automatically
-                convert into beautiful blog elements:
-              </p>
-
-              <div
-                style={{
-                  maxWidth: 640,
-                  margin: "0 auto",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 12,
-                }}
-              >
-                {FORMAT_EXAMPLES.map((ex, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 16,
-                      padding: "14px 20px",
-                      background: T.warmWhite,
-                      borderRadius: 8,
-                      border: `1px solid ${T.stone}`,
-                    }}
-                  >
-                    <Icon
-                      name={ex.icon}
-                      size={18}
-                      color={T.burgundy}
-                      style={{ flexShrink: 0 }}
-                    />
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div
-                        style={{
-                          fontSize: 14,
-                          fontWeight: 600,
-                          color: T.softBlack,
-                          fontFamily: "'Source Sans 3', sans-serif",
-                        }}
-                      >
-                        {ex.docFormat}
-                      </div>
-                    </div>
-                    <div
-                      style={{
-                        fontSize: 12,
-                        color: T.warmGray,
-                        fontFamily: "'Source Sans 3', sans-serif",
-                        textAlign: "right",
-                        flexShrink: 0,
-                      }}
-                    >
-                      {"\u2192"} {ex.result}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Editor tips */}
-              <div
-                style={{
-                  maxWidth: 640,
-                  margin: "32px auto 0",
-                  padding: "20px 24px",
-                  background: T.warmWhite,
-                  borderRadius: 10,
-                  border: `1px solid ${T.stone}`,
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: 13,
-                    letterSpacing: 2,
-                    textTransform: "uppercase",
-                    color: T.gold,
-                    fontWeight: 700,
-                    marginBottom: 12,
-                    fontFamily: "'Source Sans 3', sans-serif",
-                  }}
-                >
-                  Using the Built-in Editor
-                </h3>
-                <ul
-                  style={{
-                    listStyle: "none",
-                    padding: 0,
-                    margin: 0,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 8,
-                  }}
-                >
-                  {[
-                    "Use the toolbar buttons for headings, bold, italic, quotes, lists, and callouts",
-                    "Click the Image button to insert an image by URL",
-                    "Switch to Preview tab to see exactly how it will look on the site",
-                    "You can also link a Google Doc instead — choose 'Link Google Doc' mode",
-                    "Save as Draft to come back later, or Publish to go live immediately",
-                  ].map((tip, i) => (
-                    <li
-                      key={i}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: 10,
-                        fontSize: 14,
-                        color: T.warmGray,
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: 6,
-                          height: 6,
-                          borderRadius: "50%",
-                          background: T.gold,
-                          flexShrink: 0,
-                          marginTop: 7,
-                        }}
-                      />
-                      {tip}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        )}
-      </FadeSection>
-    </Section>
   );
 }
