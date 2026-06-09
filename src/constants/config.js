@@ -78,10 +78,6 @@ export const CONFIG = {
   // Update this when deploying to the production domain
   siteUrl: (import.meta.env.VITE_SITE_URL || "https://jmmarquez2025.github.io/st-dom-yt-website").replace(/\/$/, ""),
 
-  // Blog CMS — Google Apps Script URL serving blog posts from Google Docs
-  // See cms/blog-cms.gs for setup instructions
-  blogCmsUrl: import.meta.env.VITE_BLOG_CMS_URL || "",
-
   // Admin CMS — Google Apps Script URL backing the Staff Dashboard.
   // Lets admin edits sync across browsers/devices instead of living only
   // in one machine's localStorage. See cms/admin-cms.gs for setup.

@@ -15,22 +15,21 @@
 6. [Managing Announcements](#6-managing-announcements)
 7. [Managing Events](#7-managing-events)
 8. [Managing the Weekly Bulletin](#8-managing-the-weekly-bulletin)
-9. [The Blog System](#9-the-blog-system)
-10. [The Contact Form](#10-the-contact-form)
-11. [The Parish Registration Form](#11-the-parish-registration-form)
-12. [Online Giving (Flocknote)](#12-online-giving-flocknote)
-13. [Photos and Images](#13-photos-and-images)
-14. [Translations (English and Spanish)](#14-translations-english-and-spanish)
-15. [Site Analytics](#15-site-analytics)
-16. [Common Tasks — Quick Reference](#16-common-tasks--quick-reference)
-17. [Troubleshooting](#17-troubleshooting)
-18. [Technical Reference (For Developers)](#18-technical-reference-for-developers)
+9. [The Contact Form](#9-the-contact-form)
+10. [The Parish Registration Form](#10-the-parish-registration-form)
+11. [Online Giving (Flocknote)](#11-online-giving-flocknote)
+12. [Photos and Images](#12-photos-and-images)
+13. [Translations (English and Spanish)](#13-translations-english-and-spanish)
+14. [Site Analytics](#14-site-analytics)
+15. [Common Tasks — Quick Reference](#15-common-tasks--quick-reference)
+16. [Troubleshooting](#16-troubleshooting)
+17. [Technical Reference (For Developers)](#17-technical-reference-for-developers)
 
 ---
 
 ## 1. Introduction and Overview
 
-This guide covers everything you need to know to manage the St. Dominic Catholic Church website. It is written for non-technical administrators who need to update content, publish blog posts, manage events, and keep the site running smoothly.
+This guide covers everything you need to know to manage the St. Dominic Catholic Church website. It is written for non-technical administrators who need to update content, manage events, and keep the site running smoothly.
 
 ### What the Website Does
 
@@ -38,7 +37,6 @@ The St. Dominic website serves as the digital front door for our parish. It prov
 
 - Mass times, confession hours, and adoration schedule
 - Information about all seven sacraments (Baptism, First Communion, Confirmation, Marriage, Anointing, Funerals)
-- A blog for homilies, reflections, and parish news
 - An events calendar
 - The weekly bulletin (embedded flipbook)
 - Contact and parish registration forms
@@ -69,14 +67,14 @@ The site uses a two-tier content system:
 - A Google account (for editing the CMS spreadsheet and viewing form responses)
 - A web browser (Chrome, Safari, Firefox, or Edge)
 - The shared Google Sheet link (ask the developer for this)
-- The staff passphrase for the Blog Manager: **veritas**
+- The staff passphrase for the Staff Dashboard: **veritas**
 
-### Accessing the Blog Manager
+### Accessing the Staff Dashboard
 
 1. Go to the website and scroll to the very bottom of any page.
 2. Click **"Staff"** in the footer (small link at the bottom right).
 3. Enter the passphrase: **veritas**
-4. You will see the Blog Dashboard where you can create, edit, and delete posts.
+4. You will see the Staff Dashboard with tabs for Announcements, Bulletins, Events, Mass Schedule, Staff, Ministries, Settings, and Data & Help.
 
 > **Tip:** The passphrase is the Dominican motto — easy for friars to remember! The session stays active until you close the browser tab.
 
@@ -302,130 +300,7 @@ The archive is managed in the **Bulletins** tab of the CMS sheet.
 
 ---
 
-## 9. The Blog System
-
-The blog is the most feature-rich part of the website. It supports rich text articles with headings, quotes, images, callout boxes, and more. Posts can be written in English and Spanish, assigned to categories, tagged, and featured on the home page.
-
-### Accessing the Blog Manager
-
-1. Go to the website footer and click **"Staff"**.
-2. Enter the passphrase: **veritas**
-3. You will see the Blog Dashboard with all existing posts.
-
-### The Blog Dashboard
-
-The dashboard shows:
-
-- A count of published and draft posts
-- Filter tabs: All, Published, Drafts
-- A search bar to find posts by title, author, or category
-- A "New Post" button
-- Each post row showing: thumbnail, title, status badge, author, date, and category
-
-Click any post to edit it. Click "New Post" to create a new one.
-
-### Creating a New Blog Post
-
-#### Step 1: Fill in Post Details
-
-- **Title** (required) — The headline of your article
-- **Title (Spanish)** — Optional Spanish translation of the title
-- **Author** — Select the author from the dropdown
-- **Date** — Publication date (defaults to today)
-- **Category** — Choose from: Homilies, Dominican Life, Parish News, Faith & Theology, Community
-- **Tags** — Comma-separated keywords (e.g., "Lent, Prayer, Hope")
-- **Hero Image URL** — A web URL for the large banner image at the top
-- **Excerpt** (required) — 1–2 sentence summary that appears on the blog listing page
-- **Excerpt (Spanish)** — Optional Spanish translation
-- **Featured** — Check to pin this post to the top of the blog page
-- **Publish immediately** — Check to make the post visible on the website
-
-#### Step 2: Write the Content
-
-You have two options for writing the article body:
-
-**Option A: Write Here (Built-in Editor)**
-
-The built-in editor works like a simplified word processor. Use the toolbar buttons for:
-
-- Bold and Italic text
-- Headings (H2 and H3)
-- Block quotes (for Scripture or significant quotes)
-- Callout boxes (for highlighted announcements or key points)
-- Bulleted and numbered lists
-- Images (paste a URL and optional caption)
-- Horizontal dividers
-- Undo and Redo
-
-Switch to the **Preview** tab at any time to see exactly how the post will look on the website.
-
-**Option B: Link Google Doc**
-
-If you prefer writing in Google Docs:
-
-1. Write your article in a Google Doc using normal formatting (headings, bold, lists, etc.).
-2. Share the Doc: Click Share, then "Anyone with the link can view."
-3. In the blog composer, switch to "Link Google Doc" mode.
-4. Paste the Google Doc URL.
-5. The website will automatically pull and format the content from the Doc.
-
-> **Tip:** Google Docs content is re-fetched periodically, so if you update the Doc, the website will reflect changes within a few minutes.
-
-#### Step 3: Save or Publish
-
-At the bottom of the composer, you have two buttons:
-
-- **Save Draft** — Saves the post but does NOT make it visible on the website. Use this to work on a post over time.
-- **Publish Now / Update & Publish** — Saves and makes the post immediately visible.
-
-When editing a published post:
-
-- **Unpublish & Save Draft** — Takes the post offline and saves it as a draft.
-- **Update & Publish** — Saves changes while keeping the post live.
-
-### Editing an Existing Post
-
-1. From the Blog Dashboard, click on the post you want to edit.
-2. Make your changes to any field.
-3. Click "Update & Publish" to save, or "Unpublish & Save Draft" to take it offline.
-
-### Deleting a Post
-
-1. Open the post in the editor.
-2. Click the red **"Delete"** button in the top right.
-3. A confirmation dialog will ask "Delete This Post?"
-4. Click **"Delete Post"** to permanently remove it, or **"Keep It"** to cancel.
-
-> **Important:** Deletion is permanent. There is no undo. Make sure you really want to remove the post.
-
-### Blog Post Features on the Website
-
-When a visitor views a published blog post, they see:
-
-- A large hero image with the title and metadata overlaid
-- Author name and photo
-- Reading time estimate (auto-calculated)
-- A table of contents generated from headings (sticky on desktop)
-- The full article body with beautiful typography
-- Tags at the bottom
-- Share buttons (copy link, Facebook, Twitter/X, email)
-- An author card with a short bio
-- Previous/Next navigation to other posts
-- Related posts by category
-
-### Blog Categories Reference
-
-| Category | Best For | Icon |
-|----------|---------|------|
-| Homilies | Sunday homily texts, feast day reflections | Book |
-| Dominican Life | Dominican spirituality, charism, saints | Cross |
-| Parish News | Events, milestones, updates | Newspaper |
-| Faith & Theology | Catechesis, apologetics, doctrine | Book with text |
-| Community | Outreach, ministries, parishioner stories | Handshake |
-
----
-
-## 10. The Contact Form
+## 9. The Contact Form
 
 The Contact page has a form that visitors can fill out to reach the parish. Submissions are saved to a Google Sheet.
 
@@ -449,7 +324,7 @@ Visitors choose a category when submitting the form:
 
 ---
 
-## 11. The Parish Registration Form
+## 10. The Parish Registration Form
 
 The Register page allows new parishioners to sign up directly through the website. Like the contact form, submissions go to a Google Sheet.
 
@@ -468,7 +343,7 @@ Open the registration Google Sheet. Each new registration adds a row. Follow up 
 
 ---
 
-## 12. Online Giving (Flocknote)
+## 11. Online Giving (Flocknote)
 
 The Give page provides information about supporting the parish financially and links visitors to the parish's public Flocknote giving portal.
 
@@ -486,9 +361,9 @@ The Give page now explains one-time gifts, recurring gifts, payment methods, pro
 
 ---
 
-## 13. Photos and Images
+## 12. Photos and Images
 
-Photos are used throughout the site — hero banners, staff portraits, gallery, blog posts, and more.
+Photos are used throughout the site — hero banners, staff portraits, gallery, and more.
 
 ### Where Photos Live
 
@@ -497,34 +372,25 @@ All website photos are stored in the `public/photos/` folder of the site code. T
 - **JPG** — Standard format for all browsers
 - **WebP** — Modern format that loads faster (auto-selected by the browser)
 
-### Blog Post Images
-
-For blog posts, images can be added in two ways:
-
-1. **Hero Image** — Paste any public image URL into the "Hero Image URL" field when creating a post. This becomes the large banner at the top of the article.
-2. **Inline Images** — Use the Image button in the editor toolbar. Paste an image URL and optionally add a caption.
-
 > **Tip:** Free, high-quality Catholic images can be found at cathopic.com, unsplash.com (search "Catholic" or "church"), or from the diocesan media library.
 
 ### Updating Site Photos
 
-To change a photo used on one of the main site pages (not blog posts), send the new image to the developer. They will optimize it, add it to the photo library, and update the code.
+To change a photo used on one of the main site pages, send the new image to the developer. They will optimize it, add it to the photo library, and update the code.
 
 ---
 
-## 14. Translations (English and Spanish)
+## 13. Translations (English and Spanish)
 
 The entire website supports both English and Spanish. Visitors toggle between languages using the EN/ES buttons in the navigation bar.
 
 ### How Translations Work
 
 - All translatable text is stored in two files: `en.json` (English) and `es.json` (Spanish).
-- Blog posts have separate fields for Spanish: Title (Spanish), Excerpt (Spanish), and a Spanish Google Doc link or body.
 - The language preference is saved in the visitor's browser, so they don't have to switch every time.
 
 ### What You Can Translate Without a Developer
 
-- Blog post titles, excerpts, and full body text (via the composer form)
 - Announcements (write the Spanish version in the body text, or ask the developer to add a Spanish column)
 - Event descriptions
 
@@ -532,11 +398,9 @@ The entire website supports both English and Spanish. Visitors toggle between la
 
 Changes to page headings, button labels, navigation items, and other structural text require editing the translation files, which needs a developer.
 
-> **Tip:** When writing a blog post, always try to provide at least a Spanish title and excerpt. The full body translation is nice to have but not required.
-
 ---
 
-## 15. Site Analytics
+## 14. Site Analytics
 
 The website is configured to use Cloudflare Web Analytics, a free privacy-friendly analytics service that does not require a cookie consent banner.
 
@@ -546,7 +410,6 @@ The website is configured to use Cloudflare Web Analytics, a free privacy-friend
 - Which pages are most popular
 - Where visitors come from (Google search, social media, direct)
 - What devices they use (desktop, mobile, tablet)
-- Which blog posts get the most readers
 
 ### Setting Up Analytics
 
@@ -562,7 +425,7 @@ Until the Cloudflare token is set, no visitor data is collected.
 
 ---
 
-## 16. Common Tasks — Quick Reference
+## 15. Common Tasks — Quick Reference
 
 ### Daily
 
@@ -579,7 +442,6 @@ Until the Cloudflare token is set, no visitor data is collected.
 | Add events | CMS Sheet > Events tab | Add new rows with date, title, category |
 | Update bulletin | Flipbook service + developer | Upload PDF, get URL, share with developer |
 | Add bulletin to archive | CMS Sheet > Bulletins tab | Add row with date, label, URL |
-| Publish blog post | Website > Staff > Blog Manager | Click New Post, fill form, click Publish |
 
 ### Monthly / As Needed
 
@@ -592,17 +454,12 @@ Until the Cloudflare token is set, no visitor data is collected.
 
 ---
 
-## 17. Troubleshooting
+## 16. Troubleshooting
 
 ### The website is showing old information
 - The site caches data for 5 minutes. Wait a few minutes and refresh the page.
 - Try a hard refresh: hold Shift and click the refresh button in your browser.
 - Clear your browser cache if the issue persists.
-
-### A blog post won't save
-- Make sure all required fields are filled in: Title, Excerpt, and either editor content or a Google Doc link.
-- Check for a red error toast message at the bottom right of the screen — it will tell you what's wrong.
-- If using the editor, make sure you've typed at least some content in the writing area.
 
 ### The passphrase isn't working
 - The passphrase is: **veritas** (all lowercase, no spaces).
@@ -613,11 +470,6 @@ Until the Cloudflare token is set, no visitor data is collected.
 - Did you edit the correct tab? The site reads specific tab names.
 - Are the column headers in Row 1 still intact? Don't rename them.
 - Wait 5 minutes for the cache to refresh, then hard-refresh the page.
-
-### A blog post looks wrong on the website
-- Check the Preview tab in the editor before publishing.
-- If using a Google Doc, make sure it's shared as "Anyone with the link can view."
-- Images must be publicly accessible URLs (not private Google Drive links).
 
 ### The contact form isn't working
 - Check if the Google Apps Script deployment is still active.
@@ -632,7 +484,7 @@ Contact the developer. Provide:
 
 ---
 
-## 18. Technical Reference (For Developers)
+## 17. Technical Reference (For Developers)
 
 > This section is for the developer maintaining the site code. Non-technical administrators can skip this.
 
@@ -650,15 +502,14 @@ Contact the developer. Provide:
 |------|---------|
 | `src/pages/` | Page components (one per route) |
 | `src/components/` | Reusable UI components |
-| `src/components/blog/` | Blog-specific components (editor, dashboard, body renderer) |
 | `src/cms/` | CMS client (Google Sheets fetcher) and React hooks |
 | `src/data/` | Static fallback data files |
 | `src/constants/` | Config, theme colors, photo paths |
 | `src/locales/` | Translation files (en.json, es.json) |
 | `src/styles/` | Global CSS |
-| `src/utils/` | Utility functions (blog, SEO, etc.) |
+| `src/utils/` | Utility functions (SEO, etc.) |
 | `public/photos/` | Optimized images (JPG + WebP) |
-| `cms/` | Google Apps Script source (blog-cms.gs) |
+| `cms/` | Google Apps Script source (admin-cms.gs, contact-proxy.js) |
 | `.github/workflows/` | CI/CD deployment pipeline |
 
 ### Environment Variables
@@ -668,7 +519,6 @@ Contact the developer. Provide:
 | `VITE_CONTACT_FORM_URL` | Google Apps Script URL for contact form | Recommended |
 | `VITE_REGISTRATION_FORM_URL` | Google Apps Script URL for registration | Recommended |
 | `VITE_CMS_SHEET_ID` | Published Google Sheet ID for CMS data | Recommended |
-| `VITE_BLOG_CMS_URL` | Apps Script URL for blog post CRUD | Optional (uses localStorage fallback) |
 | `VITE_ADMIN_CMS_URL` | Apps Script URL for staff dashboard cloud sync | Recommended |
 | `VITE_STAFF_PASSPHRASE` | Staff dashboard write passphrase | Recommended |
 | `VITE_SITE_URL` | Canonical URL used for SEO, sitemap, and robots.txt | Recommended |
@@ -705,19 +555,6 @@ The site deploys automatically when code is pushed to the main branch:
 2. GitHub Actions runs the build pipeline (`.github/workflows/deploy.yml`).
 3. Built files are published to GitHub Pages.
 4. The live site updates within 1–2 minutes.
-
-### Blog CMS Backend (Apps Script)
-
-The blog system can use a Google Apps Script backend for persistent storage. The script source is in `cms/blog-cms.gs`. To deploy:
-
-1. Create a Google Sheet for blog data.
-2. Open Extensions > Apps Script.
-3. Paste the contents of `cms/blog-cms.gs`.
-4. In Project Settings > Script Properties, add `WRITE_TOKEN` with the same value as `VITE_STAFF_PASSPHRASE`.
-5. Deploy as a Web App (Execute as: You, Access: Anyone).
-6. Copy the deployment URL and set `VITE_BLOG_CMS_URL` in `.env` or in the GitHub Pages build environment.
-
-Without the Apps Script deployed, the blog manager saves posts to browser localStorage, which works for testing but is not persistent across devices.
 
 ### Key Configuration File
 

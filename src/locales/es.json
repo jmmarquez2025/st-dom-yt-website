@@ -24,7 +24,6 @@
     "architecture": "Arquitectura y Arte",
     "gallery": "Galería",
     "faithFormation": "Formación en la Fe",
-    "blog": "Blog",
     "connect": "Conectar",
     "more": "Más"
   },
@@ -642,34 +641,6 @@
     "cta": {
       "title": "Comience Su Camino Hoy",
       "desc": "Elija un recurso, reproduzca un podcast o abra el Catecismo. Cada paso que da hacia la comprensión de su fe es un paso más cerca de Cristo."
-    }
-  },
-  "blog": {
-    "title": "Blog y Reflexiones",
-    "hero": {
-      "sub": "De los Frailes",
-      "desc": "Homilias, reflexiones y vida parroquial de la comunidad dominicana en la Iglesia Santo Domingo."
-    },
-    "featured": "Destacado",
-    "filterAll": "Todos",
-    "readTime": "{{count}} min lectura",
-    "loadMore": "Cargar Mas",
-    "noResults": "No se encontraron publicaciones.",
-    "relatedTitle": "Publicaciones Relacionadas",
-    "relatedSub": "Siga Leyendo",
-    "prevPost": "Publicacion Anterior",
-    "nextPost": "Publicacion Siguiente",
-    "share": {
-      "copy": "Copiar Enlace",
-      "email": "Correo",
-      "print": "Imprimir",
-      "copied": "Copiado!"
-    },
-    "toc": "Tabla de Contenidos",
-    "writtenBy": "Escrito por",
-    "postActions": {
-      "readArticle": "Leer Artículo",
-      "allPosts": "Todas las Reflexiones"
     }
   },
   "getInvolved": {

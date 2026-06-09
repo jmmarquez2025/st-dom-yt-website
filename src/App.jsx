@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Nav from "./components/Nav";
 import Breadcrumbs from "./components/Breadcrumbs";
@@ -40,8 +40,6 @@ const History = lazy(() => import("./pages/History"));
 const Register = lazy(() => import("./pages/Register"));
 const Events = lazy(() => import("./pages/Events"));
 const Architecture = lazy(() => import("./pages/Architecture"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
 const FaithFormation = lazy(() => import("./pages/FaithFormation"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const WritersGuide = lazy(() => import("./pages/WritersGuide"));
@@ -95,8 +93,9 @@ function AppRoutes() {
             <Route path="/register" element={<Register />} />
             <Route path="/events" element={<Events />} />
             <Route path="/architecture" element={<Architecture />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
+            {/* Blog removed — redirect any old/indexed blog URLs to home */}
+            <Route path="/blog" element={<Navigate to="/" replace />} />
+            <Route path="/blog/:slug" element={<Navigate to="/" replace />} />
             <Route path="/faith-formation" element={<FaithFormation />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/writers-guide" element={<WritersGuide />} />

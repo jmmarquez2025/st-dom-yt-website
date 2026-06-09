@@ -12,7 +12,7 @@ import {
   X,
 } from "lucide-react";
 
-/* ── Shared styles (matching BlogComposer) ── */
+/* ── Shared styles ── */
 
 const INPUT_STYLE = {
   width: "100%",

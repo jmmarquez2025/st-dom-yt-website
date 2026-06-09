@@ -31,7 +31,6 @@ const SEGMENT_I18N_KEY = {
   events: "nav.events",
   architecture: "nav.architecture",
   gallery: "nav.gallery",
-  blog: "nav.blog",
   "faith-formation": "nav.faithFormation",
   "writers-guide": "Writer's Guide",
   "announcement-manager": "Announcement Manager",
