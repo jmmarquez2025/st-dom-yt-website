@@ -16,7 +16,9 @@ export function registerSW() {
 
     try {
       const registration = await navigator.serviceWorker.register(swUrl);
-      console.log("[SW] Registered successfully. Scope:", registration.scope);
+      if (import.meta.env.DEV) {
+        console.log("[SW] Registered successfully. Scope:", registration.scope);
+      }
 
       // Check for updates periodically (every 60 minutes)
       setInterval(() => {
@@ -34,9 +36,9 @@ export function registerSW() {
             navigator.serviceWorker.controller
           ) {
             // New content is available; optionally notify user
-            console.log(
-              "[SW] New content available. Refresh to update."
-            );
+            if (import.meta.env.DEV) {
+              console.log("[SW] New content available. Refresh to update.");
+            }
           }
         });
       });
@@ -53,5 +55,7 @@ export async function unregisterSW() {
   if (!("serviceWorker" in navigator)) return;
   const registration = await navigator.serviceWorker.ready;
   await registration.unregister();
-  console.log("[SW] Unregistered.");
+  if (import.meta.env.DEV) {
+    console.log("[SW] Unregistered.");
+  }
 }

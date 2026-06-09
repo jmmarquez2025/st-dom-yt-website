@@ -65,9 +65,27 @@ export default function NextMass() {
       }
     };
 
-    update();
-    const tick = setInterval(update, 1000);
-    return () => clearInterval(tick);
+    // Tick only while the tab is visible — a hidden tab doesn't need a live countdown.
+    let tick = null;
+    const start = () => {
+      if (tick) return;
+      update();
+      tick = setInterval(update, 1000);
+    };
+    const stop = () => {
+      if (tick) {
+        clearInterval(tick);
+        tick = null;
+      }
+    };
+    const onVisibility = () => (document.hidden ? stop() : start());
+
+    start();
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, [scheduleKey]);
 
   if (!next || !countdown) return null;
