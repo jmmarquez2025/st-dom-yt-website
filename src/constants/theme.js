@@ -21,6 +21,9 @@ export const T = {
   charcoal: "#2C2C2C",
   warmGray: "#6B6560",
   softBlack: "#1A1714",
+  // Form/validation error red, leaned toward the brand burgundy.
+  // AA on warm white (#FFFDF9) at small text sizes.
+  error: "#A03423",
   // Opaque low-saturation chip tints (mirror --chip-soft-*-bg in global.css).
   chipBurgundyBg: "#F4E9EA",
   chipGoldBg: "#F6EEDC",

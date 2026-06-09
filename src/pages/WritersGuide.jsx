@@ -138,7 +138,7 @@ function PassphraseGate({ onUnlock }) {
               width: "100%",
               padding: "12px 16px",
               fontSize: 15,
-              border: `1.5px solid ${error ? "#c0392b" : T.stone}`,
+              border: `1.5px solid ${error ? T.error : T.stone}`,
               borderRadius: 6,
               outline: "none",
               fontFamily: "'Source Sans 3', sans-serif",
@@ -157,7 +157,7 @@ function PassphraseGate({ onUnlock }) {
             autoFocus
           />
           {error && (
-            <p style={{ fontSize: 13, color: "#c0392b", marginBottom: 12 }}>
+            <p style={{ fontSize: 13, color: T.error, marginBottom: 12 }}>
               Incorrect passphrase. Please try again.
             </p>
           )}
@@ -220,7 +220,7 @@ function Toast({ message, type, onDismiss }) {
         alignItems: "center",
         gap: 10,
         padding: "14px 24px",
-        background: type === "error" ? "#c0392b" : "#2E7D32",
+        background: type === "error" ? T.error : "#2E7D32",
         color: "#fff",
         borderRadius: 10,
         boxShadow: "0 8px 32px rgba(0,0,0,0.2)",

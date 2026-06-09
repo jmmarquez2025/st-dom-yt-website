@@ -15,6 +15,8 @@
   --color-charcoal: #2C2C2C;
   --color-warm-gray: #6B6560;
   --color-soft-black: #1A1714;
+  /* Form/validation error red, leaned toward the brand burgundy (AA on warm white) */
+  --color-error: #A03423;
 
   --font-display: "Cormorant Garamond", serif;
   --font-body: "Source Sans 3", sans-serif;

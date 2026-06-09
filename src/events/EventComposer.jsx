@@ -84,18 +84,18 @@ export default function EventComposer({ event, onSave, onDelete, onCancel }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Event title"
-            style={{ ...INPUT, borderColor: errors.title ? "#c0392b" : T.stone }}
+            style={{ ...INPUT, borderColor: errors.title ? T.error : T.stone }}
           />
-          {errors.title && <p style={{ color: "#c0392b", fontSize: 12, margin: "4px 0 0" }}>{errors.title}</p>}
+          {errors.title && <p style={{ color: T.error, fontSize: 12, margin: "4px 0 0" }}>{errors.title}</p>}
         </Field>
         <Field label="Date">
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            style={{ ...INPUT, borderColor: errors.date ? "#c0392b" : T.stone }}
+            style={{ ...INPUT, borderColor: errors.date ? T.error : T.stone }}
           />
-          {errors.date && <p style={{ color: "#c0392b", fontSize: 12, margin: "4px 0 0" }}>{errors.date}</p>}
+          {errors.date && <p style={{ color: T.error, fontSize: 12, margin: "4px 0 0" }}>{errors.date}</p>}
         </Field>
         <Field label="Time">
           <input value={time} onChange={(e) => setTime(e.target.value)} placeholder="Optional — e.g., 7:00 PM" style={INPUT} />
@@ -135,8 +135,8 @@ export default function EventComposer({ event, onSave, onDelete, onCancel }) {
         {isEditing && (
           <button
             onClick={() => { if (window.confirm("Delete this event permanently?")) onDelete(event.id); }}
-            style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 6, padding: "11px 20px", background: "none", color: "#c0392b", border: "1.5px solid transparent", borderRadius: 8, fontSize: 14, fontWeight: 500, fontFamily: "'Source Sans 3', sans-serif", cursor: "pointer" }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#c0392b")}
+            style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 6, padding: "11px 20px", background: "none", color: T.error, border: "1.5px solid transparent", borderRadius: 8, fontSize: 14, fontWeight: 500, fontFamily: "'Source Sans 3', sans-serif", cursor: "pointer" }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = T.error)}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = "transparent")}
           >
             <Trash2 size={15} /> Delete

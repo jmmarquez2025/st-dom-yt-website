@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
+import { FloatingInput, FloatingTextarea, StyledSelect } from "../components/forms/Fields";
 import { CONFIG } from "../constants/config";
 import { Section } from "../components/Section";
 import FadeSection from "../components/FadeSection";
@@ -14,127 +15,6 @@ import { CheckCircle, AlertCircle, UserPlus, ChevronDown, ChevronUp, Loader2, He
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*(\d[\s().\-+]*)?(\d[\s().\-+]*)?(\d[\s().\-+]*)?$/;
 
-const errorStyle = { fontSize: 12, color: "#c0392b", marginTop: 4, fontFamily: "'Source Sans 3', sans-serif" };
-
-function validateEmail(v, message) {
-  if (v && !EMAIL_RE.test(v)) return message;
-  return "";
-}
-function validatePhone(v, message) {
-  if (v && !PHONE_RE.test(v)) return message;
-  return "";
-}
-
-/* ── Floating-label input ── */
-function FloatingInput({ label, required, type = "text", value, onChange, onBlurValidate, error, ariaLabel, ariaDescribedBy, ...rest }) {
-  const [focused, setFocused] = useState(false);
-  const active = focused || value;
-  return (
-    <div style={{ position: "relative" }}>
-      <input
-        type={type} required={required} value={value} onChange={onChange}
-        aria-label={ariaLabel || label}
-        aria-describedby={ariaDescribedBy}
-        aria-invalid={!!error}
-        onFocus={() => setFocused(true)}
-        onBlur={() => { setFocused(false); if (onBlurValidate) onBlurValidate(); }}
-        style={{
-          width: "100%", padding: "22px 16px 8px", fontSize: 15,
-          border: `1.5px solid ${error ? "#c0392b" : focused ? T.burgundy : T.stone}`,
-          borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif",
-          background: "#fff", minHeight: 56, outline: "none",
-          transition: "border-color 0.25s, box-shadow 0.25s",
-          boxShadow: focused ? `0 0 0 3px rgba(107,29,42,0.08)` : "none",
-        }}
-        {...rest}
-      />
-      <label style={{
-        position: "absolute", left: 16,
-        top: active ? 8 : 18, fontSize: active ? 11 : 15,
-        fontWeight: active ? 600 : 400,
-        color: focused ? T.burgundy : T.warmGray,
-        pointerEvents: "none",
-        transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
-        letterSpacing: active ? 0.5 : 0,
-        fontFamily: "'Source Sans 3', sans-serif",
-      }}>
-        {label}{required && " *"}
-      </label>
-      {error && <div id={ariaDescribedBy} style={errorStyle}>{error}</div>}
-    </div>
-  );
-}
-
-/* ── Floating-label textarea ── */
-function FloatingTextarea({ label, value, onChange, rows = 4, placeholder, ariaLabel }) {
-  const [focused, setFocused] = useState(false);
-  const active = focused || value;
-  return (
-    <div style={{ position: "relative" }}>
-      <textarea
-        value={value} onChange={onChange} rows={rows}
-        aria-label={ariaLabel || label}
-        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-        placeholder={active ? placeholder : ""}
-        style={{
-          width: "100%", padding: "22px 16px 8px", fontSize: 15,
-          border: `1.5px solid ${focused ? T.burgundy : T.stone}`,
-          borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif",
-          background: "#fff", resize: "vertical", outline: "none",
-          transition: "border-color 0.25s, box-shadow 0.25s",
-          boxShadow: focused ? `0 0 0 3px rgba(107,29,42,0.08)` : "none",
-        }}
-      />
-      <label style={{
-        position: "absolute", left: 16,
-        top: active ? 8 : 18, fontSize: active ? 11 : 15,
-        fontWeight: active ? 600 : 400,
-        color: focused ? T.burgundy : T.warmGray,
-        pointerEvents: "none",
-        transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
-        letterSpacing: active ? 0.5 : 0,
-        fontFamily: "'Source Sans 3', sans-serif",
-      }}>
-        {label}
-      </label>
-    </div>
-  );
-}
-
-/* ── Styled select ── */
-function StyledSelect({ label, value, onChange, children, ariaLabel }) {
-  const [focused, setFocused] = useState(false);
-  return (
-    <div style={{ position: "relative" }}>
-      <select
-        value={value} onChange={onChange}
-        aria-label={ariaLabel || label}
-        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-        style={{
-          width: "100%", padding: "22px 16px 8px", fontSize: 15,
-          border: `1.5px solid ${focused ? T.burgundy : T.stone}`,
-          borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif",
-          background: "#fff", minHeight: 56, outline: "none", cursor: "pointer",
-          appearance: "none", WebkitAppearance: "none",
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236B6560' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
-          backgroundRepeat: "no-repeat", backgroundPosition: "right 16px center",
-          transition: "border-color 0.25s, box-shadow 0.25s",
-          boxShadow: focused ? `0 0 0 3px rgba(107,29,42,0.08)` : "none",
-        }}
-      >
-        {children}
-      </select>
-      <label style={{
-        position: "absolute", left: 16, top: 8, fontSize: 11, fontWeight: 600,
-        color: focused ? T.burgundy : T.warmGray, pointerEvents: "none",
-        transition: "color 0.2s", letterSpacing: 0.5,
-        fontFamily: "'Source Sans 3', sans-serif",
-      }}>
-        {label}
-      </label>
-    </div>
-  );
-}
 
 /* ── Collapsible section with icon ── */
 function FormSection({ icon: IconComp, title, children, defaultOpen = true }) {

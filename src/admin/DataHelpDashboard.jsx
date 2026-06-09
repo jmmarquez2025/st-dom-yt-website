@@ -304,7 +304,7 @@ export default function DataHelpDashboard({ onToast }) {
         )}
 
         {syncStatus.error && (
-          <div style={{ marginTop: 10, fontSize: 12, color: "#c0392b", fontFamily: "'Source Sans 3', sans-serif" }}>
+          <div style={{ marginTop: 10, fontSize: 12, color: T.error, fontFamily: "'Source Sans 3', sans-serif" }}>
             {syncStatus.error}
           </div>
         )}
@@ -467,12 +467,12 @@ export default function DataHelpDashboard({ onToast }) {
             The public site will fall back to the built-in defaults until you
             add new content.
           </p>
-          <p style={{ margin: "0 0 14px", color: "#c0392b", fontWeight: 600 }}>
+          <p style={{ margin: "0 0 14px", color: T.error, fontWeight: 600 }}>
             Export a backup first — this cannot be undone.
           </p>
           <button
             onClick={handleClearAll}
-            style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", background: "#c0392b", color: "#fff", border: "none", borderRadius: 6, fontSize: 13, fontWeight: 600, fontFamily: "'Source Sans 3', sans-serif", cursor: "pointer" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", background: T.error, color: "#fff", border: "none", borderRadius: 6, fontSize: 13, fontWeight: 600, fontFamily: "'Source Sans 3', sans-serif", cursor: "pointer" }}
           >
             <AlertTriangle size={14} /> Clear all admin data
           </button>
