@@ -303,7 +303,7 @@ export default function MassTimes() {
       {/* ════ Section 2: Mass Schedule ════ */}
       <Section>
         <FadeSection>
-          <SectionTitle sub={t("massTimes.mass.sub")}>
+          <SectionTitle sub={t("massTimes.mass.sub")} index="01">
             {t("massTimes.mass.title")}
           </SectionTitle>
           <Quote
@@ -389,7 +389,7 @@ export default function MassTimes() {
       {/* ════ Section 4: Confession ════ */}
       <Section id="confession" bg={T.cream}>
         <FadeSection>
-          <SectionTitle sub={t("massTimes.confession.sub")}>
+          <SectionTitle sub={t("massTimes.confession.sub")} index="02">
             {t("massTimes.confession.title")}
           </SectionTitle>
           <Quote
@@ -503,7 +503,7 @@ export default function MassTimes() {
       {/* ════ Section 5: Examination of Conscience ════ */}
       <Section>
         <FadeSection>
-          <SectionTitle sub={t("massTimes.examine.sub")}>
+          <SectionTitle sub={t("massTimes.examine.sub")} index="03">
             {t("massTimes.examine.title")}
           </SectionTitle>
           <p
@@ -588,7 +588,7 @@ export default function MassTimes() {
       {/* ════ Section 7: Adoration & Devotions ════ */}
       <Section bg={T.cream}>
         <FadeSection>
-          <SectionTitle sub={t("massTimes.adoration.sub")}>
+          <SectionTitle sub={t("massTimes.adoration.sub")} index="04">
             {t("massTimes.adoration.title")}
           </SectionTitle>
           <Quote
@@ -676,7 +676,7 @@ export default function MassTimes() {
       {/* ════ Section 8: Holy Days of Obligation ════ */}
       <Section>
         <FadeSection>
-          <SectionTitle sub={t("massTimes.holyDays.sub")}>
+          <SectionTitle sub={t("massTimes.holyDays.sub")} index="05">
             {t("massTimes.holyDays.title")}
           </SectionTitle>
           <p

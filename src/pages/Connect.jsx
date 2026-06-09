@@ -66,13 +66,12 @@ export default function Connect() {
         <FadeSection>
           <SectionTitle sub="Stay in Touch">Follow Our Parish</SectionTitle>
           <p
+            className="u-lede"
             style={{
               fontSize: 16,
               color: T.warmGray,
               lineHeight: 1.8,
-              textAlign: "center",
-              maxWidth: 640,
-              margin: "0 auto 48px",
+              margin: "0 0 48px",
               fontFamily: "'Source Sans 3', sans-serif",
             }}
           >
@@ -177,7 +176,7 @@ export default function Connect() {
       <Section bg={T.cream}>
         <FadeSection>
           <SectionTitle sub="Prefer to Call or Email?">In Person & By Phone</SectionTitle>
-          <div style={{ textAlign: "center", fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, color: T.charcoal, lineHeight: 1.9 }}>
+          <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, color: T.charcoal, lineHeight: 1.9 }}>
             <p>
               <strong>{CONFIG.address}</strong><br />
               {CONFIG.city}, {CONFIG.state} {CONFIG.zip}

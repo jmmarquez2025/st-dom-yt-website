@@ -57,8 +57,13 @@ export default function Give() {
         ]}
       />
 
+      {/* The one deliberately centered, ceremonial moment on the site:
+          stewardship verse under a centered heading. Everything else is
+          left-set — the contrast is what makes this read as intentional. */}
       <Section bg={T.warmWhite} style={donationSectionStyle}>
-        <SectionTitle sub={t("give.sub")}>{t("give.heading")}</SectionTitle>
+        <SectionTitle sub={t("give.sub")} center>
+          {t("give.heading")}
+        </SectionTitle>
         <PullQuote
           text={t("give.quote")}
           src={t("give.quoteSrc")}

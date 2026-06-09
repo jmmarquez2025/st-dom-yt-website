@@ -110,13 +110,12 @@ export default function Visit() {
         <FadeSection>
           <SectionTitle sub={t("visit.steps.sub")}>{t("visit.steps.title")}</SectionTitle>
           <p
+            className="u-lede"
             style={{
               fontSize: "clamp(16px, 2vw, 19px)",
               color: T.warmGray,
               lineHeight: 1.7,
-              textAlign: "center",
-              maxWidth: 640,
-              margin: "0 auto",
+              margin: 0,
             }}
           >
             {t("visit.steps.intro")}

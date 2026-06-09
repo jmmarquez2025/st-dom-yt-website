@@ -108,13 +108,12 @@ export default function FaithFormation() {
               src={t("faithFormation.quoteSrc")}
             />
             <p
+              className="u-lede"
               style={{
                 fontSize: 17,
                 lineHeight: 1.8,
                 color: T.warmGray,
-                maxWidth: 720,
-                margin: "0 auto",
-                textAlign: "center",
+                margin: 0,
               }}
             >
               {t("faithFormation.intro.desc")}
@@ -126,7 +125,7 @@ export default function FaithFormation() {
       {/* ════ Why Learn More ════ */}
       <Section bg={T.cream}>
         <FadeSection>
-          <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
+          <div style={{ maxWidth: 760, margin: "0 auto" }}>
             <SectionTitle sub={t("faithFormation.why.sub")}>
               {t("faithFormation.why.title")}
             </SectionTitle>
@@ -164,13 +163,12 @@ export default function FaithFormation() {
             {t("faithFormation.resources.title")}
           </SectionTitle>
           <p
+            className="u-lede"
             style={{
               fontSize: 16,
               lineHeight: 1.8,
               color: T.warmGray,
-              maxWidth: 680,
-              margin: "0 auto 40px",
-              textAlign: "center",
+              margin: "0 0 40px",
             }}
           >
             {t("faithFormation.resources.desc")}

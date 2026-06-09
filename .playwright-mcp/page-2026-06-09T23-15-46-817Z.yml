@@ -1,0 +1,313 @@
+- generic [ref=e3]:
+  - link "Skip to main content" [ref=e4] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation [ref=e5]:
+    - generic [ref=e6]:
+      - link "SD St. Dominic Catholic Church" [ref=e7] [cursor=pointer]:
+        - /url: /st-dom-yt-website/
+        - generic [ref=e8]: SD
+        - generic [ref=e9]:
+          - generic [ref=e10]: St. Dominic
+          - generic [ref=e11]: Catholic Church
+      - generic [ref=e12]:
+        - link "Plan Your Visit" [ref=e13] [cursor=pointer]:
+          - /url: /st-dom-yt-website/visit
+        - link "Mass & Confession" [ref=e14] [cursor=pointer]:
+          - /url: /st-dom-yt-website/mass-times
+        - link "Sacraments" [ref=e16] [cursor=pointer]:
+          - /url: /st-dom-yt-website/sacraments
+          - text: Sacraments
+          - img [ref=e17]
+        - link "Get Involved" [ref=e20] [cursor=pointer]:
+          - /url: /st-dom-yt-website/get-involved
+          - text: Get Involved
+          - img [ref=e21]
+        - link "More" [ref=e24] [cursor=pointer]:
+          - /url: /st-dom-yt-website/about
+          - text: More
+          - img [ref=e25]
+        - link "Give" [ref=e27] [cursor=pointer]:
+          - /url: /st-dom-yt-website/give
+        - button "Search the site" [ref=e28] [cursor=pointer]:
+          - img [ref=e29]
+        - group "Language selector" [ref=e33]:
+          - button "Switch to English" [pressed] [ref=e34] [cursor=pointer]: EN
+          - button "Cambiar a Español" [ref=e36] [cursor=pointer]: ES
+  - main [ref=e37]:
+    - generic [ref=e38]:
+      - generic [ref=e41]: Ordinary Time
+      - generic [ref=e49]:
+        - generic [ref=e50]: Served by the Dominican Friars
+        - heading "St. Dominic Catholic Church" [level=1] [ref=e51]
+        - paragraph [ref=e52]: Youngstown, Ohio
+        - generic [ref=e53]:
+          - button "Plan Your Visit" [ref=e55] [cursor=pointer]
+          - button "Mass & Confession Times" [ref=e57] [cursor=pointer]
+        - button "También disponible en Español" [ref=e58] [cursor=pointer]:
+          - img [ref=e59]
+          - text: También disponible en Español
+        - generic [ref=e64]:
+          - generic [ref=e65]: Next Mass
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: "12"
+              - generic [ref=e69]: Hrs
+            - generic [ref=e70]: ":"
+            - generic [ref=e71]:
+              - generic [ref=e72]: "44"
+              - generic [ref=e73]: Min
+            - generic [ref=e74]: ":"
+            - generic [ref=e75]:
+              - generic [ref=e76]: "13"
+              - generic [ref=e77]: Sec
+          - generic [ref=e78]: Wednesday · 8:00 AM
+      - generic [ref=e81]:
+        - generic [ref=e82]: Parish Essentials
+        - generic [ref=e83]:
+          - heading "What Most Visitors Need First" [level=2] [ref=e84]
+          - generic [ref=e85]: Schedule reviewed May 4, 2026
+        - generic [ref=e86]:
+          - button "Today's Masses 8:00 AM, 12:00 PM" [ref=e87] [cursor=pointer]:
+            - img [ref=e88]
+            - generic [ref=e92]:
+              - generic [ref=e93]: Today's Masses
+              - generic [ref=e94]: 8:00 AM, 12:00 PM
+          - button "Confession Today See the weekly schedule" [ref=e95] [cursor=pointer]:
+            - img [ref=e96]
+            - generic [ref=e98]:
+              - generic [ref=e99]: Confession Today
+              - generic [ref=e100]: See the weekly schedule
+          - link "Address 77 East Lucius Avenue" [ref=e101] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=77+East+Lucius+Ave,+Youngstown,+OH+44507
+            - img [ref=e102]
+            - generic [ref=e105]:
+              - generic [ref=e106]: Address
+              - generic [ref=e107]: 77 East Lucius Avenue
+          - button "Bulletin Announcements and parish notices" [ref=e108] [cursor=pointer]:
+            - img [ref=e109]
+            - generic [ref=e112]:
+              - generic [ref=e113]: Bulletin
+              - generic [ref=e114]: Announcements and parish notices
+          - link "Call the Office (330) 783-1900" [ref=e115] [cursor=pointer]:
+            - /url: tel:+13307831900
+            - img [ref=e116]
+            - generic [ref=e118]:
+              - generic [ref=e119]: Call the Office
+              - generic [ref=e120]: (330) 783-1900
+      - generic [ref=e124]:
+        - generic [ref=e125]:
+          - generic [ref=e126]:
+            - generic [ref=e127]: Worship
+            - heading "Find Jesus Here" [level=2] [ref=e128]
+          - generic [ref=e129]:
+            - button "See Mass & Confession Times" [ref=e131] [cursor=pointer]
+            - button "Plan Your Visit" [ref=e132] [cursor=pointer]:
+              - text: Plan Your Visit
+              - img [ref=e133]
+        - generic [ref=e135]:
+          - generic [ref=e136]: Weekend Mass
+          - generic [ref=e137]:
+            - generic [ref=e138]: "Saturday Vigil:"
+            - strong [ref=e139]: 5:00 PM
+          - generic [ref=e140]:
+            - generic [ref=e141]: "Sunday:"
+            - strong [ref=e142]: 8:00 AM
+          - generic [ref=e143]:
+            - generic [ref=e144]: "Sunday:"
+            - strong [ref=e145]: 10:30 AM
+          - generic [ref=e146]:
+            - generic [ref=e147]: "Sunday (Español):"
+            - strong [ref=e148]: 12:30 PM
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - generic [ref=e153]: Welcome
+          - heading "Encounter Jesus Christ with Us" [level=2] [ref=e154]
+        - generic [ref=e155]:
+          - paragraph [ref=e156]: St. Dominic Church has served Youngstown's south side since 1923, in the care of the Dominican Friars.
+          - paragraph [ref=e157]: Whether you're a lifelong Catholic or just curious, you're welcome here.
+        - generic [ref=e158]:
+          - button "Word Rooted in the Dominican intellectual tradition, we preach the Gospel with clarity and depth through homilies, Bible study, and faith formation. About Us" [ref=e159] [cursor=pointer]:
+            - img [ref=e160]
+            - generic [ref=e162]:
+              - strong [ref=e163]: Word
+              - generic [ref=e164]: Rooted in the Dominican intellectual tradition, we preach the Gospel with clarity and depth through homilies, Bible study, and faith formation.
+            - img [ref=e165]
+            - generic [ref=e167]: About Us
+          - button "Sacrament We celebrate the liturgy with reverence and beauty — daily Mass, frequent Confession, Eucharistic adoration, and all seven sacraments. Sacraments" [ref=e168] [cursor=pointer]:
+            - img [ref=e169]
+            - generic [ref=e173]:
+              - strong [ref=e174]: Sacrament
+              - generic [ref=e175]: We celebrate the liturgy with reverence and beauty — daily Mass, frequent Confession, Eucharistic adoration, and all seven sacraments.
+            - img [ref=e176]
+            - generic [ref=e178]: Sacraments
+          - button "Service From St. Vincent de Paul outreach to mission trips, we serve our neighbors and bring Christ's love to those in need across Youngstown. Register at the Church" [ref=e179] [cursor=pointer]:
+            - img [ref=e180]
+            - generic [ref=e185]:
+              - strong [ref=e186]: Service
+              - generic [ref=e187]: From St. Vincent de Paul outreach to mission trips, we serve our neighbors and bring Christ's love to those in need across Youngstown.
+            - img [ref=e188]
+            - generic [ref=e190]: Register at the Church
+      - generic [ref=e194]:
+        - generic [ref=e195]: Daily Reflection
+        - blockquote [ref=e196]: “Be who God meant you to be and you will set the world on fire.”
+        - generic [ref=e197]: — St. Catherine of Siena
+      - generic [ref=e202]:
+        - generic [ref=e203]:
+          - generic [ref=e204]: Our Team
+          - blockquote [ref=e205]: "\"To praise, to bless, and to preach.\""
+          - generic [ref=e206]: — Motto of the Dominican Order
+        - generic [ref=e207]:
+          - heading "Priests & Staff" [level=2] [ref=e208]
+          - paragraph [ref=e209]: Our Dominican friars and parish staff are here to help — reach out anytime.
+          - generic [ref=e210]:
+            - button "Meet Our Priests & Staff" [ref=e212] [cursor=pointer]
+            - link "Our Province" [ref=e213] [cursor=pointer]:
+              - /url: https://dominicanfriars.org/
+              - text: Our Province
+              - img [ref=e214]
+      - generic [ref=e220]:
+        - generic [ref=e221]:
+          - generic [ref=e222]: Get Involved
+          - heading "Become a Member" [level=2] [ref=e223]
+        - paragraph [ref=e224]: There are many ways to get involved — ministries, events, and service. Come be part of the parish.
+        - generic [ref=e225]:
+          - button "Register at the Church" [ref=e227] [cursor=pointer]
+          - button "Recent Bulletins" [ref=e229] [cursor=pointer]
+      - generic [ref=e232]:
+        - generic [ref=e233]:
+          - generic [ref=e234]: Church Life
+          - heading "News & Announcements" [level=2] [ref=e235]
+        - generic [ref=e236]:
+          - article [ref=e237]:
+            - heading "Welcome to St. Dominic" [level=3] [ref=e238]
+            - paragraph [ref=e239]: Join us for daily Mass, Confession, Eucharistic Adoration, and parish life on Youngstown's south side.
+          - article [ref=e240]:
+            - heading "Bulletin Announcements" [level=3] [ref=e241]
+            - paragraph [ref=e242]: Please send bulletin notices to the parish office by Monday at noon for the following weekend's bulletin.
+        - generic [ref=e243]:
+          - button "View All Events" [ref=e245] [cursor=pointer]
+          - button "View Full Bulletin" [ref=e246] [cursor=pointer]:
+            - text: View Full Bulletin
+            - img [ref=e247]
+      - generic [ref=e251]:
+        - generic [ref=e252]:
+          - generic [ref=e253]: Faith Formation
+          - heading "Keep Growing After Sunday" [level=2] [ref=e254]
+        - paragraph [ref=e255]: Follow trusted Catholic teaching, parish updates, and resources for prayer throughout the week.
+        - generic [ref=e256]:
+          - generic [ref=e257]:
+            - generic [ref=e258]:
+              - generic [ref=e259]: The Universal Church
+              - heading "News from the Vatican" [level=2] [ref=e260]
+            - generic [ref=e261]:
+              - img [ref=e262]
+              - paragraph [ref=e265]: This loads a Vatican News widget from vaticannews.va.
+              - button "Load Vatican News" [ref=e266] [cursor=pointer]
+          - generic [ref=e267]:
+            - generic [ref=e268]:
+              - generic [ref=e269]: Fray Nelson Medina, O.P.
+              - heading "Dominican Preaching" [level=2] [ref=e270]
+            - paragraph [ref=e271]: Explore the teachings and reflections of Fray Nelson Medina, O.P. — a Dominican friar whose video ministry reaches hundreds of thousands of faithful across the Spanish-speaking world.
+            - generic [ref=e273]:
+              - img [ref=e274]
+              - generic [ref=e276]: This loads an embedded YouTube player.
+              - button "Load YouTube Videos" [ref=e277] [cursor=pointer]
+      - generic [ref=e281]:
+        - link "Visit Us 77 East Lucius Avenue, Youngstown, OH 44507" [ref=e282] [cursor=pointer]:
+          - /url: https://www.google.com/maps/search/?api=1&query=77+East+Lucius+Ave,+Youngstown,+OH+44507
+          - img [ref=e283]
+          - generic [ref=e286]:
+            - strong [ref=e287]: Visit Us
+            - generic [ref=e288]: 77 East Lucius Avenue, Youngstown, OH 44507
+        - link "Call Us (330) 783-1900" [ref=e289] [cursor=pointer]:
+          - /url: tel:+13307831900
+          - img [ref=e290]
+          - generic [ref=e292]:
+            - strong [ref=e293]: Call Us
+            - generic [ref=e294]: (330) 783-1900
+        - link "Office Hours Monday – Friday · 8:30 AM – 1:30 PM" [ref=e295] [cursor=pointer]:
+          - /url: https://www.google.com/maps/search/?api=1&query=77+East+Lucius+Ave,+Youngstown,+OH+44507
+          - img [ref=e296]
+          - generic [ref=e299]:
+            - strong [ref=e300]: Office Hours
+            - generic [ref=e301]: Monday – Friday · 8:30 AM – 1:30 PM
+        - link "Email Us office@saintdominic.org" [ref=e302] [cursor=pointer]:
+          - /url: mailto:office@saintdominic.org
+          - img [ref=e303]
+          - generic [ref=e306]:
+            - strong [ref=e307]: Email Us
+            - generic [ref=e308]: office@saintdominic.org
+  - contentinfo [ref=e309]:
+    - generic [ref=e310]:
+      - generic [ref=e311]:
+        - generic [ref=e312]: St. Dominic
+        - generic [ref=e313]: Catholic Church · Youngstown, OH
+        - paragraph [ref=e314]: Served by the Dominican Friars of the Province of St. Joseph. Bringing the riches of Christ to Youngstown since 1923.
+      - generic [ref=e315]:
+        - heading "Quick Links" [level=2] [ref=e316]
+        - generic [ref=e317]:
+          - generic [ref=e318]:
+            - heading "Visit" [level=3] [ref=e319]
+            - link "Plan Your Visit" [ref=e321] [cursor=pointer]:
+              - /url: /st-dom-yt-website/visit
+            - link "Mass & Confession" [ref=e323] [cursor=pointer]:
+              - /url: /st-dom-yt-website/mass-times
+            - link "Bulletin" [ref=e325] [cursor=pointer]:
+              - /url: /st-dom-yt-website/bulletin
+            - link "Contact" [ref=e327] [cursor=pointer]:
+              - /url: /st-dom-yt-website/contact
+          - generic [ref=e328]:
+            - heading "Sacramental Life" [level=3] [ref=e329]
+            - link "Sacraments" [ref=e331] [cursor=pointer]:
+              - /url: /st-dom-yt-website/sacraments
+            - link "Becoming Catholic" [ref=e333] [cursor=pointer]:
+              - /url: /st-dom-yt-website/becoming-catholic
+            - link "Anointing of the Sick" [ref=e335] [cursor=pointer]:
+              - /url: /st-dom-yt-website/sacraments/anointing
+            - link "Funerals" [ref=e337] [cursor=pointer]:
+              - /url: /st-dom-yt-website/sacraments/funerals
+          - generic [ref=e338]:
+            - heading "Parish Life" [level=3] [ref=e339]
+            - link "Get Involved" [ref=e341] [cursor=pointer]:
+              - /url: /st-dom-yt-website/get-involved
+            - link "Register" [ref=e343] [cursor=pointer]:
+              - /url: /st-dom-yt-website/register
+            - link "Faith Formation" [ref=e345] [cursor=pointer]:
+              - /url: /st-dom-yt-website/faith-formation
+            - link "Events" [ref=e347] [cursor=pointer]:
+              - /url: /st-dom-yt-website/events
+          - generic [ref=e348]:
+            - heading "About" [level=3] [ref=e349]
+            - link "About" [ref=e351] [cursor=pointer]:
+              - /url: /st-dom-yt-website/about
+            - link "History" [ref=e353] [cursor=pointer]:
+              - /url: /st-dom-yt-website/history
+            - link "Architecture & Art" [ref=e355] [cursor=pointer]:
+              - /url: /st-dom-yt-website/architecture
+            - link "Priests & Staff" [ref=e357] [cursor=pointer]:
+              - /url: /st-dom-yt-website/staff
+      - generic [ref=e358]:
+        - heading "Contact" [level=2] [ref=e359]
+        - paragraph [ref=e360]:
+          - text: 77 East Lucius Avenue
+          - text: Youngstown, OH 44507
+          - link "(330) 783-1900" [ref=e361] [cursor=pointer]:
+            - /url: tel:+13307831900
+          - link "office@saintdominic.org" [ref=e362] [cursor=pointer]:
+            - /url: mailto:office@saintdominic.org
+        - paragraph [ref=e363]: "Office Hours: Mon–Fri, 8:30 AM – 1:30 PM"
+        - heading "Safety & Diocese" [level=2] [ref=e364]
+        - link "Catholic Diocese of Youngstown" [ref=e365] [cursor=pointer]:
+          - /url: https://doy.org/
+        - link "Safe Environment" [ref=e366] [cursor=pointer]:
+          - /url: https://doy.org/safe-environment/
+        - link "VIRTUS Online" [ref=e367] [cursor=pointer]:
+          - /url: https://virtusonline.org/
+    - link "Dominican Province of St. Joseph Shield Dominican Friars — Province of Saint Joseph" [ref=e369] [cursor=pointer]:
+      - /url: https://dominicanfriars.org/
+      - img "Dominican Province of St. Joseph Shield" [ref=e370]
+      - img "Dominican Friars — Province of Saint Joseph" [ref=e371]
+    - generic [ref=e372]:
+      - text: © 2026 St. Dominic Catholic Church · Youngstown, OH · All Rights Reserved·
+      - link "Staff" [ref=e373] [cursor=pointer]:
+        - /url: /st-dom-yt-website/writers-guide

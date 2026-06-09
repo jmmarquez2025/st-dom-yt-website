@@ -609,9 +609,14 @@ body.nav-open .parish-action-bar {
   flex-wrap: wrap;
 }
 
-.premium-hero__actions,
-.premium-centered-actions {
+.premium-hero__actions {
   justify-content: center;
+}
+
+/* Historical name — action rows now sit on the left text axis. The class
+   stays (string-coupled across pages); only the alignment changed. */
+.premium-centered-actions {
+  justify-content: flex-start;
 }
 
 .premium-hero__proof {
@@ -860,9 +865,10 @@ body.nav-open .parish-action-bar {
 }
 
 .premium-welcome {
-  max-width: 760px;
-  margin: 0 auto 30px;
-  text-align: center;
+  max-width: 68ch;
+  margin: 0 0 30px;
+  text-align: left;
+  text-wrap: pretty;
 }
 
 .premium-welcome p + p {
@@ -991,12 +997,13 @@ body.nav-open .parish-action-bar {
   background:
     radial-gradient(120% 90% at 50% 0%, rgba(107, 29, 42, 0.5) 0%, transparent 60%),
     #241015; /* matches .premium-mass-card warm-dark surface */
-  text-align: center;
+  text-align: left;
 }
 
 .premium-member-cta p {
-  max-width: 680px;
-  margin: 0 auto 30px;
+  max-width: 64ch;
+  margin: 0 0 30px;
+  text-wrap: pretty;
 }
 
 .premium-news-grid {
@@ -1051,9 +1058,10 @@ body.nav-open .parish-action-bar {
 }
 
 .premium-formation-copy {
-  max-width: 620px;
-  margin: -18px auto 34px;
-  text-align: center;
+  max-width: 62ch;
+  margin: -18px 0 34px;
+  text-align: left;
+  text-wrap: pretty;
 }
 
 .premium-formation-grid {
@@ -1064,9 +1072,10 @@ body.nav-open .parish-action-bar {
 }
 
 .premium-widget-copy {
-  margin: -24px auto 22px;
-  max-width: 520px;
-  text-align: center;
+  margin: -24px 0 22px;
+  max-width: 56ch;
+  text-align: left;
+  text-wrap: pretty;
 }
 
 .premium-contact-strip {
