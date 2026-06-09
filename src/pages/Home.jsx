@@ -142,16 +142,17 @@ export default function Home() {
 
       <StickyHero
         image={PHOTOS.homeHero}
-        overlay={0.48}
-        tint="rgba(74,16,25,0.68)"
+        overlay={0.18}
+        scrim="corner"
+        align="bottom-left"
         height="calc(100vh - 88px)"
         viewportHeight="calc(100vh - 88px)"
         showScrollHint={false}
       >
         <div className="premium-hero">
-          <div className="home-hero-subtitle premium-hero__eyebrow">
+          <p className="home-hero-subtitle premium-hero__eyebrow">
             {t("home.hero.subtitle")}
-          </div>
+          </p>
           <h1 className="home-hero-title premium-hero__title">
             {t("home.hero.title")}
           </h1>
@@ -167,32 +168,30 @@ export default function Home() {
             >
               {t("home.hero.ctaVisit")}
             </Btn>
-            <Btn
-              variant="light"
+            <button
+              type="button"
+              className="premium-light-link"
               onClick={() => navigate("/mass-times")}
-              style={{ minWidth: 210 }}
             >
               {t("home.hero.ctaMass")}
-            </Btn>
+              <Icon name="ArrowRight" size={15} color={T.goldLight} />
+            </button>
           </div>
+
+          <NextMass />
 
           {i18n.language !== "es" && (
             <button
               type="button"
-              className="premium-language-chip"
+              className="premium-hero__lang"
               onClick={() => {
                 i18n.changeLanguage("es");
                 localStorage.setItem("lang", "es");
               }}
             >
-              <Icon name="Languages" size={14} color={T.goldLight} />
               También disponible en Español
             </button>
           )}
-
-          <div className="home-hero-next-mass premium-hero__next">
-            <NextMass />
-          </div>
         </div>
       </StickyHero>
 

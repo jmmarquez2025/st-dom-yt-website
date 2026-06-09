@@ -121,7 +121,8 @@
       "days": "Días",
       "hours": "Hrs",
       "min": "Min",
-      "sec": "Seg"
+      "sec": "Seg",
+      "in": "en"
     },
     "quotes": {
       "label": "Reflexión del Día",

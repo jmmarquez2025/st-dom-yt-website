@@ -121,7 +121,8 @@
       "days": "Days",
       "hours": "Hrs",
       "min": "Min",
-      "sec": "Sec"
+      "sec": "Sec",
+      "in": "in"
     },
     "quotes": {
       "label": "Daily Reflection",
