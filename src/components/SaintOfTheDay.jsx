@@ -42,87 +42,85 @@ export default function SaintOfTheDay() {
     };
   }, [lang]);
 
+  // Print treatment: warm-white panel, gold hairline frame, left-set type —
+  // replaces the former dark radial-gradient glass card.
   return (
     <div
       style={{
-        background:
-          "radial-gradient(120% 80% at 50% 0%, rgba(107, 29, 42, 0.55) 0%, transparent 60%), #241015",
-        border: "1px solid rgba(197, 165, 90, 0.22)",
-        boxShadow: "inset 0 1px 0 rgba(197, 165, 90, 0.1)",
-        borderRadius: 12,
-        padding: "clamp(32px, 5vw, 48px)",
-        color: "#fff",
+        background: T.warmWhite,
+        border: `1px solid ${T.gold}`,
+        outline: `1px solid ${T.stoneLight}`,
+        outlineOffset: 5,
+        borderRadius: 2,
+        padding: "clamp(30px, 5vw, 44px)",
+        color: T.charcoal,
         position: "relative",
         overflow: "hidden",
         maxWidth: 680,
-        margin: "0 auto",
       }}
     >
-      {/* Ornamental Dominican Cross Flory watermark (arc-based Wikimedia path) */}
+      {/* Ornamental Dominican Cross Flory — quiet press ornament */}
       <svg
         aria-hidden="true"
-        style={{ position: "absolute", right: -10, top: -10, opacity: 0.06, width: 220, height: 220 }}
+        style={{ position: "absolute", right: -14, top: -14, opacity: 0.07, width: 200, height: 200 }}
         viewBox={CROSS_FLORY.viewBox}
-        fill="#fff"
+        fill={T.burgundy}
       >
         <path d={CROSS_FLORY.d} />
       </svg>
 
-      {/* Date pill */}
-      <time
-        dateTime={isoDate}
-        style={{
-          display: "inline-block",
-          fontSize: 11,
-          letterSpacing: 2,
-          textTransform: "uppercase",
-          color: T.goldLight,
-          fontWeight: 700,
-          marginBottom: 20,
-        }}
-      >
-        {dateStr}
-      </time>
-
-      {/* Eyebrow */}
+      {/* Run-in label + date line */}
       <div
         style={{
-          fontSize: 11,
-          letterSpacing: 3,
-          textTransform: "uppercase",
-          color: "rgba(255,255,255,0.55)",
-          marginBottom: 10,
-          fontWeight: 600,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          gap: 16,
+          flexWrap: "wrap",
+          marginBottom: 16,
         }}
       >
-        {t("saintOfDay.label")}
+        <span className="kicker">{t("saintOfDay.label")}</span>
+        <time dateTime={isoDate} className="u-smallcaps u-onum" style={{ color: T.warmGray, fontSize: 14 }}>
+          {dateStr}
+        </time>
       </div>
 
       {/* Saint name */}
       <h2
         style={{
-          fontSize: "clamp(26px, 4vw, 38px)",
+          fontSize: "clamp(26px, 4vw, 36px)",
           fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 700,
           lineHeight: 1.15,
-          color: "#fff",
-          marginBottom: 8,
+          color: T.softBlack,
+          letterSpacing: "var(--tracking-display)",
+          marginBottom: 6,
         }}
       >
         {pick(saint.name)}
       </h2>
 
-      {/* Feast type badge */}
-      <div className="chip chip--on-dark" style={{ marginBottom: 20 }}>
+      {/* Feast line — italic serif, not a badge */}
+      <p
+        style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontStyle: "italic",
+          fontSize: 18,
+          color: T.goldText,
+          marginBottom: 16,
+        }}
+      >
         {pick(saint.feast)}
-      </div>
+      </p>
 
       {/* Description */}
       <p
         style={{
           fontSize: 16,
           lineHeight: 1.8,
-          color: "rgba(255,255,255,0.82)",
+          color: T.warmGray,
+          maxWidth: "62ch",
         }}
       >
         {pick(saint.desc)}

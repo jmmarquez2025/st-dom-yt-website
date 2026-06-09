@@ -10,27 +10,26 @@ import PremiumPageActions from "../components/PremiumPageActions";
 
 import { useMinistries } from "../cms/hooks";
 import Seo from "../components/Seo";
-import ScrollColorNum from "../components/ScrollColorNum";
-import CountUp from "../components/CountUp";
 import Icon from "../components/Icon";
-import HeroImage from "../components/HeroImage";
+import PageHeader from "../components/PageHeader";
 import { PHOTOS } from "../constants/photos";
 import { X, Mail, Phone } from "lucide-react";
 
-/* ── Subtle accent per ministry ── */
+/* ── Accent per ministry — muted, warm-leaning, brand-harmonized.
+      (Replaced the flat-UI palette: #C0392B/#2E7D32/#1565C0/#6A1B9A…) ── */
 const ACCENTS = {
   liturgical: T.burgundy,
-  hispanic: "#C0392B",
+  hispanic: "#9A4438", // terracotta
   layDominicans: T.softBlack,
-  familyLife: "#2E7D32",
-  mensFellowship: "#1565C0",
-  svdp: "#6A1B9A",
+  familyLife: "#4A7C59", // moss — matches the events "education" green
+  mensFellowship: "#5B7FA6", // slate blue — matches events "community"
+  svdp: "#7B5EA7", // muted violet — matches events "prayer"
   music: T.gold,
-  religiousEd: "#E65100",
-  youth: "#00838F",
-  bibleStudy: "#4E342E",
-  caring: "#AD1457",
-  missions: "#2E7D32",
+  religiousEd: "#B26A3A", // sienna
+  youth: "#3E7E83", // muted teal
+  bibleStudy: "#4E342E", // walnut
+  caring: "#A04E68", // dusty rose
+  missions: "#4A7C59",
 };
 
 export default function GetInvolved() {
@@ -62,56 +61,11 @@ export default function GetInvolved() {
         image={PHOTOS.getInvolvedHero}
       />
 
-      {/* ════ Hero ════ */}
-      <section
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          background: `linear-gradient(160deg, ${T.burgundyDark} 0%, ${T.burgundy} 60%, #8B2E3F 100%)`,
-          color: "#fff",
-          padding: "clamp(64px, 12vw, 110px) 24px clamp(48px, 8vw, 80px)",
-          textAlign: "center",
-        }}
-      >
-        <HeroImage src={PHOTOS.getInvolvedHero} overlay={0.5} tint="rgba(107,29,42,0.5)" />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: 680, margin: "0 auto" }}>
-          <div
-            style={{
-              fontSize: 12,
-              letterSpacing: 4,
-              textTransform: "uppercase",
-              color: T.goldLight,
-              marginBottom: 16,
-              fontWeight: 600,
-            }}
-          >
-            {t("getInvolved.sub")}
-          </div>
-          <h1
-            style={{
-              fontSize: "clamp(36px, 7vw, 58px)",
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 700,
-              lineHeight: 1.1,
-              marginBottom: 20,
-              color: "#fff",
-            }}
-          >
-            {t("getInvolved.heading")}
-          </h1>
-          <p
-            style={{
-              fontSize: 17,
-              lineHeight: 1.7,
-              color: "rgba(255,255,255,0.8)",
-              maxWidth: 560,
-              margin: "0 auto",
-            }}
-          >
-            {t("getInvolved.desc")}
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title={t("getInvolved.heading")}
+        heroSrc={PHOTOS.getInvolvedHero}
+        kicker={t("getInvolved.sub")}
+      />
 
       <PremiumPageActions
         overlap
@@ -140,53 +94,16 @@ export default function GetInvolved() {
         ]}
       />
 
-      {/* ════ Ministry Stats Strip ════ */}
-      <section style={{ background: T.softBlack, color: "#fff" }}>
-        <div
-          style={{
-            maxWidth: 900,
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-          }}
-        >
-          {[
-            { end: ministries.length, suffix: "", labelKey: "getInvolved.stats.ministries" },
-            { end: 100, suffix: "+", labelKey: "getInvolved.stats.volunteers" },
-            { end: 2, suffix: "", labelKey: "getInvolved.stats.languages" },
-          ].map((stat, i) => (
-            <div key={i} className="stat-card">
-              <div
-                style={{
-                  fontSize: "clamp(32px, 5vw, 44px)",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 700,
-                  color: T.gold,
-                  lineHeight: 1,
-                  marginBottom: 6,
-                }}
-              >
-                <CountUp end={stat.end} suffix={stat.suffix} duration={1800 + i * 300} />
-              </div>
-              <div
-                style={{
-                  fontSize: 11,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.6)",
-                }}
-              >
-                {t(stat.labelKey)}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ════ Bento Grid Ministries ════ */}
+      {/* ════ Ministries ════ */}
       <Section bg={T.cream}>
         <FadeSection>
           <SectionTitle sub={t("getInvolved.sub")}>{t("getInvolved.title")}</SectionTitle>
+          <p
+            className="u-lede"
+            style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, margin: "0 0 36px" }}
+          >
+            {t("getInvolved.desc")}
+          </p>
 
           <style>{`
             .ministry-grid {
@@ -209,18 +126,11 @@ export default function GetInvolved() {
             .ministry-card:hover {
               transform: translateY(-2px);
               box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+              border-color: var(--accent, ${T.burgundy});
             }
             .ministry-card:focus-visible {
               outline: 2px solid ${T.burgundy};
               outline-offset: 2px;
-            }
-            .ministry-accent {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 4px;
-              height: 100%;
-              border-radius: 4px 0 0 4px;
             }
             .ministry-icon {
               /* static — no scale animation */
@@ -313,8 +223,8 @@ export default function GetInvolved() {
                   aria-label={m.title || t(`getInvolved.ministries.${m.key}.title`)}
                   onClick={() => setSelected({ ...m, accent })}
                   onKeyDown={(e) => e.key === "Enter" && setSelected({ ...m, accent })}
+                  style={{ "--accent": accent }}
                 >
-                  <div className="ministry-accent" style={{ background: accent }} />
                   <div
                     style={{
                       display: "flex",
@@ -338,20 +248,18 @@ export default function GetInvolved() {
                       <Icon name={m.icon} size={22} color={accent} />
                     </div>
                     <div style={{ flex: 1 }}>
-                      <ScrollColorNum
-                        as="h3"
-                        colorFrom={T.warmGray}
-                        colorTo={accent}
+                      <h3
                         style={{
                           fontSize: 18,
                           fontFamily: "'Cormorant Garamond', serif",
                           fontWeight: 600,
                           marginBottom: 8,
                           lineHeight: 1.3,
+                          color: T.softBlack,
                         }}
                       >
                         {m.title || t(`getInvolved.ministries.${m.key}.title`)}
-                      </ScrollColorNum>
+                      </h3>
                       <p
                         style={{
                           fontSize: 14,
@@ -394,24 +302,21 @@ export default function GetInvolved() {
               <div
                 key={step.key}
                 className="glass-card"
-                style={{ padding: 28, textAlign: "center" }}
+                style={{ padding: 28 }}
               >
-                <ScrollColorNum
-                  as="div"
-                  colorFrom={T.stone}
-                  colorTo={T.gold}
+                <div
+                  className="u-onum"
+                  aria-hidden="true"
                   style={{
-                    fontSize: "clamp(36px, 5vw, 48px)",
+                    fontSize: 30,
                     fontFamily: "'Cormorant Garamond', serif",
                     fontWeight: 700,
                     lineHeight: 1,
                     marginBottom: 12,
+                    color: T.gold,
                   }}
                 >
                   {step.num}
-                </ScrollColorNum>
-                <div style={{ marginBottom: 8 }} aria-hidden="true">
-                  <Icon name={step.icon} size={24} color={T.gold} />
                 </div>
                 <h3
                   style={{

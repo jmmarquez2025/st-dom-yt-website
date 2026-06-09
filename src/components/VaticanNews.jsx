@@ -13,6 +13,7 @@ export default function VaticanNews() {
   const containerRef = useRef(null);
   const { i18n, t } = useTranslation();
   const [enabled, setEnabled] = useState(false);
+  const [failed, setFailed] = useState(false);
   const lang = i18n.language?.startsWith("es") ? "es" : "en";
 
   useEffect(() => {
@@ -33,9 +34,33 @@ export default function VaticanNews() {
       const script = document.createElement("script");
       script.src = SCRIPT_SRC;
       script.async = true;
+      script.onerror = () => setFailed(true);
       document.body.appendChild(script);
     }
+
+    // If the custom element never upgrades (blocked script, outage), fall
+    // back to a plain link rather than an empty region.
+    const timeout = setTimeout(() => {
+      if (!customElements.get("vaticannews-widget")) setFailed(true);
+    }, 8000);
+    return () => clearTimeout(timeout);
   }, [enabled, lang]);
+
+  if (failed) {
+    return (
+      <p style={{ textAlign: "left", fontSize: 15, color: T.warmGray }}>
+        {t("home.vatican.privacy")}{" "}
+        <a
+          href={`https://www.vaticannews.va/${lang}.html`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: T.burgundy, fontWeight: 600 }}
+        >
+          vaticannews.va →
+        </a>
+      </p>
+    );
+  }
 
   if (!enabled) {
     return (

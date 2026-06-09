@@ -10,6 +10,7 @@ import Btn from "../components/Btn";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
+import PageHeader from "../components/PageHeader";
 import PremiumPageActions from "../components/PremiumPageActions";
 import PhotoGallery from "../components/PhotoGallery";
 import TextReveal from "../components/TextReveal";
@@ -23,49 +24,16 @@ export default function About() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo title="About Our Church" description="Learn about the history of St. Dominic Church, founded by the Dominican Friars in 1923 in Youngstown, Ohio." image={PHOTOS.aboutHero} />
-      {/* ════ Hero Banner ════ */}
-      <section
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          background: T.softBlack,
-          color: "#fff",
-          padding: "clamp(64px, 12vw, 120px) 24px clamp(48px, 8vw, 80px)",
-          textAlign: "center",
-        }}
-      >
-        <HeroImage src={PHOTOS.aboutHero} overlay={0.55} tint="rgba(26,23,20,0.5)" />
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <div
-            style={{
-              fontSize: 12,
-              letterSpacing: 4,
-              textTransform: "uppercase",
-              color: T.goldLight,
-              marginBottom: 16,
-              fontWeight: 600,
-            }}
-          >
-            {t("about.history.sub")}
-          </div>
-          <h1
-            style={{
-              fontSize: "clamp(36px, 7vw, 60px)",
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 700,
-              lineHeight: 1.1,
-              color: "#fff",
-            }}
-          >
-            {t("about.title")}
-          </h1>
-        </div>
-      </section>
+      <PageHeader
+        title={t("about.title")}
+        heroSrc={PHOTOS.aboutHero}
+        kicker={t("about.history.sub")}
+        tint="rgba(26,23,20,0.5)"
+      />
 
       <PremiumPageActions
         overlap
         eyebrow={t("about.history.sub")}
-        title={t("about.title")}
         items={[
           {
             title: t("about.historyLink"),
@@ -117,6 +85,7 @@ export default function About() {
                   color: T.warmGray,
                   lineHeight: 1,
                   marginBottom: 8,
+                  fontVariantNumeric: "oldstyle-nums",
                 }}
               >
                 1923
@@ -163,6 +132,7 @@ export default function About() {
                 <TextReveal>{t("about.history.title")}</TextReveal>
               </h2>
               <p
+                className="drop-cap"
                 style={{
                   fontSize: 16,
                   lineHeight: 1.8,

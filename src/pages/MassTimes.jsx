@@ -10,8 +10,9 @@ import Btn from "../components/Btn";
 import ParallaxSection from "../components/ParallaxSection";
 import ScaleReveal from "../components/ScaleReveal";
 import { useSchedule } from "../cms/hooks";
+import { getTodayScheduleSummary } from "../utils/schedule";
 import Seo from "../components/Seo";
-import HeroImage from "../components/HeroImage";
+import PageHeader from "../components/PageHeader";
 import { buildMassTimesSchema } from "../utils/seoSchema";
 import { ChevronDown } from "lucide-react";
 import PremiumPageActions from "../components/PremiumPageActions";
@@ -53,7 +54,9 @@ function ScheduleCard({ title, rows, accent = T.burgundy, t }) {
             }}
           >
             <span style={{ color: T.charcoal }}>{t(`schedule.${dayKey}`)}</span>
-            <span style={{ fontWeight: 600, color: T.softBlack }}>{time}</span>
+            <span className="u-onum" style={{ fontWeight: 600, color: T.softBlack }}>
+              {time}
+            </span>
           </div>
         ))}
       </div>
@@ -206,6 +209,7 @@ export default function MassTimes() {
   const holyDays = t("massTimes.holyDays.days", { returnObjects: true });
   const scheduleSummary = (rows) =>
     rows.map(([dayKey, time]) => `${t(`schedule.${dayKey}`)} ${time}`).join(" · ");
+  const todaySummary = getTodayScheduleSummary(schedule);
 
   return (
     <div>
@@ -216,65 +220,25 @@ export default function MassTimes() {
         schema={buildMassTimesSchema(schedule, CONFIG.siteUrl)}
       />
 
-      {/* ════ Section 1: Hero Banner ════ */}
-      <section
-        style={{
-          position: "relative",
-          height: "clamp(340px, 50vh, 480px)",
-          overflow: "hidden",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: 76,
-        }}
-      >
-        <HeroImage
-          src={PHOTOS.archSanctuary}
-          overlay={0.55}
-          tint="rgba(107,29,42,0.7)"
-          position="center 40%"
+      {/* ════ Section 1: Schedule-forward opener — today's Masses in the header ════ */}
+      <div style={{ paddingTop: 76 }}>
+        <PageHeader
+          variant="text"
+          title={t("massTimes.title")}
+          kicker={t("massTimes.hero.sub")}
+          aside={
+            todaySummary.masses ? (
+              <>
+                <strong>{t("home.essentials.today")}</strong>
+                <br />
+                <span className="u-onum">{todaySummary.masses}</span>
+              </>
+            ) : undefined
+          }
         />
-        <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 24px" }}>
-          <div
-            style={{
-              fontSize: 12,
-              letterSpacing: 4,
-              textTransform: "uppercase",
-              color: T.goldLight,
-              fontWeight: 600,
-              marginBottom: 12,
-            }}
-          >
-            {t("massTimes.hero.sub")}
-          </div>
-          <h1
-            style={{
-              fontSize: "clamp(30px, 5.5vw, 48px)",
-              color: "#fff",
-              fontWeight: 600,
-              fontFamily: "'Cormorant Garamond', serif",
-              lineHeight: 1.15,
-              marginBottom: 16,
-            }}
-          >
-            {t("massTimes.title")}
-          </h1>
-          <p
-            style={{
-              fontSize: "clamp(14px, 2vw, 17px)",
-              color: "rgba(255,255,255,0.75)",
-              maxWidth: 560,
-              margin: "0 auto",
-              lineHeight: 1.6,
-            }}
-          >
-            {t("massTimes.hero.desc")}
-          </p>
-        </div>
-      </section>
+      </div>
 
       <PremiumPageActions
-        overlap
         eyebrow={t("massTimes.visitor.sub")}
         title={t("massTimes.visitor.title")}
         items={[

@@ -120,46 +120,37 @@ export default function History() {
         }
       `}</style>
 
-      {/* ════ Hero — Apple-style Sticky with Scroll Fade ════ */}
+      {/* ════ Hero — sticky photo, bottom-left composition ════ */}
       <StickyHero
         image={PHOTOS.pageHeader}
-        overlay={0.5}
-        tint="rgba(30,20,15,0.6)"
+        overlay={0.16}
+        scrim="corner"
+        align="bottom-left"
         height="130vh"
       >
-        <div
-          style={{
-            fontSize: 14,
-            letterSpacing: 4,
-            textTransform: "uppercase",
-            color: T.goldText,
-            marginBottom: 16,
-            fontWeight: 600,
-          }}
-        >
+        <p className="kicker kicker--light" style={{ marginBottom: 12 }}>
           {t("history.sub")}
-        </div>
+        </p>
         <h1
           style={{
-            fontSize: "clamp(44px, 8vw, 72px)",
+            fontSize: "clamp(44px, 7vw, 68px)",
             fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 700,
-            lineHeight: 1.1,
+            lineHeight: 1.05,
+            letterSpacing: "var(--tracking-display)",
             color: "#fff",
-            textShadow: "0 2px 30px rgba(0,0,0,0.6)",
+            maxWidth: "16ch",
           }}
         >
           {t("history.title")}
         </h1>
-        <div style={{ width: 56, height: 3, background: T.gold, margin: "20px auto 0" }} />
         <p
           style={{
             fontSize: 18,
-            maxWidth: 540,
-            margin: "24px auto 0",
+            maxWidth: "48ch",
+            margin: "16px 0 0",
             lineHeight: 1.6,
-            color: "rgba(255,255,255,0.9)",
-            textShadow: "0 1px 12px rgba(0,0,0,0.5)",
+            color: "rgba(255,255,255,0.88)",
           }}
         >
           {t("history.heroDesc")}
@@ -169,7 +160,6 @@ export default function History() {
       <PremiumPageActions
         overlap
         eyebrow={t("history.sub")}
-        title={t("history.title")}
         items={[
           {
             title: t("nav.architecture"),

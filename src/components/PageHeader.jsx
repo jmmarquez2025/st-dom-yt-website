@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import HeroImage from "./HeroImage";
+import ResponsivePicture from "./ResponsivePicture";
 import { PHOTOS } from "../constants/photos";
 
 /**
@@ -34,6 +35,7 @@ export default function PageHeader({
   tint = "rgba(74,16,25,0.55)",
   tall = false,
   kicker,
+  lede,
   aside,
 }) {
   const location = useLocation();
@@ -52,6 +54,31 @@ export default function PageHeader({
             <h1>{title}</h1>
           </div>
           {aside && <div className="premium-page-header__aside">{aside}</div>}
+        </div>
+      </header>
+    );
+  }
+
+  if (variant === "split") {
+    return (
+      <header className="premium-page-header--text premium-page-header--split" style={vtStyle}>
+        <div className="premium-page-header__text-inner">
+          <div>
+            {kicker && <p className="kicker">{kicker}</p>}
+            <h1>{title}</h1>
+            {lede && <p className="premium-page-header__lede u-lede">{lede}</p>}
+          </div>
+          {heroSrc && (
+            <div className="premium-page-header__media" aria-hidden="true">
+              <ResponsivePicture
+                src={heroSrc}
+                widths={[480, 1024]}
+                sizes="(max-width: 760px) 100vw, 460px"
+                alt=""
+                loading="eager"
+              />
+            </div>
+          )}
         </div>
       </header>
     );

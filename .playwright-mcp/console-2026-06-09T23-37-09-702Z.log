@@ -32,3 +32,29 @@
 [  402197ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
 [  405222ms] [WARNING] The resource http://localhost:5173/st-dom-yt-website/photos/aerial-interior-opt-1024.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:5173/st-dom-yt-website/:0
 [  430058ms] [WARNING] The resource http://localhost:5173/st-dom-yt-website/photos/aerial-interior-opt-1024.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:5173/st-dom-yt-website/:0
+[  611655ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[  611658ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[  611666ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[  611674ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[  614698ms] [WARNING] The resource http://localhost:5173/st-dom-yt-website/photos/aerial-interior-opt-1024.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:5173/st-dom-yt-website/:0
+[  678654ms] [WARNING] The resource http://localhost:5173/st-dom-yt-website/photos/aerial-interior-opt-1024.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:5173/st-dom-yt-website/:0
+[  773938ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[  773945ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[  773952ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[  773959ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1060650ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1060658ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[ 1060666ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[ 1060678ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1062245ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1062250ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[ 1062257ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[ 1062262ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1063872ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1063879ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[ 1063885ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[ 1063891ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1065414ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1065420ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[ 1065429ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[ 1065436ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
