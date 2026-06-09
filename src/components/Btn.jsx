@@ -14,21 +14,24 @@ const base = {
   minHeight: 44,
 };
 
+// Variant keys override base, so spread base FIRST (a later `...base` silently
+// reset variant borders to "none" — the old translucent fills masked it).
 const variants = {
-  primary: { background: T.burgundy, color: T.cream, ...base },
+  primary: { ...base, background: T.burgundy, color: T.cream },
   outline: {
+    ...base,
     background: "transparent",
     color: T.burgundy,
-    border: `2px solid ${T.burgundy}`,
-    ...base,
+    border: `1.5px solid ${T.burgundy}`,
   },
-  gold: { background: T.gold, color: T.softBlack, ...base },
+  gold: { ...base, background: T.gold, color: T.softBlack },
+  // Hairline ghost for use over photography/dark grounds — no translucent
+  // fill, no blur; the hover tint comes from the shared .btn-hover rule.
   light: {
-    background: "rgba(255,255,255,0.15)",
-    color: "#fff",
-    border: "1px solid rgba(255,255,255,0.4)",
     ...base,
-    backdropFilter: "blur(4px)",
+    background: "transparent",
+    color: "#fff",
+    border: "1px solid rgba(255,255,255,0.85)",
   },
 };
 

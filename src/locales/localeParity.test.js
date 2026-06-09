@@ -33,7 +33,7 @@ describe("locale parity", () => {
   });
 
   it("no leaf value is an empty string", () => {
-    const empties = (locale, name) =>
+    const empties = (locale) =>
       keyPaths(locale).filter((path) => {
         const value = path
           .replace(/\[(\d+)\]/g, ".$1")

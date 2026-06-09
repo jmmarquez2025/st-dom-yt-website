@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import process from "node:process";
 import { SEARCH_INDEX, searchPages } from "./searchIndex";
 
 // vitest runs with cwd at the project root
