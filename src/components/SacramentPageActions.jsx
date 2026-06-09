@@ -4,11 +4,11 @@ import PremiumPageActions from "./PremiumPageActions";
 export default function SacramentPageActions({ sacramentKey, icon }) {
   const { t } = useTranslation();
 
+  // No `title` prop — it would duplicate the page h1 directly above.
   return (
     <PremiumPageActions
       overlap
       eyebrow={t("sacraments.sub")}
-      title={t(`sacraments.${sacramentKey}.title`)}
       items={[
         {
           title: t(`sacraments.${sacramentKey}.cta`),

@@ -34,9 +34,8 @@ export default function Connect() {
         description="Follow St. Dominic Catholic Church on social media for daily updates, homilies, events, and parish life."
         image={PHOTOS.homeHero}
       />
-      <PageHeader title="Connect With Us" heroSrc={PHOTOS.homeHero} />
+      <PageHeader title="Connect With Us" variant="text" />
       <PremiumPageActions
-        overlap
         eyebrow="Stay in Touch"
         title="Choose the fastest way to connect"
         items={[

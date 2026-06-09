@@ -70,13 +70,8 @@ export default function FaithFormation() {
         description="Deepen your faith with Dominican resources — podcasts, theology, catechesis, and more at St. Dominic Catholic Church."
         image={PHOTOS.faithFormationHero}
       />
-      <PageHeader
-        title={t("faithFormation.title")}
-        heroSrc={PHOTOS.faithFormationHero}
-        tall
-      />
+      <PageHeader title={t("faithFormation.title")} variant="text" />
       <PremiumPageActions
-        overlap
         eyebrow={t("faithFormation.intro.sub")}
         title={t("faithFormation.intro.title")}
         items={[

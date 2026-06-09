@@ -24,10 +24,13 @@ export default function BecomingCatholic() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo title="Becoming Catholic" description="Interested in becoming Catholic? Learn about OCIA (formerly RCIA) and the journey of faith at St. Dominic Church, Youngstown OH." image={PHOTOS.stockRcia} />
-      <PageHeader title={t("becomingCatholic.title")} heroSrc={PHOTOS.stockRcia} tall />
+      <PageHeader
+        title={t("becomingCatholic.title")}
+        variant="text"
+        kicker={t("becomingCatholic.sub")}
+      />
 
       <PremiumPageActions
-        overlap
         eyebrow={t("becomingCatholic.intro.sub")}
         title={t("becomingCatholic.contact.title")}
         items={[

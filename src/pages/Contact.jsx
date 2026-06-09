@@ -144,12 +144,21 @@ export default function Contact() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo title="Contact Us" description="Contact St. Dominic Catholic Church in Youngstown, Ohio. Phone, email, office hours, and directions to 77 East Lucius Avenue." image={PHOTOS.visitHero} />
-      <PageHeader title={t("contact.title")} />
+      <PageHeader
+        title={t("contact.title")}
+        variant="text"
+        aside={
+          <>
+            <strong>{t("contact.officeHours")}</strong>
+            <br />
+            {CONFIG.officeHours}
+          </>
+        }
+      />
 
+      {/* No heading — the tiles sit directly under the page opener, and both
+          candidate titles already appear in the form/aside cards below. */}
       <PremiumPageActions
-        overlap
-        eyebrow={t("contact.infoTitle")}
-        title={t("contact.formTitle")}
         items={[
           {
             icon: "Phone",

@@ -506,11 +506,7 @@ function StaffDashboard() {
         title="Staff Dashboard"
         description="Staff management dashboard for St. Dominic Catholic Church."
       />
-      <PageHeader
-        title={pageTitle}
-        heroSrc={PHOTOS.dominicanCharism}
-        tall
-      />
+      <PageHeader title={pageTitle} variant="text" />
 
       {/* ── Welcome hint (dismissible, first visit only) ── */}
       {!hintDismissed && (

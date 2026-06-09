@@ -27,11 +27,9 @@ export default function Give() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo title="Online Giving" description="Support St. Dominic Catholic Church through online giving. Your generosity sustains our ministries and community outreach." image={PHOTOS.stockGiving} />
-      <PageHeader title={t("give.title")} heroSrc={PHOTOS.stockGiving} tall />
+      <PageHeader title={t("give.title")} variant="text" kicker={t("give.sub")} />
 
       <PremiumPageActions
-        overlap
-        eyebrow={t("give.sub")}
         title={t("give.clarityTitle")}
         items={[
           {
@@ -68,18 +66,11 @@ export default function Give() {
           text={t("give.quote")}
           src={t("give.quoteSrc")}
         />
-        <p style={{ fontSize: 16, color: T.warmGray, lineHeight: 1.8, textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
+        {/* CTAs live in the actions panel above and the Flocknote card below —
+            repeating them here diluted both. */}
+        <p style={{ fontSize: 16, color: T.warmGray, lineHeight: 1.8, textAlign: "center", maxWidth: 640, margin: "0 auto" }}>
           {t("give.desc")}
         </p>
-        <PastoralActionPanel
-          eyebrow={t("give.sub")}
-          title={t("give.clarityTitle")}
-          description={t("give.clarityDesc")}
-          primaryLabel={t("give.flocknoteBtn")}
-          primaryHref={CONFIG.flocknoteGivingUrl}
-          secondaryLabel={t("give.next.office.title")}
-          secondaryHref={CONFIG.phoneLink}
-        />
       </Section>
 
       {/* Flocknote Online Giving */}

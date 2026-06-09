@@ -306,10 +306,9 @@ export default function Register() {
         description="Register as a member at St. Dominic Catholic Church in Youngstown, Ohio."
         image={PHOTOS.homeHero}
       />
-      <PageHeader title={t("register.title")} />
+      <PageHeader title={t("register.title")} variant="text" />
 
       <PremiumPageActions
-        overlap
         eyebrow={t("register.contactInfo")}
         title={t("register.title")}
         items={[

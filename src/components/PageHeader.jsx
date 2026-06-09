@@ -1,43 +1,73 @@
 import { useLocation } from "react-router-dom";
-import { T } from "../constants/theme";
 import HeroImage from "./HeroImage";
 import { PHOTOS } from "../constants/photos";
 
 /**
- * PageHeader — page title banner with background image.
+ * PageHeader — page opener, two families:
+ *
+ *   variant="photo" (default) — photography with a reduced burgundy scrim,
+ *     composition set bottom-left. Use only where the photo earns its place
+ *     (sacraments, staff, events).
+ *   variant="text" — no photo. Warm-white ground, left-set serif h1 behind a
+ *     hanging gold rule, optional small-caps kicker, optional `aside` slot
+ *     (e.g. office hours) on the right end of the baseline.
  *
  * Props:
  *   title     — heading text
- *   heroSrc   — optional custom hero image (falls back to PHOTOS.pageHeader)
- *   overlay   — dark overlay opacity (default 0.45)
- *   tint      — overlay tint color (default burgundy)
- *   tall      — if true, uses taller padding for more dramatic headers
+ *   variant   — "photo" | "text"
+ *   heroSrc   — photo variant: custom hero image (falls back to PHOTOS.pageHeader)
+ *   overlay   — photo variant: scrim opacity (default 0.38 — let the photo read)
+ *   tint      — photo variant: scrim tint color
+ *   tall      — photo variant: taller padding
+ *   kicker    — optional small-caps line above the title
+ *   aside     — text variant: right-hand slot content
+ *
+ * The element keeps a per-sacrament viewTransitionName on its root in every
+ * variant so the card -> detail page transition pairs stay valid. Slugs are
+ * camelCased to match the card names (sacrament-firstCommunion).
  */
 export default function PageHeader({
   title,
+  variant = "photo",
   heroSrc,
-  overlay = 0.52,
-  tint = "rgba(74,16,25,0.64)",
+  overlay = 0.38,
+  tint = "rgba(74,16,25,0.55)",
   tall = false,
+  kicker,
+  aside,
 }) {
   const location = useLocation();
-  const sacramentMatch = location.pathname.match(/^\/sacraments\/(\w+)$/);
-  const vtName = sacramentMatch ? `sacrament-${sacramentMatch[1]}` : undefined;
+  const sacramentMatch = location.pathname.match(/^\/sacraments\/([\w-]+)$/);
+  const vtName = sacramentMatch
+    ? `sacrament-${sacramentMatch[1].replace(/-(\w)/g, (_, c) => c.toUpperCase())}`
+    : undefined;
+  const vtStyle = vtName ? { viewTransitionName: vtName } : {};
+
+  if (variant === "text") {
+    return (
+      <header className="premium-page-header--text" style={vtStyle}>
+        <div className="premium-page-header__text-inner">
+          <div>
+            {kicker && <p className="kicker">{kicker}</p>}
+            <h1>{title}</h1>
+          </div>
+          {aside && <div className="premium-page-header__aside">{aside}</div>}
+        </div>
+      </header>
+    );
+  }
+
   return (
     <div
-      className={`premium-page-header${tall ? " premium-page-header--tall" : ""}`}
-      style={{
-        ...(vtName ? { viewTransitionName: vtName } : {}),
-      }}
+      className={`premium-page-header premium-page-header--left${
+        tall ? " premium-page-header--tall" : ""
+      }`}
+      style={vtStyle}
     >
-      <HeroImage
-        src={heroSrc || PHOTOS.pageHeader}
-        overlay={overlay}
-        tint={tint}
-      />
+      <HeroImage src={heroSrc || PHOTOS.pageHeader} overlay={overlay} tint={tint} />
       <div className="premium-page-header__content">
+        {kicker && <p className="kicker kicker--light">{kicker}</p>}
         <h1>{title}</h1>
-        <div aria-hidden="true" />
       </div>
     </div>
   );

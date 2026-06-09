@@ -1,0 +1,24 @@
+[      68ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[     127ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[     137ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[     174ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[     198ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:5173/st-dom-yt-website/give:0
+[    2018ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[    2022ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[    2041ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[    2047ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[    2090ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:5173/st-dom-yt-website/contact:0
+[    3991ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[    3996ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[    4002ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[    4014ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[    4052ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:5173/st-dom-yt-website/sacraments/baptism:0
+[   76965ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[   76974ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[   76981ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[   76988ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[   77031ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:5173/st-dom-yt-website/sacraments:0
+[  157127ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[  157130ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[  157139ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[  157146ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0

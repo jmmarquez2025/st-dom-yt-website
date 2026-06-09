@@ -14,3 +14,5 @@
 [  197360ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
 [  197367ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
 [  197407ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:5173/st-dom-yt-website/get-involved:0
+[ 1166926ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5173/st-dom-yt-website/@vite/client:963
+[ 1166927ms] [ERROR] WebSocket connection to 'ws://localhost:5173/st-dom-yt-website/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5173/st-dom-yt-website/@vite/client:1034
