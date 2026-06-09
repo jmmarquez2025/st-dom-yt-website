@@ -58,3 +58,12 @@
 [ 1065420ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
 [ 1065429ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
 [ 1065436ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1135982ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1135989ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[ 1135997ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[ 1136003ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1226783ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1226789ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/st-dom-yt-website/node_modules/.vite/deps/chunk-2MQEAGU2.js?v=27493e30:21608
+[ 1226797ms] [LOG] [SW] Skipping registration in development mode. @ http://localhost:5173/st-dom-yt-website/src/registerSW.js:9
+[ 1226804ms] [ERROR] Manifest: Line: 1, column: 1, Syntax error. @ http://localhost:5173/st-dom-yt-website/st-dom-yt-website/manifest.json:0
+[ 1231300ms] [WARNING] The resource http://localhost:5173/st-dom-yt-website/photos/interior-nave-opt-1024.webp was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:5173/st-dom-yt-website/about:0
