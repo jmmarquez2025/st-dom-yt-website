@@ -124,9 +124,6 @@ h1, h2, h3, h4 {
 }
 
 /* ── RevealText fallback ── */
-.reveal-text--fallback {
-  animation: fadeUp 0.6s var(--ease-out-expo) both;
-}
 
 /* ── Accessibility ── */
 .skip-link {
@@ -177,7 +174,6 @@ main li a {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal-text { opacity: 1 !important; }
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none !important;
@@ -191,13 +187,6 @@ main li a {
 .hover-lift:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-.hover-lift-sm {
-  transition: transform 0.3s var(--ease-elastic), box-shadow 0.3s ease;
-}
-.hover-lift-sm:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 /* ── Button hover — quiet ink-deepen, no scale ── */
@@ -257,20 +246,10 @@ main li a {
   border-color: var(--color-burgundy);
   color: var(--color-warm-white);
 }
-.chip--soft-gold {
-  background: var(--chip-soft-gold-bg);
-  color: var(--color-gold-text);
-  border-color: var(--chip-soft-gold-bd);
-}
 .chip--soft-burgundy {
   background: var(--chip-soft-burgundy-bg);
   color: var(--color-burgundy);
   border-color: var(--chip-soft-burgundy-bd);
-}
-.chip--outline {
-  background: transparent;
-  color: var(--color-warm-gray);
-  border-color: var(--chip-neutral-bd);
 }
 .chip--on-dark {
   background: rgba(255, 253, 249, 0.06);
@@ -282,23 +261,6 @@ main li a {
   background: color-mix(in srgb, var(--chip-color) 10%, var(--color-warm-white));
   color: color-mix(in srgb, var(--chip-color) 78%, var(--color-soft-black));
   border-color: color-mix(in srgb, var(--chip-color) 24%, transparent);
-}
-.chip__remove {
-  display: inline-grid;
-  place-items: center;
-  width: 14px;
-  height: 14px;
-  margin-left: 2px;
-  border: 0;
-  background: none;
-  color: inherit;
-  opacity: 0.6;
-  cursor: pointer;
-  font-size: 13px;
-  line-height: 1;
-}
-.chip__remove:hover {
-  opacity: 1;
 }
 
 /* ── Scroll progress bar ── */
@@ -389,17 +351,7 @@ body.nav-open .parish-action-bar {
 }
 
 /* ── Editorial offset utility ── */
-.editorial-offset {
-  position: relative;
-}
 @media (min-width: 768px) {
-  .editorial-offset--up {
-    margin-top: -40px;
-  }
-  .editorial-offset--overlap {
-    margin-left: -32px;
-    z-index: 1;
-  }
 }
 
 /* ── Reusable layout classes ── */
@@ -411,27 +363,6 @@ body.nav-open .parish-action-bar {
   max-width: 1100px;
   margin: 0 auto;
 }
-.section-heading {
-  font-size: clamp(24px, 4vw, 34px);
-  font-family: var(--font-display);
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--color-soft-black);
-}
-.body-text {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--color-warm-gray);
-  margin-bottom: 20px;
-}
-.sub-label {
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.sub-label--gold { color: var(--color-gold-text); }
-.sub-label--white { color: rgba(255,255,255,0.6); }
 
 /* ── Editorial type utilities ── */
 /* Small caps replace wide-tracked uppercase for kickers/eyebrows. Browsers
@@ -500,7 +431,7 @@ body.nav-open .parish-action-bar {
 }
 .kicker--index .kicker__num {
   font-variant-numeric: oldstyle-nums;
-  color: var(--color-gold);
+  color: var(--color-gold-text);
   letter-spacing: 0;
 }
 
@@ -699,17 +630,12 @@ body.nav-open .parish-action-bar {
   align-items: center;
 }
 
-.premium-lede,
 .premium-welcome p,
 .premium-formation-copy,
 .premium-widget-copy {
   color: var(--color-warm-gray);
   font-size: 17px;
   line-height: 1.8;
-}
-
-.premium-lede {
-  margin-bottom: 28px;
 }
 
 .premium-text-link,
@@ -1513,63 +1439,14 @@ a.contact-link:hover {
 }
 
 /* ── Parallax section ── */
-.parallax-section {
-  position: relative;
-  overflow: hidden;
-}
-.parallax-section::before {
-  content: "";
-  position: absolute;
-  inset: -20% 0;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  will-change: transform;
-  pointer-events: none;
-}
 @media (prefers-reduced-motion: reduce) {
-  .parallax-section::before {
-    background-attachment: scroll;
-  }
 }
 
 /* ── Stagger grid (JS fallback for browsers without animation-timeline) ── */
 @supports not (animation-timeline: view()) {
-  .stagger-grid > * {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
-  }
-  .stagger-grid.visible > *:nth-child(1) { transition-delay: 0s; }
-  .stagger-grid.visible > *:nth-child(2) { transition-delay: 0.08s; }
-  .stagger-grid.visible > *:nth-child(3) { transition-delay: 0.16s; }
-  .stagger-grid.visible > *:nth-child(4) { transition-delay: 0.24s; }
-  .stagger-grid.visible > *:nth-child(5) { transition-delay: 0.32s; }
-  .stagger-grid.visible > *:nth-child(6) { transition-delay: 0.4s; }
-  .stagger-grid.visible > * {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ── Animated underline for links ── */
-.animated-underline {
-  position: relative;
-  text-decoration: none;
-}
-.animated-underline::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--color-gold);
-  transition: width 0.3s var(--ease-out-expo);
-}
-.animated-underline:hover::after {
-  width: 100%;
-}
 
 /* ── Skeleton loading ── */
 .page-skeleton {
@@ -1593,11 +1470,6 @@ a.contact-link:hover {
 
 /* ── Image reveal on scroll ── */
 @supports (animation-timeline: view()) {
-  .scroll-reveal-img {
-    animation: imgReveal 0.8s var(--ease-out-expo) both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 50%;
-  }
   @keyframes imgReveal {
     from { opacity: 0; transform: scale(0.92) translateY(20px); clip-path: inset(8% 8% 8% 8% round 12px); }
     to   { opacity: 1; transform: scale(1) translateY(0); clip-path: inset(0% 0% 0% 0% round 8px); }

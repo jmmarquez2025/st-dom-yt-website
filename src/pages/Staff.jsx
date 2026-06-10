@@ -450,8 +450,7 @@ export default function Staff() {
             fontSize: 11,
             letterSpacing: 1,
             color: T.warmGray,
-            opacity: 0.6,
-            display: "flex",
+                        display: "flex",
             alignItems: "center",
             gap: 4,
           }}

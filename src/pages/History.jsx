@@ -112,7 +112,8 @@ export default function History() {
         .history-year {
           font-size: clamp(48px, 8vw, 72px);
           font-family: 'Cormorant Garamond', serif;
-          font-weight: 700; color: ${T.stone}; line-height: 1; flex-shrink: 0;
+          font-weight: 700; color: ${T.warmGray}; line-height: 1; flex-shrink: 0;
+          font-variant-numeric: oldstyle-nums;
         }
         .history-era-label {
           font-size: 14px; letter-spacing: 3px; text-transform: uppercase;
@@ -398,7 +399,7 @@ export default function History() {
       <Section>
         <div className="history-section">
           <div className="history-era">
-            <div className="history-year" style={{ color: T.gold }}>
+            <div className="history-year" style={{ color: T.goldText }}>
               {t("history.today.year")}
             </div>
             <div className="history-era-label">{t("history.today.label")}</div>

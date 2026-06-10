@@ -64,6 +64,9 @@ const NAV_ITEMS = [
   },
   {
     key: "more",
+    // Pure dropdown trigger — "More" is not a destination, so it renders as a
+    // <button> (also fixes the Lighthouse link-text audit).
+    linkless: true,
     children: [
       { key: "about", to: "/about" },
       { key: "bulletin", to: "/bulletin" },
@@ -255,27 +258,50 @@ export default function Nav() {
                 onKeyDown={(e) => {
                   if (e.key === "Escape") {
                     setOpenDropdown(null);
-                    e.currentTarget.querySelector("a")?.focus();
+                    e.currentTarget.querySelector("a, button")?.focus();
                   }
                 }}
               >
-                <NavLink
-                  to={item.children[0].to}
-                  className="premium-nav-link"
-                  style={linkStyle(isGroupActive(item))}
-                  aria-haspopup="menu"
-                  aria-expanded={openDropdown === item.key}
-                >
-                  {t(`nav.${item.key}`)}
-                  <ChevronDown
-                    size={13}
-                    style={{
-                      transition: "transform 0.2s",
-                      transform: openDropdown === item.key ? "rotate(180deg)" : "rotate(0)",
-                      opacity: 0.5,
-                    }}
-                  />
-                </NavLink>
+                {item.linkless ? (
+                  <button
+                    type="button"
+                    className="premium-nav-link"
+                    style={linkStyle(isGroupActive(item))}
+                    aria-haspopup="menu"
+                    aria-expanded={openDropdown === item.key}
+                    onClick={() =>
+                      setOpenDropdown(openDropdown === item.key ? null : item.key)
+                    }
+                  >
+                    {t(`nav.${item.key}`)}
+                    <ChevronDown
+                      size={13}
+                      style={{
+                        transition: "transform 0.2s",
+                        transform: openDropdown === item.key ? "rotate(180deg)" : "rotate(0)",
+                        opacity: 0.5,
+                      }}
+                    />
+                  </button>
+                ) : (
+                  <NavLink
+                    to={item.children[0].to}
+                    className="premium-nav-link"
+                    style={linkStyle(isGroupActive(item))}
+                    aria-haspopup="menu"
+                    aria-expanded={openDropdown === item.key}
+                  >
+                    {t(`nav.${item.key}`)}
+                    <ChevronDown
+                      size={13}
+                      style={{
+                        transition: "transform 0.2s",
+                        transform: openDropdown === item.key ? "rotate(180deg)" : "rotate(0)",
+                        opacity: 0.5,
+                      }}
+                    />
+                  </NavLink>
+                )}
 
                 {/* Dropdown panel */}
                 {openDropdown === item.key && (
