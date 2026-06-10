@@ -7,6 +7,9 @@ dist
 # macOS Finder metadata
 .DS_Store
 
+# Local browser-audit screenshots (never ship in the repo)
+.codex-*.png
+
 # Claude Code worktree state — local-only scratch space
 .claude/worktrees/
 

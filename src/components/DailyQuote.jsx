@@ -50,43 +50,39 @@ export default function DailyQuote() {
   const { t } = useTranslation();
   const quote = useMemo(() => QUOTES[dayOfYear() % QUOTES.length], []);
 
+  // Margin-set reflection: hairline rule, hanging quote, small-caps source.
+  // (Give holds the site's single centered quote moment.)
   return (
-    <div style={{ textAlign: "center", maxWidth: 700, margin: "0 auto" }}>
-      <div
-        style={{
-          fontSize: 11,
-          letterSpacing: 3,
-          textTransform: "uppercase",
-          color: T.gold,
-          fontWeight: 600,
-          marginBottom: 16,
-        }}
-      >
+    <figure
+      style={{
+        maxWidth: 640,
+        margin: 0,
+        padding: "6px 0 6px 24px",
+        borderLeft: `1px solid ${T.gold}`,
+      }}
+    >
+      <p className="kicker" style={{ marginBottom: 14 }}>
         {t("home.quotes.label")}
-      </div>
+      </p>
       <blockquote
+        className="hang-quote"
         style={{
           fontSize: "clamp(20px, 3.5vw, 28px)",
           fontFamily: "'Cormorant Garamond', serif",
           fontStyle: "italic",
           color: T.softBlack,
-          lineHeight: 1.5,
-          marginBottom: 12,
+          lineHeight: 1.45,
+          margin: "0 0 12px",
         }}
       >
         &ldquo;{t(quote.text)}&rdquo;
       </blockquote>
-      <cite
-        style={{
-          fontSize: 13,
-          letterSpacing: 1.5,
-          textTransform: "uppercase",
-          color: T.warmGray,
-          fontStyle: "normal",
-        }}
+      <figcaption
+        className="u-smallcaps"
+        style={{ fontSize: 14, fontWeight: 600, color: T.goldText }}
       >
         &mdash; {t(quote.src)}
-      </cite>
-    </div>
+      </figcaption>
+    </figure>
   );
 }

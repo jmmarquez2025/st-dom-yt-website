@@ -4,12 +4,12 @@ import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import PullQuote from "../components/PullQuote";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
+import PageHeader from "../components/PageHeader";
 import PremiumPageActions from "../components/PremiumPageActions";
 import PhotoGallery from "../components/PhotoGallery";
 import TextReveal from "../components/TextReveal";
@@ -22,50 +22,21 @@ export default function About() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="About Our Church" description="Learn about the history of St. Dominic Church, founded by the Dominican Friars in 1923 in Youngstown, Ohio." image={PHOTOS.aboutHero} />
-      {/* ════ Hero Banner ════ */}
-      <section
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          background: T.softBlack,
-          color: "#fff",
-          padding: "clamp(64px, 12vw, 120px) 24px clamp(48px, 8vw, 80px)",
-          textAlign: "center",
-        }}
-      >
-        <HeroImage src={PHOTOS.aboutHero} overlay={0.55} tint="rgba(26,23,20,0.5)" />
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <div
-            style={{
-              fontSize: 12,
-              letterSpacing: 4,
-              textTransform: "uppercase",
-              color: T.goldLight,
-              marginBottom: 16,
-              fontWeight: 600,
-            }}
-          >
-            {t("about.history.sub")}
-          </div>
-          <h1
-            style={{
-              fontSize: "clamp(36px, 7vw, 60px)",
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 700,
-              lineHeight: 1.1,
-              color: "#fff",
-            }}
-          >
-            {t("about.title")}
-          </h1>
-        </div>
-      </section>
+      <Seo
+        title="About Our Church"
+        description="Learn about the history of St. Dominic Church, founded by the Dominican Friars in 1923 in Youngstown, Ohio."
+        image={PHOTOS.aboutHero}
+      />
+      <PageHeader
+        title={t("about.title")}
+        heroSrc={PHOTOS.aboutHero}
+        kicker={t("about.history.sub")}
+        tint="rgba(26,23,20,0.5)"
+      />
 
       <PremiumPageActions
         overlap
         eyebrow={t("about.history.sub")}
-        title={t("about.title")}
         items={[
           {
             title: t("about.historyLink"),
@@ -91,8 +62,7 @@ export default function About() {
 
       {/* ════ History — Editorial Asymmetric Layout ════ */}
       <Section>
-        <FadeSection>
-          <style>{`
+        <style>{`
             .about-history-grid {
               display: grid;
               grid-template-columns: 1fr;
@@ -106,182 +76,197 @@ export default function About() {
               }
             }
           `}</style>
-          <div className="about-history-grid">
-            {/* Left — Large founding date + summary */}
-            <div>
-              <div
-                style={{
-                  fontSize: "clamp(80px, 12vw, 120px)",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 700,
-                  color: T.warmGray,
-                  lineHeight: 1,
-                  marginBottom: 8,
-                }}
-              >
-                1923
-              </div>
-              <div
-                style={{
-                  fontSize: 14,
-                  letterSpacing: 3,
-                  textTransform: "uppercase",
-                  color: T.goldText,
-                  fontWeight: 600,
-                  marginBottom: 24,
-                }}
-              >
-                {t("about.history.sub")}
-              </div>
-              <div
-                className="glass-card--dark"
-                style={{
-                  padding: 28,
-                  color: "#fff",
-                }}
-              >
-                <PullQuote
-                  text={t("about.history.motto")}
-                  src={t("about.history.mottoSrc")}
-                  align="left"
-                  tone="dark"
-                />
-              </div>
+        <div className="about-history-grid">
+          {/* Left — Large founding date + summary */}
+          <div>
+            <div
+              style={{
+                fontSize: "clamp(80px, 12vw, 120px)",
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 700,
+                color: T.warmGray,
+                lineHeight: 1,
+                marginBottom: 8,
+                fontVariantNumeric: "oldstyle-nums",
+              }}
+            >
+              1923
             </div>
-
-            {/* Right — History summary + link */}
-            <div>
-              <h2
-                style={{
-                  fontSize: "clamp(26px, 4vw, 36px)",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 600,
-                  marginBottom: 24,
-                  color: T.softBlack,
-                }}
-              >
-                <TextReveal>{t("about.history.title")}</TextReveal>
-              </h2>
-              <p
-                style={{
-                  fontSize: 16,
-                  lineHeight: 1.8,
-                  color: T.warmGray,
-                  marginBottom: 20,
-                }}
-              >
-                {t("about.history.p1")}
-              </p>
-              <p
-                style={{
-                  fontSize: 16,
-                  lineHeight: 1.8,
-                  color: T.warmGray,
-                  marginBottom: 28,
-                }}
-              >
-                {t("about.history.p2")}
-              </p>
-              <Btn variant="outline" onClick={() => navigate("/history")}>{t("about.historyLink")}</Btn>
+            <div
+              style={{
+                fontSize: 14,
+                letterSpacing: 3,
+                textTransform: "uppercase",
+                color: T.goldText,
+                fontWeight: 600,
+                marginBottom: 24,
+              }}
+            >
+              {t("about.history.sub")}
+            </div>
+            <div
+              className="glass-card--dark"
+              style={{
+                padding: 28,
+                color: "#fff",
+              }}
+            >
+              <PullQuote
+                text={t("about.history.motto")}
+                src={t("about.history.mottoSrc")}
+                align="left"
+                tone="dark"
+              />
             </div>
           </div>
-        </FadeSection>
+
+          {/* Right — History summary + link */}
+          <div>
+            <h2
+              style={{
+                fontSize: "clamp(26px, 4vw, 36px)",
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 600,
+                marginBottom: 24,
+                color: T.softBlack,
+              }}
+            >
+              <TextReveal>{t("about.history.title")}</TextReveal>
+            </h2>
+            <p
+              className="drop-cap"
+              style={{
+                fontSize: 16,
+                lineHeight: 1.8,
+                color: T.warmGray,
+                marginBottom: 20,
+              }}
+            >
+              {t("about.history.p1")}
+            </p>
+            <p
+              style={{
+                fontSize: 16,
+                lineHeight: 1.8,
+                color: T.warmGray,
+                marginBottom: 28,
+              }}
+            >
+              {t("about.history.p2")}
+            </p>
+            <Btn variant="outline" onClick={() => navigate("/history")}>
+              {t("about.historyLink")}
+            </Btn>
+          </div>
+        </div>
       </Section>
 
       {/* ════ Dominican Mission ════ */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub="Order of Preachers · Founded 1216">
-            The Dominican Mission
-          </SectionTitle>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 40, maxWidth: 960, margin: "0 auto", alignItems: "center" }} className="dominican-mission-grid">
-            <style>{`
+        <SectionTitle sub="Order of Preachers · Founded 1216">The Dominican Mission</SectionTitle>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: 40,
+            maxWidth: 960,
+            margin: "0 auto",
+            alignItems: "center",
+          }}
+          className="dominican-mission-grid"
+        >
+          <style>{`
               @media (min-width: 768px) {
                 .dominican-mission-grid { grid-template-columns: 240px 1fr !important; gap: 56px !important; }
               }
             `}</style>
-            <div style={{ textAlign: "center" }}>
-              <img
-                src={PHOTOS.psjShield}
-                alt="Shield of the Dominican Province of St. Joseph"
-                style={{ maxWidth: 200, width: "100%", height: "auto", margin: "0 auto" }}
-                loading="lazy"
-              />
-              <div style={{ marginTop: 12, fontSize: 12, letterSpacing: 3, textTransform: "uppercase", color: T.goldText, fontWeight: 600 }}>
-                Veritas · Truth
-              </div>
-            </div>
-            <div>
-              <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
-                St. Dominic Catholic Church is entrusted to the friars of the <strong>Province of St. Joseph</strong>, an apostolic province of the Order of Preachers founded by St. Dominic de Guzmán in 1216 for the salvation of souls through preaching.
-              </p>
-              <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
-                For eight centuries the Order has been shaped by four pillars: <em>prayer, study, community, and preaching</em>. You will find each woven into the life of this parish — in the daily Mass and Liturgy of the Hours, the study of Scripture and the Catechism, the bonds of fraternity among friars and faithful, and the proclamation of the Gospel from this pulpit since 1923.
-              </p>
-              <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 0 }}>
-                Our motto, <em>Veritas</em>, points us always to Christ, the Truth made flesh.
-              </p>
+          <div style={{ textAlign: "center" }}>
+            <img
+              src={PHOTOS.psjShield}
+              alt="Shield of the Dominican Province of St. Joseph"
+              style={{ maxWidth: 200, width: "100%", height: "auto", margin: "0 auto" }}
+              loading="lazy"
+            />
+            <div
+              style={{
+                marginTop: 12,
+                fontSize: 12,
+                letterSpacing: 3,
+                textTransform: "uppercase",
+                color: T.goldText,
+                fontWeight: 600,
+              }}
+            >
+              Veritas · Truth
             </div>
           </div>
-        </FadeSection>
+          <div>
+            <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
+              St. Dominic Catholic Church is entrusted to the friars of the{" "}
+              <strong>Province of St. Joseph</strong>, an apostolic province of the Order of
+              Preachers founded by St. Dominic de Guzmán in 1216 for the salvation of souls through
+              preaching.
+            </p>
+            <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
+              For eight centuries the Order has been shaped by four pillars:{" "}
+              <em>prayer, study, community, and preaching</em>. You will find each woven into the
+              life of this parish — in the daily Mass and Liturgy of the Hours, the study of
+              Scripture and the Catechism, the bonds of fraternity among friars and faithful, and
+              the proclamation of the Gospel from this pulpit since 1923.
+            </p>
+            <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 0 }}>
+              Our motto, <em>Veritas</em>, points us always to Christ, the Truth made flesh.
+            </p>
+          </div>
+        </div>
       </Section>
 
       {/* ════ Saint of the Day ════ */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <SaintOfTheDay />
-        </FadeSection>
+        <SaintOfTheDay />
       </Section>
 
       {/* ════ Mission — Glassmorphic Cards ════ */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub={t("about.mission.sub")}>{t("about.mission.title")}</SectionTitle>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: 28,
-            }}
-          >
-            {[
-              { key: "word", icon: "BookOpenText" },
-              { key: "sacrament", icon: "Cross" },
-              { key: "service", icon: "Handshake" },
-            ].map(({ key, icon }) => (
-              <div
-                key={key}
-                className="glass-card"
-                style={{ padding: 32, textAlign: "center" }}
-              >
-                <div aria-hidden="true" style={{ marginBottom: 12 }}>
-                  <Icon name={icon} size={36} color={T.burgundy} />
-                </div>
-                <h3
-                  style={{
-                    fontSize: 20,
-                    fontFamily: "'Cormorant Garamond', serif",
-                    marginBottom: 10,
-                  }}
-                >
-                  {t(`about.mission.${key}.title`)}
-                </h3>
-                <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.7 }}>
-                  {t(`about.mission.${key}.desc`)}
-                </p>
+        <SectionTitle sub={t("about.mission.sub")}>{t("about.mission.title")}</SectionTitle>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: 28,
+          }}
+        >
+          {[
+            { key: "word", icon: "BookOpenText" },
+            { key: "sacrament", icon: "Cross" },
+            { key: "service", icon: "Handshake" },
+          ].map(({ key, icon }) => (
+            <div key={key} className="glass-card" style={{ padding: 32, textAlign: "center" }}>
+              <div aria-hidden="true" style={{ marginBottom: 12 }}>
+                <Icon name={icon} size={36} color={T.burgundy} />
               </div>
-            ))}
-          </div>
-        </FadeSection>
+              <h3
+                style={{
+                  fontSize: 20,
+                  fontFamily: "'Cormorant Garamond', serif",
+                  marginBottom: 10,
+                }}
+              >
+                {t(`about.mission.${key}.title`)}
+              </h3>
+              <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.7 }}>
+                {t(`about.mission.${key}.desc`)}
+              </p>
+            </div>
+          ))}
+        </div>
       </Section>
 
       {/* ════ Photo Gallery ════ */}
       {PHOTOS.gallery.length > 0 && (
         <Section>
-          <FadeSection>
-            <SectionTitle sub={t("gallery.sub")}>{t("gallery.title")}</SectionTitle>
-            <PhotoGallery photos={PHOTOS.gallery} />
-          </FadeSection>
+          <SectionTitle sub={t("gallery.sub")}>{t("gallery.title")}</SectionTitle>
+          <PhotoGallery photos={PHOTOS.gallery} />
         </Section>
       )}
 
@@ -295,37 +280,51 @@ export default function About() {
         }}
       >
         <HeroImage src={PHOTOS.aboutArchitecture} overlay={0.6} position="center top" />
-        <div style={{ maxWidth: 800, margin: "0 auto", position: "relative", zIndex: 1, textAlign: "center" }}>
-          <FadeSection>
-            <div
-              style={{
-                fontSize: 12,
-                letterSpacing: 4,
-                textTransform: "uppercase",
-                color: T.goldText,
-                fontWeight: 600,
-                marginBottom: 16,
-              }}
-            >
-              {t("about.architecture.style")}
-            </div>
-            <h3
-              style={{
-                fontSize: "clamp(26px, 5vw, 40px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                marginBottom: 20,
-                color: "#fff",
-                fontWeight: 600,
-                lineHeight: 1.2,
-              }}
-            >
-              {t("about.architecture.title")}
-            </h3>
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.7)", maxWidth: 640, margin: "0 auto 28px" }}>
-              {t("about.architecture.desc")}
-            </p>
-            <Btn onClick={() => navigate("/architecture")}>{t("about.architecture.cta")}</Btn>
-          </FadeSection>
+        <div
+          style={{
+            maxWidth: 800,
+            margin: "0 auto",
+            position: "relative",
+            zIndex: 1,
+            textAlign: "center",
+          }}
+        >
+          <div
+            style={{
+              fontSize: 12,
+              letterSpacing: 4,
+              textTransform: "uppercase",
+              color: T.goldText,
+              fontWeight: 600,
+              marginBottom: 16,
+            }}
+          >
+            {t("about.architecture.style")}
+          </div>
+          <h3
+            style={{
+              fontSize: "clamp(26px, 5vw, 40px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              marginBottom: 20,
+              color: "#fff",
+              fontWeight: 600,
+              lineHeight: 1.2,
+            }}
+          >
+            {t("about.architecture.title")}
+          </h3>
+          <p
+            style={{
+              fontSize: 16,
+              lineHeight: 1.8,
+              color: "rgba(255,255,255,0.7)",
+              maxWidth: 640,
+              margin: "0 auto 28px",
+            }}
+          >
+            {t("about.architecture.desc")}
+          </p>
+          <Btn onClick={() => navigate("/architecture")}>{t("about.architecture.cta")}</Btn>
         </div>
       </section>
     </div>

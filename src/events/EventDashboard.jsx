@@ -200,7 +200,7 @@ export default function EventDashboard({ onToast }) {
                 onClick={(e) => handleQuickDelete(e, ev.id)}
                 title="Delete"
                 style={{ background: "none", border: "none", cursor: "pointer", color: T.warmGray, display: "flex", padding: 4 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#c0392b")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = T.error)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = T.warmGray)}
               >
                 <Trash2 size={16} />

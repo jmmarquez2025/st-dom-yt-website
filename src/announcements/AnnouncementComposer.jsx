@@ -259,7 +259,7 @@ function DeleteConfirmModal({ onConfirm, onCancel }) {
       >
         <Trash2
           size={32}
-          color="#c0392b"
+          color={T.error}
           style={{ marginBottom: 12 }}
         />
         <h3
@@ -306,7 +306,7 @@ function DeleteConfirmModal({ onConfirm, onCancel }) {
               padding: "9px 20px",
               border: "none",
               borderRadius: 8,
-              background: "#c0392b",
+              background: T.error,
               fontSize: 14,
               fontWeight: 600,
               fontFamily: "'Source Sans 3', sans-serif",
@@ -436,15 +436,15 @@ export default function AnnouncementComposer({ announcement, onSave, onDelete, o
             placeholder="e.g., Holiday Mass Schedule"
             style={{
               ...INPUT_STYLE,
-              borderColor: errors.title ? "#c0392b" : T.stone,
+              borderColor: errors.title ? T.error : T.stone,
             }}
             onFocus={(e) => (e.target.style.borderColor = T.gold)}
             onBlur={(e) =>
-              (e.target.style.borderColor = errors.title ? "#c0392b" : T.stone)
+              (e.target.style.borderColor = errors.title ? T.error : T.stone)
             }
           />
           {errors.title && (
-            <p style={{ color: "#c0392b", fontSize: 12, margin: "4px 0 0" }}>
+            <p style={{ color: T.error, fontSize: 12, margin: "4px 0 0" }}>
               {errors.title}
             </p>
           )}
@@ -460,15 +460,15 @@ export default function AnnouncementComposer({ announcement, onSave, onDelete, o
             style={{
               ...INPUT_STYLE,
               resize: "vertical",
-              borderColor: errors.body ? "#c0392b" : T.stone,
+              borderColor: errors.body ? T.error : T.stone,
             }}
             onFocus={(e) => (e.target.style.borderColor = T.gold)}
             onBlur={(e) =>
-              (e.target.style.borderColor = errors.body ? "#c0392b" : T.stone)
+              (e.target.style.borderColor = errors.body ? T.error : T.stone)
             }
           />
           {errors.body && (
-            <p style={{ color: "#c0392b", fontSize: 12, margin: "4px 0 0" }}>
+            <p style={{ color: T.error, fontSize: 12, margin: "4px 0 0" }}>
               {errors.body}
             </p>
           )}
@@ -547,15 +547,15 @@ export default function AnnouncementComposer({ announcement, onSave, onDelete, o
             onChange={(e) => setStartDate(e.target.value)}
             style={{
               ...INPUT_STYLE,
-              borderColor: errors.startDate ? "#c0392b" : T.stone,
+              borderColor: errors.startDate ? T.error : T.stone,
             }}
             onFocus={(e) => (e.target.style.borderColor = T.gold)}
             onBlur={(e) =>
-              (e.target.style.borderColor = errors.startDate ? "#c0392b" : T.stone)
+              (e.target.style.borderColor = errors.startDate ? T.error : T.stone)
             }
           />
           {errors.startDate && (
-            <p style={{ color: "#c0392b", fontSize: 12, margin: "4px 0 0" }}>
+            <p style={{ color: T.error, fontSize: 12, margin: "4px 0 0" }}>
               {errors.startDate}
             </p>
           )}
@@ -569,15 +569,15 @@ export default function AnnouncementComposer({ announcement, onSave, onDelete, o
             onChange={(e) => setEndDate(e.target.value)}
             style={{
               ...INPUT_STYLE,
-              borderColor: errors.endDate ? "#c0392b" : T.stone,
+              borderColor: errors.endDate ? T.error : T.stone,
             }}
             onFocus={(e) => (e.target.style.borderColor = T.gold)}
             onBlur={(e) =>
-              (e.target.style.borderColor = errors.endDate ? "#c0392b" : T.stone)
+              (e.target.style.borderColor = errors.endDate ? T.error : T.stone)
             }
           />
           {errors.endDate && (
-            <p style={{ color: "#c0392b", fontSize: 12, margin: "4px 0 0" }}>
+            <p style={{ color: T.error, fontSize: 12, margin: "4px 0 0" }}>
               {errors.endDate}
             </p>
           )}
@@ -628,7 +628,7 @@ export default function AnnouncementComposer({ announcement, onSave, onDelete, o
               })}
             </div>
             {errors.recDays && (
-              <p style={{ color: "#c0392b", fontSize: 12, margin: "4px 0 0" }}>
+              <p style={{ color: T.error, fontSize: 12, margin: "4px 0 0" }}>
                 {errors.recDays}
               </p>
             )}
@@ -754,7 +754,7 @@ export default function AnnouncementComposer({ announcement, onSave, onDelete, o
               gap: 6,
               padding: "11px 20px",
               background: "none",
-              color: "#c0392b",
+              color: T.error,
               border: "1.5px solid transparent",
               borderRadius: 8,
               fontSize: 14,
@@ -763,7 +763,7 @@ export default function AnnouncementComposer({ announcement, onSave, onDelete, o
               cursor: "pointer",
               transition: "border-color 0.15s",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#c0392b")}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = T.error)}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = "transparent")}
           >
             <Trash2 size={15} />

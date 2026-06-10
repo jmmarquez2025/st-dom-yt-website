@@ -1,6 +1,5 @@
 import { T } from "../constants/theme";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import PremiumPageActions from "../components/PremiumPageActions";
 import Seo from "../components/Seo";
@@ -34,9 +33,8 @@ export default function Connect() {
         description="Follow St. Dominic Catholic Church on social media for daily updates, homilies, events, and parish life."
         image={PHOTOS.homeHero}
       />
-      <PageHeader title="Connect With Us" heroSrc={PHOTOS.homeHero} />
+      <PageHeader title="Connect With Us" variant="text" />
       <PremiumPageActions
-        overlap
         eyebrow="Stay in Touch"
         title="Choose the fastest way to connect"
         items={[
@@ -63,136 +61,176 @@ export default function Connect() {
       />
 
       <Section id="social-links">
-        <FadeSection>
-          <SectionTitle sub="Stay in Touch">Follow Our Parish</SectionTitle>
-          <p
+        <SectionTitle sub="Stay in Touch">Follow Our Parish</SectionTitle>
+        <p
+          className="u-lede"
+          style={{
+            fontSize: 16,
+            color: T.warmGray,
+            lineHeight: 1.8,
+            margin: "0 0 48px",
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          Join our online community for daily reflections, event announcements, homilies, and
+          moments from life at St. Dominic.
+        </p>
+
+        {accounts.length === 0 ? (
+          <div
             style={{
-              fontSize: 16,
-              color: T.warmGray,
-              lineHeight: 1.8,
               textAlign: "center",
-              maxWidth: 640,
-              margin: "0 auto 48px",
+              padding: "48px 24px",
+              color: T.warmGray,
               fontFamily: "'Source Sans 3', sans-serif",
             }}
           >
-            Join our online community for daily reflections, event announcements,
-            homilies, and moments from life at St. Dominic.
-          </p>
-
-          {accounts.length === 0 ? (
-            <div style={{ textAlign: "center", padding: "48px 24px", color: T.warmGray, fontFamily: "'Source Sans 3', sans-serif" }}>
-              <p>Social media accounts are being set up. Check back soon.</p>
-            </div>
-          ) : (
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: 20,
-                maxWidth: 900,
-                margin: "0 auto",
-              }}
-            >
-              {accounts.map((acc) => {
-                const accent = PLATFORM_ACCENTS[acc.platform] || T.burgundy;
-                return (
-                  <a
-                    key={acc.id}
-                    href={acc.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+            <p>Social media accounts are being set up. Check back soon.</p>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: 20,
+              maxWidth: 900,
+              margin: "0 auto",
+            }}
+          >
+            {accounts.map((acc) => {
+              const accent = PLATFORM_ACCENTS[acc.platform] || T.burgundy;
+              return (
+                <a
+                  key={acc.id}
+                  href={acc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    background: "#fff",
+                    border: `1px solid ${T.stone}`,
+                    borderRadius: 12,
+                    padding: "24px 20px",
+                    textDecoration: "none",
+                    color: T.softBlack,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: 12,
+                    transition: "transform 0.2s, box-shadow 0.2s, border-color 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-3px)";
+                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)";
+                    e.currentTarget.style.borderColor = accent;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "none";
+                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.borderColor = T.stone;
+                  }}
+                >
+                  <div
                     style={{
-                      background: "#fff",
-                      border: `1px solid ${T.stone}`,
-                      borderRadius: 12,
-                      padding: "24px 20px",
-                      textDecoration: "none",
-                      color: T.softBlack,
+                      width: 48,
+                      height: 48,
+                      borderRadius: "50%",
+                      background: `${accent}14`,
                       display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: 12,
-                      transition: "transform 0.2s, box-shadow 0.2s, border-color 0.2s",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "translateY(-3px)";
-                      e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)";
-                      e.currentTarget.style.borderColor = accent;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "none";
-                      e.currentTarget.style.boxShadow = "none";
-                      e.currentTarget.style.borderColor = T.stone;
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
-                    <div
+                    <Icon name={iconFor(acc.platform)} size={22} color={accent} />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <h3
                       style={{
-                        width: 48,
-                        height: 48,
-                        borderRadius: "50%",
-                        background: `${accent}14`,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontSize: 20,
+                        fontWeight: 600,
+                        color: T.softBlack,
+                        margin: "0 0 4px",
                       }}
                     >
-                      <Icon name={iconFor(acc.platform)} size={22} color={accent} />
-                    </div>
-                    <div style={{ flex: 1 }}>
-                      <h3
+                      {acc.platform}
+                    </h3>
+                    {acc.handle && (
+                      <div
                         style={{
-                          fontFamily: "'Cormorant Garamond', serif",
-                          fontSize: 20,
+                          fontSize: 13,
+                          color: accent,
                           fontWeight: 600,
-                          color: T.softBlack,
-                          margin: "0 0 4px",
+                          fontFamily: "'Source Sans 3', sans-serif",
                         }}
                       >
-                        {acc.platform}
-                      </h3>
-                      {acc.handle && (
-                        <div style={{ fontSize: 13, color: accent, fontWeight: 600, fontFamily: "'Source Sans 3', sans-serif" }}>
-                          {acc.handle}
-                        </div>
-                      )}
-                      {acc.description && (
-                        <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.6, margin: "8px 0 0", fontFamily: "'Source Sans 3', sans-serif" }}>
-                          {acc.description}
-                        </p>
-                      )}
-                    </div>
-                    <div style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, color: T.warmGray, fontFamily: "'Source Sans 3', sans-serif" }}>
-                      Visit <ExternalLink size={12} />
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-          )}
-        </FadeSection>
+                        {acc.handle}
+                      </div>
+                    )}
+                    {acc.description && (
+                      <p
+                        style={{
+                          fontSize: 14,
+                          color: T.warmGray,
+                          lineHeight: 1.6,
+                          margin: "8px 0 0",
+                          fontFamily: "'Source Sans 3', sans-serif",
+                        }}
+                      >
+                        {acc.description}
+                      </p>
+                    )}
+                  </div>
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 4,
+                      fontSize: 12,
+                      color: T.warmGray,
+                      fontFamily: "'Source Sans 3', sans-serif",
+                    }}
+                  >
+                    Visit <ExternalLink size={12} />
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        )}
       </Section>
 
       {/* Contact fallback */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub="Prefer to Call or Email?">In Person & By Phone</SectionTitle>
-          <div style={{ textAlign: "center", fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, color: T.charcoal, lineHeight: 1.9 }}>
-            <p>
-              <strong>{CONFIG.address}</strong><br />
-              {CONFIG.city}, {CONFIG.state} {CONFIG.zip}
-            </p>
-            <p>
-              <a href={CONFIG.phoneLink} style={{ color: T.burgundy, fontWeight: 600, textDecoration: "none" }}>
-                {CONFIG.phone}
-              </a>
-              {" · "}
-              <a href={`mailto:${CONFIG.email}`} style={{ color: T.burgundy, fontWeight: 600, textDecoration: "none" }}>
-                {CONFIG.email}
-              </a>
-            </p>
-          </div>
-        </FadeSection>
+        <SectionTitle sub="Prefer to Call or Email?">In Person & By Phone</SectionTitle>
+        <div
+          style={{
+            fontFamily: "'Source Sans 3', sans-serif",
+            fontSize: 15,
+            color: T.charcoal,
+            lineHeight: 1.9,
+          }}
+        >
+          <p>
+            <strong>{CONFIG.address}</strong>
+            <br />
+            {CONFIG.city}, {CONFIG.state} {CONFIG.zip}
+          </p>
+          <p>
+            <a
+              href={CONFIG.phoneLink}
+              style={{ color: T.burgundy, fontWeight: 600, textDecoration: "none" }}
+            >
+              {CONFIG.phone}
+            </a>
+            {" · "}
+            <a
+              href={`mailto:${CONFIG.email}`}
+              style={{ color: T.burgundy, fontWeight: 600, textDecoration: "none" }}
+            >
+              {CONFIG.email}
+            </a>
+          </p>
+        </div>
       </Section>
     </div>
   );

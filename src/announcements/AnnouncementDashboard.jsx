@@ -410,7 +410,7 @@ export default function AnnouncementDashboard({ onEdit, onNew }) {
                       padding: 4,
                       transition: "color 0.15s",
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#c0392b")}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = T.error)}
                     onMouseLeave={(e) => (e.currentTarget.style.color = T.warmGray)}
                   >
                     <Trash2 size={16} />

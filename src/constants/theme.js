@@ -10,9 +10,6 @@ export const T = {
   goldLight: "#E8D5A3",
   // Darker gold for small text on light backgrounds — meets WCAG AA contrast (>=5:1 on white).
   // Use for small caps labels, captions, and any gold-colored text < 18pt.
-  // Tuned darker than strict 4.5:1 minimum to survive mid-animation opacity blending
-  // (FadeSection transitions briefly composite the text against bg at <100% opacity,
-  // which axe-core samples — false-positive class without this margin).
   goldText: "#7A5A0F",
   cream: "#FAF6F0",
   warmWhite: "#FFFDF9",
@@ -21,6 +18,9 @@ export const T = {
   charcoal: "#2C2C2C",
   warmGray: "#6B6560",
   softBlack: "#1A1714",
+  // Form/validation error red, leaned toward the brand burgundy.
+  // AA on warm white (#FFFDF9) at small text sizes.
+  error: "#A03423",
   // Opaque low-saturation chip tints (mirror --chip-soft-*-bg in global.css).
   chipBurgundyBg: "#F4E9EA",
   chipGoldBg: "#F6EEDC",

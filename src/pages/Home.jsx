@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 
 import { useAnnouncements, useEvents, useSchedule } from "../cms/hooks";
@@ -126,9 +125,7 @@ export default function Home() {
   const upcoming = useMemo(() => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    return events
-      .filter((event) => new Date(`${event.date}T00:00:00`) >= today)
-      .slice(0, 3);
+    return events.filter((event) => new Date(`${event.date}T00:00:00`) >= today).slice(0, 3);
   }, [events]);
 
   return (
@@ -142,57 +139,46 @@ export default function Home() {
 
       <StickyHero
         image={PHOTOS.homeHero}
-        overlay={0.48}
-        tint="rgba(74,16,25,0.68)"
+        overlay={0.18}
+        scrim="corner"
+        align="bottom-left"
         height="calc(100vh - 88px)"
         viewportHeight="calc(100vh - 88px)"
         showScrollHint={false}
       >
         <div className="premium-hero">
-          <div className="home-hero-subtitle premium-hero__eyebrow">
-            {t("home.hero.subtitle")}
-          </div>
-          <h1 className="home-hero-title premium-hero__title">
-            {t("home.hero.title")}
-          </h1>
-          <p className="home-hero-location premium-hero__location">
-            {t("home.hero.location")}
-          </p>
+          <p className="home-hero-subtitle premium-hero__eyebrow">{t("home.hero.subtitle")}</p>
+          <h1 className="home-hero-title premium-hero__title">{t("home.hero.title")}</h1>
+          <p className="home-hero-location premium-hero__location">{t("home.hero.location")}</p>
 
           <div className="premium-hero__actions">
-            <Btn
-              variant="gold"
-              onClick={() => navigate("/visit")}
-              style={{ minWidth: 168 }}
-            >
+            <Btn variant="gold" onClick={() => navigate("/visit")} style={{ minWidth: 168 }}>
               {t("home.hero.ctaVisit")}
             </Btn>
-            <Btn
-              variant="light"
+            <button
+              type="button"
+              className="premium-light-link"
               onClick={() => navigate("/mass-times")}
-              style={{ minWidth: 210 }}
             >
               {t("home.hero.ctaMass")}
-            </Btn>
+              <Icon name="ArrowRight" size={15} color={T.goldLight} />
+            </button>
           </div>
+
+          <NextMass />
 
           {i18n.language !== "es" && (
             <button
               type="button"
-              className="premium-language-chip"
+              className="premium-hero__lang"
               onClick={() => {
                 i18n.changeLanguage("es");
                 localStorage.setItem("lang", "es");
               }}
             >
-              <Icon name="Languages" size={14} color={T.goldLight} />
               También disponible en Español
             </button>
           )}
-
-          <div className="home-hero-next-mass premium-hero__next">
-            <NextMass />
-          </div>
         </div>
       </StickyHero>
 
@@ -239,237 +225,230 @@ export default function Home() {
       </section>
 
       <Section>
-        <FadeSection>
-          <div className="premium-two-column">
-            <div>
-              <SectionTitle sub={t("home.massCta.sub")} center={false} divider={false}>
-                {t("home.massCta.title")}
-              </SectionTitle>
-              <div className="premium-inline-actions">
-                <Btn variant="primary" onClick={() => navigate("/mass-times")}>
-                  {t("home.massCta.cta")}
-                </Btn>
-                <button
-                  type="button"
-                  className="premium-text-link"
-                  onClick={() => navigate("/visit")}
-                >
-                  {t("home.hero.ctaVisit")}
-                  <Icon name="ArrowRight" size={15} color={T.burgundy} />
-                </button>
-              </div>
+        <div className="premium-two-column">
+          <div>
+            <SectionTitle sub={t("home.massCta.sub")} center={false} divider={false}>
+              {t("home.massCta.title")}
+            </SectionTitle>
+            <div className="premium-inline-actions">
+              <Btn variant="primary" onClick={() => navigate("/mass-times")}>
+                {t("home.massCta.cta")}
+              </Btn>
+              <button
+                type="button"
+                className="premium-text-link"
+                onClick={() => navigate("/visit")}
+              >
+                {t("home.hero.ctaVisit")}
+                <Icon name="ArrowRight" size={15} color={T.burgundy} />
+              </button>
             </div>
-            <SundayMassCard t={t} />
           </div>
-        </FadeSection>
+          <SundayMassCard t={t} />
+        </div>
       </Section>
 
       <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub={t("home.welcome.sub")}>{t("home.welcome.title")}</SectionTitle>
-          <div className="premium-welcome">
-            <p>{t("home.welcome.p1")}</p>
-            <p>{t("home.welcome.p2")}</p>
-          </div>
-          <div className="premium-gateway-grid">
-            <GatewayCard
-              icon="BookOpenText"
-              title={t("home.pillars.word.title")}
-              body={t("home.pillars.word.desc")}
-              cta={t("home.welcome.cta")}
-              onClick={() => navigate("/about")}
-            />
-            <GatewayCard
-              icon="Church"
-              title={t("home.pillars.sacrament.title")}
-              body={t("home.pillars.sacrament.desc")}
-              cta={t("nav.sacraments")}
-              onClick={() => navigate("/sacraments")}
-            />
-            <GatewayCard
-              icon="Handshake"
-              title={t("home.pillars.service.title")}
-              body={t("home.pillars.service.desc")}
-              cta={t("home.involved.ctaRegister")}
-              onClick={() => navigate("/get-involved")}
-            />
-          </div>
-        </FadeSection>
+        <SectionTitle sub={t("home.welcome.sub")}>{t("home.welcome.title")}</SectionTitle>
+        <div className="premium-welcome">
+          <p>{t("home.welcome.p1")}</p>
+          <p>{t("home.welcome.p2")}</p>
+        </div>
+        <div className="premium-gateway-grid">
+          <GatewayCard
+            icon="BookOpenText"
+            title={t("home.pillars.word.title")}
+            body={t("home.pillars.word.desc")}
+            cta={t("home.welcome.cta")}
+            onClick={() => navigate("/about")}
+          />
+          <GatewayCard
+            icon="Church"
+            title={t("home.pillars.sacrament.title")}
+            body={t("home.pillars.sacrament.desc")}
+            cta={t("nav.sacraments")}
+            onClick={() => navigate("/sacraments")}
+          />
+          <GatewayCard
+            icon="Handshake"
+            title={t("home.pillars.service.title")}
+            body={t("home.pillars.service.desc")}
+            cta={t("home.involved.ctaRegister")}
+            onClick={() => navigate("/get-involved")}
+          />
+        </div>
       </Section>
 
       <Section>
-        <FadeSection>
-          <DailyQuote />
-        </FadeSection>
+        <DailyQuote />
       </Section>
 
       <section className="premium-charism">
         <HeroImage src={PHOTOS.dominicanCharism} overlay={0.7} position="center top" />
         <div className="premium-charism__inner">
-          <FadeSection>
-            <div className="premium-charism__grid">
-              <div>
-                <div className="premium-section-kicker premium-section-kicker--light">
-                  {t("home.priests.sub")}
-                </div>
-                <blockquote>{t("home.priests.quote")}</blockquote>
-                <cite>{t("home.priests.quoteSrc")}</cite>
+          <div className="premium-charism__grid">
+            <div>
+              <div className="premium-section-kicker premium-section-kicker--light">
+                {t("home.priests.sub")}
               </div>
-              <div>
-                <h2>{t("home.priests.title")}</h2>
-                <p>{t("home.priests.desc")}</p>
-                <div className="premium-inline-actions">
-                  <Btn variant="gold" onClick={() => navigate("/staff")}>
-                    {t("home.priests.cta")}
-                  </Btn>
-                  <a
-                    href={CONFIG.provinceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="premium-light-link"
-                  >
-                    {t("home.priests.province")}
-                    <Icon name="ExternalLink" size={14} color={T.goldLight} />
-                  </a>
-                </div>
+              <blockquote>{t("home.priests.quote")}</blockquote>
+              <cite>{t("home.priests.quoteSrc")}</cite>
+            </div>
+            <div>
+              <h2>{t("home.priests.title")}</h2>
+              <p>{t("home.priests.desc")}</p>
+              <div className="premium-inline-actions">
+                <Btn variant="gold" onClick={() => navigate("/staff")}>
+                  {t("home.priests.cta")}
+                </Btn>
+                <a
+                  href={CONFIG.provinceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="premium-light-link"
+                >
+                  {t("home.priests.province")}
+                  <Icon name="ExternalLink" size={14} color={T.goldLight} />
+                </a>
               </div>
             </div>
-          </FadeSection>
+          </div>
         </div>
       </section>
 
       <section className="premium-member-cta">
         <div className="section-inner">
-          <FadeSection>
-            <SectionTitle sub={t("home.involved.sub")} light divider={false}>
-              {t("home.involved.title")}
-            </SectionTitle>
-            <p>{t("home.involved.desc")}</p>
-            <div className="premium-centered-actions">
-              <Btn variant="gold" onClick={() => navigate("/register")}>
-                {t("home.involved.ctaRegister")}
-              </Btn>
-              <Btn variant="light" onClick={() => navigate("/bulletin")}>
-                {t("home.involved.ctaBulletin")}
-              </Btn>
-            </div>
-          </FadeSection>
+          <SectionTitle sub={t("home.involved.sub")} light divider={false}>
+            {t("home.involved.title")}
+          </SectionTitle>
+          <p>{t("home.involved.desc")}</p>
+          <div className="premium-centered-actions">
+            <Btn variant="gold" onClick={() => navigate("/register")}>
+              {t("home.involved.ctaRegister")}
+            </Btn>
+            <Btn variant="light" onClick={() => navigate("/bulletin")}>
+              {t("home.involved.ctaBulletin")}
+            </Btn>
+          </div>
         </div>
       </section>
 
       {(announcements.length > 0 || upcoming.length > 0) && (
         <Section>
-          <FadeSection>
-            <SectionTitle sub={t("home.announcements.sub")}>
-              {t("home.announcements.title")}
-            </SectionTitle>
-            <div className="premium-news-grid">
-              {announcements.slice(0, 2).map((announcement, index) => (
-                <article key={announcement.title || index} className="premium-news-card">
-                  {announcement.date && (
-                    <div className="premium-news-card__date">
-                      {t("home.announcements.upcoming")} ·{" "}
-                      {new Date(`${announcement.date}T00:00:00`).toLocaleDateString(undefined, {
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </div>
-                  )}
-                  <h3>{announcement.title}</h3>
-                  <p>{announcement.body}</p>
-                </article>
-              ))}
+          <SectionTitle sub={t("home.announcements.sub")}>
+            {t("home.announcements.title")}
+          </SectionTitle>
+          <div className="premium-news-grid">
+            {announcements.slice(0, 2).map((announcement, index) => (
+              <article key={announcement.title || index} className="premium-news-card">
+                {announcement.date && (
+                  <div className="premium-news-card__date">
+                    {t("home.announcements.upcoming")} ·{" "}
+                    {new Date(`${announcement.date}T00:00:00`).toLocaleDateString(undefined, {
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </div>
+                )}
+                <h3>{announcement.title}</h3>
+                <p>{announcement.body}</p>
+              </article>
+            ))}
 
-              {upcoming.slice(0, 2).map((event) => {
-                const d = new Date(`${event.date}T00:00:00`);
-                const color = CATEGORY_COLORS[event.category] ?? T.warmGray;
-                return (
-                  <article
-                    key={`${event.title}-${event.date}`}
-                    className="premium-news-card premium-news-card--event"
-                    style={{ "--event-color": color }}
-                  >
-                    <div className="premium-event-date">
-                      <span>{d.toLocaleDateString("en-US", { month: "short" })}</span>
-                      <strong>{d.getDate()}</strong>
-                    </div>
-                    <h3>{event.title}</h3>
-                    <p>
-                      {event.time}
-                      {event.location ? ` · ${event.location}` : ""}
-                    </p>
-                  </article>
-                );
-              })}
-            </div>
-            <div className="premium-centered-actions">
-              <Btn variant="primary" onClick={() => navigate("/events")}>
-                {t("home.events.cta")}
-              </Btn>
-              <button
-                type="button"
-                className="premium-text-link"
-                onClick={() => navigate("/bulletin")}
-              >
-                {t("home.announcements.ctaBulletin")}
-                <Icon name="ArrowRight" size={15} color={T.burgundy} />
-              </button>
-            </div>
-          </FadeSection>
+            {upcoming.slice(0, 2).map((event) => {
+              const d = new Date(`${event.date}T00:00:00`);
+              const color = CATEGORY_COLORS[event.category] ?? T.warmGray;
+              return (
+                <article
+                  key={`${event.title}-${event.date}`}
+                  className="premium-news-card premium-news-card--event"
+                  style={{ "--event-color": color }}
+                >
+                  <div className="premium-event-date">
+                    <span>{d.toLocaleDateString("en-US", { month: "short" })}</span>
+                    <strong>{d.getDate()}</strong>
+                  </div>
+                  <h3>{event.title}</h3>
+                  <p>
+                    {event.time}
+                    {event.location ? ` · ${event.location}` : ""}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
+          <div className="premium-centered-actions">
+            <Btn variant="primary" onClick={() => navigate("/events")}>
+              {t("home.events.cta")}
+            </Btn>
+            <button
+              type="button"
+              className="premium-text-link"
+              onClick={() => navigate("/bulletin")}
+            >
+              {t("home.announcements.ctaBulletin")}
+              <Icon name="ArrowRight" size={15} color={T.burgundy} />
+            </button>
+          </div>
         </Section>
       )}
 
       <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub={t("home.formation.sub")}>{t("home.formation.title")}</SectionTitle>
-          <p className="premium-formation-copy">{t("home.formation.desc")}</p>
-          <div className="premium-formation-grid">
-            <div>
-              <SectionTitle sub={t("home.vatican.sub")} divider={false}>
-                {t("home.vatican.title")}
-              </SectionTitle>
-              <VaticanNews />
-            </div>
-            <div>
-              <SectionTitle sub={t("youtube.sub")} divider={false}>
-                {t("youtube.title")}
-              </SectionTitle>
-              <p className="premium-widget-copy">{t("youtube.desc")}</p>
-              <YouTubeChannel />
-            </div>
+        <SectionTitle sub={t("home.formation.sub")}>{t("home.formation.title")}</SectionTitle>
+        <p className="premium-formation-copy">{t("home.formation.desc")}</p>
+        <div className="premium-formation-grid">
+          <div>
+            <SectionTitle sub={t("home.vatican.sub")} divider={false}>
+              {t("home.vatican.title")}
+            </SectionTitle>
+            <VaticanNews />
           </div>
-        </FadeSection>
+          <div>
+            <SectionTitle sub={t("youtube.sub")} divider={false}>
+              {t("youtube.title")}
+            </SectionTitle>
+            <p className="premium-widget-copy">{t("youtube.desc")}</p>
+            <YouTubeChannel />
+          </div>
+        </div>
       </Section>
 
       <Section>
-        <FadeSection>
-          <div className="premium-contact-strip">
-            {[
-              {
-                key: "visit",
-                iconName: "MapPin",
-                content: `${CONFIG.address}, ${CONFIG.city}, ${CONFIG.state} ${CONFIG.zip}`,
-              },
-              { key: "call", iconName: "Phone", content: CONFIG.phone, href: CONFIG.phoneLink },
-              { key: "hours", iconName: "Clock", content: `${t("home.cards.hoursDays")} · ${t("home.cards.hoursTime")}` },
-              { key: "email", iconName: "Mail", content: CONFIG.email, href: `mailto:${CONFIG.email}` },
-            ].map((card) => (
-              <a
-                key={card.key}
-                href={card.href || mapsHref}
-                target={!card.href ? "_blank" : undefined}
-                rel={!card.href ? "noopener noreferrer" : undefined}
-                className="premium-contact-item"
-              >
-                <Icon name={card.iconName} size={23} color={T.burgundy} />
-                <span>
-                  <strong>{t(`home.cards.${card.key}Title`)}</strong>
-                  <span>{card.content}</span>
-                </span>
-              </a>
-            ))}
-          </div>
-        </FadeSection>
+        <div className="premium-contact-strip">
+          {[
+            {
+              key: "visit",
+              iconName: "MapPin",
+              content: `${CONFIG.address}, ${CONFIG.city}, ${CONFIG.state} ${CONFIG.zip}`,
+            },
+            { key: "call", iconName: "Phone", content: CONFIG.phone, href: CONFIG.phoneLink },
+            {
+              key: "hours",
+              iconName: "Clock",
+              content: `${t("home.cards.hoursDays")} · ${t("home.cards.hoursTime")}`,
+            },
+            {
+              key: "email",
+              iconName: "Mail",
+              content: CONFIG.email,
+              href: `mailto:${CONFIG.email}`,
+            },
+          ].map((card) => (
+            <a
+              key={card.key}
+              href={card.href || mapsHref}
+              target={!card.href ? "_blank" : undefined}
+              rel={!card.href ? "noopener noreferrer" : undefined}
+              className="premium-contact-item"
+            >
+              <Icon name={card.iconName} size={23} color={T.burgundy} />
+              <span>
+                <strong>{t(`home.cards.${card.key}Title`)}</strong>
+                <span>{card.content}</span>
+              </span>
+            </a>
+          ))}
+        </div>
       </Section>
     </div>
   );

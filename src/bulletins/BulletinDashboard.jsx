@@ -82,11 +82,11 @@ function EntryForm({ initial = {}, onSave, onCancel, isNew }) {
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-          style={{ ...INPUT_STYLE, borderColor: errors.date ? "#c0392b" : T.stone }}
+          style={{ ...INPUT_STYLE, borderColor: errors.date ? T.error : T.stone }}
           onFocus={(e) => (e.target.style.borderColor = T.gold)}
-          onBlur={(e) => (e.target.style.borderColor = errors.date ? "#c0392b" : T.stone)}
+          onBlur={(e) => (e.target.style.borderColor = errors.date ? T.error : T.stone)}
         />
-        {errors.date && <p style={{ color: "#c0392b", fontSize: 11, margin: "3px 0 0" }}>{errors.date}</p>}
+        {errors.date && <p style={{ color: T.error, fontSize: 11, margin: "3px 0 0" }}>{errors.date}</p>}
       </div>
 
       {/* Label */}
@@ -97,11 +97,11 @@ function EntryForm({ initial = {}, onSave, onCancel, isNew }) {
           value={label}
           onChange={(e) => setLabel(e.target.value)}
           placeholder="e.g., Palm Sunday"
-          style={{ ...INPUT_STYLE, borderColor: errors.label ? "#c0392b" : T.stone }}
+          style={{ ...INPUT_STYLE, borderColor: errors.label ? T.error : T.stone }}
           onFocus={(e) => (e.target.style.borderColor = T.gold)}
-          onBlur={(e) => (e.target.style.borderColor = errors.label ? "#c0392b" : T.stone)}
+          onBlur={(e) => (e.target.style.borderColor = errors.label ? T.error : T.stone)}
         />
-        {errors.label && <p style={{ color: "#c0392b", fontSize: 11, margin: "3px 0 0" }}>{errors.label}</p>}
+        {errors.label && <p style={{ color: T.error, fontSize: 11, margin: "3px 0 0" }}>{errors.label}</p>}
       </div>
 
       {/* URL */}
@@ -488,7 +488,7 @@ export default function BulletinDashboard({ onToast }) {
                         color: T.warmGray, padding: 6, display: "flex",
                         borderRadius: 6, transition: "all 0.15s",
                       }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = "#fde8e8"; e.currentTarget.style.color = "#c0392b"; }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "#fde8e8"; e.currentTarget.style.color = T.error; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = T.warmGray; }}
                     >
                       <Trash2 size={14} />

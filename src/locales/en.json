@@ -45,7 +45,8 @@
       "diocese": "Catholic Diocese of Youngstown",
       "safeEnvironment": "Safe Environment",
       "virtus": "VIRTUS Online"
-    }
+    },
+    "massTitle": "Sunday Mass"
   },
   "actionBar": {
     "label": "Parish essentials",
@@ -121,7 +122,8 @@
       "days": "Days",
       "hours": "Hrs",
       "min": "Min",
-      "sec": "Sec"
+      "sec": "Sec",
+      "in": "in"
     },
     "quotes": {
       "label": "Daily Reflection",
@@ -710,11 +712,6 @@
         "desc": "Annual medical mission trip (April) and teen mission trip (June).",
         "detail": "St. Dominic Church offers annual mission trips that give members the opportunity to serve those in need beyond our community. Our medical mission trip takes place each April, bringing healthcare professionals and volunteers to underserved areas. In June, our teen mission trip gives young people a transformative experience of service and faith. Both trips are life-changing experiences of living out the Gospel."
       }
-    },
-    "stats": {
-      "ministries": "Active Ministries",
-      "volunteers": "Volunteers",
-      "languages": "Languages"
     },
     "howTo": {
       "sub": "Getting Started",

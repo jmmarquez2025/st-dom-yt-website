@@ -4,7 +4,6 @@ import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import PullQuote from "../components/PullQuote";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import PremiumPageActions from "../components/PremiumPageActions";
 import { initials } from "../data/staff";
@@ -34,7 +33,7 @@ export default function Staff() {
   const { data: staffData } = useStaff();
   const { friars, staff } = staffData;
   const [flipped, setFlipped] = useState(null); // card id currently flipped
-  const [modal, setModal] = useState(null);      // full modal person
+  const [modal, setModal] = useState(null); // full modal person
 
   // Leadership = pastor + associate(s). Everyone else goes to In Residence so
   // a friar is never hidden just because an admin saved an unexpected role.
@@ -50,7 +49,9 @@ export default function Staff() {
 
   useEffect(() => {
     if (!modal) return;
-    const onKey = (e) => { if (e.key === "Escape") closeModal(); };
+    const onKey = (e) => {
+      if (e.key === "Escape") closeModal();
+    };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
@@ -69,7 +70,7 @@ export default function Staff() {
     return () => document.removeEventListener("mousedown", handler);
   }, [flipped]);
 
-  const Avatar = ({ name, photo, size, dark }) => (
+  const Avatar = ({ name, photo, size, dark }) =>
     photo ? (
       <img
         src={avatarVariant(photo)}
@@ -109,8 +110,7 @@ export default function Staff() {
       >
         {initials(name)}
       </div>
-    )
-  );
+    );
 
   // Optional pull-quote rendered in the profile modal. Returns null for
   // anyone without a staff.quotes.<id> entry.
@@ -127,10 +127,7 @@ export default function Staff() {
     const bioShort = bio.length > 160 ? bio.slice(0, 157) + "…" : bio;
 
     return (
-      <div
-        className="flip-card"
-        style={{ perspective: "1000px", height: 380 }}
-      >
+      <div className="flip-card" style={{ perspective: "1000px", height: 380 }}>
         <div
           style={{
             position: "relative",
@@ -144,7 +141,8 @@ export default function Staff() {
           {/* Front */}
           <div
             style={{
-              position: "absolute", inset: 0,
+              position: "absolute",
+              inset: 0,
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               background: "#fff",
@@ -176,13 +174,32 @@ export default function Staff() {
               }}
             />
             <Avatar name={person.name} photo={person.photo} size={130} />
-            <h3 style={{ fontSize: 21, fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, marginTop: 18, marginBottom: 8, color: T.softBlack, lineHeight: 1.2 }}>
+            <h3
+              style={{
+                fontSize: 21,
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 600,
+                marginTop: 18,
+                marginBottom: 8,
+                color: T.softBlack,
+                lineHeight: 1.2,
+              }}
+            >
               {person.name}
             </h3>
-            <div className="chip chip--solid">
-              {displayRole(person)}
-            </div>
-            <div style={{ marginTop: 18, fontSize: 12, letterSpacing: 1, color: T.warmGray, display: "flex", alignItems: "center", gap: 5, opacity: 0.7 }}>
+            <div className="chip chip--solid">{displayRole(person)}</div>
+            <div
+              style={{
+                marginTop: 18,
+                fontSize: 12,
+                letterSpacing: 1,
+                color: T.warmGray,
+                display: "flex",
+                alignItems: "center",
+                gap: 5,
+                opacity: 0.7,
+              }}
+            >
               <Icon name="RefreshCw" size={11} color={T.warmGray} />
               {t("staff.clickHint")}
             </div>
@@ -191,7 +208,8 @@ export default function Staff() {
           {/* Back */}
           <div
             style={{
-              position: "absolute", inset: 0,
+              position: "absolute",
+              inset: 0,
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               transform: "rotateY(180deg)",
@@ -206,17 +224,43 @@ export default function Staff() {
             }}
           >
             <div>
-              <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: T.goldText, fontWeight: 700, marginBottom: 10 }}>
+              <div
+                style={{
+                  fontSize: 11,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  color: T.goldText,
+                  fontWeight: 700,
+                  marginBottom: 10,
+                }}
+              >
                 {displayRole(person)}
               </div>
-              <h3 style={{ fontSize: 18, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "#fff", marginBottom: 14, lineHeight: 1.2 }}>
+              <h3
+                style={{
+                  fontSize: 18,
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontWeight: 700,
+                  color: "#fff",
+                  marginBottom: 14,
+                  lineHeight: 1.2,
+                }}
+              >
                 {person.name}
               </h3>
               <p style={{ fontSize: 13.5, lineHeight: 1.75, color: "rgba(255,255,255,0.82)" }}>
                 {bioShort}
               </p>
             </div>
-            <div style={{ display: "flex", justifyContent: "center", gap: 10, flexWrap: "wrap", marginTop: 20 }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                gap: 10,
+                flexWrap: "wrap",
+                marginTop: 20,
+              }}
+            >
               <button
                 type="button"
                 onClick={() => setModal({ ...person, group: "leadership" })}
@@ -289,13 +333,41 @@ export default function Staff() {
         }}
       >
         <Avatar name={person.name} size={96} dark />
-        <h3 style={{ fontSize: 17, fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, marginTop: 14, marginBottom: 6, color: "#fff", lineHeight: 1.2 }}>
+        <h3
+          style={{
+            fontSize: 17,
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 600,
+            marginTop: 14,
+            marginBottom: 6,
+            color: "#fff",
+            lineHeight: 1.2,
+          }}
+        >
           {person.name}
         </h3>
-        <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: "rgba(255,255,255,0.45)", fontWeight: 600 }}>
+        <div
+          style={{
+            fontSize: 11,
+            letterSpacing: 2,
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.45)",
+            fontWeight: 600,
+          }}
+        >
           {displayRole(person)}
         </div>
-        <div style={{ marginTop: 12, fontSize: 11, letterSpacing: 1, color: "rgba(255,255,255,0.3)", display: "flex", alignItems: "center", gap: 4 }}>
+        <div
+          style={{
+            marginTop: 12,
+            fontSize: 11,
+            letterSpacing: 1,
+            color: "rgba(255,255,255,0.3)",
+            display: "flex",
+            alignItems: "center",
+            gap: 4,
+          }}
+        >
           <Icon name="ChevronRight" size={11} color="rgba(255,255,255,0.3)" />
           {t("staff.clickHint")}
         </div>
@@ -330,23 +402,59 @@ export default function Staff() {
         }}
         className="staff-plain-card"
       >
-        <div style={{
-          width: 96, height: 96, borderRadius: "50%",
-          background: `linear-gradient(135deg, ${T.gold}, ${T.goldLight})`,
-          color: T.softBlack,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: 28,
-          border: `2px solid ${T.stone}`, margin: "0 auto",
-        }}>
+        <div
+          style={{
+            width: 96,
+            height: 96,
+            borderRadius: "50%",
+            background: `linear-gradient(135deg, ${T.gold}, ${T.goldLight})`,
+            color: T.softBlack,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 700,
+            fontSize: 28,
+            border: `2px solid ${T.stone}`,
+            margin: "0 auto",
+          }}
+        >
           {initials(person.name)}
         </div>
-        <h3 style={{ fontSize: 18, fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, marginTop: 14, marginBottom: 6, color: T.softBlack }}>
+        <h3
+          style={{
+            fontSize: 18,
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 600,
+            marginTop: 14,
+            marginBottom: 6,
+            color: T.softBlack,
+          }}
+        >
           {person.name}
         </h3>
-        <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: T.warmGray, fontWeight: 600 }}>
+        <div
+          style={{
+            fontSize: 11,
+            letterSpacing: 2,
+            textTransform: "uppercase",
+            color: T.warmGray,
+            fontWeight: 600,
+          }}
+        >
           {displayRole(person)}
         </div>
-        <div style={{ marginTop: 12, fontSize: 11, letterSpacing: 1, color: T.warmGray, opacity: 0.6, display: "flex", alignItems: "center", gap: 4 }}>
+        <div
+          style={{
+            marginTop: 12,
+            fontSize: 11,
+            letterSpacing: 1,
+            color: T.warmGray,
+                        display: "flex",
+            alignItems: "center",
+            gap: 4,
+          }}
+        >
           <Icon name="ChevronRight" size={11} color={T.warmGray} />
           {t("staff.clickHint")}
         </div>
@@ -356,7 +464,11 @@ export default function Staff() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Priests & Staff" description="Meet the Dominican Friars and church staff serving the community at St. Dominic Catholic Church in Youngstown, Ohio." image={PHOTOS.aboutHero} />
+      <Seo
+        title="Priests & Staff"
+        description="Meet the Dominican Friars and church staff serving the community at St. Dominic Catholic Church in Youngstown, Ohio."
+        image={PHOTOS.aboutHero}
+      />
       <PageHeader title={t("staff.title")} />
       <PremiumPageActions
         overlap
@@ -410,92 +522,198 @@ export default function Staff() {
 
       {/* Leadership */}
       <Section id="staff-leadership">
-        <FadeSection>
-          <SectionTitle sub={t("staff.leadership.sub")}>{t("staff.leadership.title")}</SectionTitle>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 32, maxWidth: 680, margin: "0 auto" }}>
-            {leadership.map((s) => <LeaderCard key={s.id} person={s} />)}
-          </div>
-        </FadeSection>
+        <SectionTitle sub={t("staff.leadership.sub")}>{t("staff.leadership.title")}</SectionTitle>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: 32,
+            maxWidth: 680,
+            margin: "0 auto",
+          }}
+        >
+          {leadership.map((s) => (
+            <LeaderCard key={s.id} person={s} />
+          ))}
+        </div>
       </Section>
 
       {/* In Residence */}
-      <section style={{ position: "relative", overflow: "hidden", background: T.softBlack, padding: "clamp(48px,10vw,80px) 24px" }}>
-        <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}>
-          <defs><pattern id="staffCross" width="60" height="60" patternUnits="userSpaceOnUse">
-            <g transform="translate(30,30)" fill="#fff">
-              <path d="M-2.5 -9 L2.5 -9 L2.5 -2.5 L9 -2.5 L9 2.5 L2.5 2.5 L2.5 9 L-2.5 9 L-2.5 2.5 L-9 2.5 L-9 -2.5 L-2.5 -2.5 Z" opacity="0.8" />
-              <path d="M0 -9 C-2.5 -12, -4 -13.5, -3 -15 C-2 -16.5, 0 -14, 0 -12.5 C0 -14, 2 -16.5, 3 -15 C4 -13.5, 2.5 -12, 0 -9Z" opacity="0.6" />
-              <path d="M0 9 C-2.5 12, -4 13.5, -3 15 C-2 16.5, 0 14, 0 12.5 C0 14, 2 16.5, 3 15 C4 13.5, 2.5 12, 0 9Z" opacity="0.6" />
-              <path d="M-9 0 C-12 -2.5, -13.5 -4, -15 -3 C-16.5 -2, -14 0, -12.5 0 C-14 0, -16.5 2, -15 3 C-13.5 4, -12 2.5, -9 0Z" opacity="0.6" />
-              <path d="M9 0 C12 -2.5, 13.5 -4, 15 -3 C16.5 -2, 14 0, 12.5 0 C14 0, 16.5 2, 15 3 C13.5 4, 12 2.5, 9 0Z" opacity="0.6" />
-            </g>
-          </pattern></defs>
+      <section
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          background: T.softBlack,
+          padding: "clamp(48px,10vw,80px) 24px",
+        }}
+      >
+        <svg
+          aria-hidden="true"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}
+        >
+          <defs>
+            <pattern id="staffCross" width="60" height="60" patternUnits="userSpaceOnUse">
+              <g transform="translate(30,30)" fill="#fff">
+                <path
+                  d="M-2.5 -9 L2.5 -9 L2.5 -2.5 L9 -2.5 L9 2.5 L2.5 2.5 L2.5 9 L-2.5 9 L-2.5 2.5 L-9 2.5 L-9 -2.5 L-2.5 -2.5 Z"
+                  opacity="0.8"
+                />
+                <path
+                  d="M0 -9 C-2.5 -12, -4 -13.5, -3 -15 C-2 -16.5, 0 -14, 0 -12.5 C0 -14, 2 -16.5, 3 -15 C4 -13.5, 2.5 -12, 0 -9Z"
+                  opacity="0.6"
+                />
+                <path
+                  d="M0 9 C-2.5 12, -4 13.5, -3 15 C-2 16.5, 0 14, 0 12.5 C0 14, 2 16.5, 3 15 C4 13.5, 2.5 12, 0 9Z"
+                  opacity="0.6"
+                />
+                <path
+                  d="M-9 0 C-12 -2.5, -13.5 -4, -15 -3 C-16.5 -2, -14 0, -12.5 0 C-14 0, -16.5 2, -15 3 C-13.5 4, -12 2.5, -9 0Z"
+                  opacity="0.6"
+                />
+                <path
+                  d="M9 0 C12 -2.5, 13.5 -4, 15 -3 C16.5 -2, 14 0, 12.5 0 C14 0, 16.5 2, 15 3 C13.5 4, 12 2.5, 9 0Z"
+                  opacity="0.6"
+                />
+              </g>
+            </pattern>
+          </defs>
           <rect width="100%" height="100%" fill="url(#staffCross)" />
         </svg>
         <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <FadeSection>
-            <SectionTitle sub={t("staff.residence.sub")} light>{t("staff.residence.title")}</SectionTitle>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 24, maxWidth: 800, margin: "0 auto" }}>
-              {inResidence.map((s) => <ResidenceCard key={s.id} person={s} />)}
-            </div>
-          </FadeSection>
+          <SectionTitle sub={t("staff.residence.sub")} light>
+            {t("staff.residence.title")}
+          </SectionTitle>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gap: 24,
+              maxWidth: 800,
+              margin: "0 auto",
+            }}
+          >
+            {inResidence.map((s) => (
+              <ResidenceCard key={s.id} person={s} />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Parish Staff */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub={t("staff.staff.sub")}>{t("staff.staff.title")}</SectionTitle>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 28, maxWidth: 680, margin: "0 auto" }}>
-            {staff.map((s) => <StaffCard key={s.id} person={s} />)}
-          </div>
-        </FadeSection>
+        <SectionTitle sub={t("staff.staff.sub")}>{t("staff.staff.title")}</SectionTitle>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: 28,
+            maxWidth: 680,
+            margin: "0 auto",
+          }}
+        >
+          {staff.map((s) => (
+            <StaffCard key={s.id} person={s} />
+          ))}
+        </div>
       </Section>
 
       {/* Modal */}
       {modal && (
-        <div className="staff-modal-backdrop" onClick={(e) => e.target === e.currentTarget && closeModal()}>
+        <div
+          className="staff-modal-backdrop"
+          onClick={(e) => e.target === e.currentTarget && closeModal()}
+        >
           <div className="staff-modal" role="dialog" aria-modal="true">
             <button
               onClick={closeModal}
               aria-label="Close"
               style={{
-                position: "absolute", top: 16, right: 16,
-                width: 36, height: 36, borderRadius: "50%", border: "none", cursor: "pointer",
-                display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1,
+                position: "absolute",
+                top: 16,
+                right: 16,
+                width: 36,
+                height: 36,
+                borderRadius: "50%",
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 1,
                 background: modal.group === "staff" ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.2)",
               }}
             >
               <X size={18} color={modal.group === "staff" ? T.softBlack : "#fff"} />
             </button>
 
-            <div style={{
-              background: modal.group === "leadership"
-                ? `linear-gradient(135deg, ${T.burgundyDark}, ${T.burgundy})`
-                : modal.group === "residence" ? T.softBlack
-                : `linear-gradient(135deg, ${T.gold}, ${T.goldLight})`,
-              padding: "48px 32px 32px",
-              textAlign: "center",
-              borderRadius: "16px 16px 0 0",
-            }}>
+            <div
+              style={{
+                background:
+                  modal.group === "leadership"
+                    ? `linear-gradient(135deg, ${T.burgundyDark}, ${T.burgundy})`
+                    : modal.group === "residence"
+                      ? T.softBlack
+                      : `linear-gradient(135deg, ${T.gold}, ${T.goldLight})`,
+                padding: "48px 32px 32px",
+                textAlign: "center",
+                borderRadius: "16px 16px 0 0",
+              }}
+            >
               {modal.photo ? (
-                <img src={avatarVariant(modal.photo)} onError={avatarFallback(modal.photo)} alt={modal.name} style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover", objectPosition: "top center", border: `3px solid ${T.gold}`, margin: "0 auto", display: "block" }} />
+                <img
+                  src={avatarVariant(modal.photo)}
+                  onError={avatarFallback(modal.photo)}
+                  alt={modal.name}
+                  style={{
+                    width: 120,
+                    height: 120,
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    objectPosition: "top center",
+                    border: `3px solid ${T.gold}`,
+                    margin: "0 auto",
+                    display: "block",
+                  }}
+                />
               ) : (
-                <div style={{
-                  width: 120, height: 120, borderRadius: "50%",
-                  background: modal.group === "staff" ? `linear-gradient(135deg, ${T.gold}, ${T.goldLight})` : "rgba(255,255,255,0.1)",
-                  color: modal.group === "staff" ? T.softBlack : T.goldText,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: 40,
-                  margin: "0 auto",
-                }}>
+                <div
+                  style={{
+                    width: 120,
+                    height: 120,
+                    borderRadius: "50%",
+                    background:
+                      modal.group === "staff"
+                        ? `linear-gradient(135deg, ${T.gold}, ${T.goldLight})`
+                        : "rgba(255,255,255,0.1)",
+                    color: modal.group === "staff" ? T.softBlack : T.goldText,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontWeight: 700,
+                    fontSize: 40,
+                    margin: "0 auto",
+                  }}
+                >
                   {initials(modal.name)}
                 </div>
               )}
-              <h2 style={{ fontSize: 26, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: modal.group === "staff" ? T.softBlack : "#fff", marginTop: 20, marginBottom: 8, lineHeight: 1.2 }}>
+              <h2
+                style={{
+                  fontSize: 26,
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontWeight: 700,
+                  color: modal.group === "staff" ? T.softBlack : "#fff",
+                  marginTop: 20,
+                  marginBottom: 8,
+                  lineHeight: 1.2,
+                }}
+              >
                 {modal.name}
               </h2>
-              <div className={`chip ${modal.group === "staff" ? "chip--soft-burgundy" : "chip--on-dark"}`}>
+              <div
+                className={`chip ${modal.group === "staff" ? "chip--soft-burgundy" : "chip--on-dark"}`}
+              >
                 {displayRole(modal)}
               </div>
             </div>
@@ -506,15 +724,46 @@ export default function Staff() {
               </p>
               <ModalQuote id={modal.id} />
               <div style={{ borderTop: `1px solid ${T.stone}`, paddingTop: 20 }}>
-                <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: T.warmGray, marginBottom: 12, fontWeight: 600 }}>
+                <div
+                  style={{
+                    fontSize: 11,
+                    letterSpacing: 2,
+                    textTransform: "uppercase",
+                    color: T.warmGray,
+                    marginBottom: 12,
+                    fontWeight: 600,
+                  }}
+                >
                   {t("staff.modal.contact")}
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  <a href={CONFIG.phoneLink} style={{ display: "flex", alignItems: "center", gap: 10, color: T.softBlack, textDecoration: "none", fontSize: 15 }}>
-                    <Phone size={16} color={T.burgundy} />{CONFIG.phone}
+                  <a
+                    href={CONFIG.phoneLink}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      color: T.softBlack,
+                      textDecoration: "none",
+                      fontSize: 15,
+                    }}
+                  >
+                    <Phone size={16} color={T.burgundy} />
+                    {CONFIG.phone}
                   </a>
-                  <a href={`mailto:${CONFIG.email}`} style={{ display: "flex", alignItems: "center", gap: 10, color: T.softBlack, textDecoration: "none", fontSize: 15 }}>
-                    <Mail size={16} color={T.burgundy} />{CONFIG.email}
+                  <a
+                    href={`mailto:${CONFIG.email}`}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      color: T.softBlack,
+                      textDecoration: "none",
+                      fontSize: 15,
+                    }}
+                  >
+                    <Mail size={16} color={T.burgundy} />
+                    {CONFIG.email}
                   </a>
                 </div>
                 <p style={{ fontSize: 12, color: T.warmGray, fontStyle: "italic", marginTop: 12 }}>

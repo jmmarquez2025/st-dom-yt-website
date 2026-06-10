@@ -12,6 +12,10 @@ import ResponsivePicture from "./ResponsivePicture";
  *   image     — background image URL
  *   overlay   — dark overlay opacity (default 0.5)
  *   tint      — optional CSS color tint
+ *   scrim     — "flat" (default) | "corner": directional gradient that holds
+ *               the bottom-left corner (where the text sits) and lets the
+ *               rest of the photograph read
+ *   align     — "center" (default) | "bottom-left"
  *   height    — total scroll runway (default "180vh")
  *   showScrollHint — whether to show the small scroll cue
  *   children  — hero content (title, subtitle, etc.)
@@ -20,6 +24,8 @@ export default function StickyHero({
   image,
   overlay = 0.5,
   tint,
+  scrim = "flat",
+  align = "center",
   height = "130vh",
   viewportHeight = "100vh",
   showScrollHint = true,
@@ -73,7 +79,7 @@ export default function StickyHero({
           height: viewportHeight,
           overflow: "hidden",
           display: "flex",
-          alignItems: "center",
+          alignItems: align === "bottom-left" ? "flex-end" : "center",
           justifyContent: "center",
         }}
       >
@@ -115,9 +121,12 @@ export default function StickyHero({
           style={{
             position: "absolute",
             inset: 0,
-            background: tint
-              ? `linear-gradient(160deg, ${tint}, rgba(0,0,0,${overlay}))`
-              : `rgba(0,0,0,${overlay})`,
+            background:
+              scrim === "corner"
+                ? `linear-gradient(to top right, rgba(20, 12, 13, 0.82) 0%, rgba(20, 12, 13, 0.46) 32%, rgba(20, 12, 13, 0.16) 58%, rgba(20, 12, 13, 0) 80%), rgba(0, 0, 0, ${overlay})`
+                : tint
+                  ? `linear-gradient(160deg, ${tint}, rgba(0,0,0,${overlay}))`
+                  : `rgba(0,0,0,${overlay})`,
             opacity: loaded ? 1 : 0,
             transition: loaded ? "none" : "opacity 0.8s ease",
           }}
@@ -128,8 +137,12 @@ export default function StickyHero({
           style={{
             position: "relative",
             zIndex: 1,
-            textAlign: "center",
-            padding: "0 24px",
+            textAlign: align === "bottom-left" ? "left" : "center",
+            width: align === "bottom-left" ? "min(1140px, 100%)" : undefined,
+            padding:
+              align === "bottom-left"
+                ? "0 24px clamp(40px, 7vh, 76px)"
+                : "0 24px",
             opacity: textOpacity,
             transform: `translateY(${textY}px)`,
             willChange: "transform, opacity",

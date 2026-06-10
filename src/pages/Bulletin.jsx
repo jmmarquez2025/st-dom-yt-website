@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import PremiumPageActions from "../components/PremiumPageActions";
 
 import Seo from "../components/Seo";
@@ -26,10 +25,7 @@ export default function Bulletin() {
 
   // Admin-managed archive takes priority over CMS/static data
   const { data: cmsBulletins } = useBulletins();
-  const adminArchive = useMemo(
-    () => (hasArchive() ? getArchive() : null),
-    [syncVersion]
-  );
+  const adminArchive = useMemo(() => (hasArchive() ? getArchive() : null), [syncVersion]);
   const bulletins = adminArchive || cmsBulletins;
 
   return (
@@ -120,368 +116,385 @@ export default function Bulletin() {
 
       {/* ════ Embedded Flipbook ════ */}
       <Section id="current-bulletin">
-        <FadeSection>
-          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-            <h2
-              style={{
-                fontSize: "clamp(24px, 4vw, 34px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                color: T.softBlack,
-                textAlign: "center",
-                marginBottom: 32,
-              }}
-            >
-              {t("bulletin.heading")}
-            </h2>
-            <p
-              style={{
-                fontSize: 13,
-                color: T.warmGray,
-                textAlign: "center",
-                maxWidth: 620,
-                margin: "-20px auto 28px",
-              }}
-            >
-              {t("bulletin.reviewed")}
-            </p>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <h2
+            style={{
+              fontSize: "clamp(24px, 4vw, 34px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 600,
+              color: T.softBlack,
+              textAlign: "center",
+              marginBottom: 32,
+            }}
+          >
+            {t("bulletin.heading")}
+          </h2>
+          <p
+            style={{
+              fontSize: 13,
+              color: T.warmGray,
+              textAlign: "center",
+              maxWidth: 620,
+              margin: "-20px auto 28px",
+            }}
+          >
+            {t("bulletin.reviewed")}
+          </p>
 
-            {hasBulletin ? (
-              <>
-                {/* Flipbook container */}
+          {hasBulletin ? (
+            <>
+              {/* Flipbook container */}
+              <div
+                style={{
+                  borderRadius: 6,
+                  overflow: "hidden",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+                  border: `1px solid ${T.stone}`,
+                  background: T.cream,
+                }}
+              >
+                {/* Responsive aspect-ratio container */}
                 <div
                   style={{
-                    borderRadius: 6,
-                    overflow: "hidden",
-                    boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
-                    border: `1px solid ${T.stone}`,
-                    background: T.cream,
+                    position: "relative",
+                    paddingTop: "max(85%, 600px)",
+                    width: "100%",
+                    height: 0,
                   }}
                 >
-                  {/* Responsive aspect-ratio container */}
-                  <div
-                    style={{
-                      position: "relative",
-                      paddingTop: "max(85%, 600px)",
-                      width: "100%",
-                      height: 0,
-                    }}
-                  >
-                    {/* Loading skeleton */}
-                    {loading && (
-                      <div
-                        style={{
-                          position: "absolute",
-                          inset: 0,
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          gap: 16,
-                          background: T.cream,
-                          zIndex: 2,
-                        }}
-                      >
-                        <style>{`
+                  {/* Loading skeleton */}
+                  {loading && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 16,
+                        background: T.cream,
+                        zIndex: 2,
+                      }}
+                    >
+                      <style>{`
                           @keyframes bulletinPulse {
                             0%, 100% { opacity: 0.4; }
                             50% { opacity: 1; }
                           }
                         `}</style>
-                        <Icon name="Newspaper" size={48} color={T.stone} />
-                        <div
-                          style={{
-                            fontSize: 14,
-                            color: T.warmGray,
-                            letterSpacing: 1,
-                            animation: "bulletinPulse 1.5s ease infinite",
-                          }}
-                        >
-                          {t("bulletin.loading")}
-                        </div>
+                      <Icon name="Newspaper" size={48} color={T.stone} />
+                      <div
+                        style={{
+                          fontSize: 14,
+                          color: T.warmGray,
+                          letterSpacing: 1,
+                          animation: "bulletinPulse 1.5s ease infinite",
+                        }}
+                      >
+                        {t("bulletin.loading")}
                       </div>
-                    )}
+                    </div>
+                  )}
 
-                    <iframe
-                      src={bulletinUrl}
-                      onLoad={() => setLoading(false)}
-                      seamless="seamless"
-                      scrolling="no"
-                      style={{
-                        position: "absolute",
-                        width: "100%",
-                        height: "100%",
-                        left: 0,
-                        top: 0,
-                        border: "none",
-                      }}
-                      allowFullScreen
-                      allowTransparency="true"
-                      title={t("bulletin.heading")}
-                    />
-                  </div>
-                </div>
-
-                {/* Fullscreen link */}
-                <div style={{ textAlign: "center", marginTop: 16 }}>
-                  <a
-                    href={bulletinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <iframe
+                    src={bulletinUrl}
+                    onLoad={() => setLoading(false)}
+                    seamless="seamless"
+                    scrolling="no"
                     style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: 8,
-                      fontSize: 14,
-                      color: T.burgundy,
-                      fontWeight: 600,
-                      letterSpacing: 0.5,
-                      textDecoration: "none",
-                      transition: "opacity 0.2s ease",
+                      position: "absolute",
+                      width: "100%",
+                      height: "100%",
+                      left: 0,
+                      top: 0,
+                      border: "none",
                     }}
-                  >
-                    <ExternalLink size={14} />
-                    {t("bulletin.fullscreen")}
-                  </a>
+                    allowFullScreen
+                    allowTransparency="true"
+                    title={t("bulletin.heading")}
+                  />
                 </div>
-              </>
-            ) : (
-              /* Fallback when no URL configured */
-              <div
-                style={{
-                  textAlign: "center",
-                  padding: "clamp(48px, 8vw, 80px) 24px",
-                  background: T.cream,
-                  borderRadius: 6,
-                  border: `1px solid ${T.stone}`,
-                }}
-              >
-                <Icon name="Newspaper" size={64} color={T.stone} />
-                <h3
-                  style={{
-                    fontSize: 24,
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontWeight: 600,
-                    color: T.softBlack,
-                    marginTop: 20,
-                    marginBottom: 12,
-                  }}
-                >
-                  {t("bulletin.fallback.title")}
-                </h3>
-                <p
-                  style={{
-                    fontSize: 15,
-                    color: T.warmGray,
-                    lineHeight: 1.7,
-                    maxWidth: 480,
-                    margin: "0 auto 24px",
-                  }}
-                >
-                  {t("bulletin.fallback.desc")}
-                </p>
+              </div>
+
+              {/* Fullscreen link */}
+              <div style={{ textAlign: "center", marginTop: 16 }}>
                 <a
-                  href="https://saintdominic.org/bulletins"
+                  href={bulletinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-hover"
                   style={{
-                    display: "inline-block",
-                    padding: "14px 32px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 8,
                     fontSize: 14,
+                    color: T.burgundy,
                     fontWeight: 600,
-                    letterSpacing: 1,
-                    textTransform: "uppercase",
-                    background: T.burgundy,
-                    color: T.cream,
-                    borderRadius: 2,
+                    letterSpacing: 0.5,
                     textDecoration: "none",
-                    transition: "all 0.3s ease",
+                    transition: "opacity 0.2s ease",
                   }}
                 >
-                  {t("bulletin.fallback.cta")}
+                  <ExternalLink size={14} />
+                  {t("bulletin.fullscreen")}
                 </a>
               </div>
-            )}
-          </div>
-        </FadeSection>
+            </>
+          ) : (
+            /* Fallback when no URL configured */
+            <div
+              style={{
+                textAlign: "center",
+                padding: "clamp(48px, 8vw, 80px) 24px",
+                background: T.cream,
+                borderRadius: 6,
+                border: `1px solid ${T.stone}`,
+              }}
+            >
+              <Icon name="Newspaper" size={64} color={T.stone} />
+              <h3
+                style={{
+                  fontSize: 24,
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontWeight: 600,
+                  color: T.softBlack,
+                  marginTop: 20,
+                  marginBottom: 12,
+                }}
+              >
+                {t("bulletin.fallback.title")}
+              </h3>
+              <p
+                style={{
+                  fontSize: 15,
+                  color: T.warmGray,
+                  lineHeight: 1.7,
+                  maxWidth: 480,
+                  margin: "0 auto 24px",
+                }}
+              >
+                {t("bulletin.fallback.desc")}
+              </p>
+              <a
+                href="https://saintdominic.org/bulletins"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-hover"
+                style={{
+                  display: "inline-block",
+                  padding: "14px 32px",
+                  fontSize: 14,
+                  fontWeight: 600,
+                  letterSpacing: 1,
+                  textTransform: "uppercase",
+                  background: T.burgundy,
+                  color: T.cream,
+                  borderRadius: 2,
+                  textDecoration: "none",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                {t("bulletin.fallback.cta")}
+              </a>
+            </div>
+          )}
+        </div>
       </Section>
 
       {/* ════ Bulletin Archive ════ */}
       {bulletins.length > 0 && (
         <Section id="bulletin-archive" bg={T.cream}>
-          <FadeSection>
-            <SectionTitle sub={t("bulletin.archive.sub")}>{t("bulletin.archive.title")}</SectionTitle>
-            <div style={{ maxWidth: 680, margin: "0 auto", display: "flex", flexDirection: "column", gap: 10 }}>
-              {bulletins.map((b, i) => {
-                const d = new Date(b.date + "T00:00:00");
-                const dateLabel = d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-                return (
-                  <div
-                    key={i}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      background: "#fff",
-                      border: `1px solid ${T.stone}`,
-                      borderRadius: 8,
-                      padding: "14px 20px",
-                      gap: 16,
-                    }}
-                  >
-                    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                      <FileText size={18} color={T.burgundy} />
-                      <div>
-                        <div style={{ fontSize: 15, fontWeight: 600, color: T.softBlack, fontFamily: "'Cormorant Garamond', serif" }}>
-                          {b.label}
-                        </div>
-                        <div style={{ fontSize: 12, color: T.warmGray }}>{dateLabel}</div>
-                      </div>
-                    </div>
-                    {b.url ? (
-                      <a
-                        href={b.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+          <SectionTitle sub={t("bulletin.archive.sub")}>{t("bulletin.archive.title")}</SectionTitle>
+          <div
+            style={{
+              maxWidth: 680,
+              margin: "0 auto",
+              display: "flex",
+              flexDirection: "column",
+              gap: 10,
+            }}
+          >
+            {bulletins.map((b, i) => {
+              const d = new Date(b.date + "T00:00:00");
+              const dateLabel = d.toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              });
+              return (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    background: "#fff",
+                    border: `1px solid ${T.stone}`,
+                    borderRadius: 8,
+                    padding: "14px 20px",
+                    gap: 16,
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <FileText size={18} color={T.burgundy} />
+                    <div>
+                      <div
                         style={{
-                          display: "inline-flex", alignItems: "center", gap: 6,
-                          fontSize: 12, fontWeight: 700, letterSpacing: 1,
-                          textTransform: "uppercase", color: T.burgundy,
-                          textDecoration: "none", whiteSpace: "nowrap",
+                          fontSize: 15,
+                          fontWeight: 600,
+                          color: T.softBlack,
+                          fontFamily: "'Cormorant Garamond', serif",
                         }}
                       >
-                        <ExternalLink size={13} />
-                        {t("bulletin.archive.download")}
-                      </a>
-                    ) : (
-                      <span style={{ fontSize: 12, color: T.warmGray, fontStyle: "italic" }}>
-                        {t("bulletin.archive.noLink")}
-                      </span>
-                    )}
+                        {b.label}
+                      </div>
+                      <div style={{ fontSize: 12, color: T.warmGray }}>{dateLabel}</div>
+                    </div>
                   </div>
-                );
-              })}
-            </div>
-          </FadeSection>
+                  {b.url ? (
+                    <a
+                      href={b.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 6,
+                        fontSize: 12,
+                        fontWeight: 700,
+                        letterSpacing: 1,
+                        textTransform: "uppercase",
+                        color: T.burgundy,
+                        textDecoration: "none",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      <ExternalLink size={13} />
+                      {t("bulletin.archive.download")}
+                    </a>
+                  ) : (
+                    <span style={{ fontSize: 12, color: T.warmGray, fontStyle: "italic" }}>
+                      {t("bulletin.archive.noLink")}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </Section>
       )}
 
       {/* ════ Bulletin Info ════ */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub={t("bulletin.info.sub")}>
-            {t("bulletin.info.title")}
-          </SectionTitle>
+        <SectionTitle sub={t("bulletin.info.sub")}>{t("bulletin.info.title")}</SectionTitle>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 24,
+            maxWidth: 700,
+            margin: "0 auto",
+          }}
+        >
+          {/* Deadline card */}
           <div
+            className="glass-card"
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: 24,
-              maxWidth: 700,
-              margin: "0 auto",
+              padding: 32,
+              position: "relative",
+              overflow: "hidden",
             }}
           >
-            {/* Deadline card */}
             <div
-              className="glass-card"
               style={{
-                padding: 32,
-                position: "relative",
-                overflow: "hidden",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 3,
+                background: T.burgundy,
               }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: 3,
-                  background: T.burgundy,
-                }}
-              />
-              <div style={{ marginBottom: 14 }}>
-                <Icon name="Clock" size={28} color={T.burgundy} />
-              </div>
-              <h3
-                style={{
-                  fontSize: 18,
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 600,
-                  color: T.softBlack,
-                  marginBottom: 8,
-                }}
-              >
-                {t("bulletin.info.deadline")}
-              </h3>
-              <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>
-                {t("bulletin.info.deadlineDesc")}
-              </p>
+            />
+            <div style={{ marginBottom: 14 }}>
+              <Icon name="Clock" size={28} color={T.burgundy} />
             </div>
-
-            {/* Contact card */}
-            <div
-              className="glass-card"
+            <h3
               style={{
-                padding: 32,
-                position: "relative",
-                overflow: "hidden",
+                fontSize: 18,
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 600,
+                color: T.softBlack,
+                marginBottom: 8,
               }}
             >
-              <div
+              {t("bulletin.info.deadline")}
+            </h3>
+            <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>
+              {t("bulletin.info.deadlineDesc")}
+            </p>
+          </div>
+
+          {/* Contact card */}
+          <div
+            className="glass-card"
+            style={{
+              padding: 32,
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 3,
+                background: T.gold,
+              }}
+            />
+            <div style={{ marginBottom: 14 }}>
+              <Icon name="Mail" size={28} color={T.gold} />
+            </div>
+            <h3
+              style={{
+                fontSize: 18,
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 600,
+                color: T.softBlack,
+                marginBottom: 8,
+              }}
+            >
+              {t("bulletin.info.contact")}
+            </h3>
+            <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7, marginBottom: 16 }}>
+              {t("bulletin.info.contactDesc")}
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              <a
+                href={CONFIG.phoneLink}
                 style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: 3,
-                  background: T.gold,
-                }}
-              />
-              <div style={{ marginBottom: 14 }}>
-                <Icon name="Mail" size={28} color={T.gold} />
-              </div>
-              <h3
-                style={{
-                  fontSize: 18,
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontSize: 15,
                   fontWeight: 600,
-                  color: T.softBlack,
-                  marginBottom: 8,
+                  color: T.burgundy,
+                  textDecoration: "none",
                 }}
               >
-                {t("bulletin.info.contact")}
-              </h3>
-              <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7, marginBottom: 16 }}>
-                {t("bulletin.info.contactDesc")}
-              </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                <a
-                  href={CONFIG.phoneLink}
-                  style={{
-                    fontSize: 15,
-                    fontWeight: 600,
-                    color: T.burgundy,
-                    textDecoration: "none",
-                  }}
-                >
-                  {CONFIG.phone}
-                </a>
-                <a
-                  href={`mailto:${CONFIG.email}`}
-                  style={{
-                    fontSize: 14,
-                    color: T.warmGray,
-                    textDecoration: "none",
-                  }}
-                >
-                  {CONFIG.email}
-                </a>
-              </div>
+                {CONFIG.phone}
+              </a>
+              <a
+                href={`mailto:${CONFIG.email}`}
+                style={{
+                  fontSize: 14,
+                  color: T.warmGray,
+                  textDecoration: "none",
+                }}
+              >
+                {CONFIG.email}
+              </a>
             </div>
           </div>
-        </FadeSection>
+        </div>
       </Section>
     </div>
   );

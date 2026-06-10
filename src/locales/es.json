@@ -45,7 +45,8 @@
       "diocese": "Diócesis Católica de Youngstown",
       "safeEnvironment": "Ambiente Seguro",
       "virtus": "VIRTUS Online"
-    }
+    },
+    "massTitle": "Misa Dominical"
   },
   "actionBar": {
     "label": "Lo esencial de la parroquia",
@@ -121,7 +122,8 @@
       "days": "Días",
       "hours": "Hrs",
       "min": "Min",
-      "sec": "Seg"
+      "sec": "Seg",
+      "in": "en"
     },
     "quotes": {
       "label": "Reflexión del Día",
@@ -710,11 +712,6 @@
         "desc": "Viaje misionero médico anual (abril) y viaje misionero juvenil (junio).",
         "detail": "La Iglesia Santo Domingo ofrece viajes misioneros anuales que dan a los feligreses la oportunidad de servir a los necesitados más allá de nuestra comunidad. Nuestro viaje misionero médico se realiza cada abril, llevando profesionales de la salud y voluntarios a áreas desatendidas. En junio, nuestro viaje misionero juvenil da a los jóvenes una experiencia transformadora de servicio y fe. Ambos viajes son experiencias que cambian la vida al vivir el Evangelio."
       }
-    },
-    "stats": {
-      "ministries": "Ministerios Activos",
-      "volunteers": "Voluntarios",
-      "languages": "Idiomas"
     },
     "howTo": {
       "sub": "Primeros Pasos",

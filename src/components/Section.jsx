@@ -1,49 +1,55 @@
 import { T } from "../constants/theme";
 
-export function Section({ children, bg = T.warmWhite, style: s = {}, id }) {
+const WIDTHS = { narrow: 800, default: 1140, wide: 1320 };
+
+export function Section({ children, bg = T.warmWhite, style: s = {}, id, width = "default" }) {
   return (
     <section
       id={id}
       className="cv-section"
       style={{ padding: "clamp(48px, 10vw, 80px) 24px", background: bg, ...s }}
     >
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>{children}</div>
+      <div style={{ maxWidth: WIDTHS[width] || WIDTHS.default, margin: "0 auto" }}>{children}</div>
     </section>
   );
 }
 
-export function SectionTitle({ children, sub, light, center = true, divider = true }) {
+/**
+ * Section heading, editorial anatomy: a run-in kicker (hairline rule +
+ * small caps) over a left-set serif title. Left-aligned by default — pass
+ * `center` only for a deliberately ceremonial moment (at most one per page).
+ * `index` renders an oldstyle section number before the kicker ("01 · …")
+ * for long, numbered pages. The old centered gold divider bar is gone; the
+ * `divider` prop is accepted for call-site compatibility and ignored.
+ */
+export function SectionTitle({ children, sub, light, center = false, index }) {
   return (
-    <div style={{ textAlign: center ? "center" : "left", marginBottom: 40 }}>
+    <div style={{ textAlign: center ? "center" : "left", marginBottom: 36 }}>
       {sub && (
         <div
-          style={{
-            fontSize: 12,
-            letterSpacing: 3,
-            textTransform: "uppercase",
-            color: light ? T.goldLight : T.goldText,
-            fontWeight: 600,
-            marginBottom: 8,
-          }}
+          className={`kicker${light ? " kicker--light" : ""}${index ? " kicker--index" : ""}`}
+          style={center ? { justifyContent: "center" } : undefined}
         >
+          {index && (
+            <span className="kicker__num" aria-hidden="true">
+              {index}
+            </span>
+          )}
           {sub}
         </div>
       )}
-      <h2 style={{ fontSize: "clamp(28px, 5vw, 42px)", color: light ? "#fff" : T.softBlack, fontWeight: 600 }}>
+      <h2
+        style={{
+          marginTop: sub ? 10 : 0,
+          fontSize: "clamp(28px, 4.5vw, 40px)",
+          color: light ? "#fff" : T.softBlack,
+          fontWeight: 600,
+          letterSpacing: "var(--tracking-display)",
+          textWrap: "balance",
+        }}
+      >
         {children}
       </h2>
-      {divider && (
-        <div
-          className="gold-divider"
-          style={{
-            width: 48,
-            height: 2,
-            background: T.gold,
-            margin: center ? "14px auto 0" : "14px 0 0",
-            borderRadius: 1,
-          }}
-        />
-      )}
     </div>
   );
 }

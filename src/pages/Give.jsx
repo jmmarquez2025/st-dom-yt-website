@@ -26,12 +26,14 @@ export default function Give() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Online Giving" description="Support St. Dominic Catholic Church through online giving. Your generosity sustains our ministries and community outreach." image={PHOTOS.stockGiving} />
-      <PageHeader title={t("give.title")} heroSrc={PHOTOS.stockGiving} tall />
+      <Seo
+        title="Online Giving"
+        description="Support St. Dominic Catholic Church through online giving. Your generosity sustains our ministries and community outreach."
+        image={PHOTOS.stockGiving}
+      />
+      <PageHeader title={t("give.title")} variant="text" kicker={t("give.sub")} />
 
       <PremiumPageActions
-        overlap
-        eyebrow={t("give.sub")}
         title={t("give.clarityTitle")}
         items={[
           {
@@ -57,37 +59,64 @@ export default function Give() {
         ]}
       />
 
+      {/* The one deliberately centered, ceremonial moment on the site:
+          stewardship verse under a centered heading. Everything else is
+          left-set — the contrast is what makes this read as intentional. */}
       <Section bg={T.warmWhite} style={donationSectionStyle}>
-        <SectionTitle sub={t("give.sub")}>{t("give.heading")}</SectionTitle>
-        <PullQuote
-          text={t("give.quote")}
-          src={t("give.quoteSrc")}
-        />
-        <p style={{ fontSize: 16, color: T.warmGray, lineHeight: 1.8, textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
+        <SectionTitle sub={t("give.sub")} center>
+          {t("give.heading")}
+        </SectionTitle>
+        <PullQuote text={t("give.quote")} src={t("give.quoteSrc")} />
+        {/* CTAs live in the actions panel above and the Flocknote card below —
+            repeating them here diluted both. */}
+        <p
+          style={{
+            fontSize: 16,
+            color: T.warmGray,
+            lineHeight: 1.8,
+            textAlign: "center",
+            maxWidth: 640,
+            margin: "0 auto",
+          }}
+        >
           {t("give.desc")}
         </p>
-        <PastoralActionPanel
-          eyebrow={t("give.sub")}
-          title={t("give.clarityTitle")}
-          description={t("give.clarityDesc")}
-          primaryLabel={t("give.flocknoteBtn")}
-          primaryHref={CONFIG.flocknoteGivingUrl}
-          secondaryLabel={t("give.next.office.title")}
-          secondaryHref={CONFIG.phoneLink}
-        />
       </Section>
 
       {/* Flocknote Online Giving */}
       <Section bg={T.cream} style={donationSectionStyle}>
         <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
-          <div style={{ background: T.warmWhite, border: `1px solid ${T.stone}`, borderRadius: 4, padding: 48 }}>
+          <div
+            style={{
+              background: T.warmWhite,
+              border: `1px solid ${T.stone}`,
+              borderRadius: 4,
+              padding: 48,
+            }}
+          >
             <div style={{ marginBottom: 16 }} aria-hidden="true">
               <Icon name="Gift" size={48} color={T.burgundy} />
             </div>
-            <h3 style={{ fontSize: 28, color: T.burgundy, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif" }}>
+            <h3
+              style={{
+                fontSize: 28,
+                color: T.burgundy,
+                marginBottom: 16,
+                fontFamily: "'Cormorant Garamond', serif",
+              }}
+            >
               {t("give.onlineTitle")}
             </h3>
-            <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.8, marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
+            <p
+              style={{
+                fontSize: 15,
+                color: T.warmGray,
+                lineHeight: 1.8,
+                marginBottom: 24,
+                maxWidth: 500,
+                margin: "0 auto 24px",
+              }}
+            >
               {t("give.onlineDesc")}
             </p>
             <div
@@ -116,7 +145,9 @@ export default function Give() {
                 >
                   <Icon name={icon} size={20} color={T.burgundy} />
                   <div>
-                    <h4 style={{ fontSize: 13, color: T.softBlack, marginBottom: 4, fontWeight: 700 }}>
+                    <h4
+                      style={{ fontSize: 13, color: T.softBlack, marginBottom: 4, fontWeight: 700 }}
+                    >
                       {t(`give.portalFeatures.${key}.title`)}
                     </h4>
                     <p style={{ fontSize: 12, color: T.warmGray, lineHeight: 1.45, margin: 0 }}>
@@ -133,9 +164,18 @@ export default function Give() {
                 rel="noopener noreferrer"
                 className="btn-hover"
                 style={{
-                  display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 40px", background: T.gold,
-                  color: T.softBlack, fontSize: 15, fontWeight: 600, letterSpacing: 1,
-                  textTransform: "uppercase", borderRadius: 2, textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 10,
+                  padding: "16px 40px",
+                  background: T.gold,
+                  color: T.softBlack,
+                  fontSize: 15,
+                  fontWeight: 600,
+                  letterSpacing: 1,
+                  textTransform: "uppercase",
+                  borderRadius: 2,
+                  textDecoration: "none",
                   fontFamily: "'Source Sans 3', sans-serif",
                 }}
               >
@@ -143,7 +183,14 @@ export default function Give() {
                 <Icon name="ExternalLink" size={16} color={T.softBlack} strokeWidth={2} />
               </a>
             ) : (
-              <div style={{ background: T.cream, borderRadius: 4, padding: 24, border: `1px solid ${T.stone}` }}>
+              <div
+                style={{
+                  background: T.cream,
+                  borderRadius: 4,
+                  padding: 24,
+                  border: `1px solid ${T.stone}`,
+                }}
+              >
                 <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.7 }}>
                   {t("give.comingSoon")}
                 </p>
@@ -155,33 +202,51 @@ export default function Give() {
             <p style={{ fontSize: 12, color: T.warmGray, marginTop: 20, fontStyle: "italic" }}>
               {t("give.flocknoteNote")}
             </p>
-            <p style={{ fontSize: 12, color: T.warmGray, marginTop: 8 }}>
-              {t("give.feeNote")}
-            </p>
+            <p style={{ fontSize: 12, color: T.warmGray, marginTop: 8 }}>{t("give.feeNote")}</p>
           </div>
         </div>
       </Section>
 
       {/* Parallax visual break */}
-      <ParallaxSection
-        image={PHOTOS.stockCandles}
-        height="30vh"
-        overlay={0.45}
-      >
+      <ParallaxSection image={PHOTOS.stockCandles} height="30vh" overlay={0.45}>
         <DominicanDivider color={T.goldLight} width={160} />
       </ParallaxSection>
 
       {/* Other giving methods */}
       <Section bg={T.warmWhite} style={donationSectionStyle}>
         <SectionTitle sub={t("give.otherSub")}>{t("give.otherTitle")}</SectionTitle>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: 24,
+          }}
+        >
           {["offertory", "mail", "stock"].map((key) => (
-            <div key={key} className="hover-lift" style={{ background: T.cream, padding: 32, borderRadius: 4, textAlign: "center", border: `1px solid ${T.stone}` }}>
+            <div
+              key={key}
+              className="hover-lift"
+              style={{
+                background: T.cream,
+                padding: 32,
+                borderRadius: 4,
+                textAlign: "center",
+                border: `1px solid ${T.stone}`,
+              }}
+            >
               <div style={{ marginBottom: 12 }} aria-hidden="true">
-                <Icon name={key === "offertory" ? "Church" : key === "mail" ? "Mail" : "TrendingUp"} size={32} color={T.burgundy} />
+                <Icon
+                  name={key === "offertory" ? "Church" : key === "mail" ? "Mail" : "TrendingUp"}
+                  size={32}
+                  color={T.burgundy}
+                />
               </div>
-              <h3 style={{ fontSize: 18, marginBottom: 8, color: T.burgundy }}>{t(`give.methods.${key}.title`)}</h3>
-              <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>{t(`give.methods.${key}.desc`)}</p>
+              <h3 style={{ fontSize: 18, marginBottom: 8, color: T.burgundy }}>
+                {t(`give.methods.${key}.title`)}
+              </h3>
+              <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>
+                {t(`give.methods.${key}.desc`)}
+              </p>
             </div>
           ))}
         </div>
@@ -190,12 +255,16 @@ export default function Give() {
       {/* Tax info */}
       <Section bg={T.cream} style={donationSectionStyle}>
         <div style={{ maxWidth: 600, margin: "0 auto", textAlign: "center" }}>
-          <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.8 }}>
-            {t("give.taxNote")}
-          </p>
+          <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.8 }}>{t("give.taxNote")}</p>
           <p style={{ fontSize: 14, color: T.warmGray, marginTop: 12 }}>
             {t("give.questions")}{" "}
-            <a href={CONFIG.phoneLink} className="contact-link" style={{ color: T.burgundy, fontWeight: 600 }}>{CONFIG.phone}</a>
+            <a
+              href={CONFIG.phoneLink}
+              className="contact-link"
+              style={{ color: T.burgundy, fontWeight: 600 }}
+            >
+              {CONFIG.phone}
+            </a>
           </p>
         </div>
       </Section>

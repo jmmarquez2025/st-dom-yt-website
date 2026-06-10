@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { createPortal } from "react-dom";
 import { T } from "../constants/theme";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import DominicanDivider from "../components/DominicanDivider";
 import Seo from "../components/Seo";
@@ -138,7 +137,7 @@ function PassphraseGate({ onUnlock }) {
               width: "100%",
               padding: "12px 16px",
               fontSize: 15,
-              border: `1.5px solid ${error ? "#c0392b" : T.stone}`,
+              border: `1.5px solid ${error ? T.error : T.stone}`,
               borderRadius: 6,
               outline: "none",
               fontFamily: "'Source Sans 3', sans-serif",
@@ -157,7 +156,7 @@ function PassphraseGate({ onUnlock }) {
             autoFocus
           />
           {error && (
-            <p style={{ fontSize: 13, color: "#c0392b", marginBottom: 12 }}>
+            <p style={{ fontSize: 13, color: T.error, marginBottom: 12 }}>
               Incorrect passphrase. Please try again.
             </p>
           )}
@@ -220,7 +219,7 @@ function Toast({ message, type, onDismiss }) {
         alignItems: "center",
         gap: 10,
         padding: "14px 24px",
-        background: type === "error" ? "#c0392b" : "#2E7D32",
+        background: type === "error" ? T.error : "#2E7D32",
         color: "#fff",
         borderRadius: 10,
         boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
@@ -232,11 +231,7 @@ function Toast({ message, type, onDismiss }) {
       role="status"
       aria-live="polite"
     >
-      <Icon
-        name={type === "error" ? "Flame" : "Sparkles"}
-        size={18}
-        color="#fff"
-      />
+      <Icon name={type === "error" ? "Flame" : "Sparkles"} size={18} color="#fff" />
       {message}
     </div>
   );
@@ -374,9 +369,9 @@ function WelcomeHint({ onGoToData, onDismiss }) {
       >
         <span style={{ fontSize: 20 }}>👋</span>
         <div style={{ flex: 1, minWidth: 240, fontSize: 13.5, color: T.charcoal, lineHeight: 1.5 }}>
-          <strong>New here?</strong> Changes save to this browser only.
-          Visit <strong>Data & Help</strong> to learn how to back up your work
-          or move it between computers.
+          <strong>New here?</strong> Changes save to this browser only. Visit{" "}
+          <strong>Data & Help</strong> to learn how to back up your work or move it between
+          computers.
         </div>
         <button
           onClick={onGoToData}
@@ -427,7 +422,11 @@ function StaffDashboard() {
 
   const dismissHint = useCallback(() => {
     setHintDismissed(true);
-    try { localStorage.setItem(HINT_DISMISSED_KEY, "1"); } catch { /* ignore */ }
+    try {
+      localStorage.setItem(HINT_DISMISSED_KEY, "1");
+    } catch {
+      /* ignore */
+    }
   }, []);
 
   // Announcements state
@@ -463,32 +462,38 @@ function StaffDashboard() {
     setAnnView("dashboard");
   }, []);
 
-  const handleSaveAnn = useCallback((data) => {
-    try {
-      saveAnnouncement(data);
-      setToast({
-        message: data.id ? "Announcement updated!" : "Announcement created!",
-        type: "success",
-      });
-      setAnnView("dashboard");
-      setEditingAnn(null);
-      refreshAnnouncements();
-    } catch {
-      setToast({ message: "Failed to save. Please try again.", type: "error" });
-    }
-  }, [refreshAnnouncements]);
+  const handleSaveAnn = useCallback(
+    (data) => {
+      try {
+        saveAnnouncement(data);
+        setToast({
+          message: data.id ? "Announcement updated!" : "Announcement created!",
+          type: "success",
+        });
+        setAnnView("dashboard");
+        setEditingAnn(null);
+        refreshAnnouncements();
+      } catch {
+        setToast({ message: "Failed to save. Please try again.", type: "error" });
+      }
+    },
+    [refreshAnnouncements]
+  );
 
-  const handleDeleteAnn = useCallback((id) => {
-    try {
-      removeAnnouncement(id);
-      setToast({ message: "Announcement deleted.", type: "success" });
-      setAnnView("dashboard");
-      setEditingAnn(null);
-      refreshAnnouncements();
-    } catch {
-      setToast({ message: "Failed to delete.", type: "error" });
-    }
-  }, [refreshAnnouncements]);
+  const handleDeleteAnn = useCallback(
+    (id) => {
+      try {
+        removeAnnouncement(id);
+        setToast({ message: "Announcement deleted.", type: "success" });
+        setAnnView("dashboard");
+        setEditingAnn(null);
+        refreshAnnouncements();
+      } catch {
+        setToast({ message: "Failed to delete.", type: "error" });
+      }
+    },
+    [refreshAnnouncements]
+  );
 
   // ── Dynamic page title ──
   const pageTitle = (() => {
@@ -506,16 +511,15 @@ function StaffDashboard() {
         title="Staff Dashboard"
         description="Staff management dashboard for St. Dominic Catholic Church."
       />
-      <PageHeader
-        title={pageTitle}
-        heroSrc={PHOTOS.dominicanCharism}
-        tall
-      />
+      <PageHeader title={pageTitle} variant="text" />
 
       {/* ── Welcome hint (dismissible, first visit only) ── */}
       {!hintDismissed && (
         <WelcomeHint
-          onGoToData={() => { dismissHint(); handleSectionChange("data"); }}
+          onGoToData={() => {
+            dismissHint();
+            handleSectionChange("data");
+          }}
           onDismiss={dismissHint}
         />
       )}
@@ -529,95 +533,76 @@ function StaffDashboard() {
         {/* ── Bulletins section ── */}
         {section === "bulletins" && (
           <Section bg={T.warmWhite}>
-            <FadeSection>
-              <BulletinDashboard onToast={handleBulletinToast} />
-            </FadeSection>
+            <BulletinDashboard onToast={handleBulletinToast} />
           </Section>
         )}
 
         {/* ── Announcements section ── */}
         {section === "announcements" && (
           <Section bg={T.warmWhite}>
-            <FadeSection>
-              {annView === "dashboard" && (
-                <AnnouncementDashboard onEdit={handleEditAnn} onNew={handleNewAnn} />
-              )}
-              {annView === "compose" && (
-                <AnnouncementComposer
-                  announcement={editingAnn}
-                  onSave={handleSaveAnn}
-                  onDelete={handleDeleteAnn}
-                  onCancel={handleCancelAnn}
-                />
-              )}
-            </FadeSection>
+            {annView === "dashboard" && (
+              <AnnouncementDashboard onEdit={handleEditAnn} onNew={handleNewAnn} />
+            )}
+            {annView === "compose" && (
+              <AnnouncementComposer
+                announcement={editingAnn}
+                onSave={handleSaveAnn}
+                onDelete={handleDeleteAnn}
+                onCancel={handleCancelAnn}
+              />
+            )}
           </Section>
         )}
 
         {/* ── Events section ── */}
         {section === "events" && (
           <Section bg={T.warmWhite}>
-            <FadeSection>
-              <EventDashboard onToast={handleBulletinToast} />
-            </FadeSection>
+            <EventDashboard onToast={handleBulletinToast} />
           </Section>
         )}
 
         {/* ── Mass Schedule section ── */}
         {section === "schedule" && (
           <Section bg={T.warmWhite}>
-            <FadeSection>
-              <ScheduleDashboard onToast={handleBulletinToast} />
-            </FadeSection>
+            <ScheduleDashboard onToast={handleBulletinToast} />
           </Section>
         )}
 
         {/* ── Staff Directory section ── */}
         {section === "staff" && (
           <Section bg={T.warmWhite}>
-            <FadeSection>
-              <StaffDirectoryDashboard onToast={handleBulletinToast} />
-            </FadeSection>
+            <StaffDirectoryDashboard onToast={handleBulletinToast} />
           </Section>
         )}
 
         {/* ── Ministries section ── */}
         {section === "ministries" && (
           <Section bg={T.warmWhite}>
-            <FadeSection>
-              <MinistriesDashboard onToast={handleBulletinToast} />
-            </FadeSection>
+            <MinistriesDashboard onToast={handleBulletinToast} />
           </Section>
         )}
 
         {/* ── Site Settings section ── */}
         {section === "settings" && (
           <Section bg={T.warmWhite}>
-            <FadeSection>
-              <SettingsDashboard onToast={handleBulletinToast} />
-            </FadeSection>
+            <SettingsDashboard onToast={handleBulletinToast} />
           </Section>
         )}
 
         {/* ── Data & Help section ── */}
         {section === "data" && (
           <Section bg={T.warmWhite}>
-            <FadeSection>
-              <DataHelpDashboard onToast={handleBulletinToast} />
-            </FadeSection>
+            <DataHelpDashboard onToast={handleBulletinToast} />
           </Section>
         )}
       </Suspense>
 
       {/* Toast notifications (portal to body to escape transform stacking) */}
-      {toast && createPortal(
-        <Toast
-          message={toast.message}
-          type={toast.type}
-          onDismiss={() => setToast(null)}
-        />,
-        document.body
-      )}
+      {toast &&
+        createPortal(
+          <Toast message={toast.message} type={toast.type} onDismiss={() => setToast(null)} />,
+          document.body
+        )}
     </div>
   );
 }

@@ -437,3 +437,41 @@ A reviewer can step through commit-by-commit; each is a coherent theme. The audi
 ---
 
 *Phases 1–10 complete. Tests 8/8 green. Build clean (1.24s). Lighthouse a11y = **100** on every audited route. axe violations: **17 → 0**. Site shipped lighter, more accessible, more pastorally and theologically careful, and more Apple-style in motion without sliding into agency-portfolio register.*
+
+---
+
+# 2026-06-09 — Full re-audit + senior-editorial de-AI redesign
+
+**Branch:** `claude/loving-brahmagupta-d67a5e` · 12 commits (Track A remediation + Track B redesign)
+
+## Track A — functional remediation
+
+| Fix | Detail |
+|---|---|
+| Repo hygiene | 16 tracked `.codex-*.png` screenshots (~7.5 MB) untracked + gitignored; SW logs gated to dev; NextMass pauses when tab hidden |
+| A11y root causes | Scroll-fade no longer animates opacity (axe mid-fade sampling class eliminated); body links underlined; focus-visible variants for dark/gold grounds; SiteSearch became a real dialog (document-level Escape, Tab trap, focus restore, aria-modal) |
+| Forms | FloatingInput/Textarea/Select deduped into `src/components/forms/Fields.jsx`; error token `--color-error #A03423` (6.9:1) replaced off-brand `#c0392b` everywhere |
+| Tests | 12 → 22: locale-parity guard (en/es key trees must match), shared-field a11y smoke tests, search-index route validation |
+
+## Track B — the de-AI editorial redesign
+
+The tells were compositional, not token-level: center-axis symmetry everywhere, one scrim-photo header template on 16 pages, kicker+divider stacks 3-5× per page, glass countdown hero, stat strips, 13 centered pull quotes, fade-up on ~90 sections.
+
+| Batch | What changed |
+|---|---|
+| B1 tokens | `--tracking-display`, small-caps/oldstyle/drop-cap/lede utilities, quiet ink-deepen button hover (no scale), hairline ghost button (no translucent fill), dead mesh/animated gradients deleted |
+| B2 sections | SectionTitle flipped left: run-in kicker (hairline + small caps), no divider bar, optional `01 ·` numbering; Give holds the site's ONE centered ceremonial moment |
+| B3 openers | PageHeader split into families: text variant (hanging gold rule, kicker, aside) on 8 pages; photo variant recomposed bottom-left at 0.38 scrim; split variant (Visit); `sacrament-firstCommunion` VT pair fixed |
+| B4 hero | Bottom-left composition, corner scrim (photo reads), one CTA + arrow link, countdown glass boxes → one functional line, language pill → underlined link |
+| B5 surgery | GetInvolved stat strip + CountUp deleted; flat-UI hexes → muted brand palette; Visit split opener + definition-list; SaintOfTheDay print card; History ghost numerals made readable; MassTimes schedule-forward opener; VaticanNews failure fallback |
+| B6 footer | Editorial colophon: identity + live Sunday Mass schedule, small-caps run-in groups, `<address>`, asymmetric closing band |
+| B7 motion | All 90 FadeSection wrappers removed (component + hook + CSS deleted); pull quotes 13 pages → 5, survivors margin-set |
+| Final | 31 orphaned CSS rule blocks removed (global.css smaller than on main); "More" nav trigger became a true dropdown button |
+
+## Verification (production build, vite preview)
+
+- **axe: 0 violations on all 19 routes** (each scan 35-41 passing rules; fixed en route: DailyQuote gold label 2.32:1, kicker index numerals, History ghost-stone year numerals 1.26:1 → warmGray, Staff hint at 0.6 opacity)
+- **Lighthouse** (was → now): home perf 82→88 a11y 93→100 seo 100; mass-times perf 77→89 a11y 90→100; baptism perf 84→92 a11y 90→100; give perf 94→94 a11y 89→100. Best-practices 100 everywhere
+- **Tests 22/22**, lint clean, locale parity enforced (908+ keys per locale)
+- **EN + ES** screenshot review at 1440px and 390px: Spanish absorbs the left-set layouts (hero lockup, próxima-misa line, full-width CTAs verified)
+- Reports: `docs/axe/final/*.json`, `docs/lighthouse/final/*.json`

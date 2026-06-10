@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import Seo from "../components/Seo";
 import HeroImage from "../components/HeroImage";
 import PremiumPageActions from "../components/PremiumPageActions";
@@ -50,11 +49,7 @@ export default function Gallery() {
           textAlign: "center",
         }}
       >
-        <HeroImage
-          src={PHOTOS.aboutArchitecture}
-          overlay={0.55}
-          tint="rgba(26,23,20,0.5)"
-        />
+        <HeroImage src={PHOTOS.aboutArchitecture} overlay={0.55} tint="rgba(26,23,20,0.5)" />
         <div style={{ position: "relative", zIndex: 1 }}>
           <div
             style={{
@@ -111,54 +106,52 @@ export default function Gallery() {
 
       {/* ════ Photo Grid ════ */}
       <Section id="photo-grid" bg={T.warmWhite}>
-        <FadeSection>
-          <SectionTitle sub={t("gallery.sub")}>{t("gallery.title")}</SectionTitle>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-              gap: 20,
-            }}
-          >
-            {photos.map((photo, i) => (
-              <div
-                key={photo.src}
-                onClick={() => setLightboxIndex(i)}
-                role="button"
-                tabIndex={0}
-                aria-label={t(photo.alt)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setLightboxIndex(i);
-                  }
-                }}
+        <SectionTitle sub={t("gallery.sub")}>{t("gallery.title")}</SectionTitle>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gap: 20,
+          }}
+        >
+          {photos.map((photo, i) => (
+            <div
+              key={photo.src}
+              onClick={() => setLightboxIndex(i)}
+              role="button"
+              tabIndex={0}
+              aria-label={t(photo.alt)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setLightboxIndex(i);
+                }
+              }}
+              style={{
+                borderRadius: 8,
+                overflow: "hidden",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.1)",
+                cursor: "pointer",
+                position: "relative",
+              }}
+            >
+              <img
+                src={photo.src}
+                alt={t(photo.alt)}
+                loading="lazy"
                 style={{
-                  borderRadius: 8,
-                  overflow: "hidden",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.1)",
-                  cursor: "pointer",
-                  position: "relative",
+                  width: "100%",
+                  height: 280,
+                  objectFit: "cover",
+                  display: "block",
+                  transition: "transform 0.4s ease",
                 }}
-              >
-                <img
-                  src={photo.src}
-                  alt={t(photo.alt)}
-                  loading="lazy"
-                  style={{
-                    width: "100%",
-                    height: 280,
-                    objectFit: "cover",
-                    display: "block",
-                    transition: "transform 0.4s ease",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                />
-              </div>
-            ))}
-          </div>
-        </FadeSection>
+                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              />
+            </div>
+          ))}
+        </div>
       </Section>
 
       {/* ════ Lightbox Modal ════ */}
