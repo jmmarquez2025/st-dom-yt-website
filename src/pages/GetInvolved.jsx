@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PremiumPageActions from "../components/PremiumPageActions";
 
@@ -96,16 +95,15 @@ export default function GetInvolved() {
 
       {/* ════ Ministries ════ */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub={t("getInvolved.sub")}>{t("getInvolved.title")}</SectionTitle>
-          <p
-            className="u-lede"
-            style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, margin: "0 0 36px" }}
-          >
-            {t("getInvolved.desc")}
-          </p>
+        <SectionTitle sub={t("getInvolved.sub")}>{t("getInvolved.title")}</SectionTitle>
+        <p
+          className="u-lede"
+          style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, margin: "0 0 36px" }}
+        >
+          {t("getInvolved.desc")}
+        </p>
 
-          <style>{`
+        <style>{`
             .ministry-grid {
               display: grid;
               grid-template-columns: repeat(3, 1fr);
@@ -210,132 +208,123 @@ export default function GetInvolved() {
             }
           `}</style>
 
-          <div className="ministry-grid">
-            {ministries.map((m) => {
-              const accent = ACCENTS[m.key] || T.burgundy;
+        <div className="ministry-grid">
+          {ministries.map((m) => {
+            const accent = ACCENTS[m.key] || T.burgundy;
 
-              return (
+            return (
+              <div
+                key={m.id}
+                className="ministry-card"
+                role="button"
+                tabIndex={0}
+                aria-label={m.title || t(`getInvolved.ministries.${m.key}.title`)}
+                onClick={() => setSelected({ ...m, accent })}
+                onKeyDown={(e) => e.key === "Enter" && setSelected({ ...m, accent })}
+                style={{ "--accent": accent }}
+              >
                 <div
-                  key={m.id}
-                  className="ministry-card"
-                  role="button"
-                  tabIndex={0}
-                  aria-label={m.title || t(`getInvolved.ministries.${m.key}.title`)}
-                  onClick={() => setSelected({ ...m, accent })}
-                  onKeyDown={(e) => e.key === "Enter" && setSelected({ ...m, accent })}
-                  style={{ "--accent": accent }}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 16,
+                  }}
                 >
                   <div
+                    className="ministry-icon"
                     style={{
+                      width: 44,
+                      height: 44,
+                      minWidth: 44,
+                      borderRadius: "50%",
+                      background: T.stoneLight,
                       display: "flex",
-                      alignItems: "flex-start",
-                      gap: 16,
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
-                    <div
-                      className="ministry-icon"
+                    <Icon name={m.icon} size={22} color={accent} />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <h3
                       style={{
-                        width: 44,
-                        height: 44,
-                        minWidth: 44,
-                        borderRadius: "50%",
-                        background: T.stoneLight,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        fontSize: 18,
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontWeight: 600,
+                        marginBottom: 8,
+                        lineHeight: 1.3,
+                        color: T.softBlack,
                       }}
                     >
-                      <Icon name={m.icon} size={22} color={accent} />
-                    </div>
-                    <div style={{ flex: 1 }}>
-                      <h3
-                        style={{
-                          fontSize: 18,
-                          fontFamily: "'Cormorant Garamond', serif",
-                          fontWeight: 600,
-                          marginBottom: 8,
-                          lineHeight: 1.3,
-                          color: T.softBlack,
-                        }}
-                      >
-                        {m.title || t(`getInvolved.ministries.${m.key}.title`)}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: 14,
-                          color: T.warmGray,
-                          lineHeight: 1.7,
-                        }}
-                      >
-                        {m.description || t(`getInvolved.ministries.${m.key}.desc`)}
-                      </p>
-                      <div className="ministry-hint">
-                        {t("getInvolved.clickHint")}
-                      </div>
-                    </div>
+                      {m.title || t(`getInvolved.ministries.${m.key}.title`)}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: 14,
+                        color: T.warmGray,
+                        lineHeight: 1.7,
+                      }}
+                    >
+                      {m.description || t(`getInvolved.ministries.${m.key}.desc`)}
+                    </p>
+                    <div className="ministry-hint">{t("getInvolved.clickHint")}</div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </FadeSection>
+              </div>
+            );
+          })}
+        </div>
       </Section>
 
       {/* ════ How to Get Started ════ */}
       <Section>
-        <FadeSection>
-          <SectionTitle sub={t("getInvolved.howTo.sub")}>{t("getInvolved.howTo.title")}</SectionTitle>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: 24,
-              maxWidth: 800,
-              margin: "0 auto",
-            }}
-          >
-            {[
-              { num: "1", key: "explore", icon: "Search" },
-              { num: "2", key: "connect", icon: "Phone" },
-              { num: "3", key: "serve", icon: "HeartHandshake" },
-            ].map((step) => (
+        <SectionTitle sub={t("getInvolved.howTo.sub")}>{t("getInvolved.howTo.title")}</SectionTitle>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: 24,
+            maxWidth: 800,
+            margin: "0 auto",
+          }}
+        >
+          {[
+            { num: "1", key: "explore", icon: "Search" },
+            { num: "2", key: "connect", icon: "Phone" },
+            { num: "3", key: "serve", icon: "HeartHandshake" },
+          ].map((step) => (
+            <div key={step.key} className="glass-card" style={{ padding: 28 }}>
               <div
-                key={step.key}
-                className="glass-card"
-                style={{ padding: 28 }}
+                className="u-onum"
+                aria-hidden="true"
+                style={{
+                  fontSize: 30,
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  marginBottom: 12,
+                  color: T.gold,
+                }}
               >
-                <div
-                  className="u-onum"
-                  aria-hidden="true"
-                  style={{
-                    fontSize: 30,
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontWeight: 700,
-                    lineHeight: 1,
-                    marginBottom: 12,
-                    color: T.gold,
-                  }}
-                >
-                  {step.num}
-                </div>
-                <h3
-                  style={{
-                    fontSize: 18,
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontWeight: 600,
-                    marginBottom: 8,
-                    color: T.softBlack,
-                  }}
-                >
-                  {t(`getInvolved.howTo.${step.key}.title`)}
-                </h3>
-                <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.6 }}>
-                  {t(`getInvolved.howTo.${step.key}.desc`)}
-                </p>
+                {step.num}
               </div>
-            ))}
-          </div>
-        </FadeSection>
+              <h3
+                style={{
+                  fontSize: 18,
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontWeight: 600,
+                  marginBottom: 8,
+                  color: T.softBlack,
+                }}
+              >
+                {t(`getInvolved.howTo.${step.key}.title`)}
+              </h3>
+              <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.6 }}>
+                {t(`getInvolved.howTo.${step.key}.desc`)}
+              </p>
+            </div>
+          ))}
+        </div>
       </Section>
 
       {/* ════ Register CTA ════ */}
@@ -349,64 +338,58 @@ export default function GetInvolved() {
         }}
       >
         <div style={{ position: "relative", zIndex: 1, maxWidth: 600, margin: "0 auto" }}>
-          <FadeSection>
-            <h2
-              style={{
-                fontSize: "clamp(26px, 5vw, 38px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                color: "#fff",
-                marginBottom: 16,
-                lineHeight: 1.3,
-              }}
-            >
-              {t("getInvolved.register.title")}
-            </h2>
-            <p
-              style={{
-                fontSize: 16,
-                color: "rgba(255,255,255,0.8)",
-                marginBottom: 24,
-                maxWidth: 500,
-                margin: "0 auto 24px",
-                lineHeight: 1.8,
-              }}
-            >
-              {t("getInvolved.register.desc")}
-            </p>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 16,
-                justifyContent: "center",
-              }}
-            >
-              <Btn onClick={() => navigate("/contact")} variant="gold">
-                {t("getInvolved.register.cta")}
-              </Btn>
+          <h2
+            style={{
+              fontSize: "clamp(26px, 5vw, 38px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 600,
+              color: "#fff",
+              marginBottom: 16,
+              lineHeight: 1.3,
+            }}
+          >
+            {t("getInvolved.register.title")}
+          </h2>
+          <p
+            style={{
+              fontSize: 16,
+              color: "rgba(255,255,255,0.8)",
+              marginBottom: 24,
+              maxWidth: 500,
+              margin: "0 auto 24px",
+              lineHeight: 1.8,
+            }}
+          >
+            {t("getInvolved.register.desc")}
+          </p>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 16,
+              justifyContent: "center",
+            }}
+          >
+            <Btn onClick={() => navigate("/contact")} variant="gold">
+              {t("getInvolved.register.cta")}
+            </Btn>
+          </div>
+          <div style={{ marginTop: 24 }}>
+            <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>
+              <a href={CONFIG.phoneLink} className="contact-link" style={{ color: T.goldLight }}>
+                {CONFIG.phone}
+              </a>
             </div>
-            <div style={{ marginTop: 24 }}>
-              <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>
-                <a
-                  href={CONFIG.phoneLink}
-                  className="contact-link"
-                  style={{ color: T.goldLight }}
-                >
-                  {CONFIG.phone}
-                </a>
-              </div>
-              <div style={{ fontSize: 14 }}>
-                <a
-                  href={`mailto:${CONFIG.email}`}
-                  className="contact-link"
-                  style={{ color: "rgba(255,255,255,0.75)" }}
-                >
-                  {CONFIG.email}
-                </a>
-              </div>
+            <div style={{ fontSize: 14 }}>
+              <a
+                href={`mailto:${CONFIG.email}`}
+                className="contact-link"
+                style={{ color: "rgba(255,255,255,0.75)" }}
+              >
+                {CONFIG.email}
+              </a>
             </div>
-          </FadeSection>
+          </div>
         </div>
       </section>
 
@@ -417,11 +400,7 @@ export default function GetInvolved() {
           onClick={(e) => e.target === e.currentTarget && close()}
         >
           <div className="ministry-modal" role="dialog" aria-modal="true">
-            <button
-              className="ministry-modal-close"
-              onClick={close}
-              aria-label="Close"
-            >
+            <button className="ministry-modal-close" onClick={close} aria-label="Close">
               <X size={18} color="#fff" />
             </button>
 

@@ -5,7 +5,6 @@ import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import ParallaxSection from "../components/ParallaxSection";
 import ScaleReveal from "../components/ScaleReveal";
@@ -48,8 +47,7 @@ function ScheduleCard({ title, rows, accent = T.burgundy, t }) {
               display: "flex",
               justifyContent: "space-between",
               padding: "10px 0",
-              borderBottom:
-                i < rows.length - 1 ? `1px solid ${T.stone}` : "none",
+              borderBottom: i < rows.length - 1 ? `1px solid ${T.stone}` : "none",
               fontSize: 15,
             }}
           >
@@ -66,7 +64,7 @@ function ScheduleCard({ title, rows, accent = T.burgundy, t }) {
 
 /* ── Blockquote ── */
 function Quote({ text, src }) {
-  return <PullQuote text={text} src={src} />;
+  return <PullQuote variant="margin" text={text} src={src} />;
 }
 
 /* ── Accordion Item ── */
@@ -266,60 +264,55 @@ export default function MassTimes() {
 
       {/* ════ Section 2: Mass Schedule ════ */}
       <Section>
-        <FadeSection>
-          <SectionTitle sub={t("massTimes.mass.sub")} index="01">
-            {t("massTimes.mass.title")}
-          </SectionTitle>
-          <Quote
-            text={t("massTimes.mass.quote")}
-            src={t("massTimes.mass.quoteSrc")}
+        <SectionTitle sub={t("massTimes.mass.sub")} index="01">
+          {t("massTimes.mass.title")}
+        </SectionTitle>
+        <Quote text={t("massTimes.mass.quote")} src={t("massTimes.mass.quoteSrc")} />
+        <p
+          style={{
+            fontSize: 16,
+            lineHeight: 1.8,
+            color: T.warmGray,
+            textAlign: "center",
+            maxWidth: 700,
+            margin: "0 auto 40px",
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          {t("massTimes.mass.desc")}
+        </p>
+        <p
+          style={{
+            fontSize: 13,
+            color: T.warmGray,
+            textAlign: "center",
+            maxWidth: 680,
+            margin: "-24px auto 36px",
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          {t("massTimes.reviewed")}
+        </p>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 28,
+          }}
+        >
+          <ScheduleCard
+            title={t("massTimes.mass.sundayTitle")}
+            rows={sundayMass}
+            accent={T.burgundy}
+            t={t}
           />
-          <p
-            style={{
-              fontSize: 16,
-              lineHeight: 1.8,
-              color: T.warmGray,
-              textAlign: "center",
-              maxWidth: 700,
-              margin: "0 auto 40px",
-              fontFamily: "'Source Sans 3', sans-serif",
-            }}
-          >
-            {t("massTimes.mass.desc")}
-          </p>
-          <p
-            style={{
-              fontSize: 13,
-              color: T.warmGray,
-              textAlign: "center",
-              maxWidth: 680,
-              margin: "-24px auto 36px",
-              fontFamily: "'Source Sans 3', sans-serif",
-            }}
-          >
-            {t("massTimes.reviewed")}
-          </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: 28,
-            }}
-          >
-            <ScheduleCard
-              title={t("massTimes.mass.sundayTitle")}
-              rows={sundayMass}
-              accent={T.burgundy}
-              t={t}
-            />
-            <ScheduleCard
-              title={t("massTimes.mass.dailyTitle")}
-              rows={dailyMass}
-              accent={T.burgundy}
-              t={t}
-            />
-          </div>
-        </FadeSection>
+          <ScheduleCard
+            title={t("massTimes.mass.dailyTitle")}
+            rows={dailyMass}
+            accent={T.burgundy}
+            t={t}
+          />
+        </div>
       </Section>
 
       {/* ════ Section 3: Parallax — St. Thomas Aquinas ════ */}
@@ -352,173 +345,161 @@ export default function MassTimes() {
 
       {/* ════ Section 4: Confession ════ */}
       <Section id="confession" bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub={t("massTimes.confession.sub")} index="02">
-            {t("massTimes.confession.title")}
-          </SectionTitle>
-          <Quote
-            text={t("massTimes.confession.quote")}
-            src={t("massTimes.confession.quoteSrc")}
+        <SectionTitle sub={t("massTimes.confession.sub")} index="02">
+          {t("massTimes.confession.title")}
+        </SectionTitle>
+        <p
+          style={{
+            fontSize: 16,
+            lineHeight: 1.8,
+            color: T.warmGray,
+            textAlign: "center",
+            maxWidth: 700,
+            margin: "0 auto 40px",
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          {t("massTimes.confession.desc")}
+        </p>
+
+        {/* Confession schedule card */}
+        <div style={{ maxWidth: 480, margin: "0 auto 48px" }}>
+          <ScheduleCard
+            title={t("massTimes.confession.title")}
+            rows={confession}
+            accent={T.gold}
+            t={t}
           />
+        </div>
+
+        {/* How to Go to Confession */}
+        <div
+          style={{
+            maxWidth: 640,
+            margin: "0 auto",
+            background: "#fff",
+            borderRadius: 8,
+            padding: "36px 32px",
+            boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+          }}
+        >
+          <h3
+            style={{
+              fontSize: 22,
+              fontFamily: "'Cormorant Garamond', serif",
+              color: T.softBlack,
+              marginBottom: 8,
+              textAlign: "center",
+            }}
+          >
+            {t("massTimes.confession.howToTitle")}
+          </h3>
           <p
             style={{
-              fontSize: 16,
-              lineHeight: 1.8,
+              fontSize: 14,
               color: T.warmGray,
               textAlign: "center",
-              maxWidth: 700,
-              margin: "0 auto 40px",
+              marginBottom: 28,
               fontFamily: "'Source Sans 3', sans-serif",
             }}
           >
-            {t("massTimes.confession.desc")}
+            {t("massTimes.confession.howToDesc")}
           </p>
+          {[1, 2, 3, 4, 5, 6].map((n) => (
+            <ConfessionStep key={n} number={n} text={t(`massTimes.confession.step${n}`)} />
+          ))}
 
-          {/* Confession schedule card */}
-          <div style={{ maxWidth: 480, margin: "0 auto 48px" }}>
-            <ScheduleCard
-              title={t("massTimes.confession.title")}
-              rows={confession}
-              accent={T.gold}
-              t={t}
-            />
-          </div>
-
-          {/* How to Go to Confession */}
           <div
             style={{
-              maxWidth: 640,
-              margin: "0 auto",
-              background: "#fff",
-              borderRadius: 8,
-              padding: "36px 32px",
-              boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+              marginTop: 24,
+              paddingTop: 24,
+              borderTop: `1px solid ${T.stone}`,
             }}
           >
-            <h3
+            <h4
               style={{
-                fontSize: 22,
-                fontFamily: "'Cormorant Garamond', serif",
-                color: T.softBlack,
-                marginBottom: 8,
+                fontSize: 13,
+                fontFamily: "'Source Sans 3', sans-serif",
+                fontWeight: 700,
+                letterSpacing: 2,
+                textTransform: "uppercase",
+                color: T.goldText,
+                marginBottom: 10,
                 textAlign: "center",
               }}
             >
-              {t("massTimes.confession.howToTitle")}
-            </h3>
+              {t("massTimes.confession.actTitle")}
+            </h4>
             <p
               style={{
-                fontSize: 14,
-                color: T.warmGray,
+                fontSize: 17,
+                lineHeight: 1.8,
+                color: T.charcoal,
+                fontStyle: "italic",
+                fontFamily: "'Cormorant Garamond', serif",
                 textAlign: "center",
-                marginBottom: 28,
-                fontFamily: "'Source Sans 3', sans-serif",
+                margin: 0,
               }}
             >
-              {t("massTimes.confession.howToDesc")}
+              {t("massTimes.confession.actText")}
             </p>
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <ConfessionStep
-                key={n}
-                number={n}
-                text={t(`massTimes.confession.step${n}`)}
-              />
-            ))}
-
-            <div
-              style={{
-                marginTop: 24,
-                paddingTop: 24,
-                borderTop: `1px solid ${T.stone}`,
-              }}
-            >
-              <h4
-                style={{
-                  fontSize: 13,
-                  fontFamily: "'Source Sans 3', sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: T.goldText,
-                  marginBottom: 10,
-                  textAlign: "center",
-                }}
-              >
-                {t("massTimes.confession.actTitle")}
-              </h4>
-              <p
-                style={{
-                  fontSize: 17,
-                  lineHeight: 1.8,
-                  color: T.charcoal,
-                  fontStyle: "italic",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  textAlign: "center",
-                  margin: 0,
-                }}
-              >
-                {t("massTimes.confession.actText")}
-              </p>
-            </div>
           </div>
-        </FadeSection>
+        </div>
       </Section>
 
       {/* ════ Section 5: Examination of Conscience ════ */}
       <Section>
-        <FadeSection>
-          <SectionTitle sub={t("massTimes.examine.sub")} index="03">
-            {t("massTimes.examine.title")}
-          </SectionTitle>
+        <SectionTitle sub={t("massTimes.examine.sub")} index="03">
+          {t("massTimes.examine.title")}
+        </SectionTitle>
+        <p
+          style={{
+            fontSize: 16,
+            lineHeight: 1.8,
+            color: T.warmGray,
+            textAlign: "center",
+            maxWidth: 700,
+            margin: "0 auto 36px",
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          {t("massTimes.examine.desc")}
+        </p>
+        <div style={{ maxWidth: 700, margin: "0 auto" }}>
+          {[
+            "c1",
+            "c2",
+            "c3",
+            "c4",
+            "c5",
+            "c6",
+            "c7",
+            "c8",
+            "c9",
+            "c10",
+            "loveNeighbor",
+            "precepts",
+          ].map((key, i) => (
+            <AccordionItem
+              key={key}
+              title={t(`massTimes.examine.${key}.title`)}
+              items={examineItems(key)}
+              defaultOpen={i === 0}
+            />
+          ))}
           <p
             style={{
-              fontSize: 16,
-              lineHeight: 1.8,
+              fontSize: 12,
               color: T.warmGray,
               textAlign: "center",
-              maxWidth: 700,
-              margin: "0 auto 36px",
+              marginTop: 20,
+              fontStyle: "italic",
               fontFamily: "'Source Sans 3', sans-serif",
             }}
           >
-            {t("massTimes.examine.desc")}
+            {t("massTimes.examine.source")}
           </p>
-          <div style={{ maxWidth: 700, margin: "0 auto" }}>
-            {[
-              "c1",
-              "c2",
-              "c3",
-              "c4",
-              "c5",
-              "c6",
-              "c7",
-              "c8",
-              "c9",
-              "c10",
-              "loveNeighbor",
-              "precepts",
-            ].map((key, i) => (
-              <AccordionItem
-                key={key}
-                title={t(`massTimes.examine.${key}.title`)}
-                items={examineItems(key)}
-                defaultOpen={i === 0}
-              />
-            ))}
-            <p
-              style={{
-                fontSize: 12,
-                color: T.warmGray,
-                textAlign: "center",
-                marginTop: 20,
-                fontStyle: "italic",
-                fontFamily: "'Source Sans 3', sans-serif",
-              }}
-            >
-              {t("massTimes.examine.source")}
-            </p>
-          </div>
-        </FadeSection>
+        </div>
       </Section>
 
       {/* ════ Section 6: Parallax — Pope Francis ════ */}
@@ -551,28 +532,22 @@ export default function MassTimes() {
 
       {/* ════ Section 7: Adoration & Devotions ════ */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub={t("massTimes.adoration.sub")} index="04">
-            {t("massTimes.adoration.title")}
-          </SectionTitle>
-          <Quote
-            text={t("massTimes.adoration.quote")}
-            src={t("massTimes.adoration.quoteSrc")}
-          />
-          <p
-            style={{
-              fontSize: 16,
-              lineHeight: 1.8,
-              color: T.warmGray,
-              textAlign: "center",
-              maxWidth: 700,
-              margin: "0 auto 40px",
-              fontFamily: "'Source Sans 3', sans-serif",
-            }}
-          >
-            {t("massTimes.adoration.desc")}
-          </p>
-        </FadeSection>
+        <SectionTitle sub={t("massTimes.adoration.sub")} index="04">
+          {t("massTimes.adoration.title")}
+        </SectionTitle>
+        <p
+          style={{
+            fontSize: 16,
+            lineHeight: 1.8,
+            color: T.warmGray,
+            textAlign: "center",
+            maxWidth: 700,
+            margin: "0 auto 40px",
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          {t("massTimes.adoration.desc")}
+        </p>
 
         {/* Monstrance ScaleReveal */}
         <ScaleReveal
@@ -581,126 +556,118 @@ export default function MassTimes() {
           maxWidth={900}
         />
 
-        <FadeSection>
-          {/* Adoration schedule + devotions */}
+        {/* Adoration schedule + devotions */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 28,
+            marginTop: 40,
+          }}
+        >
+          <ScheduleCard
+            title={t("massTimes.adoration.title")}
+            rows={adoration}
+            accent={T.gold}
+            t={t}
+          />
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: 28,
-              marginTop: 40,
-            }}
-          >
-            <ScheduleCard
-              title={t("massTimes.adoration.title")}
-              rows={adoration}
-              accent={T.gold}
-              t={t}
-            />
-            <div
-              style={{
-                background: "#fff",
-                borderRadius: 8,
-                overflow: "hidden",
-                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-              }}
-            >
-              <div style={{ height: 4, background: T.burgundy }} />
-              <div style={{ padding: 28 }}>
-                <h3
-                  style={{
-                    fontSize: 20,
-                    fontFamily: "'Cormorant Garamond', serif",
-                    marginBottom: 16,
-                    color: T.softBlack,
-                  }}
-                >
-                  {t("massTimes.adoration.devotions")}
-                </h3>
-                {["rosary", "divineMercy", "eveningPrayer"].map((key, i) => (
-                  <div
-                    key={key}
-                    style={{
-                      padding: "10px 0",
-                      borderBottom:
-                        i < 2 ? `1px solid ${T.stone}` : "none",
-                      fontSize: 15,
-                      color: T.charcoal,
-                    }}
-                  >
-                    {t(`massTimes.adoration.${key}`)}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </FadeSection>
-      </Section>
-
-      {/* ════ Section 8: Holy Days of Obligation ════ */}
-      <Section>
-        <FadeSection>
-          <SectionTitle sub={t("massTimes.holyDays.sub")} index="05">
-            {t("massTimes.holyDays.title")}
-          </SectionTitle>
-          <p
-            style={{
-              fontSize: 16,
-              lineHeight: 1.8,
-              color: T.warmGray,
-              textAlign: "center",
-              maxWidth: 700,
-              margin: "0 auto 12px",
-              fontFamily: "'Source Sans 3', sans-serif",
-            }}
-          >
-            {t("massTimes.holyDays.desc")}
-          </p>
-          <p
-            style={{
-              fontSize: 15,
-              fontWeight: 600,
-              color: T.burgundy,
-              textAlign: "center",
-              marginBottom: 32,
-              fontFamily: "'Source Sans 3', sans-serif",
-            }}
-          >
-            {t("massTimes.holyDays.schedule")}
-          </p>
-          <div
-            style={{
-              maxWidth: 560,
-              margin: "0 auto",
               background: "#fff",
               borderRadius: 8,
               overflow: "hidden",
               boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
             }}
           >
-            <div style={{ height: 4, background: T.gold }} />
-            <div style={{ padding: "24px 32px" }}>
-              {Array.isArray(holyDays) &&
-                holyDays.map((day, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      padding: "12px 0",
-                      borderBottom:
-                        i < holyDays.length - 1
-                          ? `1px solid ${T.stone}`
-                          : "none",
-                      fontSize: 15,
-                      color: T.charcoal,
-                      fontFamily: "'Source Sans 3', sans-serif",
-                    }}
-                  >
-                    {day}
-                  </div>
-                ))}
+            <div style={{ height: 4, background: T.burgundy }} />
+            <div style={{ padding: 28 }}>
+              <h3
+                style={{
+                  fontSize: 20,
+                  fontFamily: "'Cormorant Garamond', serif",
+                  marginBottom: 16,
+                  color: T.softBlack,
+                }}
+              >
+                {t("massTimes.adoration.devotions")}
+              </h3>
+              {["rosary", "divineMercy", "eveningPrayer"].map((key, i) => (
+                <div
+                  key={key}
+                  style={{
+                    padding: "10px 0",
+                    borderBottom: i < 2 ? `1px solid ${T.stone}` : "none",
+                    fontSize: 15,
+                    color: T.charcoal,
+                  }}
+                >
+                  {t(`massTimes.adoration.${key}`)}
+                </div>
+              ))}
             </div>
           </div>
-        </FadeSection>
+        </div>
+      </Section>
+
+      {/* ════ Section 8: Holy Days of Obligation ════ */}
+      <Section>
+        <SectionTitle sub={t("massTimes.holyDays.sub")} index="05">
+          {t("massTimes.holyDays.title")}
+        </SectionTitle>
+        <p
+          style={{
+            fontSize: 16,
+            lineHeight: 1.8,
+            color: T.warmGray,
+            textAlign: "center",
+            maxWidth: 700,
+            margin: "0 auto 12px",
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          {t("massTimes.holyDays.desc")}
+        </p>
+        <p
+          style={{
+            fontSize: 15,
+            fontWeight: 600,
+            color: T.burgundy,
+            textAlign: "center",
+            marginBottom: 32,
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          {t("massTimes.holyDays.schedule")}
+        </p>
+        <div
+          style={{
+            maxWidth: 560,
+            margin: "0 auto",
+            background: "#fff",
+            borderRadius: 8,
+            overflow: "hidden",
+            boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+          }}
+        >
+          <div style={{ height: 4, background: T.gold }} />
+          <div style={{ padding: "24px 32px" }}>
+            {Array.isArray(holyDays) &&
+              holyDays.map((day, i) => (
+                <div
+                  key={i}
+                  style={{
+                    padding: "12px 0",
+                    borderBottom: i < holyDays.length - 1 ? `1px solid ${T.stone}` : "none",
+                    fontSize: 15,
+                    color: T.charcoal,
+                    fontFamily: "'Source Sans 3', sans-serif",
+                  }}
+                >
+                  {day}
+                </div>
+              ))}
+          </div>
+        </div>
       </Section>
 
       {/* ════ Section 9: Closing CTA ════ */}
@@ -714,36 +681,34 @@ export default function MassTimes() {
         }}
       >
         <div style={{ position: "relative", zIndex: 1, maxWidth: 700, margin: "0 auto" }}>
-          <FadeSection>
-            <SectionTitle sub={t("massTimes.hero.sub")} light divider={false}>
-              {t("massTimes.cta.title")}
-            </SectionTitle>
-            <p
-              style={{
-                fontSize: 17,
-                lineHeight: 1.8,
-                color: "rgba(255,255,255,0.8)",
-                marginBottom: 32,
-              }}
-            >
-              {t("massTimes.cta.desc")}
-            </p>
-            <div
-              style={{
-                display: "flex",
-                gap: 16,
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-            >
-              <Btn variant="gold" onClick={() => navigate("/visit")}>
-                {t("massTimes.cta.visit")}
-              </Btn>
-              <Btn variant="light" onClick={() => navigate("/contact")}>
-                {t("massTimes.cta.contact")}
-              </Btn>
-            </div>
-          </FadeSection>
+          <SectionTitle sub={t("massTimes.hero.sub")} light divider={false}>
+            {t("massTimes.cta.title")}
+          </SectionTitle>
+          <p
+            style={{
+              fontSize: 17,
+              lineHeight: 1.8,
+              color: "rgba(255,255,255,0.8)",
+              marginBottom: 32,
+            }}
+          >
+            {t("massTimes.cta.desc")}
+          </p>
+          <div
+            style={{
+              display: "flex",
+              gap: 16,
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <Btn variant="gold" onClick={() => navigate("/visit")}>
+              {t("massTimes.cta.visit")}
+            </Btn>
+            <Btn variant="light" onClick={() => navigate("/contact")}>
+              {t("massTimes.cta.contact")}
+            </Btn>
+          </div>
         </div>
       </section>
     </div>

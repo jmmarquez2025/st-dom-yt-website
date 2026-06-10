@@ -1,11 +1,9 @@
 import { useTranslation } from "react-i18next";
-import PullQuote from "../../components/PullQuote";
 import { useNavigate } from "react-router-dom";
 import { T } from "../../constants/theme";
 import { CONFIG } from "../../constants/config";
 import { PHOTOS } from "../../constants/photos";
 import { Section, SectionTitle } from "../../components/Section";
-import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
@@ -18,7 +16,11 @@ export default function Anointing() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Anointing of the Sick" description="The Sacrament of Anointing of the Sick at St. Dominic Church. For those who are seriously ill or facing surgery." image={PHOTOS.stockAnointing} />
+      <Seo
+        title="Anointing of the Sick"
+        description="The Sacrament of Anointing of the Sick at St. Dominic Church. For those who are seriously ill or facing surgery."
+        image={PHOTOS.stockAnointing}
+      />
       <PageHeader title={t("sacraments.anointing.title")} heroSrc={PHOTOS.stockAnointing} tall />
       <SacramentPageActions sacramentKey="anointing" icon="HeartPulse" />
 
@@ -36,58 +38,67 @@ export default function Anointing() {
       </Section>
 
       <Section bg={T.warmWhite}>
-        <FadeSection>
-          <div style={{ maxWidth: 760, margin: "0 auto" }}>
-            <SectionTitle sub={t("sacraments.anointing.sub")}>{t("sacraments.anointing.heading")}</SectionTitle>
-            <PullQuote
-              text={t("sacraments.anointing.quote")}
-              src={t("sacraments.anointing.quoteSrc")}
-            />
-            <div style={{ fontSize: 16, color: T.warmGray, lineHeight: 2 }}>
-              <p style={{ marginBottom: 20 }}>{t("sacraments.anointing.p1")}</p>
-              <p style={{ marginBottom: 20 }}>{t("sacraments.anointing.p2")}</p>
-            </div>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <SectionTitle sub={t("sacraments.anointing.sub")}>
+            {t("sacraments.anointing.heading")}
+          </SectionTitle>
+          <div style={{ fontSize: 16, color: T.warmGray, lineHeight: 2 }}>
+            <p style={{ marginBottom: 20 }}>{t("sacraments.anointing.p1")}</p>
+            <p style={{ marginBottom: 20 }}>{t("sacraments.anointing.p2")}</p>
           </div>
-        </FadeSection>
+        </div>
       </Section>
 
       <Section bg={T.cream}>
-        <FadeSection>
-          <div style={{ background: T.warmWhite, borderRadius: 4, padding: 36, border: `1px solid ${T.stone}`, maxWidth: 600, margin: "0 auto" }}>
-            <h3 style={{ fontSize: 22, color: T.burgundy, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif", textAlign: "center" }}>
-              {t("sacraments.anointing.whenTitle")}
-            </h3>
-            <ul style={{ fontSize: 15, color: T.warmGray, lineHeight: 2, paddingLeft: 24 }}>
-              <li>{t("sacraments.anointing.when1")}</li>
-              <li>{t("sacraments.anointing.when2")}</li>
-              <li>{t("sacraments.anointing.when3")}</li>
-              <li>{t("sacraments.anointing.when4")}</li>
-            </ul>
-          </div>
-        </FadeSection>
+        <div
+          style={{
+            background: T.warmWhite,
+            borderRadius: 4,
+            padding: 36,
+            border: `1px solid ${T.stone}`,
+            maxWidth: 600,
+            margin: "0 auto",
+          }}
+        >
+          <h3
+            style={{
+              fontSize: 22,
+              color: T.burgundy,
+              marginBottom: 16,
+              fontFamily: "'Cormorant Garamond', serif",
+              textAlign: "center",
+            }}
+          >
+            {t("sacraments.anointing.whenTitle")}
+          </h3>
+          <ul style={{ fontSize: 15, color: T.warmGray, lineHeight: 2, paddingLeft: 24 }}>
+            <li>{t("sacraments.anointing.when1")}</li>
+            <li>{t("sacraments.anointing.when2")}</li>
+            <li>{t("sacraments.anointing.when3")}</li>
+            <li>{t("sacraments.anointing.when4")}</li>
+          </ul>
+        </div>
       </Section>
 
       <Section bg={T.warmWhite}>
-        <FadeSection>
-          <PastoralActionPanel
-            eyebrow={t("sacraments.anointing.sub")}
-            title={t("sacraments.anointing.routineTitle")}
-            description={t("sacraments.anointing.routineDesc")}
-            primaryLabel={t("sacraments.anointing.office")}
-            primaryTo="/contact"
-            secondaryLabel={CONFIG.phone}
-            secondaryHref={CONFIG.phoneLink}
-          />
-        </FadeSection>
+        <PastoralActionPanel
+          eyebrow={t("sacraments.anointing.sub")}
+          title={t("sacraments.anointing.routineTitle")}
+          description={t("sacraments.anointing.routineDesc")}
+          primaryLabel={t("sacraments.anointing.office")}
+          primaryTo="/contact"
+          secondaryLabel={CONFIG.phone}
+          secondaryHref={CONFIG.phoneLink}
+        />
       </Section>
 
       <Section bg={T.cream}>
-        <FadeSection>
-          <div style={{ textAlign: "center", maxWidth: 500, margin: "0 auto" }}>
-            <p style={{ fontSize: 15, color: T.warmGray, marginBottom: 24, lineHeight: 1.7 }}>{t("sacraments.anointing.ctaDesc")}</p>
-            <Btn onClick={() => navigate("/contact")}>{t("sacraments.contactUs")}</Btn>
-          </div>
-        </FadeSection>
+        <div style={{ textAlign: "center", maxWidth: 500, margin: "0 auto" }}>
+          <p style={{ fontSize: 15, color: T.warmGray, marginBottom: 24, lineHeight: 1.7 }}>
+            {t("sacraments.anointing.ctaDesc")}
+          </p>
+          <Btn onClick={() => navigate("/contact")}>{t("sacraments.contactUs")}</Btn>
+        </div>
       </Section>
 
       <NextSteps

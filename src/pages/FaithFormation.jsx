@@ -1,9 +1,7 @@
 import { useTranslation } from "react-i18next";
-import PullQuote from "../components/PullQuote";
 import { T } from "../constants/theme";
 import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import PremiumPageActions from "../components/PremiumPageActions";
 import ParallaxSection from "../components/ParallaxSection";
@@ -93,52 +91,44 @@ export default function FaithFormation() {
 
       {/* ════ Intro ════ */}
       <Section bg={T.warmWhite}>
-        <FadeSection>
-          <div style={{ maxWidth: 760, margin: "0 auto" }}>
-            <SectionTitle sub={t("faithFormation.intro.sub")}>
-              {t("faithFormation.intro.title")}
-            </SectionTitle>
-            <PullQuote
-              text={t("faithFormation.quote")}
-              src={t("faithFormation.quoteSrc")}
-            />
-            <p
-              className="u-lede"
-              style={{
-                fontSize: 17,
-                lineHeight: 1.8,
-                color: T.warmGray,
-                margin: 0,
-              }}
-            >
-              {t("faithFormation.intro.desc")}
-            </p>
-          </div>
-        </FadeSection>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <SectionTitle sub={t("faithFormation.intro.sub")}>
+            {t("faithFormation.intro.title")}
+          </SectionTitle>
+          <p
+            className="u-lede"
+            style={{
+              fontSize: 17,
+              lineHeight: 1.8,
+              color: T.warmGray,
+              margin: 0,
+            }}
+          >
+            {t("faithFormation.intro.desc")}
+          </p>
+        </div>
       </Section>
 
       {/* ════ Why Learn More ════ */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <div style={{ maxWidth: 760, margin: "0 auto" }}>
-            <SectionTitle sub={t("faithFormation.why.sub")}>
-              {t("faithFormation.why.title")}
-            </SectionTitle>
-            <p
-              style={{
-                fontSize: 16,
-                lineHeight: 1.9,
-                color: T.warmGray,
-                marginBottom: 20,
-              }}
-            >
-              {t("faithFormation.why.p1")}
-            </p>
-            <p style={{ fontSize: 16, lineHeight: 1.9, color: T.warmGray }}>
-              {t("faithFormation.why.p2")}
-            </p>
-          </div>
-        </FadeSection>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <SectionTitle sub={t("faithFormation.why.sub")}>
+            {t("faithFormation.why.title")}
+          </SectionTitle>
+          <p
+            style={{
+              fontSize: 16,
+              lineHeight: 1.9,
+              color: T.warmGray,
+              marginBottom: 20,
+            }}
+          >
+            {t("faithFormation.why.p1")}
+          </p>
+          <p style={{ fontSize: 16, lineHeight: 1.9, color: T.warmGray }}>
+            {t("faithFormation.why.p2")}
+          </p>
+        </div>
       </Section>
 
       {/* Parallax visual break */}
@@ -153,232 +143,220 @@ export default function FaithFormation() {
 
       {/* ════ Dominican Resources ════ */}
       <Section id="faith-resources" bg={T.warmWhite}>
-        <FadeSection>
-          <SectionTitle sub={t("faithFormation.resources.sub")}>
-            {t("faithFormation.resources.title")}
-          </SectionTitle>
-          <p
-            className="u-lede"
-            style={{
-              fontSize: 16,
-              lineHeight: 1.8,
-              color: T.warmGray,
-              margin: "0 0 40px",
-            }}
-          >
-            {t("faithFormation.resources.desc")}
-          </p>
+        <SectionTitle sub={t("faithFormation.resources.sub")}>
+          {t("faithFormation.resources.title")}
+        </SectionTitle>
+        <p
+          className="u-lede"
+          style={{
+            fontSize: 16,
+            lineHeight: 1.8,
+            color: T.warmGray,
+            margin: "0 0 40px",
+          }}
+        >
+          {t("faithFormation.resources.desc")}
+        </p>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: 28,
-              maxWidth: 1000,
-              margin: "0 auto",
-            }}
-          >
-            {RESOURCES.map(({ key, icon: Icon, url, color }) => (
-              <a
-                key={key}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 28,
+            maxWidth: 1000,
+            margin: "0 auto",
+          }}
+        >
+          {RESOURCES.map(({ key, icon: Icon, url, color }) => (
+            <a
+              key={key}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                ...cardStyle,
+                textDecoration: "none",
+                color: "inherit",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.12)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 2px 16px rgba(0,0,0,0.06)";
+              }}
+            >
+              <div
                 style={{
-                  ...cardStyle,
-                  textDecoration: "none",
-                  color: "inherit",
+                  height: 5,
+                  background: color,
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 8px 32px rgba(0,0,0,0.12)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 2px 16px rgba(0,0,0,0.06)";
-                }}
-              >
+              />
+              <div style={{ padding: "28px 28px 24px" }}>
                 <div
                   style={{
-                    height: 5,
-                    background: color,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 12,
+                    marginBottom: 12,
                   }}
-                />
-                <div style={{ padding: "28px 28px 24px" }}>
+                >
                   <div
                     style={{
+                      width: 42,
+                      height: 42,
+                      borderRadius: "50%",
+                      background: `${color}12`,
                       display: "flex",
                       alignItems: "center",
-                      gap: 12,
-                      marginBottom: 12,
+                      justifyContent: "center",
+                      flexShrink: 0,
                     }}
                   >
-                    <div
+                    <Icon size={20} color={color} strokeWidth={1.8} />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <h3
                       style={{
-                        width: 42,
-                        height: 42,
-                        borderRadius: "50%",
-                        background: `${color}12`,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
+                        fontSize: 19,
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontWeight: 700,
+                        color: T.softBlack,
+                        margin: 0,
                       }}
                     >
-                      <Icon size={20} color={color} strokeWidth={1.8} />
-                    </div>
-                    <div style={{ flex: 1 }}>
-                      <h3
-                        style={{
-                          fontSize: 19,
-                          fontFamily: "'Cormorant Garamond', serif",
-                          fontWeight: 700,
-                          color: T.softBlack,
-                          margin: 0,
-                        }}
-                      >
-                        {t(`faithFormation.resources.${key}.title`)}
-                      </h3>
-                      <span
-                        style={{
-                          fontSize: 11,
-                          letterSpacing: 1.5,
-                          textTransform: "uppercase",
-                          color,
-                          fontWeight: 600,
-                        }}
-                      >
-                        {t(`faithFormation.resources.${key}.tag`)}
-                      </span>
-                    </div>
-                    <ExternalLink
-                      size={15}
-                      color={T.stone}
-                      style={{ flexShrink: 0 }}
-                    />
+                      {t(`faithFormation.resources.${key}.title`)}
+                    </h3>
+                    <span
+                      style={{
+                        fontSize: 11,
+                        letterSpacing: 1.5,
+                        textTransform: "uppercase",
+                        color,
+                        fontWeight: 600,
+                      }}
+                    >
+                      {t(`faithFormation.resources.${key}.tag`)}
+                    </span>
                   </div>
-                  <p
-                    style={{
-                      fontSize: 14,
-                      lineHeight: 1.7,
-                      color: T.warmGray,
-                      margin: 0,
-                    }}
-                  >
-                    {t(`faithFormation.resources.${key}.desc`)}
-                  </p>
+                  <ExternalLink size={15} color={T.stone} style={{ flexShrink: 0 }} />
                 </div>
-              </a>
-            ))}
-          </div>
-        </FadeSection>
+                <p
+                  style={{
+                    fontSize: 14,
+                    lineHeight: 1.7,
+                    color: T.warmGray,
+                    margin: 0,
+                  }}
+                >
+                  {t(`faithFormation.resources.${key}.desc`)}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
       </Section>
 
       {/* ════ Embedded Podcasts ════ */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub={t("faithFormation.listen.sub")}>
-            {t("faithFormation.listen.title")}
-          </SectionTitle>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: 28,
-              maxWidth: 1000,
-              margin: "0 auto",
-            }}
-          >
-            {/* Godsplaining */}
-            <div style={cardStyle}>
-              <div style={{ padding: 24 }}>
-                <h3
-                  style={{
-                    fontSize: 18,
-                    fontFamily: "'Cormorant Garamond', serif",
-                    color: T.softBlack,
-                    marginBottom: 12,
-                  }}
-                >
-                  Godsplaining
-                </h3>
-                <iframe
-                  src="https://open.spotify.com/embed/show/0aIOz3chYeQZxsdjyJzlOb?utm_source=generator&theme=0"
-                  width="100%"
-                  height="152"
-                  frameBorder="0"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                  style={{ borderRadius: 8 }}
-                  title="Godsplaining Podcast"
-                />
-              </div>
-            </div>
-
-            {/* Rosary in a Year */}
-            <div style={cardStyle}>
-              <div style={{ padding: 24 }}>
-                <h3
-                  style={{
-                    fontSize: 18,
-                    fontFamily: "'Cormorant Garamond', serif",
-                    color: T.softBlack,
-                    marginBottom: 12,
-                  }}
-                >
-                  Rosary in a Year
-                </h3>
-                <iframe
-                  src="https://open.spotify.com/embed/show/3Rx1puBjE0xZBiuy4BT4i7?utm_source=generator&theme=0"
-                  width="100%"
-                  height="152"
-                  frameBorder="0"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                  style={{ borderRadius: 8 }}
-                  title="Rosary in a Year Podcast"
-                />
-              </div>
+        <SectionTitle sub={t("faithFormation.listen.sub")}>
+          {t("faithFormation.listen.title")}
+        </SectionTitle>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 28,
+            maxWidth: 1000,
+            margin: "0 auto",
+          }}
+        >
+          {/* Godsplaining */}
+          <div style={cardStyle}>
+            <div style={{ padding: 24 }}>
+              <h3
+                style={{
+                  fontSize: 18,
+                  fontFamily: "'Cormorant Garamond', serif",
+                  color: T.softBlack,
+                  marginBottom: 12,
+                }}
+              >
+                Godsplaining
+              </h3>
+              <iframe
+                src="https://open.spotify.com/embed/show/0aIOz3chYeQZxsdjyJzlOb?utm_source=generator&theme=0"
+                width="100%"
+                height="152"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                style={{ borderRadius: 8 }}
+                title="Godsplaining Podcast"
+              />
             </div>
           </div>
-        </FadeSection>
+
+          {/* Rosary in a Year */}
+          <div style={cardStyle}>
+            <div style={{ padding: 24 }}>
+              <h3
+                style={{
+                  fontSize: 18,
+                  fontFamily: "'Cormorant Garamond', serif",
+                  color: T.softBlack,
+                  marginBottom: 12,
+                }}
+              >
+                Rosary in a Year
+              </h3>
+              <iframe
+                src="https://open.spotify.com/embed/show/3Rx1puBjE0xZBiuy4BT4i7?utm_source=generator&theme=0"
+                width="100%"
+                height="152"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                style={{ borderRadius: 8 }}
+                title="Rosary in a Year Podcast"
+              />
+            </div>
+          </div>
+        </div>
       </Section>
 
       {/* ════ Getting Started CTA ════ */}
       <Section bg={T.warmWhite}>
-        <FadeSection>
-          <DominicanDivider style={{ marginBottom: 16 }} />
-          <div
+        <DominicanDivider style={{ marginBottom: 16 }} />
+        <div
+          style={{
+            textAlign: "center",
+            maxWidth: 600,
+            margin: "0 auto",
+          }}
+        >
+          <h3
             style={{
-              textAlign: "center",
-              maxWidth: 600,
-              margin: "0 auto",
+              fontSize: "clamp(24px, 4vw, 32px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              color: T.softBlack,
+              marginBottom: 14,
             }}
           >
-            <h3
-              style={{
-                fontSize: "clamp(24px, 4vw, 32px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                color: T.softBlack,
-                marginBottom: 14,
-              }}
-            >
-              {t("faithFormation.cta.title")}
-            </h3>
-            <p
-              style={{
-                fontSize: 16,
-                lineHeight: 1.8,
-                color: T.warmGray,
-                marginBottom: 8,
-              }}
-            >
-              {t("faithFormation.cta.desc")}
-            </p>
-          </div>
-        </FadeSection>
+            {t("faithFormation.cta.title")}
+          </h3>
+          <p
+            style={{
+              fontSize: 16,
+              lineHeight: 1.8,
+              color: T.warmGray,
+              marginBottom: 8,
+            }}
+          >
+            {t("faithFormation.cta.desc")}
+          </p>
+        </div>
       </Section>
     </div>
   );

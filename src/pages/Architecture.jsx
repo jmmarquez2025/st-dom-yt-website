@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { Section } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import HeroImage from "../components/HeroImage";
 import StickyHero from "../components/StickyHero";
 import StickyScrub from "../components/StickyScrub";
@@ -126,10 +125,7 @@ function StopMarker({ number }) {
 }
 
 const P = (props) => (
-  <p
-    style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}
-    {...props}
-  />
+  <p style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }} {...props} />
 );
 
 const Detail = ({ icon, label, value }) => (
@@ -167,12 +163,7 @@ export default function Architecture() {
       `}</style>
 
       {/* ════ Hero — Apple-style Sticky ════ */}
-      <StickyHero
-        image={PHOTOS.archHero}
-        overlay={0.5}
-        tint="rgba(30,20,15,0.55)"
-        height="130vh"
-      >
+      <StickyHero image={PHOTOS.archHero} overlay={0.5} tint="rgba(30,20,15,0.55)" height="130vh">
         <div
           style={{
             fontSize: 14,
@@ -264,97 +255,100 @@ export default function Architecture() {
 
       {/* ════ Stop 1 — Exterior & Facade ════ */}
       <Section>
-        <FadeSection>
-          <div className="arch-section">
-            <StopMarker number={1} />
-            <h2
-              style={{
-                fontSize: "clamp(24px, 4vw, 34px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                marginBottom: 20,
-                color: T.softBlack,
-              }}
-            >
-              <TextReveal>{t("arch.exterior.title")}</TextReveal>
-            </h2>
-            <P>{t("arch.exterior.p1")}</P>
+        <div className="arch-section">
+          <StopMarker number={1} />
+          <h2
+            style={{
+              fontSize: "clamp(24px, 4vw, 34px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 600,
+              marginBottom: 20,
+              color: T.softBlack,
+            }}
+          >
+            <TextReveal>{t("arch.exterior.title")}</TextReveal>
+          </h2>
+          <P>{t("arch.exterior.p1")}</P>
 
-            <ScaleReveal
-              src={PHOTOS.archFacade}
-              alt={t("arch.exterior.facadeAlt")}
-              caption={t("arch.exterior.facadeCap")}
+          <ScaleReveal
+            src={PHOTOS.archFacade}
+            alt={t("arch.exterior.facadeAlt")}
+            caption={t("arch.exterior.facadeCap")}
+          />
+
+          <P>{t("arch.exterior.p2")}</P>
+
+          <TwoPhotos
+            left={{
+              src: PHOTOS.archDoors,
+              alt: t("arch.exterior.doorsAlt"),
+              caption: t("arch.exterior.doorsCap"),
+            }}
+            right={{
+              src: PHOTOS.archSign,
+              alt: t("arch.exterior.signAlt"),
+              caption: t("arch.exterior.signCap"),
+            }}
+          />
+
+          <P>{t("arch.exterior.p3")}</P>
+
+          <div className="arch-detail-grid">
+            <Detail
+              icon="Ruler"
+              label={t("arch.exterior.styleLabel")}
+              value={t("arch.exterior.styleValue")}
             />
-
-            <P>{t("arch.exterior.p2")}</P>
-
-            <TwoPhotos
-              left={{
-                src: PHOTOS.archDoors,
-                alt: t("arch.exterior.doorsAlt"),
-                caption: t("arch.exterior.doorsCap"),
-              }}
-              right={{
-                src: PHOTOS.archSign,
-                alt: t("arch.exterior.signAlt"),
-                caption: t("arch.exterior.signCap"),
-              }}
+            <Detail
+              icon="Building"
+              label={t("arch.exterior.materialLabel")}
+              value={t("arch.exterior.materialValue")}
             />
-
-            <P>{t("arch.exterior.p3")}</P>
-
-            <div className="arch-detail-grid">
-              <Detail icon="Ruler" label={t("arch.exterior.styleLabel")} value={t("arch.exterior.styleValue")} />
-              <Detail icon="Building" label={t("arch.exterior.materialLabel")} value={t("arch.exterior.materialValue")} />
-              <Detail icon="Calendar" label={t("arch.exterior.builtLabel")} value={t("arch.exterior.builtValue")} />
-            </div>
+            <Detail
+              icon="Calendar"
+              label={t("arch.exterior.builtLabel")}
+              value={t("arch.exterior.builtValue")}
+            />
           </div>
-        </FadeSection>
+        </div>
       </Section>
 
       {/* ════ Stop 2 — Main Entrance ════ */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <div className="arch-section">
-            <StopMarker number={2} />
-            <h2
-              style={{
-                fontSize: "clamp(24px, 4vw, 34px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                marginBottom: 20,
-                color: T.softBlack,
-              }}
-            >
-              {t("arch.entrance.title")}
-            </h2>
-            <P>{t("arch.entrance.p1")}</P>
+        <div className="arch-section">
+          <StopMarker number={2} />
+          <h2
+            style={{
+              fontSize: "clamp(24px, 4vw, 34px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 600,
+              marginBottom: 20,
+              color: T.softBlack,
+            }}
+          >
+            {t("arch.entrance.title")}
+          </h2>
+          <P>{t("arch.entrance.p1")}</P>
 
-            <ArchPhoto
-              src={PHOTOS.archEntrance}
-              alt={t("arch.entrance.photoAlt")}
-              caption={t("arch.entrance.photoCap")}
-            />
+          <ArchPhoto
+            src={PHOTOS.archEntrance}
+            alt={t("arch.entrance.photoAlt")}
+            caption={t("arch.entrance.photoCap")}
+          />
 
-            <P>{t("arch.entrance.p2")}</P>
+          <P>{t("arch.entrance.p2")}</P>
 
-            <ArchPhoto
-              src={PHOTOS.archCornerstone}
-              alt={t("arch.entrance.cornerstoneAlt")}
-              caption={t("arch.entrance.cornerstoneCap")}
-              maxWidth={480}
-            />
-          </div>
-        </FadeSection>
+          <ArchPhoto
+            src={PHOTOS.archCornerstone}
+            alt={t("arch.entrance.cornerstoneAlt")}
+            caption={t("arch.entrance.cornerstoneCap")}
+            maxWidth={480}
+          />
+        </div>
       </Section>
 
       {/* ════ Parallax Break — Rose Window ════ */}
-      <ParallaxSection
-        image={PHOTOS.archRoseExt}
-        height="auto"
-        speed={0.3}
-        overlay={0.55}
-      >
+      <ParallaxSection image={PHOTOS.archRoseExt} height="auto" speed={0.3} overlay={0.55}>
         <div
           style={{
             maxWidth: 700,
@@ -392,78 +386,81 @@ export default function Architecture() {
 
       {/* ════ Stop 3 — The Nave ════ */}
       <Section>
-        <FadeSection>
-          <div className="arch-section">
-            <StopMarker number={3} />
-            <h2
-              style={{
-                fontSize: "clamp(24px, 4vw, 34px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                marginBottom: 20,
-                color: T.softBlack,
-              }}
-            >
-              <TextReveal>{t("arch.nave.title")}</TextReveal>
-            </h2>
-            <P>{t("arch.nave.p1")}</P>
+        <div className="arch-section">
+          <StopMarker number={3} />
+          <h2
+            style={{
+              fontSize: "clamp(24px, 4vw, 34px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 600,
+              marginBottom: 20,
+              color: T.softBlack,
+            }}
+          >
+            <TextReveal>{t("arch.nave.title")}</TextReveal>
+          </h2>
+          <P>{t("arch.nave.p1")}</P>
 
-            <div className="arch-detail-grid">
-              <Detail icon="Maximize" label={t("arch.nave.dimLabel")} value={t("arch.nave.dimValue")} />
-              <Detail icon="ArrowUp" label={t("arch.nave.heightLabel")} value={t("arch.nave.heightValue")} />
-              <Detail icon="Users" label={t("arch.nave.seatingLabel")} value={t("arch.nave.seatingValue")} />
-            </div>
-
-            <P>{t("arch.nave.p2")}</P>
-
-            <ArchPhoto
-              src={PHOTOS.archSideAisle}
-              alt={t("arch.nave.aisleAlt")}
-              caption={t("arch.nave.aisleCap")}
+          <div className="arch-detail-grid">
+            <Detail
+              icon="Maximize"
+              label={t("arch.nave.dimLabel")}
+              value={t("arch.nave.dimValue")}
             />
-
-            <P>{t("arch.nave.p3")}</P>
+            <Detail
+              icon="ArrowUp"
+              label={t("arch.nave.heightLabel")}
+              value={t("arch.nave.heightValue")}
+            />
+            <Detail
+              icon="Users"
+              label={t("arch.nave.seatingLabel")}
+              value={t("arch.nave.seatingValue")}
+            />
           </div>
-        </FadeSection>
+
+          <P>{t("arch.nave.p2")}</P>
+
+          <ArchPhoto
+            src={PHOTOS.archSideAisle}
+            alt={t("arch.nave.aisleAlt")}
+            caption={t("arch.nave.aisleCap")}
+          />
+
+          <P>{t("arch.nave.p3")}</P>
+        </div>
       </Section>
 
       {/* ════ Stop 4 — The Sanctuary ════ */}
       <Section bg={T.cream}>
-        <FadeSection>
-          <div className="arch-section">
-            <StopMarker number={4} />
-            <h2
-              style={{
-                fontSize: "clamp(24px, 4vw, 34px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                marginBottom: 20,
-                color: T.softBlack,
-              }}
-            >
-              {t("arch.sanctuary.title")}
-            </h2>
-            <P>{t("arch.sanctuary.p1")}</P>
+        <div className="arch-section">
+          <StopMarker number={4} />
+          <h2
+            style={{
+              fontSize: "clamp(24px, 4vw, 34px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 600,
+              marginBottom: 20,
+              color: T.softBlack,
+            }}
+          >
+            {t("arch.sanctuary.title")}
+          </h2>
+          <P>{t("arch.sanctuary.p1")}</P>
 
-            <ScaleReveal
-              src={PHOTOS.archSanctuary}
-              alt={t("arch.sanctuary.photoAlt")}
-              caption={t("arch.sanctuary.photoCap")}
-            />
+          <ScaleReveal
+            src={PHOTOS.archSanctuary}
+            alt={t("arch.sanctuary.photoAlt")}
+            caption={t("arch.sanctuary.photoCap")}
+          />
 
-            <P>{t("arch.sanctuary.p2")}</P>
-            <P>{t("arch.sanctuary.p3")}</P>
-          </div>
-        </FadeSection>
+          <P>{t("arch.sanctuary.p2")}</P>
+          <P>{t("arch.sanctuary.p3")}</P>
+        </div>
       </Section>
 
       {/* ════ Parallax Break — Sanctuary Detail ════ */}
-      <ParallaxSection
-        image={PHOTOS.archSanctuary}
-        height="auto"
-        speed={0.2}
-        overlay={0.6}
-      >
+      <ParallaxSection image={PHOTOS.archSanctuary} height="auto" speed={0.2} overlay={0.6}>
         <div
           style={{
             maxWidth: 700,
@@ -501,39 +498,37 @@ export default function Architecture() {
 
       {/* ════ Stop 5 — Choir Loft & Rose Window ════ */}
       <Section>
-        <FadeSection>
-          <div className="arch-section">
-            <StopMarker number={5} />
-            <h2
-              style={{
-                fontSize: "clamp(24px, 4vw, 34px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                marginBottom: 20,
-                color: T.softBlack,
-              }}
-            >
-              <TextReveal>{t("arch.choirLoft.title")}</TextReveal>
-            </h2>
-            <P>{t("arch.choirLoft.p1")}</P>
+        <div className="arch-section">
+          <StopMarker number={5} />
+          <h2
+            style={{
+              fontSize: "clamp(24px, 4vw, 34px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 600,
+              marginBottom: 20,
+              color: T.softBlack,
+            }}
+          >
+            <TextReveal>{t("arch.choirLoft.title")}</TextReveal>
+          </h2>
+          <P>{t("arch.choirLoft.p1")}</P>
 
-            <ArchPhoto
-              src={PHOTOS.archChoirLoft}
-              alt={t("arch.choirLoft.loftAlt")}
-              caption={t("arch.choirLoft.loftCap")}
-            />
+          <ArchPhoto
+            src={PHOTOS.archChoirLoft}
+            alt={t("arch.choirLoft.loftAlt")}
+            caption={t("arch.choirLoft.loftCap")}
+          />
 
-            <P>{t("arch.choirLoft.p2")}</P>
+          <P>{t("arch.choirLoft.p2")}</P>
 
-            <ScaleReveal
-              src={PHOTOS.archRoseInt}
-              alt={t("arch.choirLoft.roseAlt")}
-              caption={t("arch.choirLoft.roseCap")}
-            />
+          <ScaleReveal
+            src={PHOTOS.archRoseInt}
+            alt={t("arch.choirLoft.roseAlt")}
+            caption={t("arch.choirLoft.roseCap")}
+          />
 
-            <P>{t("arch.choirLoft.p3")}</P>
-          </div>
-        </FadeSection>
+          <P>{t("arch.choirLoft.p3")}</P>
+        </div>
       </Section>
 
       {/* ════ Full-width Drone Banner ════ */}
@@ -555,43 +550,41 @@ export default function Architecture() {
             textAlign: "center",
           }}
         >
-          <FadeSection>
-            <div
-              style={{
-                fontSize: 12,
-                letterSpacing: 4,
-                textTransform: "uppercase",
-                color: T.goldText,
-                fontWeight: 600,
-                marginBottom: 16,
-              }}
-            >
-              {t("arch.campus.sub")}
-            </div>
-            <h3
-              style={{
-                fontSize: "clamp(26px, 5vw, 40px)",
-                fontFamily: "'Cormorant Garamond', serif",
-                marginBottom: 20,
-                color: "#fff",
-                fontWeight: 600,
-                lineHeight: 1.2,
-              }}
-            >
-              {t("arch.campus.title")}
-            </h3>
-            <p
-              style={{
-                fontSize: 16,
-                lineHeight: 1.8,
-                color: "rgba(255,255,255,0.7)",
-                maxWidth: 640,
-                margin: "0 auto",
-              }}
-            >
-              {t("arch.campus.desc")}
-            </p>
-          </FadeSection>
+          <div
+            style={{
+              fontSize: 12,
+              letterSpacing: 4,
+              textTransform: "uppercase",
+              color: T.goldText,
+              fontWeight: 600,
+              marginBottom: 16,
+            }}
+          >
+            {t("arch.campus.sub")}
+          </div>
+          <h3
+            style={{
+              fontSize: "clamp(26px, 5vw, 40px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              marginBottom: 20,
+              color: "#fff",
+              fontWeight: 600,
+              lineHeight: 1.2,
+            }}
+          >
+            {t("arch.campus.title")}
+          </h3>
+          <p
+            style={{
+              fontSize: 16,
+              lineHeight: 1.8,
+              color: "rgba(255,255,255,0.7)",
+              maxWidth: 640,
+              margin: "0 auto",
+            }}
+          >
+            {t("arch.campus.desc")}
+          </p>
         </div>
       </section>
     </div>

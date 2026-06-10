@@ -10,9 +10,6 @@ export const T = {
   goldLight: "#E8D5A3",
   // Darker gold for small text on light backgrounds — meets WCAG AA contrast (>=5:1 on white).
   // Use for small caps labels, captions, and any gold-colored text < 18pt.
-  // Tuned darker than strict 4.5:1 minimum to survive mid-animation opacity blending
-  // (FadeSection transitions briefly composite the text against bg at <100% opacity,
-  // which axe-core samples — false-positive class without this margin).
   goldText: "#7A5A0F",
   cream: "#FAF6F0",
   warmWhite: "#FFFDF9",

@@ -5,8 +5,7 @@
   --color-burgundy-dark: #4A1019;
   --color-gold: #C5A55A;
   --color-gold-light: #E8D5A3;
-  /* AA-compliant gold text token for small text on light backgrounds.
-     Tuned darker than the 4.5:1 minimum to survive FadeSection opacity blending. */
+  /* AA-compliant gold text token for small text on light backgrounds. */
   --color-gold-text: #7A5A0F;
   --color-cream: #FAF6F0;
   --color-warm-white: #FFFDF9;
@@ -118,60 +117,6 @@ h1, h2, h3, h4 {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.fade-section {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
-}
-.fade-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── CSS Scroll-Driven Animations (progressive enhancement) ── */
-@supports (animation-timeline: view()) {
-  .fade-section {
-    animation: scrollFadeUp 0.6s var(--ease-out-expo) both;
-    animation-timeline: view();
-    /* Transform-only on the scroll-driven path: opacity never animates, so text
-       is at full contrast at every scroll position (no axe color-contrast hits
-       from sampling mid-fade). The translateY lift carries the entrance. */
-    animation-range: entry 0% entry 8%;
-    opacity: 1;
-    transform: translateY(20px);
-    transition: none;
-  }
-  .fade-section.visible {
-    /* Let CSS animation handle it */
-  }
-  @keyframes scrollFadeUp {
-    from { transform: translateY(20px); }
-    to   { transform: translateY(0); }
-  }
-
-  /* Stagger children via scroll-driven animation (transform-only, see above) */
-  .stagger-grid > * {
-    animation: scrollStaggerIn 0.5s var(--ease-out-expo) both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 10%;
-    opacity: 1;
-    transform: translateY(16px);
-    transition: none;
-  }
-  .stagger-grid > *:nth-child(1) { animation-delay: 0s; }
-  .stagger-grid > *:nth-child(2) { animation-delay: 60ms; }
-  .stagger-grid > *:nth-child(3) { animation-delay: 120ms; }
-  .stagger-grid > *:nth-child(4) { animation-delay: 180ms; }
-  .stagger-grid > *:nth-child(5) { animation-delay: 240ms; }
-  .stagger-grid > *:nth-child(6) { animation-delay: 300ms; }
-  .stagger-grid > *:nth-child(7) { animation-delay: 360ms; }
-  .stagger-grid > *:nth-child(8) { animation-delay: 420ms; }
-  @keyframes scrollStaggerIn {
-    from { transform: translateY(16px) scale(0.97); }
-    to   { transform: translateY(0) scale(1); }
-  }
-}
-
 /* ── Content Visibility (rendering performance) ── */
 .cv-section {
   content-visibility: auto;
@@ -232,8 +177,6 @@ main li a {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .fade-section { opacity: 1; transform: none; }
-  .stagger-grid > * { opacity: 1; transform: none; }
   .reveal-text { opacity: 1 !important; }
   ::view-transition-old(root),
   ::view-transition-new(root) {
@@ -1646,24 +1589,6 @@ a.contact-link:hover {
 @keyframes shimmer {
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
-}
-
-/* ── Gold divider line animation ── */
-@supports (animation-timeline: view()) {
-  .gold-divider {
-    width: 0;
-    height: 2px;
-    background: var(--color-gold);
-    margin: 14px auto 0;
-    border-radius: 1px;
-    animation: expandDivider 0.6s var(--ease-out-expo) both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 40%;
-  }
-  @keyframes expandDivider {
-    from { width: 0; }
-    to   { width: 48px; }
-  }
 }
 
 /* ── Image reveal on scroll ── */

@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
-import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import ParallaxSection from "../components/ParallaxSection";
 import DominicanDivider from "../components/DominicanDivider";
@@ -27,7 +26,11 @@ export default function Sacraments() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="The Sacraments" description="Learn about the seven sacraments celebrated at St. Dominic Church — Baptism, Eucharist, Confirmation, Marriage, and more." image={PHOTOS.stockSacraments} />
+      <Seo
+        title="The Sacraments"
+        description="Learn about the seven sacraments celebrated at St. Dominic Church — Baptism, Eucharist, Confirmation, Marriage, and more."
+        image={PHOTOS.stockSacraments}
+      />
       <PageHeader title={t("sacraments.title")} heroSrc={PHOTOS.stockSacraments} tall />
 
       <PremiumPageActions
@@ -58,64 +61,88 @@ export default function Sacraments() {
       />
 
       <Section bg={T.warmWhite}>
-        <FadeSection>
-          <SectionTitle sub={t("sacraments.sub")}>{t("sacraments.heading")}</SectionTitle>
-          <PullQuote
-            text={t("sacraments.quote")}
-            src={t("sacraments.quoteSrc")}
-          />
-          <p style={{ fontSize: 16, color: T.warmGray, lineHeight: 1.9, textAlign: "center", maxWidth: 700, margin: "0 auto 48px" }}>
-            {t("sacraments.desc")}
-          </p>
-        </FadeSection>
+        <SectionTitle sub={t("sacraments.sub")}>{t("sacraments.heading")}</SectionTitle>
+        <PullQuote variant="margin" text={t("sacraments.quote")} src={t("sacraments.quoteSrc")} />
+        <p
+          style={{
+            fontSize: 16,
+            color: T.warmGray,
+            lineHeight: 1.9,
+            textAlign: "center",
+            maxWidth: 700,
+            margin: "0 auto 48px",
+          }}
+        >
+          {t("sacraments.desc")}
+        </p>
       </Section>
 
       {/* Parallax visual break */}
-      <ParallaxSection
-        image={PHOTOS.stockChaliceCruets}
-        height="35vh"
-        overlay={0.45}
-      >
+      <ParallaxSection image={PHOTOS.stockChaliceCruets} height="35vh" overlay={0.45}>
         <DominicanDivider color="#fff" width={160} />
       </ParallaxSection>
 
       <Section bg={T.cream}>
-        <FadeSection>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
-            {SACRAMENT_LINKS.map((s) => (
-              <Link
-                key={s.to}
-                to={s.to}
-                onClick={(e) => {
-                  if (document.startViewTransition) {
-                    e.preventDefault();
-                    document.startViewTransition(() => navigate(s.to));
-                  }
-                }}
-                className="hover-lift"
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 24,
+          }}
+        >
+          {SACRAMENT_LINKS.map((s) => (
+            <Link
+              key={s.to}
+              to={s.to}
+              onClick={(e) => {
+                if (document.startViewTransition) {
+                  e.preventDefault();
+                  document.startViewTransition(() => navigate(s.to));
+                }
+              }}
+              className="hover-lift"
+              style={{
+                textDecoration: "none",
+                background: T.warmWhite,
+                padding: 36,
+                borderRadius: 4,
+                border: `1px solid ${T.stone}`,
+                borderTop: `4px solid ${T.burgundy}`,
+                display: "block",
+                viewTransitionName: `sacrament-${s.key}`,
+              }}
+            >
+              <div style={{ marginBottom: 12 }} aria-hidden="true">
+                <Icon name={s.icon} size={36} color={T.burgundy} />
+              </div>
+              <h3
                 style={{
-                  textDecoration: "none", background: T.warmWhite, padding: 36,
-                  borderRadius: 4, border: `1px solid ${T.stone}`, borderTop: `4px solid ${T.burgundy}`,
-                  display: "block",
-                  viewTransitionName: `sacrament-${s.key}`,
+                  fontSize: 22,
+                  color: T.burgundy,
+                  marginBottom: 8,
+                  fontFamily: "'Cormorant Garamond', serif",
                 }}
               >
-                <div style={{ marginBottom: 12 }} aria-hidden="true">
-                  <Icon name={s.icon} size={36} color={T.burgundy} />
-                </div>
-                <h3 style={{ fontSize: 22, color: T.burgundy, marginBottom: 8, fontFamily: "'Cormorant Garamond', serif" }}>
-                  {t(`sacraments.${s.key}.title`)}
-                </h3>
-                <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>
-                  {t(`sacraments.${s.key}.brief`)}
-                </p>
-                <div style={{ fontSize: 13, fontWeight: 600, color: T.goldText, letterSpacing: 1, textTransform: "uppercase", marginTop: 16 }}>
-                  {t("sacraments.learnMore")} →
-                </div>
-              </Link>
-            ))}
-          </div>
-        </FadeSection>
+                {t(`sacraments.${s.key}.title`)}
+              </h3>
+              <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>
+                {t(`sacraments.${s.key}.brief`)}
+              </p>
+              <div
+                style={{
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: T.goldText,
+                  letterSpacing: 1,
+                  textTransform: "uppercase",
+                  marginTop: 16,
+                }}
+              >
+                {t("sacraments.learnMore")} →
+              </div>
+            </Link>
+          ))}
+        </div>
       </Section>
     </div>
   );
