@@ -9,7 +9,6 @@ import Btn from "../components/Btn";
 import { useAnnouncements, useEvents, useSchedule } from "../cms/hooks";
 import Seo from "../components/Seo";
 import NextMass from "../components/NextMass";
-import DailyQuote from "../components/DailyQuote";
 import LiturgicalBanner from "../components/LiturgicalBanner";
 import VaticanNews from "../components/VaticanNews";
 import YouTubeChannel from "../components/YouTubeChannel";
@@ -277,10 +276,6 @@ export default function Home() {
             onClick={() => navigate("/get-involved")}
           />
         </div>
-      </Section>
-
-      <Section>
-        <DailyQuote />
       </Section>
 
       <section className="premium-charism">

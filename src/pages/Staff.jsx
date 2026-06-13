@@ -32,7 +32,6 @@ export default function Staff() {
   const { t } = useTranslation();
   const { data: staffData } = useStaff();
   const { friars, staff } = staffData;
-  const [flipped, setFlipped] = useState(null); // card id currently flipped
   const [modal, setModal] = useState(null); // full modal person
 
   // Leadership = pastor + associate(s). Everyone else goes to In Residence so
@@ -59,16 +58,6 @@ export default function Staff() {
       document.body.style.overflow = "";
     };
   }, [modal, closeModal]);
-
-  // Click outside card to un-flip
-  useEffect(() => {
-    if (!flipped) return;
-    const handler = (e) => {
-      if (!e.target.closest(".flip-card")) setFlipped(null);
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, [flipped]);
 
   const Avatar = ({ name, photo, size, dark }) =>
     photo ? (
@@ -121,190 +110,65 @@ export default function Staff() {
     return <PullQuote text={`“${text}”`} src={source} align="left" />;
   };
 
-  const LeaderCard = ({ person }) => {
-    const isFlipped = flipped === person.id;
-    const bio = t(`staff.bios.${person.id}`);
-    const bioShort = bio.length > 160 ? bio.slice(0, 157) + "…" : bio;
-
-    return (
-      <div className="flip-card" style={{ perspective: "1000px", height: 380 }}>
-        <div
+  const LeaderCard = ({ person }) => (
+    <div
+      className="flip-card"
+      style={{ height: 380, cursor: "pointer" }}
+      onClick={() => setModal({ ...person, group: "leadership" })}
+      role="button"
+      tabIndex={0}
+      aria-label={person.name}
+      onKeyDown={(e) => e.key === "Enter" && setModal({ ...person, group: "leadership" })}
+    >
+      <div
+        style={{
+          height: "100%",
+          background: "#fff",
+          border: `1px solid ${T.stone}`,
+          borderRadius: 12,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "32px 24px",
+          textAlign: "center",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
+          fontFamily: "'Source Sans 3', sans-serif",
+        }}
+      >
+        <Avatar name={person.name} photo={person.photo} size={130} />
+        <h3
           style={{
-            position: "relative",
-            width: "100%",
-            height: "100%",
-            transformStyle: "preserve-3d",
-            transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
-            transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+            fontSize: 21,
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 600,
+            marginTop: 18,
+            marginBottom: 8,
+            color: T.softBlack,
+            lineHeight: 1.2,
           }}
         >
-          {/* Front */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-              background: "#fff",
-              border: `1px solid ${T.stone}`,
-              borderRadius: 12,
-              cursor: "pointer",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "32px 24px",
-              textAlign: "center",
-              boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
-              fontFamily: "'Source Sans 3', sans-serif",
-            }}
-          >
-            <button
-              type="button"
-              onClick={() => setFlipped(person.id)}
-              aria-label={`${person.name}: ${t("staff.clickHint")}`}
-              style={{
-                position: "absolute",
-                inset: 0,
-                zIndex: 2,
-                background: "transparent",
-                border: "none",
-                borderRadius: 12,
-                cursor: "pointer",
-              }}
-            />
-            <Avatar name={person.name} photo={person.photo} size={130} />
-            <h3
-              style={{
-                fontSize: 21,
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                marginTop: 18,
-                marginBottom: 8,
-                color: T.softBlack,
-                lineHeight: 1.2,
-              }}
-            >
-              {person.name}
-            </h3>
-            <div className="chip chip--solid">{displayRole(person)}</div>
-            <div
-              style={{
-                marginTop: 18,
-                fontSize: 12,
-                letterSpacing: 1,
-                color: T.warmGray,
-                display: "flex",
-                alignItems: "center",
-                gap: 5,
-                opacity: 0.7,
-              }}
-            >
-              <Icon name="RefreshCw" size={11} color={T.warmGray} />
-              {t("staff.clickHint")}
-            </div>
-          </div>
-
-          {/* Back */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-              transform: "rotateY(180deg)",
-              background: `linear-gradient(160deg, ${T.burgundyDark}, ${T.burgundy})`,
-              borderRadius: 12,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "28px 24px 24px",
-              textAlign: "center",
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  fontSize: 11,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: T.goldText,
-                  fontWeight: 700,
-                  marginBottom: 10,
-                }}
-              >
-                {displayRole(person)}
-              </div>
-              <h3
-                style={{
-                  fontSize: 18,
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 700,
-                  color: "#fff",
-                  marginBottom: 14,
-                  lineHeight: 1.2,
-                }}
-              >
-                {person.name}
-              </h3>
-              <p style={{ fontSize: 13.5, lineHeight: 1.75, color: "rgba(255,255,255,0.82)" }}>
-                {bioShort}
-              </p>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: 10,
-                flexWrap: "wrap",
-                marginTop: 20,
-              }}
-            >
-              <button
-                type="button"
-                onClick={() => setModal({ ...person, group: "leadership" })}
-                style={{
-                  padding: "8px 20px",
-                  fontSize: 12,
-                  letterSpacing: 1.5,
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  fontFamily: "'Source Sans 3', sans-serif",
-                  background: T.gold,
-                  color: T.softBlack,
-                  border: "none",
-                  borderRadius: 6,
-                  cursor: "pointer",
-                }}
-              >
-                {t("staff.viewDetails")}
-              </button>
-              <button
-                type="button"
-                onClick={() => setFlipped(null)}
-                style={{
-                  padding: "8px 16px",
-                  fontSize: 12,
-                  letterSpacing: 1.5,
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  fontFamily: "'Source Sans 3', sans-serif",
-                  background: "transparent",
-                  color: "#fff",
-                  border: "1px solid rgba(255,255,255,0.45)",
-                  borderRadius: 6,
-                  cursor: "pointer",
-                }}
-              >
-                {t("staff.flipBack")}
-              </button>
-            </div>
-          </div>
+          {person.name}
+        </h3>
+        <div className="chip chip--solid">{displayRole(person)}</div>
+        <div
+          style={{
+            marginTop: 18,
+            fontSize: 12,
+            letterSpacing: 1,
+            color: T.warmGray,
+            display: "flex",
+            alignItems: "center",
+            gap: 5,
+            opacity: 0.7,
+          }}
+        >
+          <Icon name="ChevronRight" size={11} color={T.warmGray} />
+          {t("staff.clickHint")}
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 
   const ResidenceCard = ({ person }) => (
     <div
