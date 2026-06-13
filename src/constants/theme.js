@@ -24,6 +24,12 @@ export const T = {
   // Opaque low-saturation chip tints (mirror --chip-soft-*-bg in global.css).
   chipBurgundyBg: "#F4E9EA",
   chipGoldBg: "#F6EEDC",
+  // Crisp, architectural radius scale — mirror of --radius-* in global.css.
+  // Prefer the CSS var in JSX (borderRadius: "var(--radius-card)"); this object
+  // is the documented numeric mirror. control = controls/chips, card = cards/panels,
+  // modal = large modals & feature cards. Full circles (50%) stay only for
+  // avatars, close/nav buttons, status dots, and step-number bubbles.
+  radius: { control: 2, card: 4, modal: 6 },
 };
 
 export const fontLink =

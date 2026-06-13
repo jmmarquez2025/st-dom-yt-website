@@ -28,12 +28,12 @@ export function PastoralActionPanel({
       gap: 8,
       minHeight: 44,
       padding: "12px 22px",
-      borderRadius: 3,
+      borderRadius: "var(--radius-control)",
       border: variant === "secondary" ? `1px solid ${urgent ? "rgba(255,255,255,0.42)" : T.burgundy}` : "none",
       textDecoration: "none",
       fontSize: 13,
       fontWeight: 700,
-      letterSpacing: 1,
+      letterSpacing: 0.5,
       textTransform: "uppercase",
       fontFamily: "'Source Sans 3', sans-serif",
       cursor: "pointer",
@@ -63,33 +63,26 @@ export function PastoralActionPanel({
           : T.warmWhite,
         color: urgent ? "#fff" : T.charcoal,
         border: urgent ? "none" : `1px solid ${T.stone}`,
-        borderRadius: 6,
+        borderRadius: "var(--radius-modal)",
         padding: "clamp(28px, 5vw, 44px)",
-        boxShadow: urgent ? "0 18px 46px rgba(74,16,25,0.24)" : "0 8px 28px rgba(0,0,0,0.06)",
+        boxShadow: urgent ? "0 8px 24px rgba(74,16,25,0.22)" : "0 2px 8px rgba(0,0,0,0.05)",
       }}
     >
-      <div style={{ display: "flex", gap: 18, alignItems: "flex-start", flexWrap: "wrap" }}>
-        <div
+      <div style={{ display: "flex", gap: 16, alignItems: "flex-start", flexWrap: "wrap" }}>
+        <Icon
+          name={urgent ? "PhoneCall" : "Compass"}
+          size={26}
+          color={urgent ? T.goldLight : T.burgundy}
           aria-hidden="true"
-          style={{
-            width: 48,
-            height: 48,
-            borderRadius: "50%",
-            display: "grid",
-            placeItems: "center",
-            background: urgent ? "rgba(232,213,163,0.16)" : T.cream,
-            flex: "0 0 auto",
-          }}
-        >
-          <Icon name={urgent ? "PhoneCall" : "Compass"} size={24} color={urgent ? T.goldLight : T.burgundy} />
-        </div>
+          style={{ flex: "0 0 auto", marginTop: 4 }}
+        />
         <div style={{ flex: "1 1 280px" }}>
           {eyebrow && (
             <div
               style={{
                 fontSize: 12,
-                letterSpacing: 2.6,
-                textTransform: "uppercase",
+                letterSpacing: 0.5,
+                fontVariantCaps: "all-small-caps",
                 color: urgent ? T.goldLight : T.goldText,
                 fontWeight: 700,
                 marginBottom: 8,
@@ -159,8 +152,8 @@ export function NextSteps({ eyebrow, title, items }) {
                 color: T.goldText,
                 fontSize: 12,
                 fontWeight: 700,
-                letterSpacing: 2.8,
-                textTransform: "uppercase",
+                letterSpacing: 0.5,
+                fontVariantCaps: "all-small-caps",
                 marginBottom: 8,
               }}
             >
@@ -190,7 +183,7 @@ export function NextSteps({ eyebrow, title, items }) {
               textAlign: "left",
               background: T.warmWhite,
               border: `1px solid ${T.stone}`,
-              borderRadius: 6,
+              borderRadius: "var(--radius-card)",
               padding: 20,
               textDecoration: "none",
               cursor: "pointer",

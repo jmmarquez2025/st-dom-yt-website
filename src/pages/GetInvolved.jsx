@@ -23,7 +23,7 @@ const ACCENTS = {
   familyLife: "#4A7C59", // moss — matches the events "education" green
   mensFellowship: "#5B7FA6", // slate blue — matches events "community"
   svdp: "#7B5EA7", // muted violet — matches events "prayer"
-  music: T.gold,
+  music: T.goldText, // AA-safe dark gold (#7A5A0F) — bright T.gold fails contrast as a bare icon / white-on-accent
   religiousEd: "#B26A3A", // sienna
   youth: "#3E7E83", // muted teal
   bibleStudy: "#4E342E", // walnut
@@ -123,15 +123,12 @@ export default function GetInvolved() {
             }
             .ministry-card:hover {
               transform: translateY(-2px);
-              box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
               border-color: var(--accent, ${T.burgundy});
             }
             .ministry-card:focus-visible {
               outline: 2px solid ${T.burgundy};
               outline-offset: 2px;
-            }
-            .ministry-icon {
-              /* static — no scale animation */
             }
             .ministry-hint {
               font-size: 12px;
@@ -160,7 +157,7 @@ export default function GetInvolved() {
             }
             .ministry-modal {
               background: #fff;
-              border-radius: 8px;
+              border-radius: var(--radius-modal);
               max-width: 520px;
               width: 100%;
               max-height: 90vh;
@@ -230,21 +227,7 @@ export default function GetInvolved() {
                     gap: 16,
                   }}
                 >
-                  <div
-                    className="ministry-icon"
-                    style={{
-                      width: 44,
-                      height: 44,
-                      minWidth: 44,
-                      borderRadius: "50%",
-                      background: T.stoneLight,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Icon name={m.icon} size={22} color={accent} />
-                  </div>
+                  <Icon name={m.icon} size={24} color={accent} style={{ flexShrink: 0, marginTop: 2 }} />
                   <div style={{ flex: 1 }}>
                     <h3
                       style={{
@@ -410,23 +393,15 @@ export default function GetInvolved() {
                 background: selected.accent,
                 padding: "44px 32px 32px",
                 textAlign: "center",
-                borderRadius: "8px 8px 0 0",
+                borderRadius: "var(--radius-modal) var(--radius-modal) 0 0",
               }}
             >
-              <div
-                style={{
-                  width: 72,
-                  height: 72,
-                  borderRadius: "50%",
-                  background: "rgba(255,255,255,0.2)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto 16px",
-                }}
-              >
-                <Icon name={selected.icon} size={36} color="#fff" />
-              </div>
+              <Icon
+                name={selected.icon}
+                size={40}
+                color="#fff"
+                style={{ display: "block", margin: "0 auto 16px" }}
+              />
               <h2
                 style={{
                   fontSize: 26,
@@ -474,8 +449,8 @@ export default function GetInvolved() {
                 <div
                   style={{
                     fontSize: 11,
-                    letterSpacing: 2,
-                    textTransform: "uppercase",
+                    letterSpacing: 0.5,
+                    fontVariantCaps: "all-small-caps",
                     color: T.warmGray,
                     marginBottom: 12,
                     fontWeight: 600,

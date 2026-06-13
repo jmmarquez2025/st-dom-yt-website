@@ -186,7 +186,11 @@ export default function Nav() {
     fontSize: 13.5,
     fontWeight: active ? 600 : 400,
     color: active ? T.burgundy : T.charcoal,
-    borderBottom: active ? `2px solid ${T.gold}` : "2px solid transparent",
+    // Active underline via inset box-shadow (not a toggling borderBottom): keeps the
+    // style object free of any border longhand/shorthand mix that trips React's
+    // "don't mix shorthand and non-shorthand" warning on route change.
+    border: "none",
+    boxShadow: active ? `inset 0 -2px 0 ${T.gold}` : "none",
     transition: "all 0.3s",
     fontFamily: "'Source Sans 3', sans-serif",
     letterSpacing: 0.3,
@@ -195,7 +199,6 @@ export default function Nav() {
     gap: 3,
     cursor: "pointer",
     background: "none",
-    border: "none",
   });
 
   return (
@@ -231,7 +234,7 @@ export default function Nav() {
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: 17, color: T.burgundy, lineHeight: 1.1, letterSpacing: 0.5 }}>
               St. Dominic
             </div>
-            <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: T.warmGray, fontWeight: 500 }}>
+            <div style={{ fontSize: 11, letterSpacing: 0.5, fontVariantCaps: "all-small-caps", color: T.warmGray, fontWeight: 500 }}>
               {t("nav.subtitle")}
             </div>
           </div>
@@ -316,8 +319,8 @@ export default function Nav() {
                       background: "rgba(255,253,249,0.98)",
                       backdropFilter: "blur(12px)",
                       borderTop: `2px solid ${T.gold}`,
-                      boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-                      borderRadius: "0 0 6px 6px",
+                      boxShadow: "0 6px 20px rgba(0,0,0,0.10)",
+                      borderRadius: "0 0 var(--radius-modal) var(--radius-modal)",
                       padding: "8px 0",
                       animation: "dropdownFadeIn 0.2s ease",
                     }}
@@ -426,7 +429,7 @@ export default function Nav() {
                   justifyContent: "center",
                   gap: 6,
                   padding: "10px 8px",
-                  borderRadius: 8,
+                  borderRadius: "var(--radius-card)",
                   border: `1px solid ${isActive(to) ? T.gold : T.stone}`,
                   background: isActive(to) ? "rgba(197,165,90,0.14)" : "#fff",
                   color: isActive(to) ? T.burgundy : T.charcoal,

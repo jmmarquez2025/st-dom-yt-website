@@ -177,10 +177,10 @@ export default function Events() {
                     <div
                       style={{
                         fontSize: 11,
-                        letterSpacing: 2,
+                        letterSpacing: 0.5,
                         fontWeight: 700,
                         color: T.goldText,
-                        textTransform: "uppercase",
+                        fontVariantCaps: "all-small-caps",
                       }}
                     >
                       {d.month}
@@ -287,7 +287,7 @@ export default function Events() {
                   style={{
                     background: "#fff",
                     border: `1px solid ${T.stone}`,
-                    borderRadius: 8,
+                    borderRadius: "var(--radius-card)",
                     padding: "16px 20px",
                     display: "flex",
                     alignItems: "center",
@@ -316,8 +316,8 @@ export default function Events() {
                   <span
                     style={{
                       fontSize: 11,
-                      letterSpacing: 1.5,
-                      textTransform: "uppercase",
+                      letterSpacing: 0.5,
+                      fontVariantCaps: "all-small-caps",
                       fontWeight: 600,
                       color: meta.color,
                     }}

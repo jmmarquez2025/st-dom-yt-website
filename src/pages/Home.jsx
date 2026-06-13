@@ -30,7 +30,7 @@ const CATEGORY_COLORS = {
 const cardBase = {
   background: "#fff",
   border: `1px solid ${T.stone}`,
-  borderRadius: 8,
+  borderRadius: "var(--radius-card)",
   boxShadow: "0 1px 10px rgba(26,23,20,0.055)",
 };
 
@@ -330,9 +330,7 @@ export default function Home() {
 
       {(announcements.length > 0 || upcoming.length > 0) && (
         <Section>
-          <SectionTitle sub={t("home.announcements.sub")}>
-            {t("home.announcements.title")}
-          </SectionTitle>
+          <SectionTitle>{t("home.announcements.title")}</SectionTitle>
           <div className="premium-news-grid">
             {announcements.slice(0, 2).map((announcement, index) => (
               <article key={announcement.title || index} className="premium-news-card">
@@ -393,15 +391,11 @@ export default function Home() {
         <p className="premium-formation-copy">{t("home.formation.desc")}</p>
         <div className="premium-formation-grid">
           <div>
-            <SectionTitle sub={t("home.vatican.sub")} divider={false}>
-              {t("home.vatican.title")}
-            </SectionTitle>
+            <SectionTitle divider={false}>{t("home.vatican.title")}</SectionTitle>
             <VaticanNews />
           </div>
           <div>
-            <SectionTitle sub={t("youtube.sub")} divider={false}>
-              {t("youtube.title")}
-            </SectionTitle>
+            <SectionTitle divider={false}>{t("youtube.title")}</SectionTitle>
             <p className="premium-widget-copy">{t("youtube.desc")}</p>
             <YouTubeChannel />
           </div>

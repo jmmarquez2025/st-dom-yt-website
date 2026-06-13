@@ -172,7 +172,7 @@ export default function Give() {
                   color: T.softBlack,
                   fontSize: 15,
                   fontWeight: 600,
-                  letterSpacing: 1,
+                  letterSpacing: 0.5,
                   textTransform: "uppercase",
                   borderRadius: 2,
                   textDecoration: "none",

@@ -5,7 +5,7 @@ const base = {
   padding: "14px 32px",
   fontSize: 14,
   fontWeight: 600,
-  letterSpacing: 1.2,
+  letterSpacing: 0.5,
   textTransform: "uppercase",
   border: "none",
   cursor: "pointer",

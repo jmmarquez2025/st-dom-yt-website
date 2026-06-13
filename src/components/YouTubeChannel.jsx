@@ -22,7 +22,7 @@ export default function YouTubeChannel() {
         <div
           style={{
             minHeight: 280,
-            borderRadius: 12,
+            borderRadius: "var(--radius-card)",
             border: `1px solid ${T.stone}`,
             background: T.softBlack,
             color: "#fff",
@@ -52,7 +52,7 @@ export default function YouTubeChannel() {
               padding: "12px 22px",
               fontSize: 13,
               fontWeight: 700,
-              letterSpacing: 1,
+              letterSpacing: 0.5,
               textTransform: "uppercase",
               fontFamily: "'Source Sans 3', sans-serif",
               cursor: "pointer",
@@ -70,9 +70,9 @@ export default function YouTubeChannel() {
       {/* Responsive 16:9 embed */}
       <div
         style={{
-          borderRadius: 12,
+          borderRadius: "var(--radius-card)",
           overflow: "hidden",
-          boxShadow: "0 8px 40px rgba(0,0,0,0.12)",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
           border: `1px solid ${T.stone}`,
           background: T.softBlack,
         }}

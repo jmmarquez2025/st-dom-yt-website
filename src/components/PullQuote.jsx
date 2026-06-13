@@ -108,8 +108,8 @@ export default function PullQuote({
             marginInline: edge,
             fontFamily: "'Source Sans 3', sans-serif",
             fontSize: 12,
-            letterSpacing: 2,
-            textTransform: "uppercase",
+            letterSpacing: 0.5,
+            fontVariantCaps: "all-small-caps",
             color: dark ? T.goldLight : T.goldText,
           }}
         >

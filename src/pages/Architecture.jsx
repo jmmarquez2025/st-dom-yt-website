@@ -167,8 +167,8 @@ export default function Architecture() {
         <div
           style={{
             fontSize: 14,
-            letterSpacing: 4,
-            textTransform: "uppercase",
+            letterSpacing: 0.5,
+            fontVariantCaps: "all-small-caps",
             color: T.goldText,
             marginBottom: 16,
             fontWeight: 600,
@@ -373,8 +373,8 @@ export default function Architecture() {
             style={{
               display: "block",
               fontSize: 13,
-              letterSpacing: 3,
-              textTransform: "uppercase",
+              letterSpacing: 0.5,
+              fontVariantCaps: "all-small-caps",
               color: T.goldText,
               fontStyle: "normal",
             }}
@@ -485,8 +485,8 @@ export default function Architecture() {
             style={{
               display: "block",
               fontSize: 13,
-              letterSpacing: 3,
-              textTransform: "uppercase",
+              letterSpacing: 0.5,
+              fontVariantCaps: "all-small-caps",
               color: T.goldText,
               fontStyle: "normal",
             }}
@@ -553,8 +553,8 @@ export default function Architecture() {
           <div
             style={{
               fontSize: 12,
-              letterSpacing: 4,
-              textTransform: "uppercase",
+              letterSpacing: 0.5,
+              fontVariantCaps: "all-small-caps",
               color: T.goldText,
               fontWeight: 600,
               marginBottom: 16,

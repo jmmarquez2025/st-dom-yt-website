@@ -133,7 +133,7 @@ export default function Sacraments() {
                   fontSize: 13,
                   fontWeight: 600,
                   color: T.goldText,
-                  letterSpacing: 1,
+                  letterSpacing: 0.5,
                   textTransform: "uppercase",
                   marginTop: 16,
                 }}

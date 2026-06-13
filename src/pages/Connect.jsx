@@ -108,7 +108,7 @@ export default function Connect() {
                   style={{
                     background: "#fff",
                     border: `1px solid ${T.stone}`,
-                    borderRadius: 12,
+                    borderRadius: "var(--radius-card)",
                     padding: "24px 20px",
                     textDecoration: "none",
                     color: T.softBlack,
@@ -120,7 +120,7 @@ export default function Connect() {
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "translateY(-3px)";
-                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.07)";
                     e.currentTarget.style.borderColor = accent;
                   }}
                   onMouseLeave={(e) => {
@@ -129,19 +129,12 @@ export default function Connect() {
                     e.currentTarget.style.borderColor = T.stone;
                   }}
                 >
-                  <div
-                    style={{
-                      width: 48,
-                      height: 48,
-                      borderRadius: "50%",
-                      background: `${accent}14`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Icon name={iconFor(acc.platform)} size={22} color={accent} />
-                  </div>
+                  <Icon
+                    name={iconFor(acc.platform)}
+                    size={24}
+                    color={`color-mix(in srgb, ${accent} 82%, ${T.softBlack})`}
+                    style={{ flexShrink: 0 }}
+                  />
                   <div style={{ flex: 1 }}>
                     <h3
                       style={{

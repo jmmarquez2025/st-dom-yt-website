@@ -30,7 +30,7 @@ export default function LanguageToggle() {
       style={{
         display: "inline-flex",
         border: `1px solid ${T.stone}`,
-        borderRadius: 3,
+        borderRadius: "var(--radius-control)",
         overflow: "hidden",
         height: 32,
       }}
