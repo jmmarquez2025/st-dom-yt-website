@@ -65,18 +65,18 @@
       "ctaBecoming": "¿Interesado en Hacerse Católico?"
     },
     "essentials": {
-      "sub": "Lo Esencial",
-      "title": "Lo Que Muchos Visitantes Buscan Primero",
-      "today": "Misas de Hoy",
+      "todayGroup": "Hoy",
+      "findUs": "Cómo Encontrarnos",
+      "today": "Misas",
       "noMassToday": "No hay Misa listada para hoy",
-      "confession": "Confesión Hoy",
+      "confession": "Confesión",
       "noConfessionToday": "Vea el horario semanal",
       "directions": "Dirección",
       "directionsDesc": "77 East Lucius Avenue",
       "bulletin": "Boletín",
       "bulletinDesc": "Anuncios y noticias parroquiales",
       "contact": "Llame a la Oficina",
-      "reviewed": "Horario revisado el 4 de mayo de 2026"
+      "reviewed": "Horarios de Misa y confesión verificados el 4 de mayo de 2026"
     },
     "welcome": {
       "sub": "Bienvenidos",
