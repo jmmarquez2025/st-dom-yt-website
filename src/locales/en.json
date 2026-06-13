@@ -65,18 +65,18 @@
       "ctaBecoming": "Interested in Becoming Catholic?"
     },
     "essentials": {
-      "sub": "Parish Essentials",
-      "title": "What Most Visitors Need First",
-      "today": "Today's Masses",
+      "todayGroup": "Today",
+      "findUs": "Find us",
+      "today": "Masses",
       "noMassToday": "No Mass listed for today",
-      "confession": "Confession Today",
+      "confession": "Confession",
       "noConfessionToday": "See the weekly schedule",
       "directions": "Address",
       "directionsDesc": "77 East Lucius Avenue",
       "bulletin": "Bulletin",
       "bulletinDesc": "Announcements and parish notices",
       "contact": "Call the Office",
-      "reviewed": "Schedule reviewed May 4, 2026"
+      "reviewed": "Mass & confession times verified May 4, 2026"
     },
     "welcome": {
       "sub": "Welcome",
@@ -200,7 +200,7 @@
       "sundayTitle": "Weekend Masses",
       "dailyTitle": "Daily Masses"
     },
-    "reviewed": "Schedule reviewed May 4, 2026. Holy Day schedules may vary; check the bulletin or call the parish office.",
+    "reviewed": "Holy Day schedules may vary — check the bulletin or call the parish office. Times verified May 4, 2026.",
     "parallax1": {
       "quote": "\"The Eucharist is the consummation of the whole spiritual life.\"",
       "src": "— St. Thomas Aquinas, O.P."
@@ -463,7 +463,7 @@
     },
     "heading": "This Week's Bulletin",
     "loading": "Loading bulletin...",
-    "reviewed": "Bulletin archive reviewed May 4, 2026. Current bulletins are posted when the parish feed is connected.",
+    "reviewed": "Current bulletins are posted once the parish feed is connected. Archive verified May 4, 2026.",
     "fallback": {
       "title": "Bulletin Coming Soon",
       "desc": "Our weekly bulletin will be embedded here for easy reading. In the meantime, visit our church website for the latest bulletin.",

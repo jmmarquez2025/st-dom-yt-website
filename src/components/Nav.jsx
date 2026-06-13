@@ -186,11 +186,12 @@ export default function Nav() {
     fontSize: 13.5,
     fontWeight: active ? 600 : 400,
     color: active ? T.burgundy : T.charcoal,
-    // Active underline via inset box-shadow (not a toggling borderBottom): keeps the
-    // style object free of any border longhand/shorthand mix that trips React's
-    // "don't mix shorthand and non-shorthand" warning on route change.
-    border: "none",
-    boxShadow: active ? `inset 0 -2px 0 ${T.gold}` : "none",
+    // Reset the default button border with longhand sides only — mixing the
+    // `border` shorthand with `borderBottom` triggers a React rerender warning.
+    borderTop: "none",
+    borderRight: "none",
+    borderLeft: "none",
+    borderBottom: active ? `2px solid ${T.gold}` : "2px solid transparent",
     transition: "all 0.3s",
     fontFamily: "'Source Sans 3', sans-serif",
     letterSpacing: 0.3,
@@ -464,10 +465,12 @@ export default function Nav() {
                     fontSize: 16,
                     fontWeight: isGroupActive(item) ? 600 : 400,
                     color: isGroupActive(item) ? T.burgundy : T.charcoal,
-                    borderBottom: `1px solid ${T.stoneLight}`,
                     fontFamily: "'Source Sans 3', sans-serif",
                     background: "none",
-                    border: "none",
+                    // Longhand-only border: a bottom divider, no other sides.
+                    borderTop: "none",
+                    borderRight: "none",
+                    borderLeft: "none",
                     borderBottomWidth: 1,
                     borderBottomStyle: "solid",
                     borderBottomColor: T.stoneLight,

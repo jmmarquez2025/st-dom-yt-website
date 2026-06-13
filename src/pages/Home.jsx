@@ -183,42 +183,46 @@ export default function Home() {
 
       <section className="premium-essentials">
         <div className="section-inner--wide">
-          <div className="premium-section-kicker">{t("home.essentials.sub")}</div>
-          <div className="premium-essentials__heading">
-            <h2>{t("home.essentials.title")}</h2>
-            <span>{t("home.essentials.reviewed")}</span>
+          <div className="premium-essentials__group">
+            <div className="kicker">{t("home.essentials.todayGroup")}</div>
+            <div className="premium-essentials__grid premium-essentials__grid--today">
+              <ActionCard
+                icon="Church"
+                label={t("home.essentials.today")}
+                value={todayMasses || t("home.essentials.noMassToday")}
+                onClick={() => navigate("/mass-times")}
+              />
+              <ActionCard
+                icon="Cross"
+                label={t("home.essentials.confession")}
+                value={todayConfessions || t("home.essentials.noConfessionToday")}
+                onClick={() => navigate("/mass-times")}
+              />
+            </div>
+            <p className="premium-essentials__note">{t("home.essentials.reviewed")}</p>
           </div>
-          <div className="premium-essentials__grid">
-            <ActionCard
-              icon="Church"
-              label={t("home.essentials.today")}
-              value={todayMasses || t("home.essentials.noMassToday")}
-              onClick={() => navigate("/mass-times")}
-            />
-            <ActionCard
-              icon="Cross"
-              label={t("home.essentials.confession")}
-              value={todayConfessions || t("home.essentials.noConfessionToday")}
-              onClick={() => navigate("/mass-times")}
-            />
-            <ActionCard
-              icon="MapPin"
-              label={t("home.essentials.directions")}
-              value={t("home.essentials.directionsDesc")}
-              href={mapsHref}
-            />
-            <ActionCard
-              icon="Newspaper"
-              label={t("home.essentials.bulletin")}
-              value={t("home.essentials.bulletinDesc")}
-              onClick={() => navigate("/bulletin")}
-            />
-            <ActionCard
-              icon="Phone"
-              label={t("home.essentials.contact")}
-              value={CONFIG.phone}
-              href={CONFIG.phoneLink}
-            />
+          <div className="premium-essentials__group">
+            <div className="kicker">{t("home.essentials.findUs")}</div>
+            <div className="premium-essentials__grid premium-essentials__grid--find">
+              <ActionCard
+                icon="MapPin"
+                label={t("home.essentials.directions")}
+                value={t("home.essentials.directionsDesc")}
+                href={mapsHref}
+              />
+              <ActionCard
+                icon="Newspaper"
+                label={t("home.essentials.bulletin")}
+                value={t("home.essentials.bulletinDesc")}
+                onClick={() => navigate("/bulletin")}
+              />
+              <ActionCard
+                icon="Phone"
+                label={t("home.essentials.contact")}
+                value={CONFIG.phone}
+                href={CONFIG.phoneLink}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -283,7 +287,7 @@ export default function Home() {
         <div className="premium-charism__inner">
           <div className="premium-charism__grid">
             <div>
-              <div className="premium-section-kicker premium-section-kicker--light">
+              <div className="kicker kicker--light">
                 {t("home.priests.sub")}
               </div>
               <blockquote>{t("home.priests.quote")}</blockquote>
