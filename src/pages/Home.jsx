@@ -287,7 +287,7 @@ export default function Home() {
         <div className="premium-charism__inner">
           <div className="premium-charism__grid">
             <div>
-              <div className="premium-section-kicker premium-section-kicker--light">
+              <div className="kicker kicker--light">
                 {t("home.priests.sub")}
               </div>
               <blockquote>{t("home.priests.quote")}</blockquote>

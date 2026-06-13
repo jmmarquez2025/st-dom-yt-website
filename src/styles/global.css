@@ -546,18 +546,6 @@ body.nav-open .parish-action-bar {
   box-shadow: 0 24px 80px rgba(26, 23, 20, 0.14);
 }
 
-.premium-section-kicker {
-  color: var(--color-gold-text);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-.premium-section-kicker--light {
-  color: var(--color-gold-light);
-}
-
 .premium-essentials__group + .premium-essentials__group {
   margin-top: 22px;
 }
@@ -797,6 +785,10 @@ body.nav-open .parish-action-bar {
   grid-template-columns: 1.08fr 0.92fr;
   gap: clamp(32px, 6vw, 68px);
   align-items: center;
+}
+
+.premium-charism .kicker::before {
+  display: none;
 }
 
 .premium-charism blockquote {
