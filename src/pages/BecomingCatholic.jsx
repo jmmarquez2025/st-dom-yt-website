@@ -89,7 +89,7 @@ export default function BecomingCatholic() {
               key={key}
               style={{
                 background: "#fff",
-                borderRadius: 8,
+                borderRadius: "var(--radius-card)",
                 overflow: "hidden",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
               }}
@@ -121,8 +121,8 @@ export default function BecomingCatholic() {
                     display: "inline-block",
                     fontSize: 12,
                     fontWeight: 600,
-                    letterSpacing: 1,
-                    textTransform: "uppercase",
+                    letterSpacing: 0.5,
+                    fontVariantCaps: "all-small-caps",
                     color: T.burgundy,
                     background: `${T.burgundy}10`,
                     padding: "6px 14px",

@@ -172,8 +172,8 @@ export default function StickyHero({
             <div
               style={{
                 fontSize: 11,
-                letterSpacing: 2,
-                textTransform: "uppercase",
+                letterSpacing: 0.5,
+                fontVariantCaps: "all-small-caps",
                 color: "rgba(255,255,255,0.5)",
                 fontWeight: 500,
               }}

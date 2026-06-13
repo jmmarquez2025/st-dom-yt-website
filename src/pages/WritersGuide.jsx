@@ -85,7 +85,7 @@ function PassphraseGate({ onUnlock }) {
             textAlign: "center",
             padding: 48,
             background: "#fff",
-            borderRadius: 12,
+            borderRadius: "var(--radius-card)",
             border: `1px solid ${T.stone}`,
             boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
           }}
@@ -138,7 +138,7 @@ function PassphraseGate({ onUnlock }) {
               padding: "12px 16px",
               fontSize: 15,
               border: `1.5px solid ${error ? T.error : T.stone}`,
-              borderRadius: 6,
+              borderRadius: "var(--radius-card)",
               outline: "none",
               fontFamily: "'Source Sans 3', sans-serif",
               textAlign: "center",
@@ -167,12 +167,12 @@ function PassphraseGate({ onUnlock }) {
               padding: "12px 24px",
               fontSize: 14,
               fontWeight: 600,
-              letterSpacing: 1,
+              letterSpacing: 0.5,
               textTransform: "uppercase",
               background: T.burgundy,
               color: "#fff",
               border: "none",
-              borderRadius: 6,
+              borderRadius: "var(--radius-card)",
               cursor: "pointer",
               fontFamily: "'Source Sans 3', sans-serif",
             }}
@@ -195,7 +195,7 @@ function DashboardLoader() {
     >
       <div
         className="skeleton-block"
-        style={{ width: "min(640px, 100%)", height: 220, borderRadius: 10 }}
+        style={{ width: "min(640px, 100%)", height: 220, borderRadius: "var(--radius-card)" }}
       />
     </div>
   );
@@ -221,8 +221,8 @@ function Toast({ message, type, onDismiss }) {
         padding: "14px 24px",
         background: type === "error" ? T.error : "#2E7D32",
         color: "#fff",
-        borderRadius: 10,
-        boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+        borderRadius: "var(--radius-card)",
+        boxShadow: "0 4px 16px rgba(0,0,0,0.16)",
         fontSize: 14,
         fontWeight: 600,
         fontFamily: "'Source Sans 3', sans-serif",
@@ -380,7 +380,7 @@ function WelcomeHint({ onGoToData, onDismiss }) {
             background: T.burgundy,
             color: "#fff",
             border: "none",
-            borderRadius: 6,
+            borderRadius: "var(--radius-card)",
             fontSize: 13,
             fontWeight: 600,
             cursor: "pointer",

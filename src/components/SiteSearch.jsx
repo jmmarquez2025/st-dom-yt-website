@@ -206,8 +206,8 @@ export default function SiteSearch() {
               maxWidth: 600,
               margin: "0 20px",
               background: T.warmWhite,
-              borderRadius: 12,
-              boxShadow: "0 24px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(107,29,42,0.08)",
+              borderRadius: "var(--radius-modal)",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.22), 0 0 0 1px rgba(107,29,42,0.08)",
               overflow: "hidden",
               animation: "searchPanelIn 0.25s ease",
             }}
@@ -422,7 +422,7 @@ const kbdSmall = {
   fontSize: 10,
   fontFamily: "'Source Sans 3', sans-serif",
   background: "#E8E2D8",
-  borderRadius: 3,
+  borderRadius: "var(--radius-control)",
   padding: "1px 5px",
   border: "1px solid #D5CFC5",
 };

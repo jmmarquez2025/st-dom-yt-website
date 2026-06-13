@@ -33,7 +33,7 @@ function FormSection({ icon: IconComp, title, children, defaultOpen = true }) {
     <div
       style={{
         background: "#fff",
-        borderRadius: 8,
+        borderRadius: "var(--radius-card)",
         border: `1px solid ${open ? "rgba(107,29,42,0.12)" : T.stone}`,
         overflow: "hidden",
         transition: "border-color 0.3s, box-shadow 0.3s",
@@ -60,10 +60,8 @@ function FormSection({ icon: IconComp, title, children, defaultOpen = true }) {
           style={{
             width: 36,
             height: 36,
-            borderRadius: 8,
-            background: open
-              ? `linear-gradient(135deg, ${T.burgundy}, ${T.burgundyDark})`
-              : `linear-gradient(135deg, rgba(107,29,42,0.08), rgba(197,165,90,0.12))`,
+            borderRadius: "var(--radius-card)",
+            background: open ? T.burgundy : T.chipBurgundyBg,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -111,25 +109,22 @@ function SacramentPill({ label, checked, onChange }) {
         alignItems: "center",
         gap: 8,
         padding: "10px 18px",
-        borderRadius: 50,
+        borderRadius: "var(--radius-control)",
         cursor: "pointer",
         border: `1.5px solid ${checked ? T.burgundy : T.stone}`,
-        background: checked
-          ? `linear-gradient(135deg, rgba(107,29,42,0.08), rgba(197,165,90,0.06))`
-          : "#fff",
+        background: checked ? T.chipBurgundyBg : "#fff",
         transition: "all 0.25s ease",
         fontSize: 14,
         fontWeight: checked ? 600 : 400,
         color: checked ? T.burgundy : T.charcoal,
         fontFamily: "'Source Sans 3', sans-serif",
-        boxShadow: checked ? "0 1px 4px rgba(107,29,42,0.08)" : "none",
       }}
     >
       <div
         style={{
           width: 20,
           height: 20,
-          borderRadius: 6,
+          borderRadius: "var(--radius-control)",
           border: `2px solid ${checked ? T.burgundy : T.stone}`,
           background: checked ? T.burgundy : "transparent",
           display: "flex",
@@ -180,10 +175,7 @@ function StepIndicator({ currentStep, labels }) {
               width: 32,
               height: 32,
               borderRadius: "50%",
-              background:
-                currentStep >= s.num
-                  ? `linear-gradient(135deg, ${T.burgundy}, ${T.burgundyDark})`
-                  : T.stone,
+              background: currentStep >= s.num ? T.burgundy : T.stone,
               color: currentStep >= s.num ? "#fff" : T.warmGray,
               display: "flex",
               alignItems: "center",
@@ -449,9 +441,9 @@ export default function Register() {
               aria-live="polite"
               role="status"
               style={{
-                background: "linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%)",
+                background: "#eef6ec",
                 border: "1px solid #c8e6c9",
-                borderRadius: 8,
+                borderRadius: "var(--radius-card)",
                 padding: "56px 40px",
                 textAlign: "center",
                 animation: "fadeInScale 0.4s ease",
@@ -521,7 +513,7 @@ export default function Register() {
                   marginTop: 28,
                   background: "none",
                   border: `1.5px solid #66bb6a`,
-                  borderRadius: 10,
+                  borderRadius: "var(--radius-card)",
                   padding: "12px 28px",
                   fontSize: 14,
                   color: "#2e7d32",
@@ -554,7 +546,7 @@ export default function Register() {
                       gap: 10,
                       padding: "12px 14px",
                       border: "1px solid #fecaca",
-                      borderRadius: 8,
+                      borderRadius: "var(--radius-card)",
                       background: "#fef2f2",
                       color: "#b91c1c",
                       fontSize: 14,
@@ -603,7 +595,7 @@ export default function Register() {
                       gap: 8,
                       background: showSpouse ? "rgba(107,29,42,0.04)" : "transparent",
                       border: `1.5px dashed ${showSpouse ? T.burgundy : T.stone}`,
-                      borderRadius: 8,
+                      borderRadius: "var(--radius-card)",
                       padding: "12px 20px",
                       fontSize: 14,
                       color: T.burgundy,
@@ -625,7 +617,7 @@ export default function Register() {
                         gap: 16,
                         padding: "16px 20px",
                         background: "rgba(197,165,90,0.04)",
-                        borderRadius: 8,
+                        borderRadius: "var(--radius-card)",
                         border: `1px solid rgba(197,165,90,0.15)`,
                         animation: "fadeInScale 0.3s ease",
                       }}
@@ -747,8 +739,8 @@ export default function Register() {
                       style={{
                         fontSize: 12,
                         fontWeight: 600,
-                        letterSpacing: 1,
-                        textTransform: "uppercase",
+                        letterSpacing: 0.5,
+                        fontVariantCaps: "all-small-caps",
                         color: T.warmGray,
                         marginBottom: 12,
                         fontFamily: "'Source Sans 3', sans-serif",
@@ -800,18 +792,15 @@ export default function Register() {
                   disabled={status === "sending"}
                   className="btn-hover"
                   style={{
-                    background:
-                      status === "sending"
-                        ? T.warmGray
-                        : `linear-gradient(135deg, ${T.burgundy}, ${T.burgundyDark})`,
+                    background: status === "sending" ? T.warmGray : T.burgundy,
                     color: T.cream,
                     border: "none",
                     padding: "18px 40px",
                     fontSize: 15,
                     fontWeight: 600,
-                    letterSpacing: 1.2,
+                    letterSpacing: 0.5,
                     textTransform: "uppercase",
-                    borderRadius: 8,
+                    borderRadius: "var(--radius-card)",
                     cursor: status === "sending" ? "wait" : "pointer",
                     fontFamily: "'Source Sans 3', sans-serif",
                     minHeight: 56,
@@ -846,7 +835,7 @@ export default function Register() {
                       gap: 10,
                       background: "#fef2f2",
                       border: "1px solid #fecaca",
-                      borderRadius: 8,
+                      borderRadius: "var(--radius-card)",
                       padding: "12px 16px",
                     }}
                   >

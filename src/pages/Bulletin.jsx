@@ -52,8 +52,8 @@ export default function Bulletin() {
           <div
             style={{
               fontSize: 12,
-              letterSpacing: 4,
-              textTransform: "uppercase",
+              letterSpacing: 0.5,
+              fontVariantCaps: "all-small-caps",
               color: T.goldLight,
               marginBottom: 16,
               fontWeight: 600,
@@ -146,7 +146,7 @@ export default function Bulletin() {
               {/* Flipbook container */}
               <div
                 style={{
-                  borderRadius: 6,
+                  borderRadius: "var(--radius-card)",
                   overflow: "hidden",
                   boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
                   border: `1px solid ${T.stone}`,
@@ -247,7 +247,7 @@ export default function Bulletin() {
                 textAlign: "center",
                 padding: "clamp(48px, 8vw, 80px) 24px",
                 background: T.cream,
-                borderRadius: 6,
+                borderRadius: "var(--radius-card)",
                 border: `1px solid ${T.stone}`,
               }}
             >
@@ -285,7 +285,7 @@ export default function Bulletin() {
                   padding: "14px 32px",
                   fontSize: 14,
                   fontWeight: 600,
-                  letterSpacing: 1,
+                  letterSpacing: 0.5,
                   textTransform: "uppercase",
                   background: T.burgundy,
                   color: T.cream,
@@ -330,7 +330,7 @@ export default function Bulletin() {
                     justifyContent: "space-between",
                     background: "#fff",
                     border: `1px solid ${T.stone}`,
-                    borderRadius: 8,
+                    borderRadius: "var(--radius-card)",
                     padding: "14px 20px",
                     gap: 16,
                   }}
@@ -362,7 +362,7 @@ export default function Bulletin() {
                         gap: 6,
                         fontSize: 12,
                         fontWeight: 700,
-                        letterSpacing: 1,
+                        letterSpacing: 0.5,
                         textTransform: "uppercase",
                         color: T.burgundy,
                         textDecoration: "none",

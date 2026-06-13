@@ -30,9 +30,17 @@
   --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Chip / pill system — quiet, sentence-case, hairline borders, moderate radius.
+  /* Crisp, architectural radius scale — mirror of T.radius in constants/theme.js.
+     control = buttons/inputs/toggles/chips/small badges; card = cards/panels/list-items;
+     modal = large modals & feature cards. 50% stays only for avatars, close/nav
+     buttons, status dots, and step-number bubbles. Update BOTH locations. */
+  --radius-control: 2px;
+  --radius-card: 4px;
+  --radius-modal: 6px;
+
+  /* Chip / pill system — quiet, sentence-case, hairline borders, crisp radius.
      Replaces the old 999px / 20px uppercase letter-spaced "tag cloud" look. */
-  --chip-radius: 6px;
+  --chip-radius: var(--radius-control);
   --chip-pad-y: 5px;
   --chip-pad-x: 11px;
   --chip-font: 12px;
@@ -136,7 +144,7 @@ h1, h2, h3, h4 {
   color: #fff;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
 }
 .skip-link:focus {
   top: 0;
@@ -186,7 +194,7 @@ main li a {
 }
 .hover-lift:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
 }
 
 /* ── Button hover — quiet ink-deepen, no scale ── */
@@ -207,18 +215,18 @@ main li a {
 .glass-card {
   background: #fff;
   border: 1px solid var(--color-stone);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.35s ease, transform 0.35s var(--ease-elastic);
 }
 .glass-card:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
   transform: translateY(-2px);
 }
 .glass-card--dark {
   background: var(--color-burgundy-dark);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
 }
 
 /* ── Chip / pill system ──
@@ -293,8 +301,8 @@ body.nav-open {
   overflow: hidden;
   background: rgba(232, 213, 163, 0.35);
   border: 1px solid rgba(232, 213, 163, 0.5);
-  border-radius: 8px;
-  box-shadow: 0 14px 44px rgba(26, 23, 20, 0.28);
+  border-radius: var(--radius-card);
+  box-shadow: 0 8px 24px rgba(26, 23, 20, 0.22);
   transition: opacity 0.22s ease, transform 0.22s var(--ease-out-expo);
 }
 
@@ -542,8 +550,8 @@ body.nav-open .parish-action-bar {
   padding: clamp(24px, 4vw, 34px);
   background: rgba(255, 253, 249, 0.96);
   border: 1px solid rgba(232, 226, 216, 0.9);
-  border-radius: 8px;
-  box-shadow: 0 24px 80px rgba(26, 23, 20, 0.14);
+  border-radius: var(--radius-modal);
+  box-shadow: 0 1px 2px rgba(26, 23, 20, 0.06);
 }
 
 .premium-essentials__group + .premium-essentials__group {
@@ -592,7 +600,7 @@ body.nav-open .parish-action-bar {
 .premium-contact-item:hover {
   transform: translateY(-3px);
   border-color: rgba(197, 165, 90, 0.75) !important;
-  box-shadow: 0 14px 34px rgba(26, 23, 20, 0.11) !important;
+  box-shadow: 0 4px 12px rgba(26, 23, 20, 0.08) !important;
 }
 
 .premium-card-label,
@@ -603,10 +611,10 @@ body.nav-open .parish-action-bar {
 .premium-card-label {
   margin-bottom: 4px;
   color: var(--color-gold-text);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.7px;
-  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
 }
 
 .premium-card-value {
@@ -660,7 +668,7 @@ body.nav-open .parish-action-bar {
 
 .premium-mass-card {
   padding: clamp(26px, 4vw, 38px);
-  border-radius: 10px;
+  border-radius: var(--radius-modal);
   border: 1px solid rgba(197, 165, 90, 0.22); /* fine gold hairline, not white */
   background:
     radial-gradient(120% 80% at 50% 0%, rgba(107, 29, 42, 0.55) 0%, transparent 60%),
@@ -668,7 +676,7 @@ body.nav-open .parish-action-bar {
   color: #fff;
   box-shadow:
     inset 0 1px 0 rgba(197, 165, 90, 0.1), /* gold top catch-light */
-    0 18px 40px rgba(26, 23, 20, 0.26);
+    0 10px 28px rgba(26, 23, 20, 0.22);
 }
 
 .premium-mass-card__label {
@@ -739,7 +747,7 @@ body.nav-open .parish-action-bar {
   gap: 18px;
   padding: 28px;
   border: 1px solid var(--color-stone);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   background: #fff;
   color: var(--color-charcoal);
   font-family: var(--font-body);
@@ -817,8 +825,8 @@ body.nav-open .parish-action-bar {
   font-size: 13px;
   font-style: normal;
   font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
 }
 
 .premium-charism h2 {
@@ -864,7 +872,7 @@ body.nav-open .parish-action-bar {
   min-height: 190px;
   padding: 26px;
   border: 1px solid var(--color-stone);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   background: #fff;
 }
 
@@ -875,10 +883,10 @@ body.nav-open .parish-action-bar {
 .premium-news-card__date,
 .premium-event-date span {
   color: var(--color-gold-text);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
 }
 
 .premium-news-card h3 {
@@ -937,7 +945,7 @@ body.nav-open .parish-action-bar {
   gap: 13px;
   padding: 22px;
   border: 1px solid var(--color-stone);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   background: #fff;
   color: var(--color-charcoal);
   text-decoration: none;
@@ -951,10 +959,10 @@ body.nav-open .parish-action-bar {
 .premium-contact-item strong {
   margin-bottom: 3px;
   color: var(--color-gold-text);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
 }
 
 .premium-contact-item span span {
@@ -966,7 +974,7 @@ body.nav-open .parish-action-bar {
 }
 
 .premium-nav-link {
-  border-radius: 4px 4px 0 0;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
 }
 
 .premium-nav-link:hover,
@@ -980,7 +988,7 @@ body.nav-open .parish-action-bar {
 
 .premium-give-link:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(197, 165, 90, 0.28);
+  box-shadow: 0 4px 12px rgba(197, 165, 90, 0.26);
 }
 
 /* ── Premium page action strips ── */
@@ -1001,9 +1009,9 @@ body.nav-open .parish-action-bar {
   margin: 0 auto;
   padding: clamp(22px, 4vw, 32px);
   border: 1px solid rgba(232, 226, 216, 0.92);
-  border-radius: 8px;
+  border-radius: var(--radius-modal);
   background: rgba(255, 253, 249, 0.98);
-  box-shadow: 0 18px 56px rgba(26, 23, 20, 0.12);
+  box-shadow: 0 1px 3px rgba(26, 23, 20, 0.06);
 }
 
 .premium-page-actions__heading {
@@ -1052,7 +1060,7 @@ body.nav-open .parish-action-bar {
   gap: 14px;
   padding: 18px;
   border: 1px solid var(--color-stone);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   background: #fff;
   color: var(--color-charcoal);
   font-family: var(--font-body);
@@ -1069,7 +1077,7 @@ body.nav-open .parish-action-bar {
 .premium-page-actions__item:hover {
   transform: translateY(-3px);
   border-color: rgba(197, 165, 90, 0.75);
-  box-shadow: 0 14px 30px rgba(26, 23, 20, 0.1);
+  box-shadow: 0 4px 12px rgba(26, 23, 20, 0.08);
 }
 
 .premium-page-actions__item:focus-visible {
@@ -1089,16 +1097,9 @@ body.nav-open .parish-action-bar {
 }
 
 .premium-page-actions__icon {
-  width: 42px;
-  height: 42px;
   display: grid;
   place-items: center;
-  border-radius: 50%;
-  background: rgba(107, 29, 42, 0.08);
-}
-
-.premium-page-actions__item--primary .premium-page-actions__icon {
-  background: rgba(255, 253, 249, 0.34);
+  flex-shrink: 0;
 }
 
 .premium-page-actions__copy {
@@ -1264,7 +1265,7 @@ body.nav-open .parish-action-bar {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: var(--radius-card);
   border: 1px solid var(--color-stone);
   display: block;
 }
@@ -1448,7 +1449,7 @@ a.contact-link:hover {
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s ease infinite;
-  border-radius: 6px;
+  border-radius: var(--radius-card);
 }
 @keyframes shimmer {
   0%   { background-position: 200% 0; }

@@ -73,7 +73,7 @@ export default function PhotoGallery({ photos = [] }) {
           textAlign: "center",
           padding: "clamp(40px, 8vw, 64px) 24px",
           background: T.stoneLight,
-          borderRadius: 12,
+          borderRadius: "var(--radius-card)",
           border: `2px dashed ${T.stone}`,
         }}
       >
@@ -287,8 +287,8 @@ export default function PhotoGallery({ photos = [] }) {
                 maxWidth: "100%",
                 maxHeight: "78vh",
                 objectFit: "contain",
-                borderRadius: 4,
-                boxShadow: "0 8px 60px rgba(0,0,0,0.5)",
+                borderRadius: "var(--radius-card)",
+                boxShadow: "0 6px 30px rgba(0,0,0,0.4)",
                 flexShrink: 1,
               }}
             />

@@ -353,8 +353,8 @@ export default function History() {
             style={{
               display: "block",
               fontSize: 13,
-              letterSpacing: 3,
-              textTransform: "uppercase",
+              letterSpacing: 0.5,
+              fontVariantCaps: "all-small-caps",
               color: T.goldText,
               fontStyle: "normal",
             }}

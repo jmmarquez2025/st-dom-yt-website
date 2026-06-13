@@ -23,7 +23,7 @@ function ScheduleCard({ title, rows, accent = T.burgundy, t }) {
     <div
       style={{
         background: "#fff",
-        borderRadius: 8,
+        borderRadius: "var(--radius-card)",
         overflow: "hidden",
         boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
       }}
@@ -75,7 +75,7 @@ function AccordionItem({ title, items, defaultOpen = false }) {
     <div
       style={{
         background: "#fff",
-        borderRadius: 8,
+        borderRadius: "var(--radius-card)",
         overflow: "hidden",
         boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
         marginBottom: 12,
@@ -333,8 +333,8 @@ export default function MassTimes() {
           <span
             style={{
               fontSize: 14,
-              letterSpacing: 2,
-              textTransform: "uppercase",
+              letterSpacing: 0.5,
+              fontVariantCaps: "all-small-caps",
               color: T.goldLight,
             }}
           >
@@ -378,7 +378,7 @@ export default function MassTimes() {
             maxWidth: 640,
             margin: "0 auto",
             background: "#fff",
-            borderRadius: 8,
+            borderRadius: "var(--radius-card)",
             padding: "36px 32px",
             boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
           }}
@@ -421,8 +421,8 @@ export default function MassTimes() {
                 fontSize: 13,
                 fontFamily: "'Source Sans 3', sans-serif",
                 fontWeight: 700,
-                letterSpacing: 2,
-                textTransform: "uppercase",
+                letterSpacing: 0.5,
+                fontVariantCaps: "all-small-caps",
                 color: T.goldText,
                 marginBottom: 10,
                 textAlign: "center",
@@ -520,8 +520,8 @@ export default function MassTimes() {
           <span
             style={{
               fontSize: 14,
-              letterSpacing: 2,
-              textTransform: "uppercase",
+              letterSpacing: 0.5,
+              fontVariantCaps: "all-small-caps",
               color: T.goldLight,
             }}
           >
@@ -574,7 +574,7 @@ export default function MassTimes() {
           <div
             style={{
               background: "#fff",
-              borderRadius: 8,
+              borderRadius: "var(--radius-card)",
               overflow: "hidden",
               boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
             }}
@@ -644,7 +644,7 @@ export default function MassTimes() {
             maxWidth: 560,
             margin: "0 auto",
             background: "#fff",
-            borderRadius: 8,
+            borderRadius: "var(--radius-card)",
             overflow: "hidden",
             boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
           }}

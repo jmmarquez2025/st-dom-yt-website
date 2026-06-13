@@ -50,9 +50,10 @@ const RESOURCES = [
 
 const cardStyle = {
   background: "#fff",
-  borderRadius: 10,
+  border: `1px solid ${T.stone}`,
+  borderRadius: "var(--radius-card)",
   overflow: "hidden",
-  boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+  boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
   transition: "transform 0.3s ease, box-shadow 0.3s ease",
   display: "flex",
   flexDirection: "column",
@@ -112,9 +113,7 @@ export default function FaithFormation() {
       {/* ════ Why Learn More ════ */}
       <Section bg={T.cream}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
-          <SectionTitle sub={t("faithFormation.why.sub")}>
-            {t("faithFormation.why.title")}
-          </SectionTitle>
+          <SectionTitle>{t("faithFormation.why.title")}</SectionTitle>
           <p
             style={{
               fontSize: 16,
@@ -180,19 +179,15 @@ export default function FaithFormation() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
-                e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.12)";
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)";
+                e.currentTarget.style.borderColor = color;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 2px 16px rgba(0,0,0,0.06)";
+                e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04)";
+                e.currentTarget.style.borderColor = T.stone;
               }}
             >
-              <div
-                style={{
-                  height: 5,
-                  background: color,
-                }}
-              />
               <div style={{ padding: "28px 28px 24px" }}>
                 <div
                   style={{
@@ -202,20 +197,7 @@ export default function FaithFormation() {
                     marginBottom: 12,
                   }}
                 >
-                  <div
-                    style={{
-                      width: 42,
-                      height: 42,
-                      borderRadius: "50%",
-                      background: `${color}12`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <Icon size={20} color={color} strokeWidth={1.8} />
-                  </div>
+                  <Icon size={22} color={color} strokeWidth={1.8} style={{ flexShrink: 0 }} />
                   <div style={{ flex: 1 }}>
                     <h3
                       style={{
@@ -231,8 +213,8 @@ export default function FaithFormation() {
                     <span
                       style={{
                         fontSize: 11,
-                        letterSpacing: 1.5,
-                        textTransform: "uppercase",
+                        letterSpacing: 0.5,
+                        fontVariantCaps: "all-small-caps",
                         color,
                         fontWeight: 600,
                       }}
@@ -260,9 +242,7 @@ export default function FaithFormation() {
 
       {/* ════ Embedded Podcasts ════ */}
       <Section bg={T.cream}>
-        <SectionTitle sub={t("faithFormation.listen.sub")}>
-          {t("faithFormation.listen.title")}
-        </SectionTitle>
+        <SectionTitle>{t("faithFormation.listen.title")}</SectionTitle>
         <div
           style={{
             display: "grid",
@@ -292,7 +272,7 @@ export default function FaithFormation() {
                 frameBorder="0"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
-                style={{ borderRadius: 8 }}
+                style={{ borderRadius: "var(--radius-card)" }}
                 title="Godsplaining Podcast"
               />
             </div>
@@ -318,7 +298,7 @@ export default function FaithFormation() {
                 frameBorder="0"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
-                style={{ borderRadius: 8 }}
+                style={{ borderRadius: "var(--radius-card)" }}
                 title="Rosary in a Year Podcast"
               />
             </div>

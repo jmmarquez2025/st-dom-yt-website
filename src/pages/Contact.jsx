@@ -19,27 +19,14 @@ const PHONE_RE =
 function InfoItem({ icon: IconComp, label, children }) {
   return (
     <div style={{ display: "flex", gap: 14, alignItems: "flex-start", padding: "14px 0" }}>
-      <div
-        style={{
-          width: 40,
-          height: 40,
-          borderRadius: "50%",
-          background: `linear-gradient(135deg, rgba(107,29,42,0.08), rgba(197,165,90,0.12))`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexShrink: 0,
-        }}
-      >
-        <IconComp size={18} color={T.burgundy} />
-      </div>
+      <IconComp size={20} color={T.burgundy} style={{ flexShrink: 0, marginTop: 3 }} />
       <div>
         <div
           style={{
             fontSize: 11,
             fontWeight: 600,
-            letterSpacing: 1.5,
-            textTransform: "uppercase",
+            letterSpacing: 0.5,
+            fontVariantCaps: "all-small-caps",
             color: T.warmGray,
             marginBottom: 2,
           }}
@@ -228,9 +215,9 @@ export default function Contact() {
           <div
             style={{
               background: "#fff",
-              borderRadius: 8,
+              borderRadius: "var(--radius-card)",
               padding: "40px 36px",
-              boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06)",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 14px rgba(0,0,0,0.05)",
               border: `1px solid rgba(232,226,216,0.6)`,
             }}
           >
@@ -256,9 +243,9 @@ export default function Contact() {
                 aria-live="polite"
                 role="status"
                 style={{
-                  background: "linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%)",
+                  background: "#eef6ec",
                   border: "1px solid #c8e6c9",
-                  borderRadius: 12,
+                  borderRadius: "var(--radius-card)",
                   padding: "48px 32px",
                   textAlign: "center",
                   animation: "fadeInScale 0.4s ease",
@@ -308,7 +295,7 @@ export default function Contact() {
                     marginTop: 20,
                     background: "none",
                     border: `1px solid #66bb6a`,
-                    borderRadius: 8,
+                    borderRadius: "var(--radius-card)",
                     padding: "10px 24px",
                     fontSize: 14,
                     color: "#2e7d32",
@@ -332,7 +319,7 @@ export default function Contact() {
                         gap: 10,
                         padding: "12px 14px",
                         border: "1px solid #fecaca",
-                        borderRadius: 8,
+                        borderRadius: "var(--radius-card)",
                         background: "#fef2f2",
                         color: "#b91c1c",
                         fontSize: 14,
@@ -409,18 +396,15 @@ export default function Contact() {
                     disabled={status === "sending"}
                     className="btn-hover"
                     style={{
-                      background:
-                        status === "sending"
-                          ? T.warmGray
-                          : `linear-gradient(135deg, ${T.burgundy}, ${T.burgundyDark})`,
+                      background: status === "sending" ? T.warmGray : T.burgundy,
                       color: T.cream,
                       border: "none",
                       padding: "16px 32px",
                       fontSize: 14,
                       fontWeight: 600,
-                      letterSpacing: 1.2,
+                      letterSpacing: 0.5,
                       textTransform: "uppercase",
-                      borderRadius: 10,
+                      borderRadius: "var(--radius-card)",
                       cursor: status === "sending" ? "wait" : "pointer",
                       fontFamily: "'Source Sans 3', sans-serif",
                       minHeight: 52,
@@ -454,7 +438,7 @@ export default function Contact() {
                         gap: 10,
                         background: "#fef2f2",
                         border: "1px solid #fecaca",
-                        borderRadius: 8,
+                        borderRadius: "var(--radius-card)",
                         padding: "12px 16px",
                       }}
                     >
@@ -474,9 +458,9 @@ export default function Contact() {
             <div
               style={{
                 background: "#fff",
-                borderRadius: 8,
+                borderRadius: "var(--radius-card)",
                 padding: "32px 28px",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06)",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 14px rgba(0,0,0,0.05)",
                 border: `1px solid rgba(232,226,216,0.6)`,
                 marginBottom: 20,
               }}
@@ -535,9 +519,9 @@ export default function Contact() {
             {/* Google Maps */}
             <div
               style={{
-                borderRadius: 8,
+                borderRadius: "var(--radius-card)",
                 overflow: "hidden",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06)",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 14px rgba(0,0,0,0.05)",
                 border: `1px solid rgba(232,226,216,0.6)`,
               }}
             >
@@ -581,7 +565,7 @@ export default function Contact() {
                       padding: "11px 18px",
                       fontSize: 13,
                       fontWeight: 700,
-                      letterSpacing: 1,
+                      letterSpacing: 0.5,
                       textTransform: "uppercase",
                       fontFamily: "'Source Sans 3', sans-serif",
                       cursor: "pointer",

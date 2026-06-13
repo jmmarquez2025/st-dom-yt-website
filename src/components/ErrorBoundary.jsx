@@ -84,7 +84,7 @@ export default class ErrorBoundary extends Component {
                   borderRadius: 4,
                   fontSize: 14,
                   fontWeight: 600,
-                  letterSpacing: 1,
+                  letterSpacing: 0.5,
                   textTransform: "uppercase",
                   cursor: "pointer",
                 }}
@@ -104,7 +104,7 @@ export default class ErrorBoundary extends Component {
                   borderRadius: 4,
                   fontSize: 14,
                   fontWeight: 600,
-                  letterSpacing: 1,
+                  letterSpacing: 0.5,
                   textTransform: "uppercase",
                   cursor: "pointer",
                 }}

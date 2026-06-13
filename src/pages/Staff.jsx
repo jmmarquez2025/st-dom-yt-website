@@ -125,7 +125,7 @@ export default function Staff() {
           height: "100%",
           background: "#fff",
           border: `1px solid ${T.stone}`,
-          borderRadius: 12,
+          borderRadius: "var(--radius-card)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -186,7 +186,7 @@ export default function Staff() {
           height: "100%",
           background: "rgba(255,255,255,0.04)",
           border: `1px solid rgba(255,255,255,0.08)`,
-          borderRadius: 10,
+          borderRadius: "var(--radius-card)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -213,8 +213,8 @@ export default function Staff() {
         <div
           style={{
             fontSize: 11,
-            letterSpacing: 2,
-            textTransform: "uppercase",
+            letterSpacing: 0.5,
+            fontVariantCaps: "all-small-caps",
             color: "rgba(255,255,255,0.45)",
             fontWeight: 600,
           }}
@@ -254,7 +254,7 @@ export default function Staff() {
           height: "100%",
           background: "#fff",
           border: `1px solid ${T.stone}`,
-          borderRadius: 10,
+          borderRadius: "var(--radius-card)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -300,8 +300,8 @@ export default function Staff() {
         <div
           style={{
             fontSize: 11,
-            letterSpacing: 2,
-            textTransform: "uppercase",
+            letterSpacing: 0.5,
+            fontVariantCaps: "all-small-caps",
             color: T.warmGray,
             fontWeight: 600,
           }}
@@ -375,10 +375,10 @@ export default function Staff() {
           padding: 24px; animation: staffFadeIn 0.2s ease;
         }
         .staff-modal {
-          background: #fff; border-radius: 16px; max-width: 480px; width: 100%;
+          background: #fff; border-radius: var(--radius-modal); max-width: 480px; width: 100%;
           max-height: 90vh; overflow-y: auto; position: relative;
           animation: staffSlideUp 0.3s cubic-bezier(0.22,1,0.36,1);
-          box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+          box-shadow: 0 12px 32px rgba(0,0,0,0.26);
         }
         @keyframes staffFadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes staffSlideUp { from { opacity: 0; transform: translateY(24px) scale(0.96); } to { opacity: 1; transform: none; } }
@@ -520,7 +520,7 @@ export default function Staff() {
                       : `linear-gradient(135deg, ${T.gold}, ${T.goldLight})`,
                 padding: "48px 32px 32px",
                 textAlign: "center",
-                borderRadius: "16px 16px 0 0",
+                borderRadius: "var(--radius-modal) var(--radius-modal) 0 0",
               }}
             >
               {modal.photo ? (
@@ -591,8 +591,8 @@ export default function Staff() {
                 <div
                   style={{
                     fontSize: 11,
-                    letterSpacing: 2,
-                    textTransform: "uppercase",
+                    letterSpacing: 0.5,
+                    fontVariantCaps: "all-small-caps",
                     color: T.warmGray,
                     marginBottom: 12,
                     fontWeight: 600,

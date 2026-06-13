@@ -25,7 +25,7 @@ export default function PageSkeleton() {
         {/* Card grid */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 20 }}>
           {[1, 2, 3].map((i) => (
-            <div key={i} className="skeleton-block" style={{ height: 180, borderRadius: 8 }} />
+            <div key={i} className="skeleton-block" style={{ height: 180, borderRadius: "var(--radius-card)" }} />
           ))}
         </div>
       </div>

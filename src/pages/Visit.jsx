@@ -75,7 +75,7 @@ export default function Visit() {
 
       {/* ════ What to Know — editorial list, hairline rules ════ */}
       <Section bg={T.cream} width="narrow">
-        <SectionTitle sub={t("visit.know.sub")}>{t("visit.know.title")}</SectionTitle>
+        <SectionTitle>{t("visit.know.title")}</SectionTitle>
         <dl style={{ margin: 0 }}>
           {["dress", "children", "language", "parking"].map((key, i) => (
             <div
@@ -191,7 +191,7 @@ export default function Visit() {
 
       {/* ════ Directions ════ */}
       <Section bg={T.cream} width="narrow">
-        <SectionTitle sub={t("visit.directions.sub")}>{t("visit.directions.title")}</SectionTitle>
+        <SectionTitle>{t("visit.directions.title")}</SectionTitle>
         <div className="glass-card" style={{ padding: 32, marginBottom: 20, maxWidth: 520 }}>
           <address style={{ fontStyle: "normal", marginBottom: 20 }}>
             <p style={{ fontSize: 18, fontWeight: 600, color: T.softBlack, marginBottom: 4 }}>

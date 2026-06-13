@@ -54,8 +54,8 @@ export default function Gallery() {
           <div
             style={{
               fontSize: 12,
-              letterSpacing: 4,
-              textTransform: "uppercase",
+              letterSpacing: 0.5,
+              fontVariantCaps: "all-small-caps",
               color: T.gold,
               marginBottom: 16,
               fontWeight: 600,
@@ -128,7 +128,7 @@ export default function Gallery() {
                 }
               }}
               style={{
-                borderRadius: 8,
+                borderRadius: "var(--radius-card)",
                 overflow: "hidden",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.1)",
                 cursor: "pointer",

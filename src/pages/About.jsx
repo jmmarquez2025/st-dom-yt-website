@@ -95,8 +95,8 @@ export default function About() {
             <div
               style={{
                 fontSize: 14,
-                letterSpacing: 3,
-                textTransform: "uppercase",
+                letterSpacing: 0.5,
+                fontVariantCaps: "all-small-caps",
                 color: T.goldText,
                 fontWeight: 600,
                 marginBottom: 24,
@@ -191,8 +191,8 @@ export default function About() {
               style={{
                 marginTop: 12,
                 fontSize: 12,
-                letterSpacing: 3,
-                textTransform: "uppercase",
+                letterSpacing: 0.5,
+                fontVariantCaps: "all-small-caps",
                 color: T.goldText,
                 fontWeight: 600,
               }}
@@ -292,8 +292,8 @@ export default function About() {
           <div
             style={{
               fontSize: 12,
-              letterSpacing: 4,
-              textTransform: "uppercase",
+              letterSpacing: 0.5,
+              fontVariantCaps: "all-small-caps",
               color: T.goldText,
               fontWeight: 600,
               marginBottom: 16,

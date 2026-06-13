@@ -19,7 +19,7 @@ const fieldChrome = (focused, error) => ({
   padding: "22px 16px 8px",
   fontSize: 15,
   border: `1.5px solid ${error ? T.error : focused ? T.burgundy : T.stone}`,
-  borderRadius: 8,
+  borderRadius: "var(--radius-control)",
   fontFamily: "'Source Sans 3', sans-serif",
   background: "#fff",
   outline: "none",
