@@ -193,18 +193,18 @@ export default function History() {
         panels={[
           {
             id: "h-1923",
-            title: "1923",
-            body: "St. Dominic parish is established on Youngstown's south side, gathering immigrant families around the Eucharist.",
+            title: t("history.scrub.p1Title"),
+            body: t("history.scrub.p1Body"),
           },
           {
             id: "h-friars",
-            title: "The Friars Arrive",
-            body: "The Dominican Friars of the Province of St. Joseph are entrusted with the parish — preaching, prayer, study, and community become the rhythm of life here.",
+            title: t("history.scrub.p2Title"),
+            body: t("history.scrub.p2Body"),
           },
           {
             id: "h-today",
-            title: "A Century On",
-            body: "Over one hundred years later, St. Dominic remains a beacon of sacramental life and Dominican witness in the Mahoning Valley.",
+            title: t("history.scrub.p3Title"),
+            body: t("history.scrub.p3Body"),
           },
         ]}
         height="300vh"

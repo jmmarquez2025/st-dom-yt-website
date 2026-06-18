@@ -62,7 +62,8 @@
       "location": "Youngstown, Ohio",
       "ctaVisit": "Plan Your Visit",
       "ctaMass": "Mass & Confession Times",
-      "ctaBecoming": "Interested in Becoming Catholic?"
+      "ctaBecoming": "Interested in Becoming Catholic?",
+      "espanolPrompt": "También disponible en Español"
     },
     "essentials": {
       "todayGroup": "Today",
@@ -405,6 +406,15 @@
       "title": "Our Church Architecture",
       "desc": "The architectural style of St. Dominic Church is modernized Romanesque — featuring limestone and brick construction, a towering presence on Lucius Avenue, and sacred art that inspires prayer and contemplation.",
       "cta": "Take the Walking Tour"
+    },
+    "dominican": {
+      "sub": "Order of Preachers · Founded 1216",
+      "title": "The Dominican Mission",
+      "shieldAlt": "Shield of the Dominican Province of St. Joseph",
+      "motto": "Veritas · Truth",
+      "p1": "St. Dominic Catholic Church is entrusted to the friars of the Province of St. Joseph, an apostolic province of the Order of Preachers founded by St. Dominic de Guzmán in 1216 for the salvation of souls through preaching.",
+      "p2": "For eight centuries the Order has been shaped by four pillars: prayer, study, community, and preaching. You will find each woven into the life of this parish — in the daily Mass and Liturgy of the Hours, the study of Scripture and the Catechism, the bonds of fraternity among friars and faithful, and the proclamation of the Gospel from this pulpit since 1923.",
+      "p3": "Our motto, Veritas, points us always to Christ, the Truth made flesh."
     }
   },
   "staff": {
@@ -578,6 +588,10 @@
     "cta": {
       "title": "Start Your Journey Today",
       "desc": "Pick a resource, press play on a podcast, or open the Catechism. Every step you take toward understanding your faith is a step closer to Christ."
+    },
+    "podcasts": {
+      "godsplaining": "Godsplaining",
+      "rosary": "Rosary in a Year"
     }
   },
   "getInvolved": {
@@ -1126,6 +1140,14 @@
       "p3": "Served by the friars of the Province of St. Joseph — the oldest Dominican province in the Americas, founded in 1805 — St. Dominic Church carries forward an 800-year tradition of preaching, prayer, and service in the heart of the Mahoning Valley.",
       "aerialAlt": "Aerial view of the St. Dominic church campus today",
       "aerialCap": "The St. Dominic campus today — over 100 years of faith on Youngstown's South Side"
+    },
+    "scrub": {
+      "p1Title": "1923",
+      "p1Body": "St. Dominic parish is established on Youngstown's south side, gathering immigrant families around the Eucharist.",
+      "p2Title": "The Friars Arrive",
+      "p2Body": "The Dominican Friars of the Province of St. Joseph are entrusted with the parish — preaching, prayer, study, and community become the rhythm of life here.",
+      "p3Title": "A Century On",
+      "p3Body": "Over one hundred years later, St. Dominic remains a beacon of sacramental life and Dominican witness in the Mahoning Valley."
     }
   },
   "register": {
@@ -1271,5 +1293,24 @@
       "title": "A Place of Prayer, Study, & Community",
       "desc": "The church is connected to the Dominican priory by a cloister walk featuring Eric Gill's Stations of the Cross etchings. Together with the church hall and school buildings, the campus forms a complete center for Dominican life — prayer, study, community, and preaching."
     }
+  },
+  "connect": {
+    "seoTitle": "Connect With Us",
+    "seoDesc": "Follow St. Dominic Catholic Church on social media for daily updates, homilies, events, and parish life.",
+    "heroTitle": "Connect With Us",
+    "actionsEyebrow": "Stay in Touch",
+    "actionsTitle": "Choose the fastest way to connect",
+    "followTitle": "Follow Our Parish",
+    "followDesc": "Daily updates, homilies, events, and parish life.",
+    "callTitle": "Call the Office",
+    "massTitle": "Mass & Confession",
+    "massDesc": "Plan your next visit around the weekly schedule.",
+    "sub": "Stay in Touch",
+    "title": "Follow Our Parish",
+    "lede": "Join our online community for daily reflections, event announcements, homilies, and moments from life at St. Dominic.",
+    "empty": "Social media accounts are being set up. Check back soon.",
+    "visit": "Visit",
+    "contactSub": "Prefer to Call or Email?",
+    "contactTitle": "In Person & By Phone"
   }
 }

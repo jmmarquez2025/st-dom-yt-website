@@ -5,6 +5,9 @@ import { T } from "../constants/theme";
 import { Menu, X, ChevronDown, MapPin, Church, Gift } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 import SiteSearch from "./SiteSearch";
+import { NAV_ITEMS } from "./navItems";
+import { applyNavLayout } from "../content/navLayout";
+import { getNavName } from "../content/branding";
 
 /** Navigate with View Transition when supported */
 function NavLink({ to, children, style, ...props }) {
@@ -36,51 +39,11 @@ function NavLink({ to, children, style, ...props }) {
   );
 }
 
-const NAV_ITEMS = [
-  { key: "visit", to: "/visit" },
-  { key: "massTimes", to: "/mass-times" },
-  {
-    key: "sacraments",
-    children: [
-      { key: "sacraments", to: "/sacraments" },
-      { key: "becomingCatholic", to: "/becoming-catholic" },
-      { key: "baptism", to: "/sacraments/baptism" },
-      { key: "firstCommunion", to: "/sacraments/first-communion" },
-      { key: "confirmation", to: "/sacraments/confirmation" },
-      { key: "marriage", to: "/sacraments/marriage" },
-      { key: "anointing", to: "/sacraments/anointing" },
-      { key: "funerals", to: "/sacraments/funerals" },
-    ],
-  },
-  {
-    key: "getInvolved",
-    children: [
-      { key: "getInvolved", to: "/get-involved" },
-      { key: "register", to: "/register" },
-      { key: "faithFormation", to: "/faith-formation" },
-      { key: "events", to: "/events" },
-      { key: "connect", to: "/connect" },
-    ],
-  },
-  {
-    key: "more",
-    // Pure dropdown trigger — "More" is not a destination, so it renders as a
-    // <button> (also fixes the Lighthouse link-text audit).
-    linkless: true,
-    children: [
-      { key: "about", to: "/about" },
-      { key: "bulletin", to: "/bulletin" },
-      { key: "contact", to: "/contact" },
-      { key: "history", to: "/history" },
-      { key: "architecture", to: "/architecture" },
-      { key: "gallery", to: "/gallery" },
-      { key: "staff", to: "/staff" },
-    ],
-  },
-];
-
 export default function Nav() {
   const { t } = useTranslation();
+  // Apply any dashboard reorder/hide of top-level items. Recomputed each render;
+  // a save in the dashboard emits "languageChanged", which re-renders this.
+  const navItems = applyNavLayout(NAV_ITEMS);
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -233,7 +196,7 @@ export default function Nav() {
           </div>
           <div>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: 17, color: T.burgundy, lineHeight: 1.1, letterSpacing: 0.5 }}>
-              St. Dominic
+              {getNavName()}
             </div>
             <div style={{ fontSize: 11, letterSpacing: 0.5, fontVariantCaps: "all-small-caps", color: T.warmGray, fontWeight: 500 }}>
               {t("nav.subtitle")}
@@ -243,7 +206,7 @@ export default function Nav() {
 
         {/* Desktop links */}
         <div style={{ display: "flex", gap: 2, alignItems: "center" }} className="nav-desktop">
-          {NAV_ITEMS.map((item) =>
+          {navItems.map((item) =>
             item.children ? (
               <div
                 key={item.key}
@@ -448,7 +411,7 @@ export default function Nav() {
             ))}
           </div>
 
-          {NAV_ITEMS.map((item) =>
+          {navItems.map((item) =>
             item.children ? (
               <div key={item.key}>
                 {/* Accordion header */}

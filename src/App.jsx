@@ -8,6 +8,7 @@ import ScrollProgress from "./components/ScrollProgress";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PageSkeleton from "./components/PageSkeleton";
 import Analytics from "./components/Analytics";
+import OrgSchema from "./components/OrgSchema";
 import ParishActionBar from "./components/ParishActionBar";
 import AnnouncementBanner from "./announcements/AnnouncementBanner";
 import AnnouncementPopup from "./announcements/AnnouncementPopup";
@@ -130,6 +131,7 @@ export default function App() {
     <ErrorBoundary>
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Analytics />
+        <OrgSchema />
         <div lang={i18n.language}>
           <AppRoutes />
         </div>

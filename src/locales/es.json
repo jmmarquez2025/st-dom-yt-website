@@ -62,7 +62,8 @@
       "location": "Youngstown, Ohio",
       "ctaVisit": "Planifique Su Visita",
       "ctaMass": "Horarios de Misa y Confesión",
-      "ctaBecoming": "¿Interesado en Hacerse Católico?"
+      "ctaBecoming": "¿Interesado en Hacerse Católico?",
+      "espanolPrompt": "También disponible en Español"
     },
     "essentials": {
       "todayGroup": "Hoy",
@@ -405,6 +406,15 @@
       "title": "Arquitectura de Nuestra Iglesia",
       "desc": "El estilo arquitectónico de la Iglesia Santo Domingo es románico modernizado — con construcción de piedra caliza y ladrillo, una presencia imponente en Lucius Avenue, y arte sacro que inspira la oración y la contemplación.",
       "cta": "Haga el Recorrido"
+    },
+    "dominican": {
+      "sub": "Orden de Predicadores · Fundada en 1216",
+      "title": "La Misión Dominica",
+      "shieldAlt": "Escudo de la Provincia Dominica de San José",
+      "motto": "Veritas · Verdad",
+      "p1": "La Iglesia Católica Santo Domingo está confiada a los frailes de la Provincia de San José, una provincia apostólica de la Orden de Predicadores fundada por Santo Domingo de Guzmán en 1216 para la salvación de las almas mediante la predicación.",
+      "p2": "Durante ocho siglos la Orden ha sido formada por cuatro pilares: oración, estudio, comunidad y predicación. Encontrarás cada uno entretejido en la vida de esta parroquia — en la Misa diaria y la Liturgia de las Horas, el estudio de la Escritura y el Catecismo, los lazos de fraternidad entre frailes y fieles, y la proclamación del Evangelio desde este púlpito desde 1923.",
+      "p3": "Nuestro lema, Veritas, nos señala siempre a Cristo, la Verdad hecha carne."
     }
   },
   "staff": {
@@ -578,6 +588,10 @@
     "cta": {
       "title": "Comience Su Camino Hoy",
       "desc": "Elija un recurso, reproduzca un podcast o abra el Catecismo. Cada paso que da hacia la comprensión de su fe es un paso más cerca de Cristo."
+    },
+    "podcasts": {
+      "godsplaining": "Godsplaining",
+      "rosary": "Rosary in a Year"
     }
   },
   "getInvolved": {
@@ -1126,6 +1140,14 @@
       "p3": "Servida por los frailes de la Provincia de San José — la provincia dominicana más antigua de las Américas, fundada en 1805 — la iglesia de Santo Domingo lleva adelante una tradición de 800 años de predicación, oración y servicio en el corazón del Valle de Mahoning.",
       "aerialAlt": "Vista aérea del campus parroquial de Santo Domingo hoy",
       "aerialCap": "El campus de Santo Domingo hoy — más de 100 años de fe en el lado sur de Youngstown"
+    },
+    "scrub": {
+      "p1Title": "1923",
+      "p1Body": "La parroquia Santo Domingo se establece en el lado sur de Youngstown, reuniendo a familias inmigrantes en torno a la Eucaristía.",
+      "p2Title": "Llegan los Frailes",
+      "p2Body": "Los Frailes Dominicos de la Provincia de San José son confiados con la parroquia — la predicación, la oración, el estudio y la comunidad se convierten en el ritmo de la vida aquí.",
+      "p3Title": "Un Siglo Después",
+      "p3Body": "Más de cien años después, Santo Domingo sigue siendo un faro de vida sacramental y testimonio dominico en el Valle de Mahoning."
     }
   },
   "register": {
@@ -1271,5 +1293,24 @@
       "title": "Un Lugar de Oración, Estudio y Comunidad",
       "desc": "La iglesia está conectada al priorato dominicano por un claustro con grabados de las Estaciones de la Cruz de Eric Gill. Junto con el salón parroquial y los edificios escolares, el campus forma un centro completo para la vida dominicana."
     }
+  },
+  "connect": {
+    "seoTitle": "Conéctate con Nosotros",
+    "seoDesc": "Sigue a la Iglesia Católica Santo Domingo en redes sociales para recibir actualizaciones diarias, homilías, eventos y la vida parroquial.",
+    "heroTitle": "Conéctate con Nosotros",
+    "actionsEyebrow": "Mantente en Contacto",
+    "actionsTitle": "Elige la forma más rápida de conectarte",
+    "followTitle": "Sigue a Nuestra Parroquia",
+    "followDesc": "Actualizaciones diarias, homilías, eventos y la vida parroquial.",
+    "callTitle": "Llama a la Oficina",
+    "massTitle": "Misa y Confesión",
+    "massDesc": "Planifica tu próxima visita según el horario semanal.",
+    "sub": "Mantente en Contacto",
+    "title": "Sigue a Nuestra Parroquia",
+    "lede": "Únete a nuestra comunidad en línea para reflexiones diarias, anuncios de eventos, homilías y momentos de la vida en Santo Domingo.",
+    "empty": "Las cuentas de redes sociales se están configurando. Vuelve pronto.",
+    "visit": "Visitar",
+    "contactSub": "¿Prefieres Llamar o Enviar un Correo?",
+    "contactTitle": "En Persona y Por Teléfono"
   }
 }

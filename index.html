@@ -56,7 +56,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=optional" />
     <!-- Analytics: production builds inject Cloudflare Web Analytics when VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN is set -->
-    <script type="application/ld+json">
+    <!-- Build-time baseline (non-JS crawlers). At runtime, src/components/OrgSchema.jsx
+         updates this in place from the editable Settings (contact, hours, socials). -->
+    <script type="application/ld+json" id="org-json-ld">
     {
       "@context": "https://schema.org",
       "@type": "CatholicChurch",

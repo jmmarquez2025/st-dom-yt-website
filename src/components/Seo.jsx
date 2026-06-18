@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { CONFIG } from "../constants/config";
+import { resolveSeo } from "../content/seo";
 
 const SITE_NAME = "St. Dominic Catholic Church";
 const DEFAULT_DESC =
@@ -30,10 +32,19 @@ function toAbsoluteSiteUrl(path) {
  */
 export default function Seo({ title, description, image, schema }) {
   const { pathname } = useLocation();
-  const fullTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
-  const desc = description || DEFAULT_DESC;
+  const { i18n } = useTranslation();
+
+  // Dashboard-edited, language-specific overrides win over the page's built-in
+  // props; blank fields fall back to the props (so SEO editing is opt-in).
+  const ov = resolveSeo(pathname, i18n.language);
+  const effTitle = ov.title || title;
+  const effDesc = ov.description || description;
+  const effImage = ov.image || image;
+
+  const fullTitle = effTitle ? `${effTitle} — ${SITE_NAME}` : SITE_NAME;
+  const desc = effDesc || DEFAULT_DESC;
   const url = `${SITE_URL}${pathname}`;
-  const ogImage = image ? toAbsoluteSiteUrl(image) : DEFAULT_IMAGE;
+  const ogImage = effImage ? toAbsoluteSiteUrl(effImage) : DEFAULT_IMAGE;
 
   useEffect(() => {
     document.title = fullTitle;

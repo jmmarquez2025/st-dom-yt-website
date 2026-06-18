@@ -133,20 +133,67 @@ export function push(section, token) {
   saveStatus({ pending });
 
   if (pushTimers.has(section)) clearTimeout(pushTimers.get(section));
+  // Stagger when several sections are pending at once (e.g. a save-all), so the
+  // debounced POSTs don't all fire on the same tick and overwhelm Apps Script.
+  const delay = DEBOUNCE_MS + pushTimers.size * 150;
   const timer = setTimeout(() => {
     pushTimers.delete(section);
     doPush(section, getToken(token));
-  }, DEBOUNCE_MS);
+  }, delay);
   pushTimers.set(section, timer);
 }
 
-/** Flush every pending debounce timer immediately. */
+/** Flush every pending debounce timer immediately, as ONE batched upload. */
 export function flush(token) {
+  const sections = [];
   pushTimers.forEach((timer, section) => {
     clearTimeout(timer);
-    pushTimers.delete(section);
-    doPush(section, getToken(token));
+    sections.push(section);
   });
+  pushTimers.clear();
+  if (sections.length) doBatchPush(sections, getToken(token));
+}
+
+/**
+ * Run `fn` without the auto-sync interceptor firing per write, then push every
+ * touched key in a single batch. Used by import/restore so a backup doesn't
+ * trigger N separate POSTs.
+ */
+export function runWithoutAutoSync(fn, keysToPush, token) {
+  suppressAutoSync = true;
+  try {
+    fn();
+  } finally {
+    suppressAutoSync = false;
+  }
+  const keys = (keysToPush || []).filter((k) => MANAGED_KEYS.includes(k));
+  if (keys.length) doBatchPush(keys, getToken(token));
+}
+
+/** POST several sections in one request via the Apps Script batch endpoint. */
+async function doBatchPush(sectionKeys, token) {
+  if (!isConfigured()) return;
+  if (!token) {
+    saveStatus({ error: "Push skipped: unlock the Staff Dashboard before saving cloud changes." });
+    return;
+  }
+  const sections = {};
+  sectionKeys.forEach((k) => {
+    sections[k] = localStorage.getItem(k) ?? "";
+  });
+  saveStatus({ pending: Array.from(new Set([...(status.pending || []), ...sectionKeys])) });
+  try {
+    await fetch(CONFIG.adminCmsUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({ token, action: "batch", sections }),
+    });
+    const remaining = (status.pending || []).filter((s) => !sectionKeys.includes(s));
+    saveStatus({ lastPushedAt: new Date().toISOString(), pending: remaining, error: null });
+  } catch (err) {
+    saveStatus({ error: `Batch push failed: ${err.message || err}` });
+  }
 }
 
 async function doPush(section, token) {
@@ -226,17 +273,19 @@ export function installAutoSync() {
 // Flush any pending writes before the tab closes
 if (typeof window !== "undefined") {
   window.addEventListener("beforeunload", () => {
+    if (!pushTimers.size) return;
+    const sections = {};
     pushTimers.forEach((timer, section) => {
       clearTimeout(timer);
-      pushTimers.delete(section);
-      // Use sendBeacon for reliability during unload
-      const data = localStorage.getItem(section) ?? "";
-      try {
-        const token = getToken();
-        if (!token) return;
-        const payload = JSON.stringify({ token, section, data });
-        navigator.sendBeacon(CONFIG.adminCmsUrl, payload);
-      } catch (_) { /* sendBeacon unsupported — best-effort flush on unload */ }
+      sections[section] = localStorage.getItem(section) ?? "";
     });
+    pushTimers.clear();
+    try {
+      const token = getToken();
+      if (!token) return;
+      // One batched beacon for reliability during unload.
+      const payload = JSON.stringify({ token, action: "batch", sections });
+      navigator.sendBeacon(CONFIG.adminCmsUrl, payload);
+    } catch (_) { /* sendBeacon unsupported — best-effort flush on unload */ }
   });
 }
