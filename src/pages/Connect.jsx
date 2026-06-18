@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { Section, SectionTitle } from "../components/Section";
 import PageHeader from "../components/PageHeader";
@@ -24,36 +25,37 @@ function iconFor(platform) {
 }
 
 export default function Connect() {
+  const { t } = useTranslation();
   const accounts = getActiveSocial();
 
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo
-        title="Connect With Us"
-        description="Follow St. Dominic Catholic Church on social media for daily updates, homilies, events, and parish life."
+        title={t("connect.seoTitle")}
+        description={t("connect.seoDesc")}
         image={PHOTOS.homeHero}
       />
-      <PageHeader title="Connect With Us" variant="text" />
+      <PageHeader title={t("connect.heroTitle")} variant="text" />
       <PremiumPageActions
-        eyebrow="Stay in Touch"
-        title="Choose the fastest way to connect"
+        eyebrow={t("connect.actionsEyebrow")}
+        title={t("connect.actionsTitle")}
         items={[
           {
-            title: "Follow Our Parish",
-            description: "Daily updates, homilies, events, and parish life.",
+            title: t("connect.followTitle"),
+            description: t("connect.followDesc"),
             href: "#social-links",
             icon: "Globe",
             primary: true,
           },
           {
-            title: "Call the Office",
+            title: t("connect.callTitle"),
             description: CONFIG.phone,
             href: CONFIG.phoneLink,
             icon: "Phone",
           },
           {
-            title: "Mass & Confession",
-            description: "Plan your next visit around the weekly schedule.",
+            title: t("connect.massTitle"),
+            description: t("connect.massDesc"),
             to: "/mass-times",
             icon: "Church",
           },
@@ -61,7 +63,7 @@ export default function Connect() {
       />
 
       <Section id="social-links">
-        <SectionTitle sub="Stay in Touch">Follow Our Parish</SectionTitle>
+        <SectionTitle sub={t("connect.sub")}>{t("connect.title")}</SectionTitle>
         <p
           className="u-lede"
           style={{
@@ -72,8 +74,7 @@ export default function Connect() {
             fontFamily: "'Source Sans 3', sans-serif",
           }}
         >
-          Join our online community for daily reflections, event announcements, homilies, and
-          moments from life at St. Dominic.
+          {t("connect.lede")}
         </p>
 
         {accounts.length === 0 ? (
@@ -85,7 +86,7 @@ export default function Connect() {
               fontFamily: "'Source Sans 3', sans-serif",
             }}
           >
-            <p>Social media accounts are being set up. Check back soon.</p>
+            <p>{t("connect.empty")}</p>
           </div>
         ) : (
           <div
@@ -183,7 +184,7 @@ export default function Connect() {
                       fontFamily: "'Source Sans 3', sans-serif",
                     }}
                   >
-                    Visit <ExternalLink size={12} />
+                    {t("connect.visit")} <ExternalLink size={12} />
                   </div>
                 </a>
               );
@@ -194,7 +195,7 @@ export default function Connect() {
 
       {/* Contact fallback */}
       <Section bg={T.cream}>
-        <SectionTitle sub="Prefer to Call or Email?">In Person & By Phone</SectionTitle>
+        <SectionTitle sub={t("connect.contactSub")}>{t("connect.contactTitle")}</SectionTitle>
         <div
           style={{
             fontFamily: "'Source Sans 3', sans-serif",

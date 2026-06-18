@@ -163,7 +163,7 @@ export default function About() {
 
       {/* ════ Dominican Mission ════ */}
       <Section bg={T.cream}>
-        <SectionTitle sub="Order of Preachers · Founded 1216">The Dominican Mission</SectionTitle>
+        <SectionTitle sub={t("about.dominican.sub")}>{t("about.dominican.title")}</SectionTitle>
         <div
           style={{
             display: "grid",
@@ -183,7 +183,7 @@ export default function About() {
           <div style={{ textAlign: "center" }}>
             <img
               src={PHOTOS.psjShield}
-              alt="Shield of the Dominican Province of St. Joseph"
+              alt={t("about.dominican.shieldAlt")}
               style={{ maxWidth: 200, width: "100%", height: "auto", margin: "0 auto" }}
               loading="lazy"
             />
@@ -197,25 +197,18 @@ export default function About() {
                 fontWeight: 600,
               }}
             >
-              Veritas · Truth
+              {t("about.dominican.motto")}
             </div>
           </div>
           <div>
             <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
-              St. Dominic Catholic Church is entrusted to the friars of the{" "}
-              <strong>Province of St. Joseph</strong>, an apostolic province of the Order of
-              Preachers founded by St. Dominic de Guzmán in 1216 for the salvation of souls through
-              preaching.
+              {t("about.dominican.p1")}
             </p>
             <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
-              For eight centuries the Order has been shaped by four pillars:{" "}
-              <em>prayer, study, community, and preaching</em>. You will find each woven into the
-              life of this parish — in the daily Mass and Liturgy of the Hours, the study of
-              Scripture and the Catechism, the bonds of fraternity among friars and faithful, and
-              the proclamation of the Gospel from this pulpit since 1923.
+              {t("about.dominican.p2")}
             </p>
             <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 0 }}>
-              Our motto, <em>Veritas</em>, points us always to Christ, the Truth made flesh.
+              {t("about.dominican.p3")}
             </p>
           </div>
         </div>

@@ -263,7 +263,7 @@ export default function FaithFormation() {
                   marginBottom: 12,
                 }}
               >
-                Godsplaining
+                {t("faithFormation.podcasts.godsplaining")}
               </h3>
               <iframe
                 src="https://open.spotify.com/embed/show/0aIOz3chYeQZxsdjyJzlOb?utm_source=generator&theme=0"
@@ -289,7 +289,7 @@ export default function FaithFormation() {
                   marginBottom: 12,
                 }}
               >
-                Rosary in a Year
+                {t("faithFormation.podcasts.rosary")}
               </h3>
               <iframe
                 src="https://open.spotify.com/embed/show/3Rx1puBjE0xZBiuy4BT4i7?utm_source=generator&theme=0"

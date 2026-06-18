@@ -21,6 +21,11 @@ const StaffDirectoryDashboard = lazy(() => import("../staff-admin/StaffDirectory
 const MinistriesDashboard = lazy(() => import("../ministries-admin/MinistriesDashboard"));
 const SettingsDashboard = lazy(() => import("../settings/SettingsDashboard"));
 const DataHelpDashboard = lazy(() => import("../admin/DataHelpDashboard"));
+const PagesDashboard = lazy(() => import("../content/PagesDashboard"));
+const ChromeEditor = lazy(() => import("../content/ChromeEditor"));
+const SeoDashboard = lazy(() => import("../content/SeoDashboard"));
+const BrandingDashboard = lazy(() => import("../content/BrandingDashboard"));
+import SyncStatus from "../content/SyncStatus";
 import {
   Megaphone,
   Newspaper,
@@ -30,6 +35,11 @@ import {
   HandHeart,
   Settings,
   LifeBuoy,
+  FileText,
+  Menu,
+  PanelBottom,
+  Search,
+  Palette,
 } from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────
@@ -238,8 +248,18 @@ function Toast({ message, type, onDismiss }) {
 }
 
 // ── Section Tab Bar ──
-function SectionTabs({ active, onChange }) {
-  const tabs = [
+// Two groups separated by a hairline rule: "Site Content" (page copy and
+// chrome) and "Operations" (the day-to-day record tools). Grouping keeps the
+// growing bar scannable instead of one long strip.
+const TAB_GROUPS = [
+  [
+    { key: "pages", label: "Pages", Icon: FileText },
+    { key: "navigation", label: "Navigation", Icon: Menu },
+    { key: "footer", label: "Footer", Icon: PanelBottom },
+    { key: "seo", label: "SEO", Icon: Search },
+    { key: "branding", label: "Branding", Icon: Palette },
+  ],
+  [
     { key: "announcements", label: "Announcements", Icon: Megaphone },
     { key: "bulletins", label: "Bulletins", Icon: Newspaper },
     { key: "events", label: "Events", Icon: Calendar },
@@ -248,8 +268,10 @@ function SectionTabs({ active, onChange }) {
     { key: "ministries", label: "Ministries", Icon: HandHeart },
     { key: "settings", label: "Settings", Icon: Settings },
     { key: "data", label: "Data & Help", Icon: LifeBuoy },
-  ];
+  ],
+];
 
+function SectionTabs({ active, onChange }) {
   return (
     <div
       style={{
@@ -268,40 +290,51 @@ function SectionTabs({ active, onChange }) {
           overflowX: "auto",
         }}
       >
-        {tabs.map(({ key, label, Icon: TabIcon }) => {
-          const isActive = active === key;
-          return (
-            <button
-              key={key}
-              onClick={() => onChange(key)}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "14px 20px",
-                background: "none",
-                border: "none",
-                borderBottom: `2px solid ${isActive ? T.burgundy : "transparent"}`,
-                color: isActive ? T.burgundy : T.warmGray,
-                fontSize: 14,
-                fontWeight: isActive ? 600 : 400,
-                fontFamily: "'Source Sans 3', sans-serif",
-                cursor: "pointer",
-                transition: "all 0.15s",
-                marginBottom: -1, // overlap the border-bottom of the container
-              }}
-              onMouseEnter={(e) => {
-                if (!isActive) e.currentTarget.style.color = T.charcoal;
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive) e.currentTarget.style.color = T.warmGray;
-              }}
-            >
-              <TabIcon size={15} />
-              {label}
-            </button>
-          );
-        })}
+        {TAB_GROUPS.map((group, gi) => (
+          <div key={gi} style={{ display: "flex" }}>
+            {gi > 0 && (
+              <div
+                aria-hidden="true"
+                style={{ width: 1, alignSelf: "stretch", background: T.stone, margin: "8px 12px" }}
+              />
+            )}
+            {group.map(({ key, label, Icon: TabIcon }) => {
+              const isActive = active === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => onChange(key)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 8,
+                    padding: "14px 20px",
+                    background: "none",
+                    border: "none",
+                    borderBottom: `2px solid ${isActive ? T.burgundy : "transparent"}`,
+                    color: isActive ? T.burgundy : T.warmGray,
+                    fontSize: 14,
+                    fontWeight: isActive ? 600 : 400,
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    cursor: "pointer",
+                    transition: "all 0.15s",
+                    marginBottom: -1, // overlap the border-bottom of the container
+                    whiteSpace: "nowrap",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) e.currentTarget.style.color = T.charcoal;
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) e.currentTarget.style.color = T.warmGray;
+                  }}
+                >
+                  <TabIcon size={15} />
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -524,12 +557,60 @@ function StaffDashboard() {
         />
       )}
 
+      {/* ── Sync status (quiet, right-aligned above the tabs) ── */}
+      <div
+        style={{
+          maxWidth: 1100,
+          margin: "0 auto",
+          padding: "8px 32px 0",
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        <SyncStatus />
+      </div>
+
       {/* ── Section tabs ── */}
       <SectionTabs active={section} onChange={handleSectionChange} />
 
       {/* One Suspense boundary covers every tab — only the active tab's
           chunk is fetched, and tab switches reuse already-loaded chunks. */}
       <Suspense fallback={<DashboardLoader />}>
+        {/* ── Pages (site content) section ── */}
+        {section === "pages" && (
+          <Section bg={T.warmWhite}>
+            <PagesDashboard onToast={handleBulletinToast} />
+          </Section>
+        )}
+
+        {/* ── Navigation labels ── */}
+        {section === "navigation" && (
+          <Section bg={T.warmWhite}>
+            <ChromeEditor chromeId="nav" onToast={handleBulletinToast} />
+          </Section>
+        )}
+
+        {/* ── Footer text ── */}
+        {section === "footer" && (
+          <Section bg={T.warmWhite}>
+            <ChromeEditor chromeId="footer" onToast={handleBulletinToast} />
+          </Section>
+        )}
+
+        {/* ── SEO (search & social) ── */}
+        {section === "seo" && (
+          <Section bg={T.warmWhite}>
+            <SeoDashboard onToast={handleBulletinToast} />
+          </Section>
+        )}
+
+        {/* ── Branding (colors) ── */}
+        {section === "branding" && (
+          <Section bg={T.warmWhite}>
+            <BrandingDashboard onToast={handleBulletinToast} />
+          </Section>
+        )}
+
         {/* ── Bulletins section ── */}
         {section === "bulletins" && (
           <Section bg={T.warmWhite}>

@@ -51,6 +51,9 @@
 
 var SHEET_NAME = "AdminData";
 
+// Seeded as empty rows by setupAdminSheet. New per-page content shards
+// (stdom_content_*) and other stdom_* sections are accepted dynamically by the
+// prefix check below, so adding pages on the website needs NO redeploy here.
 var MANAGED_SECTIONS = [
   "stdom_announcements",
   "stdom_bulletin_current_url",
@@ -61,6 +64,11 @@ var MANAGED_SECTIONS = [
   "stdom_ministries",
   "stdom_settings"
 ];
+
+// Any section key the site is allowed to write must match this. The website's
+// localStorage keys are all stdom_-prefixed; this keeps the sheet from being
+// used as an open key/value store while not requiring a hardcoded allowlist.
+var SECTION_KEY_RE = /^stdom_[a-z0-9_]+$/;
 
 var COLS = { SECTION: 0, DATA: 1, UPDATED_AT: 2 };
 
@@ -91,10 +99,16 @@ function doGet(e) {
       return jsonResponse({ section: single, data: record.data, updatedAt: record.updatedAt });
     }
 
-    // Ensure every managed section is represented (empty string if never written)
+    // Return every row that exists in the sheet. The website filters to the
+    // keys it knows (MANAGED_KEYS in dataManager.js), so returning extras is
+    // harmless — and this means new content shards appear without any server
+    // change. Managed sections are still represented (empty) if never written.
     var sections = {};
     MANAGED_SECTIONS.forEach(function (k) {
       sections[k] = index[k] || { data: "", updatedAt: "" };
+    });
+    Object.keys(index).forEach(function (k) {
+      sections[k] = index[k];
     });
 
     return jsonResponse({ sections: sections });
@@ -137,9 +151,34 @@ function doPost(e) {
       return jsonResponse({ success: true, cleared: true });
     }
 
+    // ── Batch upsert ── { token, action:"batch", sections: { key: dataStr, … } }
+    // One invocation writes many rows (used by import / save-all), avoiding a
+    // thundering herd of single POSTs.
+    if (body.action === "batch" && body.sections && typeof body.sections === "object") {
+      var nowB = new Date().toISOString();
+      var rowsB = sheet.getDataRange().getValues();
+      var rowByKey = {};
+      for (var r = 1; r < rowsB.length; r++) {
+        if (rowsB[r][COLS.SECTION]) rowByKey[rowsB[r][COLS.SECTION]] = r + 1;
+      }
+      var wrote = 0;
+      Object.keys(body.sections).forEach(function (key) {
+        if (!SECTION_KEY_RE.test(key)) return;
+        var dataB = body.sections[key];
+        if (typeof dataB !== "string") dataB = JSON.stringify(dataB || "");
+        if (rowByKey[key]) sheet.getRange(rowByKey[key], 1, 1, 3).setValues([[key, dataB, nowB]]);
+        else sheet.appendRow([key, dataB, nowB]);
+        wrote++;
+      });
+      SpreadsheetApp.flush();
+      return jsonResponse({ success: true, wrote: wrote, updatedAt: nowB });
+    }
+
     // ── Upsert a single section ──
-    if (!body.section || MANAGED_SECTIONS.indexOf(body.section) === -1) {
-      return jsonResponse({ error: "Unknown section: " + body.section });
+    // Accept any well-formed stdom_ section key (rows are created lazily on
+    // first write), so new per-page content shards work without a redeploy.
+    if (!body.section || !SECTION_KEY_RE.test(body.section)) {
+      return jsonResponse({ error: "Invalid section: " + body.section });
     }
 
     var dataStr = typeof body.data === "string" ? body.data : JSON.stringify(body.data || "");

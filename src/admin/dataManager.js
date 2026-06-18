@@ -6,8 +6,10 @@
  * browsers and devices with a single JSON file.
  */
 
+import { CONTENT_SHARD_KEYS } from "../content/shards";
+
 export const MANAGED_KEYS = [
-  // Content
+  // Operational data sections
   "stdom_announcements",
   "stdom_bulletin_current_url",
   "stdom_bulletin_archive",
@@ -16,9 +18,21 @@ export const MANAGED_KEYS = [
   "stdom_staff_directory",
   "stdom_ministries",
   "stdom_settings",
+  // Per-page editable content (one shard per page — see src/content/shards.js).
+  // Adding these here is all the sync layer (adminSync.js) needs: push,
+  // auto-sync interception, pull hydration, and export/import all loop this list.
+  ...CONTENT_SHARD_KEYS,
+  // Per-page image swaps ({ slot: path }), per-page SEO, global branding, and
+  // the navigation menu order/visibility.
+  "stdom_images",
+  "stdom_seo",
+  "stdom_branding",
+  "stdom_nav_layout",
 ];
 
-const EXPORT_VERSION = 1;
+// v2: backups now include the per-page content shards, not just the original
+// 8 operational sections.
+const EXPORT_VERSION = 2;
 
 /**
  * Collect every admin key from localStorage into a single object.
@@ -84,13 +98,21 @@ export async function importFromFile(file, strategy = "replace") {
     throw new Error("Backup contains no recognized admin data.");
   }
 
-  if (strategy === "replace") {
-    MANAGED_KEYS.forEach((k) => localStorage.removeItem(k));
-  }
-
-  keys.forEach((k) => {
-    localStorage.setItem(k, incoming[k]);
-  });
+  // Write everything with the per-key auto-sync interceptor suppressed, then
+  // push the touched keys in a single batch — a restore shouldn't fire one
+  // POST per key (see runWithoutAutoSync in cms/adminSync.js).
+  const { runWithoutAutoSync } = await import("../cms/adminSync");
+  runWithoutAutoSync(
+    () => {
+      if (strategy === "replace") {
+        MANAGED_KEYS.forEach((k) => localStorage.removeItem(k));
+      }
+      keys.forEach((k) => {
+        localStorage.setItem(k, incoming[k]);
+      });
+    },
+    keys
+  );
 
   return { count: keys.length, exportedAt: envelope.exportedAt || null };
 }

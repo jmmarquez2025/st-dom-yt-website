@@ -175,7 +175,7 @@ export default function Home() {
                 localStorage.setItem("lang", "es");
               }}
             >
-              También disponible en Español
+              {t("home.hero.espanolPrompt")}
             </button>
           )}
         </div>

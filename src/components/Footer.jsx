@@ -4,6 +4,7 @@ import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { PHOTOS } from "../constants/photos";
 import { useSchedule } from "../cms/hooks";
+import { getSiteNameFull } from "../content/branding";
 
 function FooterLink({ to, children, style }) {
   const navigate = useNavigate();
@@ -142,7 +143,7 @@ export default function Footer() {
               marginBottom: 14,
             }}
           >
-            St. Dominic Catholic Church
+            {getSiteNameFull()}
           </p>
           <p style={{ fontSize: 15, lineHeight: 1.8, maxWidth: "52ch" }}>
             {t("footer.description")}
@@ -314,7 +315,7 @@ export default function Footer() {
 
         <div style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", textAlign: "right" }}>
           © <span style={{ fontVariantNumeric: "oldstyle-nums" }}>{new Date().getFullYear()}</span>{" "}
-          St. Dominic Catholic Church · Youngstown, OH · {t("footer.rights")}
+          {getSiteNameFull()} · Youngstown, OH · {t("footer.rights")}
           <span style={{ margin: "0 6px" }}>·</span>
           <FooterLink
             to="/writers-guide"
