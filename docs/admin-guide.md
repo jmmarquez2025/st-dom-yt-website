@@ -24,6 +24,7 @@
 15. [Common Tasks — Quick Reference](#15-common-tasks--quick-reference)
 16. [Troubleshooting](#16-troubleshooting)
 17. [Technical Reference (For Developers)](#17-technical-reference-for-developers)
+18. [Mass Intentions](#18-mass-intentions)
 
 ---
 
@@ -521,6 +522,9 @@ Contact the developer. Provide:
 | `VITE_CMS_SHEET_ID` | Published Google Sheet ID for CMS data | Recommended |
 | `VITE_ADMIN_CMS_URL` | Apps Script URL for staff dashboard cloud sync | Recommended |
 | `VITE_STAFF_PASSPHRASE` | Staff dashboard write passphrase | Recommended |
+| `VITE_MASS_INTENTIONS_URL` | Apps Script URL for the Mass Intentions form + dashboard (see `cms/mass-intentions.gs`) | Optional |
+| `VITE_MASS_INTENTIONS_ENABLED` | Set to `true` to reveal the Mass Intentions page + menu link (see Section 18) | Optional |
+| `VITE_MASS_INTENTION_SUGGESTED_OFFERING` | Suggested offering amount shown on the form (default `10`) | Optional |
 | `VITE_SITE_URL` | Canonical URL used for SEO, sitemap, and robots.txt | Recommended |
 | `VITE_FLOCKNOTE_GIVING_URL` | Public Flocknote giving page URL | Recommended |
 | `VITE_WESHARE_URL` | Legacy online giving URL alias | Optional |
@@ -569,6 +573,76 @@ npm run docs
 ```
 
 This runs `docs/generate-docx.py` and saves the file to your Desktop.
+
+---
+
+## 18. Mass Intentions
+
+The Mass Intentions feature lets parishioners request that a Mass be offered for a
+loved one — living or deceased — and gives the office a dashboard to schedule and
+track those requests. It is **built but hidden by default** ("ships dark"), so it
+can be turned on whenever the parish is ready.
+
+### What a parishioner sees
+
+When the feature is on, the page lives at **`/mass-intentions`** (a "Request a Mass
+Intention" link also appears under **Get Involved** in the menu). The form asks for:
+the person/intention, the type (deceased, living, thanksgiving, healing, special),
+the requester's contact details, a preferred date ("first available" or a specific
+date within the next year), an announcement preference (bulletin or private), and an
+optional note. After submitting, the parishioner sees a confirmation and a **"Make
+your offering"** button that opens the parish's Flocknote giving page — the offering
+is always a *voluntary donation*, never a price.
+
+### Turning it on (go-live)
+
+Two environment variables control it (see Section 17 and `.env.example`):
+
+- `VITE_MASS_INTENTIONS_ENABLED` — set to `true` to reveal the page and menu link.
+  Anything else keeps it hidden behind a quiet "coming soon" notice.
+- `VITE_MASS_INTENTIONS_URL` — the Google Apps Script web-app URL that receives
+  requests and powers the dashboard (see below). Until it's set, the form falls
+  back to sending an email to the office.
+
+A developer sets these in the deploy environment and rebuilds the site.
+
+### One-time backend setup (developer)
+
+The backend is a single Google Apps Script, documented step-by-step at the top of
+**`cms/mass-intentions.gs`**. In brief: paste that file into the parish Google
+Sheet's Apps Script editor, run `setupIntentionsSheet`, add the Script Properties
+`WRITE_TOKEN` (match the Staff Dashboard passphrase) and `OFFICE_EMAIL`, deploy it
+as a Web App, and put the resulting URL in `VITE_MASS_INTENTIONS_URL`. Requests are
+stored in a private **"Intentions"** tab of the Sheet — never shown to the public —
+and the office is emailed whenever a new request arrives.
+
+### Working requests in the Staff Dashboard
+
+Open the **Staff Dashboard** (Section 2) and choose the **Mass Intentions** tab.
+You'll see counts (pending, scheduled, fulfilled this month, overdue) and a list of
+requests. Click any request to:
+
+- **Approve & schedule** — set the date, time, and celebrant; optionally tick
+  *"Email the requester on save"* to send them the confirmed details.
+- **Save** — record an offering received or internal notes without changing status.
+- **Mark fulfilled** — after the Mass is celebrated (this locks the record).
+- **Transfer** — reassign to another priest if it can't be fulfilled in time.
+- **Deny** — with a reason that is emailed to the requester.
+
+Two export buttons produce spreadsheets: **Export for bulletin** (the public,
+scheduled intentions, ready to paste into the bulletin) and **Export register
+(audit)** (the full record for the annual diocesan review).
+
+### Good to know (parish norms the software follows)
+
+- **One intention per Mass** is the default; the dashboard simply warns if you put
+  two on the same date and time.
+- An **offering is voluntary** and the suggested amount is shown for guidance only
+  (`$10` by default; change `VITE_MASS_INTENTION_SUGGESTED_OFFERING`). No one is
+  ever turned away.
+- Each accepted intention shows a **one-year fulfillment deadline**, and anything
+  past due is flagged **Overdue** so it can be celebrated or transferred.
+- Requests can be made up to **one year** in advance.
 
 ---
 

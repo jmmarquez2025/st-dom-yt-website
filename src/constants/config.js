@@ -84,6 +84,24 @@ export const CONFIG = {
   // Leave empty to fall back to localStorage-only mode.
   adminCmsUrl: import.meta.env.VITE_ADMIN_CMS_URL || "",
 
+  // Mass Intentions — Google Apps Script URL for the request form (public
+  // submit) AND the token-gated Staff Dashboard read/update endpoints.
+  // See cms/mass-intentions.gs for setup. Leave empty to fall back to mailto.
+  massIntentionsUrl: import.meta.env.VITE_MASS_INTENTIONS_URL || "",
+
+  // Feature flag — the Mass Intentions request page ships "dark" so it can be
+  // built and tested now but revealed to the public at go-live. When false,
+  // the /mass-intentions route still resolves (for staff/preview testing) but
+  // renders a quiet "coming soon" notice and no Nav link is shown.
+  massIntentionsEnabled:
+    String(import.meta.env.VITE_MASS_INTENTIONS_ENABLED).toLowerCase() === "true",
+
+  // Suggested Mass offering (a voluntary donation, never a price — Canon 948).
+  // Display-only; the actual offering is made via the Flocknote giving page.
+  massIntentionSuggestedOffering: Number(
+    import.meta.env.VITE_MASS_INTENTION_SUGGESTED_OFFERING || 10
+  ),
+
   // Analytics — Cloudflare Web Analytics (privacy-friendly, no cookie banner needed)
   // Public site token copied from the Cloudflare Web Analytics beacon snippet.
   cloudflareWebAnalyticsToken: import.meta.env.VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN || "",

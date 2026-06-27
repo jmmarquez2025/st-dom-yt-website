@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useHref, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
+import { CONFIG } from "../constants/config";
 import { Menu, X, ChevronDown, MapPin, Church, Gift } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 import SiteSearch from "./SiteSearch";
@@ -57,6 +58,11 @@ const NAV_ITEMS = [
     children: [
       { key: "getInvolved", to: "/get-involved" },
       { key: "register", to: "/register" },
+      // Mass Intentions ships "dark" — the link appears only once the feature
+      // flag is switched on at go-live (the route itself always resolves).
+      ...(CONFIG.massIntentionsEnabled
+        ? [{ key: "massIntentions", to: "/mass-intentions" }]
+        : []),
       { key: "faithFormation", to: "/faith-formation" },
       { key: "events", to: "/events" },
       { key: "connect", to: "/connect" },

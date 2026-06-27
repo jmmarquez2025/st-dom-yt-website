@@ -38,6 +38,7 @@ const Funerals = lazy(() => import("./pages/sacraments/Funerals"));
 const Visit = lazy(() => import("./pages/Visit"));
 const History = lazy(() => import("./pages/History"));
 const Register = lazy(() => import("./pages/Register"));
+const MassIntentions = lazy(() => import("./pages/MassIntentions"));
 const Events = lazy(() => import("./pages/Events"));
 const Architecture = lazy(() => import("./pages/Architecture"));
 const FaithFormation = lazy(() => import("./pages/FaithFormation"));
@@ -91,6 +92,7 @@ function AppRoutes() {
             <Route path="/visit" element={<Visit />} />
             <Route path="/history" element={<History />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/mass-intentions" element={<MassIntentions />} />
             <Route path="/events" element={<Events />} />
             <Route path="/architecture" element={<Architecture />} />
             {/* Blog removed — redirect any old/indexed blog URLs to home */}
