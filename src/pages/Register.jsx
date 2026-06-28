@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { FloatingInput, FloatingTextarea, StyledSelect } from "../components/forms/Fields";
+import { validateEmail, validatePhone } from "../utils/formValidation";
 import { CONFIG } from "../constants/config";
 import { Section } from "../components/Section";
 import PageHeader from "../components/PageHeader";
@@ -20,11 +21,6 @@ import {
   Home as HomeIcon,
   Church,
 } from "lucide-react";
-
-/* ── Validation helpers ── */
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_RE =
-  /^[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*(\d[\s().\-+]*)?(\d[\s().\-+]*)?(\d[\s().\-+]*)?$/;
 
 /* ── Collapsible section with icon ── */
 function FormSection({ icon: IconComp, title, children, defaultOpen = true }) {

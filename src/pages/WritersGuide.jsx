@@ -21,6 +21,9 @@ const StaffDirectoryDashboard = lazy(() => import("../staff-admin/StaffDirectory
 const MinistriesDashboard = lazy(() => import("../ministries-admin/MinistriesDashboard"));
 const SettingsDashboard = lazy(() => import("../settings/SettingsDashboard"));
 const DataHelpDashboard = lazy(() => import("../admin/DataHelpDashboard"));
+const MassIntentionsDashboard = lazy(() =>
+  import("../mass-intentions-admin/MassIntentionsDashboard")
+);
 import {
   Megaphone,
   Newspaper,
@@ -30,6 +33,7 @@ import {
   HandHeart,
   Settings,
   LifeBuoy,
+  ScrollText,
 } from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────
@@ -244,6 +248,7 @@ function SectionTabs({ active, onChange }) {
     { key: "bulletins", label: "Bulletins", Icon: Newspaper },
     { key: "events", label: "Events", Icon: Calendar },
     { key: "schedule", label: "Mass Schedule", Icon: Clock },
+    { key: "intentions", label: "Mass Intentions", Icon: ScrollText },
     { key: "staff", label: "Staff", Icon: Users },
     { key: "ministries", label: "Ministries", Icon: HandHeart },
     { key: "settings", label: "Settings", Icon: Settings },
@@ -565,6 +570,13 @@ function StaffDashboard() {
         {section === "schedule" && (
           <Section bg={T.warmWhite}>
             <ScheduleDashboard onToast={handleBulletinToast} />
+          </Section>
+        )}
+
+        {/* ── Mass Intentions section ── */}
+        {section === "intentions" && (
+          <Section bg={T.warmWhite}>
+            <MassIntentionsDashboard onToast={handleBulletinToast} />
           </Section>
         )}
 
