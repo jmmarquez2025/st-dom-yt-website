@@ -35,6 +35,9 @@ export const PHOTOS = {
   historyMass1979: `${B}photos/history/mass-1979.webp`,                 // 1979 concelebrated Mass
   historyInteriorVintage: `${B}photos/history/interior-vintage.webp`,   // Interior showing Loreto symbols
   historyCommunity: `${B}photos/history/community.webp`,                // Old parish community gathering
+  historyPastorConstruction: `${B}photos/history/pastor-construction.webp`, // Church under construction, 1950s
+  historyPastorEntrance: `${B}photos/history/pastor-entrance.webp`,     // Main entrance taking shape
+  historyPastorAerial: `${B}photos/history/pastor-aerial.webp`,         // Aerial of the church & campus today
 
   // ── Architecture walking tour ──
   archHero: `${B}photos/architecture/DJI_0666-opt.webp`,         // Aerial campus overview
@@ -68,6 +71,7 @@ export const PHOTOS = {
   stockGiving: `${B}photos/stock/giving.webp`,                   // Charity / generosity (Unsplash)
 
   // ── Provincial branding (Dominican Province of St. Joseph) ──
+  stDomLogo: `${B}photos/branding/st-dom-logo.webp`,           // Parish crest — Dominican shield with VERITAS (nav badge)
   psjShield: `${B}photos/branding/psj-shield.png`,             // Official PSJ shield with VERITAS
   psjShieldBw: `${B}photos/branding/psj-shield-bw.png`,        // B&W shield (watermark use)
   psjLogoBlue: `${B}photos/branding/psj-logo-blue.png`,        // Full logo — shield + "Dominican Friars"

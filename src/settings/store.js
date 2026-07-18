@@ -49,9 +49,32 @@ export function getContact(fallback) {
   return stored?.contact ? { ...fallback, ...stored.contact } : fallback;
 }
 
+// Official parish accounts, shown until an admin configures accounts in the
+// Settings dashboard. Any stored list (even an emptied one) replaces these.
+const DEFAULT_SOCIAL = [
+  {
+    id: "default-facebook",
+    platform: "Facebook",
+    handle: "@saintdominicYT",
+    url: "https://www.facebook.com/saintdominicYT/",
+    description: "Weekly videos, announcements, and parish news.",
+    active: true,
+    order: 1,
+  },
+  {
+    id: "default-instagram",
+    platform: "Instagram",
+    handle: "@saintdominicyt",
+    url: "https://www.instagram.com/saintdominicyt/",
+    description: "Photos and moments from life at St. Dom's.",
+    active: true,
+    order: 2,
+  },
+];
+
 export function getSocial() {
   const stored = getAll();
-  const list = stored?.social || [];
+  const list = Array.isArray(stored?.social) ? stored.social : DEFAULT_SOCIAL;
   return [...list].sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
 }
 

@@ -276,7 +276,7 @@ export default function Bulletin() {
                 {t("bulletin.fallback.desc")}
               </p>
               <a
-                href="https://saintdominic.org/bulletins"
+                href={CONFIG.diocesanBulletinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-hover"

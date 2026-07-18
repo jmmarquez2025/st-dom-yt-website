@@ -21,10 +21,7 @@ import {
   Church,
 } from "lucide-react";
 
-/* ── Validation helpers ── */
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_RE =
-  /^[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*(\d[\s().\-+]*)?(\d[\s().\-+]*)?(\d[\s().\-+]*)?$/;
+import { validateEmail, validatePhone } from "../utils/formValidation";
 
 /* ── Collapsible section with icon ── */
 function FormSection({ icon: IconComp, title, children, defaultOpen = true }) {

@@ -9,8 +9,11 @@ export const friars = [
 ];
 
 export const staff = [
-  { id: "sylvia-gould", name: "Sylvia Gould", role: "parishSecretary" },
-  { id: "alec-ring", name: "Alec Ring", role: "musicDirector" },
+  { id: "sophia-ferraro", name: "Ms. Sophia Ferraro", role: "parishSecretary" },
+  { id: "alec-ring", name: "Mr. Alec Ring", role: "musicDirector" },
+  { id: "john-womer", name: "Mr. John Womer", role: "maintenance" },
+  { id: "luis-cruz", name: "Mr. Luis Cruz", role: "maintenance" },
+  { id: "sylvia-gould", name: "Ms. Sylvia Gould", role: "ministerioHispano" },
 ];
 
 export function initials(name) {

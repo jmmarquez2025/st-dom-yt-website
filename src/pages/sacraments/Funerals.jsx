@@ -10,6 +10,7 @@ import Seo from "../../components/Seo";
 import DominicanDivider from "../../components/DominicanDivider";
 import { NextSteps, PastoralActionPanel } from "../../components/PastoralActionPanel";
 import SacramentPageActions from "../../components/SacramentPageActions";
+import Icon from "../../components/Icon";
 
 export default function Funerals() {
   const { t } = useTranslation();
@@ -102,6 +103,23 @@ export default function Funerals() {
           <p style={{ fontSize: 14, color: T.warmGray, marginTop: 16 }}>
             <a href={CONFIG.phoneLink} className="contact-link" style={{ color: T.burgundy }}>
               {CONFIG.phone}
+            </a>
+          </p>
+          <p style={{ fontSize: 14, marginTop: 12 }}>
+            <a
+              href={`${import.meta.env.BASE_URL}docs/funeral-directives.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-link"
+              style={{
+                color: T.burgundy,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+              }}
+            >
+              <Icon name="FileText" size={16} color={T.burgundy} />
+              {t("sacraments.funerals.directives")}
             </a>
           </p>
         </div>

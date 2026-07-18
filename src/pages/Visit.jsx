@@ -18,8 +18,8 @@ export default function Visit() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo
-        title="Plan Your Visit"
-        description="Planning to visit St. Dominic Church? Everything you need to know — what to expect, Mass times, parking, and a warm welcome."
+        title="Start Here"
+        description="Visiting St. Dominic Church? Everything you need to know — what to expect, Mass times, parking, and a warm welcome."
         image={PHOTOS.visitHero}
       />
 
@@ -156,7 +156,7 @@ export default function Visit() {
             {[
               [t("visit.schedule.satVigil"), "5:00 PM"],
               [t("visit.schedule.sun"), "8:00 AM"],
-              [t("visit.schedule.sun"), "10:30 AM"],
+              [t("visit.schedule.sun"), "10:00 AM"],
               [t("visit.schedule.sunEs"), "12:30 PM"],
             ].map(([label, time], i) => (
               <div

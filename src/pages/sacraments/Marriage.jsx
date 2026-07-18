@@ -9,6 +9,8 @@ import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
 import DominicanDivider from "../../components/DominicanDivider";
 import SacramentPageActions from "../../components/SacramentPageActions";
+import PullQuote from "../../components/PullQuote";
+import Icon from "../../components/Icon";
 
 export default function Marriage() {
   const { t } = useTranslation();
@@ -17,7 +19,7 @@ export default function Marriage() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo
-        title="Marriage"
+        title="Holy Matrimony"
         description="Planning a Catholic wedding at St. Dominic Church? Learn about marriage preparation, requirements, and scheduling."
         image={PHOTOS.marriageHero}
       />
@@ -70,6 +72,23 @@ export default function Marriage() {
       </Section>
 
       <Section bg={T.warmWhite}>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <SectionTitle sub={t("sacraments.marriage.convalidationSub")}>
+            {t("sacraments.marriage.convalidationTitle")}
+          </SectionTitle>
+          <p style={{ fontSize: 16, color: T.warmGray, lineHeight: 2, marginBottom: 28 }}>
+            {t("sacraments.marriage.convalidationDesc")}
+          </p>
+          <div style={{ textAlign: "center", marginBottom: 12 }}>
+            <Btn onClick={() => navigate("/contact")}>
+              {t("sacraments.marriage.convalidationCta")}
+            </Btn>
+          </div>
+          <PullQuote text={t("sacraments.marriage.ccc")} src={t("sacraments.marriage.cccSrc")} />
+        </div>
+      </Section>
+
+      <Section bg={T.warmWhite}>
         <DominicanDivider style={{ marginBottom: 16 }} />
         <div style={{ textAlign: "center", maxWidth: 500, margin: "0 auto" }}>
           <h3
@@ -89,6 +108,23 @@ export default function Marriage() {
           <p style={{ fontSize: 14, color: T.warmGray, marginTop: 16 }}>
             <a href={CONFIG.phoneLink} className="contact-link" style={{ color: T.burgundy }}>
               {CONFIG.phone}
+            </a>
+          </p>
+          <p style={{ fontSize: 14, marginTop: 12 }}>
+            <a
+              href={`${import.meta.env.BASE_URL}docs/wedding-guidelines.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-link"
+              style={{
+                color: T.burgundy,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+              }}
+            >
+              <Icon name="FileText" size={16} color={T.burgundy} />
+              {t("sacraments.marriage.guidelines")}
             </a>
           </p>
         </div>

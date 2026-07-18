@@ -10,6 +10,7 @@ import {
   PhoneCall, Compass, ArrowRight, HeartPulse, ClipboardList,
   CalendarDays, ChevronRight, RefreshCw, Star,
   Camera, Video, MessageCircle, Briefcase,
+  Flower2, MessagesSquare, Swords,
 } from "lucide-react";
 
 /**
@@ -27,6 +28,7 @@ const ICONS = {
   Ruler, Building, Calendar, Maximize, ArrowUp,
   PhoneCall, Compass, ArrowRight, HeartPulse, ClipboardList,
   CalendarDays, ChevronRight, RefreshCw, Star,
+  Flower2, MessagesSquare, Swords,
   Facebook: Globe,
   Instagram: Camera,
   Youtube: Video,

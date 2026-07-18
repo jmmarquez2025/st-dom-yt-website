@@ -12,6 +12,7 @@ import HeroImage from "../components/HeroImage";
 import PageHeader from "../components/PageHeader";
 import PremiumPageActions from "../components/PremiumPageActions";
 import PhotoGallery from "../components/PhotoGallery";
+import ResponsivePicture from "../components/ResponsivePicture";
 import TextReveal from "../components/TextReveal";
 import SaintOfTheDay from "../components/SaintOfTheDay";
 import { PHOTOS } from "../constants/photos";
@@ -39,21 +40,21 @@ export default function About() {
         eyebrow={t("about.history.sub")}
         items={[
           {
-            title: t("about.historyLink"),
-            description: t("about.history.p2"),
+            title: t("about.actions.history.title"),
+            description: t("about.actions.history.desc"),
             to: "/history",
             icon: "BookOpenText",
             primary: true,
           },
           {
-            title: t("nav.staff"),
-            description: t("home.priests.desc"),
+            title: t("about.actions.staff.title"),
+            description: t("about.actions.staff.desc"),
             to: "/staff",
             icon: "Users",
           },
           {
-            title: t("nav.visit"),
-            description: t("visit.hero.desc"),
+            title: t("about.actions.visit.title"),
+            description: t("about.actions.visit.desc"),
             to: "/visit",
             icon: "MapPin",
           },
@@ -158,6 +159,48 @@ export default function About() {
               {t("about.historyLink")}
             </Btn>
           </div>
+        </div>
+
+        {/* ── Then & now — photos from the parish archives ── */}
+        <style>{`
+            .about-history-photos {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+              gap: 18px;
+              margin-top: 56px;
+            }
+            .about-history-photos figure { margin: 0; }
+            .about-history-photos img {
+              width: 100%;
+              height: 240px;
+              object-fit: cover;
+              border-radius: 4px;
+              border: 1px solid ${T.stone};
+              display: block;
+            }
+            .about-history-photos figcaption {
+              font-size: 13px;
+              color: ${T.warmGray};
+              line-height: 1.5;
+              margin-top: 8px;
+            }
+          `}</style>
+        <div className="about-history-photos">
+          {[
+            { src: PHOTOS.historyPastorConstruction, key: "construction" },
+            { src: PHOTOS.historyPastorEntrance, key: "entrance" },
+            { src: PHOTOS.historyPastorAerial, key: "aerial" },
+          ].map(({ src, key }) => (
+            <figure key={key}>
+              <ResponsivePicture
+                src={src}
+                widths={[480, 1024]}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                alt={t(`about.history.photos.${key}`)}
+              />
+              <figcaption>{t(`about.history.photos.${key}`)}</figcaption>
+            </figure>
+          ))}
         </div>
       </Section>
 

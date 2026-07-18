@@ -74,6 +74,10 @@ export const CONFIG = {
   // Example: "https://online.fliphtml5.com/abcde/fghij/"
   bulletinUrl: import.meta.env.VITE_BULLETIN_URL || "",
 
+  // Bulletin archive hosted by the parish's publisher (Diocesan / DiscoverMass).
+  // PDFs are posted there before print, so this is always current.
+  diocesanBulletinUrl: "https://discovermass.com/church/st-dominic-youngstown-oh/#bulletins",
+
   // Site URL for SEO (canonical, OpenGraph, etc.)
   // Update this when deploying to the production domain
   siteUrl: (import.meta.env.VITE_SITE_URL || "https://jmmarquez2025.github.io/st-dom-yt-website").replace(/\/$/, ""),
@@ -91,6 +95,9 @@ export const CONFIG = {
   // Church info
   phone: "(330) 783-1900",
   phoneLink: "tel:+13307831900",
+  // Sacramental emergency line — priest on call for Anointing of the Sick
+  emergencyPhone: "234-367-4312",
+  emergencyPhoneLink: "tel:+12343674312",
   fax: "(330) 783-2396",
   email: "office@saintdominic.org",
   address: "77 East Lucius Avenue",

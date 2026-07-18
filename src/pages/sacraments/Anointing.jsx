@@ -7,6 +7,7 @@ import { Section, SectionTitle } from "../../components/Section";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
+import PullQuote from "../../components/PullQuote";
 import { NextSteps, PastoralActionPanel } from "../../components/PastoralActionPanel";
 import SacramentPageActions from "../../components/SacramentPageActions";
 
@@ -28,10 +29,10 @@ export default function Anointing() {
         <PastoralActionPanel
           urgent
           eyebrow={t("sacraments.anointing.emergencyTitle")}
-          title={CONFIG.phone}
+          title={CONFIG.emergencyPhone}
           description={t("sacraments.anointing.emergencyDesc")}
           primaryLabel={t("sacraments.anointing.callNow")}
-          primaryHref={CONFIG.phoneLink}
+          primaryHref={CONFIG.emergencyPhoneLink}
           secondaryLabel={t("sacraments.anointing.office")}
           secondaryTo="/contact"
         />
@@ -42,6 +43,11 @@ export default function Anointing() {
           <SectionTitle sub={t("sacraments.anointing.sub")}>
             {t("sacraments.anointing.heading")}
           </SectionTitle>
+          <PullQuote
+            variant="margin"
+            text={t("sacraments.anointing.quote")}
+            src={t("sacraments.anointing.quoteSrc")}
+          />
           <div style={{ fontSize: 16, color: T.warmGray, lineHeight: 2 }}>
             <p style={{ marginBottom: 20 }}>{t("sacraments.anointing.p1")}</p>
             <p style={{ marginBottom: 20 }}>{t("sacraments.anointing.p2")}</p>

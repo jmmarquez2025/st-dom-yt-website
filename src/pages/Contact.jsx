@@ -9,11 +9,7 @@ import { PHOTOS } from "../constants/photos";
 import { Send, CheckCircle, AlertCircle, Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 import PremiumPageActions from "../components/PremiumPageActions";
 import { FloatingInput, FloatingTextarea, StyledSelect } from "../components/forms/Fields";
-
-/* ── Validation helpers ── */
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_RE =
-  /^[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*(\d[\s().\-+]*)?(\d[\s().\-+]*)?(\d[\s().\-+]*)?$/;
+import { validateEmail, validatePhone } from "../utils/formValidation";
 
 /* ── Info card item ── */
 function InfoItem({ icon: IconComp, label, children }) {
