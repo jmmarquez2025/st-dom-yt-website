@@ -72,8 +72,8 @@ export default function Connect() {
             fontFamily: "'Source Sans 3', sans-serif",
           }}
         >
-          Join our online community for daily reflections, event announcements, homilies, and
-          moments from life at St. Dominic.
+          Check our Facebook page and Instagram for weekly videos, announcements, and important
+          information from life at St. Dominic.
         </p>
 
         {accounts.length === 0 ? (

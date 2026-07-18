@@ -1,7 +1,7 @@
 export const sundayMass = [
   ["saturdayVigil", "5:00 PM"],
   ["sunday", "8:00 AM"],
-  ["sunday", "10:30 AM"],
+  ["sunday", "10:00 AM"],
   ["sundayEspanol", "12:30 PM"],
 ];
 

@@ -25,10 +25,10 @@ const ACCENTS = {
   svdp: "#7B5EA7", // muted violet — matches events "prayer"
   music: T.goldText, // AA-safe dark gold (#7A5A0F) — bright T.gold fails contrast as a bare icon / white-on-accent
   religiousEd: "#B26A3A", // sienna
-  youth: "#3E7E83", // muted teal
-  bibleStudy: "#4E342E", // walnut
-  caring: "#A04E68", // dusty rose
-  missions: "#4A7C59",
+  daughters: "#A04E68", // dusty rose
+  conversatio: "#3E7E83", // muted teal
+  knights: "#5B7FA6", // slate blue
+  estudioBiblia: "#4E342E", // walnut
 };
 
 export default function GetInvolved() {
@@ -69,7 +69,7 @@ export default function GetInvolved() {
       <PremiumPageActions
         overlap
         eyebrow={t("getInvolved.sub")}
-        title={t("getInvolved.howTo.title")}
+        title={t("getInvolved.heading")}
         items={[
           {
             title: t("getInvolved.register.title"),
@@ -79,8 +79,8 @@ export default function GetInvolved() {
             primary: true,
           },
           {
-            title: t("getInvolved.howTo.connect.title"),
-            description: t("getInvolved.howTo.connect.desc"),
+            title: t("contact.title"),
+            description: CONFIG.phone,
             to: "/contact",
             icon: "Phone",
           },
@@ -259,57 +259,6 @@ export default function GetInvolved() {
         </div>
       </Section>
 
-      {/* ════ How to Get Started ════ */}
-      <Section>
-        <SectionTitle sub={t("getInvolved.howTo.sub")}>{t("getInvolved.howTo.title")}</SectionTitle>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: 24,
-            maxWidth: 800,
-            margin: "0 auto",
-          }}
-        >
-          {[
-            { num: "1", key: "explore", icon: "Search" },
-            { num: "2", key: "connect", icon: "Phone" },
-            { num: "3", key: "serve", icon: "HeartHandshake" },
-          ].map((step) => (
-            <div key={step.key} className="glass-card" style={{ padding: 28 }}>
-              <div
-                className="u-onum"
-                aria-hidden="true"
-                style={{
-                  fontSize: 30,
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 700,
-                  lineHeight: 1,
-                  marginBottom: 12,
-                  color: T.gold,
-                }}
-              >
-                {step.num}
-              </div>
-              <h3
-                style={{
-                  fontSize: 18,
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 600,
-                  marginBottom: 8,
-                  color: T.softBlack,
-                }}
-              >
-                {t(`getInvolved.howTo.${step.key}.title`)}
-              </h3>
-              <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.6 }}>
-                {t(`getInvolved.howTo.${step.key}.desc`)}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       {/* ════ Register CTA ════ */}
       <section
         style={{
@@ -353,7 +302,7 @@ export default function GetInvolved() {
               justifyContent: "center",
             }}
           >
-            <Btn onClick={() => navigate("/contact")} variant="gold">
+            <Btn onClick={() => navigate("/register")} variant="gold">
               {t("getInvolved.register.cta")}
             </Btn>
           </div>

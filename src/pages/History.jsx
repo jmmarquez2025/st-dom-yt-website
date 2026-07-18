@@ -194,7 +194,7 @@ export default function History() {
           {
             id: "h-1923",
             title: "1923",
-            body: "St. Dominic parish is established on Youngstown's south side, gathering immigrant families around the Eucharist.",
+            body: "St. Dominic parish is established on Youngstown's South Side, gathering immigrant families around the Eucharist.",
           },
           {
             id: "h-friars",

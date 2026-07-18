@@ -6,7 +6,7 @@
 export const announcements = [
   {
     title: "Welcome to St. Dominic",
-    body: "Join us for daily Mass, Confession, Eucharistic Adoration, and parish life on Youngstown's south side.",
+    body: "Join us for daily Mass, Confession, Eucharistic Adoration, and parish life on Youngstown's South Side.",
     date: "",
     active: true,
   },

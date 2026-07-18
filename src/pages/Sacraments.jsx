@@ -40,22 +40,22 @@ export default function Sacraments() {
         items={[
           {
             icon: "Droplets",
-            title: t("sacraments.baptism.title"),
-            description: t("sacraments.baptism.brief"),
+            title: t("sacraments.pathways.infantBaptism.title"),
+            description: t("sacraments.pathways.infantBaptism.desc"),
             to: "/sacraments/baptism",
             primary: true,
           },
           {
-            icon: "Gem",
-            title: t("sacraments.marriage.title"),
-            description: t("sacraments.marriage.brief"),
-            to: "/sacraments/marriage",
+            icon: "BookOpen",
+            title: t("sacraments.pathways.sundaySchool.title"),
+            description: t("sacraments.pathways.sundaySchool.desc"),
+            to: "/get-involved",
           },
           {
-            icon: "Phone",
-            title: t("sacraments.contactUs"),
-            description: t("contact.formDesc"),
-            to: "/contact",
+            icon: "Flame",
+            title: t("sacraments.pathways.adultCatechesis.title"),
+            description: t("sacraments.pathways.adultCatechesis.desc"),
+            to: "/becoming-catholic",
           },
         ]}
       />

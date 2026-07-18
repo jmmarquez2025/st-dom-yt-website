@@ -8,7 +8,6 @@ import Btn from "../components/Btn";
 
 import { useAnnouncements, useEvents, useSchedule } from "../cms/hooks";
 import Seo from "../components/Seo";
-import NextMass from "../components/NextMass";
 import LiturgicalBanner from "../components/LiturgicalBanner";
 import VaticanNews from "../components/VaticanNews";
 import YouTubeChannel from "../components/YouTubeChannel";
@@ -86,7 +85,7 @@ function SundayMassCard({ t }) {
       {[
         [t("home.massCta.satVigil"), "5:00 PM"],
         [t("home.massCta.sun"), "8:00 AM"],
-        [t("home.massCta.sun"), "10:30 AM"],
+        [t("home.massCta.sun"), "10:00 AM"],
         [t("home.massCta.sunEspanol"), "12:30 PM"],
       ].map(([label, time]) => (
         <div key={`${label}-${time}`} className="premium-mass-row">
@@ -164,8 +163,6 @@ export default function Home() {
             </button>
           </div>
 
-          <NextMass />
-
           {i18n.language !== "es" && (
             <button
               type="button"
@@ -214,7 +211,7 @@ export default function Home() {
                 icon="Newspaper"
                 label={t("home.essentials.bulletin")}
                 value={t("home.essentials.bulletinDesc")}
-                onClick={() => navigate("/bulletin")}
+                href={CONFIG.diocesanBulletinUrl}
               />
               <ActionCard
                 icon="Phone"

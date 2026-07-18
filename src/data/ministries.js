@@ -7,8 +7,8 @@ export const ministries = [
   { id: "svdp",           icon: "HandHeart",     key: "svdp" },
   { id: "music",          icon: "Music",         key: "music" },
   { id: "religious-ed",   icon: "BookOpen",      key: "religiousEd" },
-  { id: "youth",          icon: "HeartHandshake", key: "youth" },
-  { id: "bible-study",    icon: "BookMarked",    key: "bibleStudy" },
-  { id: "caring",         icon: "Heart",         key: "caring" },
-  { id: "missions",       icon: "Globe",         key: "missions" },
+  { id: "daughters",      icon: "Flower2",       key: "daughters" },
+  { id: "conversatio",    icon: "MessagesSquare", key: "conversatio" },
+  { id: "knights",        icon: "Swords",        key: "knights" },
+  { id: "estudio-biblia", icon: "BookMarked",    key: "estudioBiblia" },
 ];

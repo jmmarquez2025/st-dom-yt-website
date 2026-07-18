@@ -12,11 +12,11 @@
     "getInvolved": "Participe",
     "contact": "Contacto",
     "give": "Donar",
-    "visit": "Planifique Su Visita",
+    "visit": "Empiece Aquí",
     "baptism": "Bautismo",
     "firstCommunion": "Primera Comunión",
     "confirmation": "Confirmación",
-    "marriage": "Matrimonio",
+    "marriage": "Santo Matrimonio",
     "anointing": "Unción de los Enfermos",
     "funerals": "Funerales",
     "register": "Registrarse",
@@ -60,7 +60,7 @@
       "subtitle": "Servida por los Frailes Dominicos",
       "title": "Santo Domingo\nIglesia Católica",
       "location": "Youngstown, Ohio",
-      "ctaVisit": "Planifique Su Visita",
+      "ctaVisit": "Empiece Aquí",
       "ctaMass": "Horarios de Misa y Confesión",
       "ctaBecoming": "¿Interesado en Hacerse Católico?"
     },
@@ -76,13 +76,13 @@
       "bulletin": "Boletín",
       "bulletinDesc": "Anuncios y noticias parroquiales",
       "contact": "Llame a la Oficina",
-      "reviewed": "Horarios de Misa y confesión verificados el 4 de mayo de 2026"
+      "reviewed": "Horarios de Misa y confesión verificados el 18 de julio de 2026"
     },
     "welcome": {
       "sub": "Bienvenidos",
-      "title": "Encuentre a Jesucristo con Nosotros",
-      "p1": "La Iglesia Santo Domingo sirve al lado sur de Youngstown desde 1923, al cuidado de los Frailes Dominicos.",
-      "p2": "Sea usted católico de toda la vida o apenas tenga curiosidad, es bienvenido aquí.",
+      "title": "La Verdad que Salva en el Corazón de la Iglesia",
+      "p1": "Los Frailes Dominicos de la Provincia de San José han servido al South Side de Youngstown desde 1923, formando generaciones de católicos para celebrar los sagrados misterios de nuestra fe.",
+      "p2": "Sea usted un antiguo alumno de St. Dom's o alguien que anhela conocer más la fe católica, es bienvenido aquí.",
       "cta": "Sobre Nosotros"
     },
     "massCta": {
@@ -106,9 +106,9 @@
     },
     "involved": {
       "sub": "Participe",
-      "title": "Hágase Feligrés",
-      "desc": "Hay muchas maneras de participar — ministerios, eventos y servicio. Venga a ser parte de la parroquia.",
-      "ctaRegister": "Regístrese en la Iglesia",
+      "title": "Hágalo Oficial",
+      "desc": "Hay muchas maneras de participar. Registre a su familia para que nunca se pierda los anuncios importantes, los eventos y los ministerios que lo mantienen unido a esta comunidad parroquial.",
+      "ctaRegister": "Regístrese en Línea",
       "ctaBulletin": "Boletines Recientes"
     },
     "announcements": {
@@ -117,28 +117,20 @@
       "ctaBulletin": "Ver Boletín Completo",
       "upcoming": "Próximamente"
     },
-    "nextMass": {
-      "label": "Próxima Misa",
-      "days": "Días",
-      "hours": "Hrs",
-      "min": "Min",
-      "sec": "Seg",
-      "in": "en"
-    },
     "pillars": {
       "sub": "Nuestra Misión",
       "title": "Palabra, Sacramento y Servicio",
       "word": {
         "title": "Palabra",
-        "desc": "Arraigados en la tradición intelectual dominicana, predicamos el Evangelio con claridad y profundidad a través de homilías, estudio bíblico y formación en la fe."
+        "desc": "Arraigados en la tradición intelectual dominicana y guiados por los escritos de Santo Tomás de Aquino, predicamos el Evangelio con claridad y profundidad a través de homilías, catequesis semanal y formación en la fe."
       },
       "sacrament": {
         "title": "Sacramento",
-        "desc": "Celebramos la liturgia con reverencia y belleza — Misa diaria, Confesión frecuente, adoración eucarística y los siete sacramentos."
+        "desc": "Buscamos celebrar la liturgia con reverencia y belleza — Misa diaria, horarios convenientes de Confesión, Adoración Eucarística y frecuentes oportunidades para profundizar la conciencia de la gracia de Dios."
       },
       "service": {
         "title": "Servicio",
-        "desc": "Desde la ayuda de San Vicente de Paúl hasta viajes misioneros, servimos a nuestros vecinos y llevamos el amor de Cristo a los necesitados de Youngstown."
+        "desc": "Nuestra ubicación en el South Side de la ciudad hace del propio lugar de St. Dom's un medio evangelizador para nunca perder la esperanza en la riqueza de la tradición sagrada. Programas de ayuda a nuestros vecinos y a nuestros propios feligreses llevan el amor de Cristo a los más necesitados."
       }
     },
     "liturgical": {
@@ -200,7 +192,7 @@
       "sundayTitle": "Misas de Fin de Semana",
       "dailyTitle": "Misas Diarias"
     },
-    "reviewed": "Los horarios de días de precepto pueden variar — revise el boletín o llame a la oficina parroquial. Horarios verificados el 4 de mayo de 2026.",
+    "reviewed": "Los horarios de días de precepto pueden variar — consulte el boletín o llame a la oficina parroquial. Horarios verificados el 18 de julio de 2026.",
     "parallax1": {
       "quote": "\"La Eucaristía es la consumación de toda la vida espiritual.\"",
       "src": "— Santo Tomás de Aquino, O.P."
@@ -338,8 +330,7 @@
       "desc": "La Adoración Eucarística es un encuentro profundo con el Cristo vivo. En Santo Domingo, exponemos el Santísimo Sacramento en una hermosa custodia de oro para que los fieles adoren, oren y pasen tiempo en la presencia de nuestro Señor.",
       "devotions": "Devociones de la Iglesia",
       "rosary": "Santo Rosario — rezado antes de las Misas diarias",
-      "divineMercy": "Coronilla de la Divina Misericordia — Viernes a las 3:00 PM",
-      "eveningPrayer": "Oración Vespertina del Martes — 4:45 PM"
+      "divineMercy": "Coronilla de la Divina Misericordia — jueves y viernes después de la Misa de 12:00 PM"
     },
     "holyDays": {
       "sub": "Días de Especial Obligación",
@@ -359,13 +350,13 @@
       "sub": "¿Primera Vez Aquí?",
       "title": "Comience con la Misa; luego le ayudamos",
       "desc": "Si está visitando, regresando a la Iglesia o trayendo a su familia por primera vez, venga como está. La oficina parroquial puede ayudar con direcciones, accesibilidad, Confesión o los próximos pasos después de la Misa.",
-      "visit": "Planifique Su Visita",
+      "visit": "Empiece Aquí",
       "contact": "Llame a la Oficina"
     },
     "cta": {
       "title": "Venga a Orar con Nosotros",
       "desc": "Ya sea que nos acompañe a Misa, pase tiempo en oración ante el Santísimo Sacramento, o busque la gracia sanadora de la Confesión — siempre es bienvenido en Santo Domingo.",
-      "visit": "Planifique Su Visita",
+      "visit": "Empiece Aquí",
       "contact": "Contáctenos"
     },
     "sundayMass": "Horario de Misas Dominicales",
@@ -376,12 +367,17 @@
     "history": {
       "sub": "Nuestra Historia",
       "title": "Un Legado de Fe Desde 1923",
-      "p1": "La Orden Dominicana de Predicadores fundó la Iglesia Santo Domingo el 23 de febrero de 1923, a invitación del Arzobispo de Cleveland Joseph Schrembs. La primera Misa se ofreció en un almacén en Market Street — un humilde comienzo para lo que se convertiría en un vibrante centro de fe en el lado sur de Youngstown.",
+      "p1": "La Orden Dominicana de Predicadores fundó la Iglesia Santo Domingo el 23 de febrero de 1923, a invitación del Arzobispo de Cleveland Joseph Schrembs. La primera Misa se ofreció en un almacén en Market Street — un humilde comienzo para lo que se convertiría en un vibrante centro de fe en el South Side de Youngstown.",
       "p2": "El edificio actual, una impresionante estructura románica de piedra caliza y ladrillo, fue dedicado el 28 de abril de 1957. Una estatua de tamaño natural de Santo Domingo se encuentra sobre la entrada, dando la bienvenida a todos los que vienen a adorar.",
       "p3": "Santo Domingo de Guzmán fundó la Orden Dominicana en el siglo XIII, dedicada a reavivar la fe de Europa. En los siglos siguientes, los dominicos se han extendido por todo el mundo con su lema: \"alabar, bendecir y predicar.\" Nuestra iglesia continúa esta tradición en la Diócesis de Youngstown.",
-      "p4": "Hoy, Santo Domingo mantiene muchos ministerios enfocados en la comunidad, incluyendo un programa de Laicos Dominicos, Fraternidad de Hombres Católicos, ministerio de Vida de la Iglesia y Familiar, y un vibrante programa de Ministerio Hispano con Misas semanales en español.",
+      "p4": "Hoy, Santo Domingo mantiene muchos ministerios comunitarios, incluyendo el programa de Dominicos Laicos, la Fraternidad de Hombres Cor, el ministerio de Vida Parroquial y Familiar, y un vibrante programa de Ministerio Hispano con Misas semanales en español.",
       "motto": "\"Alabar, bendecir y predicar.\"",
-      "mottoSrc": "— Lema de la Orden Dominicana"
+      "mottoSrc": "— Lema de la Orden Dominicana",
+      "photos": {
+        "construction": "La iglesia levantándose sobre Lucius Avenue durante su construcción, a principios de los años 1950",
+        "entrance": "Obreros completando la entrada principal y la fachada de piedra caliza",
+        "aerial": "La Iglesia Santo Domingo y su campus vistos desde el aire, hoy"
+      }
     },
     "historyLink": "Leer Nuestra Historia Completa",
     "mission": {
@@ -389,15 +385,15 @@
       "title": "Lo Que Creemos",
       "word": {
         "title": "Palabra",
-        "desc": "Predicamos el Evangelio con claridad y profundidad, arraigados en la tradición intelectual dominicana y las enseñanzas de la Iglesia."
+        "desc": "Arraigados en la tradición intelectual dominicana y guiados por los escritos de Santo Tomás de Aquino, predicamos el Evangelio con claridad y profundidad a través de homilías, catequesis semanal y formación en la fe."
       },
       "sacrament": {
         "title": "Sacramento",
-        "desc": "Celebramos la liturgia con reverencia y belleza, ofreciendo Misa diaria, Confesión frecuente y adoración eucarística."
+        "desc": "Buscamos celebrar la liturgia con reverencia y belleza — Misa diaria, horarios convenientes de Confesión, Adoración Eucarística y frecuentes oportunidades para profundizar la conciencia de la gracia de Dios."
       },
       "service": {
         "title": "Servicio",
-        "desc": "Servimos a los pobres y a nuestros vecinos a través de alcance comunitario, eventos y ministerios que llevan el amor de Cristo a Youngstown."
+        "desc": "Nuestra ubicación en el South Side de la ciudad hace del propio lugar de St. Dom's un medio evangelizador para nunca perder la esperanza en la riqueza de la tradición sagrada. Programas de ayuda a nuestros vecinos y a nuestros propios feligreses llevan el amor de Cristo a los más necesitados."
       }
     },
     "architecture": {
@@ -405,6 +401,20 @@
       "title": "Arquitectura de Nuestra Iglesia",
       "desc": "El estilo arquitectónico de la Iglesia Santo Domingo es románico modernizado — con construcción de piedra caliza y ladrillo, una presencia imponente en Lucius Avenue, y arte sacro que inspira la oración y la contemplación.",
       "cta": "Haga el Recorrido"
+    },
+    "actions": {
+      "history": {
+        "title": "Historia",
+        "desc": "Conozca la historia viva de esta impresionante iglesia románica de piedra caliza y ladrillo."
+      },
+      "staff": {
+        "title": "Sacerdotes y Personal",
+        "desc": "Conozca a nuestro dedicado personal y a los Frailes Dominicos que sirven a Nuestro Señor y a Su pueblo."
+      },
+      "visit": {
+        "title": "¡Venga y Vea!",
+        "desc": "Encuentre a Aquel que ha estado buscando. Jesús lo espera."
+      }
     }
   },
   "staff": {
@@ -416,7 +426,7 @@
     },
     "leadership": {
       "sub": "Liderazgo de la Iglesia",
-      "title": "Nuestros Pastores"
+      "title": "Nuestros Sacerdotes"
     },
     "residence": {
       "sub": "Comunidad Dominicana",
@@ -433,7 +443,9 @@
       "parishSecretary": "Secretaria Parroquial",
       "musicDirector": "Director de Música",
       "religiousEdCoordinator": "Coordinadora de Educación Religiosa",
-      "parochialAssistant": "Asistente Parroquial"
+      "parochialAssistant": "Asistente Parroquial",
+      "maintenance": "Mantenimiento",
+      "ministerioHispano": "Ministerio Hispano"
     },
     "bios": {
       "frassati-davis": "Fr. Frassati Davis was born into a military family and calls Bellevue, Nebraska home. He grew up with two older sisters and a younger brother. He attended St. Mary's University of Minnesota, where he was taught by a Dominican Friar of the Central Province and earned a BA in Philosophy. \"The natural rhythm of prayer, study, and preaching attracted me to the Order of Preachers, and the joy of the friars living out a consecrated religious vocation drew me deeper into the call to be a son of St. Dominic.\"",
@@ -441,8 +453,11 @@
       "john-kozlowski": "El P. John Chrysostom Kozlowski, O.P. es un Fraile Dominico en residencia en la Iglesia de Santo Domingo, contribuyendo a la vida espiritual de la comunidad a través de la predicación y el ministerio sacramental.",
       "bernard-confer": "El P. Bernard Confer, O.P. es un Fraile Dominico en residencia en la Iglesia de Santo Domingo, sirviendo a la comunidad a través de la oración, la predicación y la celebración de los sacramentos.",
       "gregory-salomone": "El P. Gregory Salomone, O.P. es un Fraile Dominico en residencia en la Iglesia de Santo Domingo, enriqueciendo la comunidad a través de su ministerio de predicación y enseñanza en la tradición dominicana.",
-      "sylvia-gould": "Sylvia Gould sirve como Secretaria Parroquial, gestionando las operaciones diarias de la oficina parroquial y siendo el primer punto de contacto para los feligreses y visitantes que buscan información o asistencia.",
-      "alec-ring": "Alec Ring sirve como Director de Música, dirigiendo el programa musical de la iglesia y mejorando el culto litúrgico de la comunidad a través de la música sacra y la dirección coral."
+      "sylvia-gould": "La Sra. Sylvia Gould sirve en el Ministerio Hispano, acompañando a nuestra comunidad hispanohablante y ayudando a coordinar las liturgias, los eventos y el cuidado pastoral del Ministerio Hispano.",
+      "alec-ring": "El Sr. Alec Ring se desempeña como Director de Música, dirigiendo el programa musical de la iglesia y enriqueciendo el culto litúrgico de la comunidad a través de la música sacra y la dirección coral.",
+      "sophia-ferraro": "La Srta. Sophia Ferraro se desempeña como Secretaria de la Iglesia, gestionando las operaciones diarias de la oficina parroquial y siendo el primer punto de contacto para los miembros y visitantes que buscan información o ayuda.",
+      "john-womer": "El Sr. John Womer forma parte del equipo de mantenimiento, cuidando la iglesia, el centro parroquial y los jardines para que Santo Domingo siga siendo un lugar de culto hermoso y acogedor.",
+      "luis-cruz": "El Sr. Luis Cruz forma parte del equipo de mantenimiento, ayudando a conservar la iglesia y sus instalaciones y apoyando la vida diaria de la parroquia con un trabajo dedicado detrás del escenario."
     },
     "quotes": {
       "charles-rooney": {
@@ -463,11 +478,11 @@
     },
     "heading": "Boletín de Esta Semana",
     "loading": "Cargando boletín...",
-    "reviewed": "Los boletines actuales se publican cuando la fuente parroquial está conectada. Archivo verificado el 4 de mayo de 2026.",
+    "reviewed": "Los boletines actuales se publican cuando se conecte el sistema parroquial. Archivo verificado el 18 de julio de 2026.",
     "fallback": {
       "title": "Boletín Próximamente",
-      "desc": "Nuestro boletín semanal será integrado aquí para fácil lectura. Mientras tanto, visite nuestro sitio web parroquial para el boletín más reciente.",
-      "cta": "Ver en Sitio Web Parroquial"
+      "desc": "Nuestro boletín semanal es publicado por Diocesan y se sube a nuestra página parroquial en DiscoverMass — muchas veces antes de imprimirse. Vea allí el boletín actual y las ediciones anteriores.",
+      "cta": "Ver Boletines en DiscoverMass"
     },
     "fullscreen": "Ver Pantalla Completa",
     "info": {
@@ -584,7 +599,7 @@
     "title": "Participe",
     "sub": "Únase a Nuestra Familia",
     "heading": "Hay un Lugar para Usted",
-    "desc": "La Iglesia Santo Domingo es una comunidad vibrante con muchas formas de participar. Ya sea que busque profundizar su vida de oración, servir a los necesitados o construir amistades — hay un ministerio para usted.",
+    "desc": "La Iglesia Santo Domingo ofrece muchas maneras de que las familias participen en la comunidad parroquial. Ya sea que busque profundizar su vida de oración, ofrecerse como voluntario o servir a los más humildes entre nosotros, aquí hay un lugar para usted.",
     "clickHint": "Haga clic para conocer más",
     "ministries": {
       "liturgical": {
@@ -603,19 +618,19 @@
         "detail": "El Capítulo de Laicos Dominicos en la Iglesia Santo Domingo invita a hombres y mujeres a vivir el carisma dominicano en su vida diaria. Los miembros se comprometen con una regla de vida centrada en la oración, el estudio, la comunidad y la predicación. A través de reuniones regulares, oración compartida y formación continua en la espiritualidad dominicana, los laicos dominicos profundizan su relación con Dios y llevan los frutos de la contemplación al mundo."
       },
       "familyLife": {
-        "title": "Vida de la Iglesia y Familiar",
+        "title": "Vida Parroquial y Familiar",
         "desc": "Ayude a organizar eventos comunitarios, cenas y celebraciones parroquiales.",
-        "detail": "Vida de la Iglesia y Familiar coordina eventos comunitarios que unen a los feligreses fuera de la Misa dominical. Desde cenas parroquiales y picnics hasta celebraciones navideñas y reuniones sociales, este ministerio ayuda a crear lazos de amistad que hacen de nuestra iglesia una verdadera familia. Los voluntarios siempre son bienvenidos para ayudar a planificar y organizar estos eventos."
+        "detail": "Vida Parroquial y Familiar coordina eventos comunitarios que reúnen a los miembros fuera de la Misa dominical. Desde cenas y pícnics parroquiales hasta celebraciones festivas y encuentros sociales, este ministerio ayuda a crear los lazos de amistad que hacen de nuestra iglesia una verdadera familia. Siempre son bienvenidos voluntarios para ayudar a planificar y organizar estos eventos."
       },
       "mensFellowship": {
-        "title": "Fraternidad de Hombres Católicos",
-        "desc": "Únase a los hombres de la iglesia para la oración, el estudio y la fraternidad.",
-        "detail": "La Fraternidad de Hombres Católicos reúne a los hombres de la iglesia para la oración, el estudio y la hermandad. A través de reuniones regulares con oradores invitados, estudio de las Escrituras y comidas compartidas, la fraternidad anima a los hombres a crecer como esposos, padres y líderes católicos en sus familias y comunidad."
+        "title": "Fraternidad de Hombres Cor",
+        "desc": "Acompáñenos en el centro parroquial el primer sábado de cada mes después de la Misa de 8:00 AM para desayuno, formación y fraternidad.",
+        "detail": "La Fraternidad de Hombres Cor reúne a los hombres de la parroquia en el centro parroquial el primer sábado de cada mes, después de la Misa de 8:00 AM, para desayuno, formación y fraternidad. A través de la oración, el estudio y la hermandad, Cor anima a los hombres a crecer como esposos, padres y líderes católicos en sus familias y su comunidad."
       },
       "svdp": {
         "title": "Sociedad de San Vicente de Paúl",
-        "desc": "Sirva a los necesitados en nuestra comunidad a través de alcance directo y asistencia.",
-        "detail": "La Sociedad de San Vicente de Paúl se dedica a servir a los necesitados en nuestra comunidad. Los miembros realizan visitas domiciliarias, brindan asistencia de emergencia con alimentos, servicios públicos y alquiler, y conectan a las personas con recursos adicionales. Siguiendo el ejemplo de San Vicente de Paúl, vemos el rostro de Cristo en cada persona que servimos."
+        "desc": "Sirva a los más humildes entre nosotros a través de colectas de ropa, distribución de pañales y otras oportunidades locales de voluntariado.",
+        "detail": "La Sociedad de San Vicente de Paúl sirve a los más humildes entre nosotros a través de colectas de ropa, distribución de pañales y otras oportunidades locales de voluntariado. Siguiendo el ejemplo de San Vicente de Paúl, sus miembros ven el rostro de Cristo en cada persona a la que sirven. Siempre son bienvenidos nuevos voluntarios."
       },
       "music": {
         "title": "Ministerio de Música",
@@ -624,50 +639,34 @@
       },
       "religiousEd": {
         "title": "Educación Religiosa (CCD)",
-        "desc": "Clases de CCD para grados K–8, domingos de 9:00 a 10:15 AM de septiembre a mayo.",
-        "detail": "Nuestro programa de Educación Religiosa (CCD) proporciona formación en la fe para niños de los grados K al 8. Las clases se reúnen los domingos de 9:00 a 10:15 AM, de septiembre a mayo. Nuestros dedicados catequistas guían a los estudiantes a través de los fundamentos de la fe católica, preparándolos para los sacramentos y una relación de por vida con Cristo. Siempre estamos buscando catequistas y asistentes voluntarios."
+        "desc": "Las clases de catecismo (CCD) sirven a los grados K–8 y se reúnen los domingos de 11:00 AM a 12:15 PM, de septiembre a mayo.",
+        "detail": "Nuestro programa de Educación Religiosa (CCD) ofrece formación en la fe para niños de los grados K a 8. Las clases se reúnen los domingos de 11:00 AM a 12:15 PM, de septiembre a mayo. Nuestros dedicados catequistas guían a los estudiantes por los fundamentos de la fe católica, preparándolos para los sacramentos y para una relación con Cristo de por vida. Siempre buscamos catequistas y asistentes voluntarios."
       },
-      "youth": {
-        "title": "Ministerio Juvenil",
-        "desc": "Grupos juveniles de secundaria y preparatoria, más un grupo de familias jóvenes.",
-        "detail": "El Ministerio Juvenil en Santo Domingo sirve a adolescentes y familias jóvenes a través de programas que construyen fe y comunidad. Nuestros grupos de secundaria y preparatoria se reúnen regularmente para compañerismo, proyectos de servicio y formación en la fe. También ofrecemos viajes misioneros anuales — un viaje misionero médico en abril y un viaje misionero juvenil en junio — dando a los jóvenes la oportunidad de servir a los necesitados y crecer en su fe."
+      "daughters": {
+        "title": "Hijas de Nuestra Señora",
+        "desc": "Un grupo juvenil para señoritas de los grados 6 a 12 que ofrece oportunidades de servicio en un ambiente parroquial.",
+        "detail": "Hijas de Nuestra Señora es un grupo juvenil para señoritas de los grados 6 a 12 que ofrece oportunidades de servicio en un ambiente parroquial. Bajo el patrocinio de Nuestra Señora, el grupo crece en fe y amistad a través de la oración, la formación y el servicio a la comunidad parroquial."
       },
-      "bibleStudy": {
-        "title": "Estudio Bíblico",
-        "desc": "Estudio bíblico semanal abierto a todos los feligreses en la tradición dominicana.",
-        "detail": "Nuestro Estudio Bíblico semanal está abierto a todos los feligreses que deseen profundizar su conocimiento de las Sagradas Escrituras. En la rica tradición dominicana de estudio y contemplación, los participantes exploran los textos bíblicos juntos, guiados por comentarios de los Padres de la Iglesia y el Magisterio. No se necesita conocimiento previo de la Biblia — todos son bienvenidos, desde principiantes hasta estudiantes experimentados de las Escrituras."
+      "conversatio": {
+        "title": "Conversatio LIVE",
+        "desc": "Acompañe a sus sacerdotes parroquiales para disfrutar de buena comida, una charla interesante y el canto de Completas.",
+        "detail": "Conversatio LIVE reúne a la parroquia con sus sacerdotes para disfrutar de buena comida, una charla interesante y el canto de Completas. Esté atento al boletín y a los anuncios parroquiales para conocer las próximas fechas — todos son bienvenidos."
       },
-      "caring": {
-        "title": "Ministerios de Cuidado",
-        "desc": "Alcanzando a los enfermos, confinados en casa y en duelo de nuestra familia parroquial.",
-        "detail": "Los Ministerios de Cuidado alcanzan a los enfermos, confinados en casa y en duelo de nuestra familia parroquial. Los voluntarios realizan visitas regulares, llevan la Sagrada Comunión, envían tarjetas, preparan comidas y ofrecen oración y compañía durante tiempos de dificultad. Si usted o alguien que conoce necesita apoyo, o si desea ser voluntario, contacte la oficina parroquial."
+      "knights": {
+        "title": "Caballeros de Colón",
+        "desc": "Reuniones mensuales y oportunidades de servicio trimestrales. ¡Siempre son bienvenidos nuevos miembros!",
+        "detail": "Los Caballeros de Colón de Santo Domingo celebran reuniones mensuales y oportunidades de servicio trimestrales en apoyo de la parroquia y de la comunidad en general. Siempre son bienvenidos nuevos miembros — hable con un Caballero después de la Misa o comuníquese con la oficina parroquial para saber más."
       },
-      "missions": {
-        "title": "Viajes Misioneros",
-        "desc": "Viaje misionero médico anual (abril) y viaje misionero juvenil (junio).",
-        "detail": "La Iglesia Santo Domingo ofrece viajes misioneros anuales que dan a los feligreses la oportunidad de servir a los necesitados más allá de nuestra comunidad. Nuestro viaje misionero médico se realiza cada abril, llevando profesionales de la salud y voluntarios a áreas desatendidas. En junio, nuestro viaje misionero juvenil da a los jóvenes una experiencia transformadora de servicio y fe. Ambos viajes son experiencias que cambian la vida al vivir el Evangelio."
-      }
-    },
-    "howTo": {
-      "sub": "Primeros Pasos",
-      "title": "Cómo Participar",
-      "explore": {
-        "title": "Explore",
-        "desc": "Explore nuestros ministerios arriba y encuentre uno que coincida con sus intereses y dones."
-      },
-      "connect": {
-        "title": "Conéctese",
-        "desc": "Llame a la oficina parroquial o hable con un sacerdote después de la Misa para saber más sobre el ministerio."
-      },
-      "serve": {
-        "title": "Sirva",
-        "desc": "Preséntese, involúcrese y sea parte de nuestra familia parroquial. Hay un lugar para todos."
+      "estudioBiblia": {
+        "title": "Estudio de la Biblia (Martes)",
+        "desc": "Un apostolado para nuestros feligreses hispanohablantes, que se reúnen para la adoración, una comida y el estudio de la Sagrada Escritura.",
+        "detail": "Cada martes, nuestros feligreses hispanohablantes se reúnen para la adoración eucarística, una comida compartida y el estudio de la Sagrada Escritura. Este apostolado del Ministerio Hispano está abierto a todos — venga a profundizar su fe en comunidad."
       }
     },
     "register": {
-      "title": "¿Listo para Registrarse?",
-      "desc": "Contacte la oficina parroquial para registrarse como nuevo feligrés. ¡Estamos ansiosos por darle la bienvenida a nuestra familia!",
-      "cta": "Contáctenos"
+      "title": "Es Hora de Hacerlo Oficial.",
+      "desc": "Comuníquese con la oficina parroquial para registrarse como nuevo miembro, o complete el formulario aquí. ¡Nos encantará darle la bienvenida a nuestra familia!",
+      "cta": "Regístrese en Línea"
     },
     "modal": {
       "contact": "Información de Contacto",
@@ -799,12 +798,12 @@
       "sub": "El Sacramento del",
       "heading": "Nueva Vida en Cristo",
       "p1": "El Bautismo es el primer y fundamental sacramento de la iniciación cristiana. A través de las aguas del Bautismo, somos purificados del pecado original, renacidos como hijos de Dios y acogidos en la Iglesia Católica. Es la puerta a través de la cual entramos a la vida con Cristo.",
-      "p2": "En la Iglesia Santo Domingo, el Bautismo se celebra a las 12:30 PM los 2° y 4° domingos de cada mes. Las clases de preparación bautismal se ofrecen el 2° miércoles de los meses impares a las 7:00 PM en la iglesia. Contacte la oficina parroquial para inscribirse.",
+      "p2": "En la Iglesia Santo Domingo, los Bautismos se celebran regularmente el 4.º domingo del mes, a las 9:00 AM (inglés) o a la 1:30 PM (español). La preparación bautismal solo se requiere para padres primerizos. Comuníquese con la oficina parroquial para registrarse.",
       "reqSub": "Lo Que Necesita",
       "reqTitle": "Requisitos para el Bautismo",
       "req1": {
         "title": "Preparación para el Bautismo",
-        "desc": "Los padres y padrinos asisten a una sesión de preparación que cubre el significado y las responsabilidades del Bautismo."
+        "desc": "Los padres que se preparan para el Bautismo de su primer hijo asisten a una sesión sobre el significado y las responsabilidades del sacramento. La preparación solo se requiere para padres primerizos."
       },
       "req2": {
         "title": "Padrinos",
@@ -812,7 +811,7 @@
       },
       "req3": {
         "title": "Inscripción",
-        "desc": "Contacte la oficina parroquial al menos un mes antes de la fecha deseada de Bautismo para registrarse y programar su preparación."
+        "desc": "Comuníquese con la oficina parroquial para registrarse y elegir una fecha — los Bautismos se celebran regularmente el 4.º domingo del mes a las 9:00 AM (inglés) o a la 1:30 PM (español)."
       },
       "cta": "Programar un Bautismo",
       "ctaDesc": "Contáctenos para comenzar el proceso. Estaremos encantados de responder cualquier pregunta que pueda tener."
@@ -870,14 +869,14 @@
       "ctaDesc": "Contáctenos para obtener información sobre nuestro programa de preparación para la Confirmación para adolescentes y adultos."
     },
     "marriage": {
-      "title": "Matrimonio",
+      "title": "Santo Matrimonio",
       "quote": "\"Por eso deja el hombre a su padre y a su madre, se une a su mujer, y se hacen una sola carne.\"",
       "quoteSrc": "— Génesis 2:24",
       "brief": "Un hombre y una mujer establecen una asociación de por vida ordenada al bien de los esposos y la procreación de los hijos.",
       "sub": "El Sacramento del",
       "heading": "Un Pacto de Amor",
       "p1": "El Sacramento del Matrimonio es un pacto sagrado entre un hombre y una mujer, presenciado ante Dios y la Iglesia. A través de este sacramento, la pareja recibe la gracia de amarse mutuamente con el amor desinteresado y fiel que refleja el amor de Cristo por la Iglesia.",
-      "p2": "En la Iglesia Santo Domingo, nos honra acompañar a las parejas mientras se preparan para el Sacramento del Matrimonio. Las parejas deben contactar la iglesia al menos seis meses antes de la fecha deseada de la boda para comenzar el proceso de preparación.",
+      "p2": "En la Iglesia Santo Domingo, es un honor acompañar a las parejas mientras se preparan para el Sacramento del Matrimonio. Las parejas deben comunicarse con la iglesia al menos seis meses antes de la fecha deseada de la boda para comenzar el proceso de preparación. Llame a la oficina parroquial al (330) 783-1900 tan pronto se comprometan.",
       "stepsSub": "Para Comenzar",
       "stepsTitle": "Pasos para Casarse en Santo Domingo",
       "step1": {
@@ -893,7 +892,14 @@
         "desc": "Trabaje con el celebrante para planificar su liturgia de boda, incluyendo lecturas, música y votos. Se realiza un ensayo antes de la ceremonia."
       },
       "cta": "Comience la Preparación Matrimonial",
-      "ctaDesc": "Contacte la oficina parroquial para programar su reunión inicial con uno de nuestros sacerdotes."
+      "ctaDesc": "Contacte la oficina parroquial para programar su reunión inicial con uno de nuestros sacerdotes.",
+      "convalidationSub": "Convalidación",
+      "convalidationTitle": "Traiga Su Matrimonio a la Iglesia",
+      "convalidationDesc": "Si usted o su cónyuge es católico y su boda fue celebrada por alguien que no era un sacerdote o diácono católico, le invitamos a considerar traer su matrimonio a la Iglesia mediante el proceso de convalidación. ¡Haga clic abajo para iniciar una conversación sobre cómo traer su matrimonio a la Iglesia!",
+      "convalidationCta": "Inicie la Conversación",
+      "ccc": "\"El sacramento del Matrimonio significa la unión de Cristo con la Iglesia. Da a los esposos la gracia de amarse con el amor con que Cristo amó a su Iglesia; la gracia del sacramento perfecciona así el amor humano de los esposos, fortalece su unidad indisoluble y los santifica en el camino de la vida eterna.\"",
+      "cccSrc": "— Catecismo de la Iglesia Católica, 1661",
+      "guidelines": "Guía para Bodas (PDF)"
     },
     "anointing": {
       "title": "Unción de los Enfermos",
@@ -909,8 +915,8 @@
       "when2": "Durante una enfermedad grave u hospitalización",
       "when3": "Cuando se enfrenta la fragilidad de la vejez",
       "when4": "En peligro de muerte por enfermedad o lesión",
-      "emergencyTitle": "¿Emergencia? Llámenos en Cualquier Momento",
-      "emergencyDesc": "Si alguien está en peligro de muerte y necesita un sacerdote, por favor llame a la iglesia a cualquier hora.",
+      "emergencyTitle": "¿Emergencia? Hay un Sacerdote de Guardia",
+      "emergencyDesc": "Un sacerdote está de guardia para las familias que necesiten con urgencia el sacramento de la Unción de los Enfermos. Llame a la línea de emergencia para una respuesta inmediata, a cualquier hora.",
       "callNow": "Llame Ahora",
       "cta": "Solicitar la Unción",
       "routineTitle": "Programe una Visita",
@@ -979,6 +985,21 @@
           "title": "Oficina Parroquial",
           "desc": "Pregunte sobre planificación funeraria, registros y cuidado pastoral."
         }
+      },
+      "directives": "Directivas Funerarias (PDF)"
+    },
+    "pathways": {
+      "infantBaptism": {
+        "title": "Bautismo de Niños",
+        "desc": "La fe de los padres se transmite a la vida de sus hijos a través de las aguas del bautismo."
+      },
+      "sundaySchool": {
+        "title": "Catecismo Dominical",
+        "desc": "Los niños reciben una valiosa formación en la fe y preparación sacramental en nuestras clases dominicales de catecismo (CCD)."
+      },
+      "adultCatechesis": {
+        "title": "Catequesis de Adultos",
+        "desc": "Hombres y mujeres que deseen conocer más la fe católica y recibir los sacramentos pueden inscribirse en nuestras clases de OCIA (RICA)."
       }
     }
   },
@@ -987,32 +1008,32 @@
     "quoteSrc": "— Hebreos 13:2",
     "hero": {
       "sub": "Su Primera Visita",
-      "title": "Planifique Su Visita",
-      "desc": "Ya sea que sea nuevo en el área, esté explorando la fe católica, o simplemente tenga curiosidad — es bienvenido aquí. Aquí tiene todo lo que necesita saber para su primera vez en Santo Domingo."
+      "title": "La Fe es Para Siempre.",
+      "desc": "No deje que su fe católica se apague. El Papa León XIV nos exhorta a \"darle una oportunidad al Dios que te espera sin juzgarte\". Sea usted feligrés de toda la vida o un católico alejado, exalumno de la escuela o alguien con curiosidad por la fe católica — es bienvenido aquí."
     },
     "steps": {
       "sub": "Qué Esperar",
-      "title": "Domingo en Santo Domingo",
-      "intro": "Venga como está — así es una mañana de domingo con nosotros."
+      "title": "La Experiencia del Domingo",
+      "intro": "Venga y descubra la \"diferencia de St. Dom's\"."
     },
     "know": {
       "sub": "Bueno Saberlo",
       "title": "Antes de Venir",
       "dress": {
         "title": "¿Qué Debo Usar?",
-        "desc": "No hay código de vestimenta. La mayoría se viste de manera casual o con ropa de domingo. Venga como está — lo importante es que esté aquí."
+        "desc": "St. Dom's es un lugar sagrado, y la mayoría viste su mejor ropa dominguera, a la vez sencilla y modesta. Caballeros: por favor absténganse de ropa deportiva y camisetas sin mangas. Damas: eviten escotes pronunciados y ropa reveladora que pueda suscitar admiratio. ¡Nuestra atención debe estar siempre en el Señor!"
       },
       "children": {
         "title": "¿Puedo Traer a Mis Hijos?",
-        "desc": "¡Por supuesto! Los niños siempre son bienvenidos en la Misa. No se preocupe si hacen un poco de ruido — somos una iglesia familiar."
+        "desc": "Los niños siempre son bienvenidos en la Misa. Hay mucho espacio para acomodarse y hermosos altares laterales que visitar durante la liturgia si los niños se inquietan."
       },
       "language": {
         "title": "Misa en Español",
-        "desc": "Celebramos Misa en español cada domingo a las 12:30 PM. Nuestra comunidad del Ministerio Hispano es vibrante y acogedora — ¡todos son bienvenidos!"
+        "desc": "Celebramos una Misa en español todos los domingos a las 12:30 PM. ¡Todos son bienvenidos!"
       },
       "parking": {
         "title": "Estacionamiento y Accesibilidad",
-        "desc": "Estacionamiento gratuito disponible en el lote junto a la iglesia. La iglesia es accesible con una rampa de entrada en el costado del edificio."
+        "desc": "St. Dom's cuenta con dos estacionamientos: uno entre Lucius y Auburndale, y otro frente a las puertas principales de la iglesia sobre Lucius Avenue. También hay estacionamiento en la calle. ¡Llegue temprano para asegurar su lugar! Un miembro del Departamento de Policía de Youngstown patrulla la zona durante los fines de semana."
       }
     },
     "schedule": {
@@ -1030,7 +1051,7 @@
       "sub": "Encuéntrenos",
       "title": "Cómo Llegar a Santo Domingo",
       "cta": "Abrir en Google Maps",
-      "parking": "Estacionamiento gratuito disponible en el lote junto a la iglesia en Lucius Avenue. La iglesia es accesible con una rampa de entrada en el costado del edificio."
+      "parking": "St. Dom's cuenta con dos estacionamientos — uno entre Lucius y Auburndale y otro frente a las puertas principales de la iglesia sobre Lucius Avenue — además de estacionamiento en la calle. La iglesia es accesible con una rampa de entrada al costado del edificio."
     },
     "cta": {
       "title": "Estamos Deseosos de Conocerle",

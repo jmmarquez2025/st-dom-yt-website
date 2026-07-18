@@ -591,12 +591,12 @@ export default function MassTimes() {
               >
                 {t("massTimes.adoration.devotions")}
               </h3>
-              {["rosary", "divineMercy", "eveningPrayer"].map((key, i) => (
+              {["rosary", "divineMercy"].map((key, i) => (
                 <div
                   key={key}
                   style={{
                     padding: "10px 0",
-                    borderBottom: i < 2 ? `1px solid ${T.stone}` : "none",
+                    borderBottom: i < 1 ? `1px solid ${T.stone}` : "none",
                     fontSize: 15,
                     color: T.charcoal,
                   }}

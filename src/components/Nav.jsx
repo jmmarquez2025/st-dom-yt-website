@@ -5,6 +5,7 @@ import { T } from "../constants/theme";
 import { Menu, X, ChevronDown, MapPin, Church, Gift } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 import SiteSearch from "./SiteSearch";
+import { PHOTOS } from "../constants/photos";
 
 /** Navigate with View Transition when supported */
 function NavLink({ to, children, style, ...props }) {
@@ -222,15 +223,16 @@ export default function Nav() {
       >
         {/* Logo */}
         <NavLink to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 12 }}>
-          <div
+          <img
+            src={PHOTOS.stDomLogo}
+            alt=""
+            width={40}
+            height={40}
             style={{
-              width: 40, height: 40, borderRadius: "50%", background: T.burgundy,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              color: T.gold, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: 18,
+              width: 40, height: 40, borderRadius: "50%", background: "#fff",
+              border: `1px solid ${T.stone}`, objectFit: "contain", padding: 2, display: "block",
             }}
-          >
-            SD
-          </div>
+          />
           <div>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: 17, color: T.burgundy, lineHeight: 1.1, letterSpacing: 0.5 }}>
               St. Dominic
